@@ -1,0 +1,44 @@
+
+h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, small, span {
+  font-family: Helvetica, Arial; 
+  max-width: 800px;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.5;
+}
+p, li {
+  line-height: 1.8;
+}
+h1 {
+  font-size: 4em;
+  margin: 0 0 56px;
+}
+h2 {
+  margin: 0 0 56px;
+}
+
+.menu-items {
+  a {
+    list-style: none;
+    padding: 6px 0;
+    color: #333;
+    &:hover {
+      color: pink;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.markdown a:hover {
+  opacity: 0.6;
+}
+
+.markdown h3 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+

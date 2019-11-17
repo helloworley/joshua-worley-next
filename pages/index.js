@@ -3,13 +3,14 @@ import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 import ImageCard from '../components/ImageCard'
 import { Box } from 'rebass'
+import '../style/style.scss'
 
 
 const Index = props => (
 
   <Layout>
-    <h1>Batman TV Shows</h1>
-
+    <h1>Joshua Worley</h1>
+    <h2>Digital Producer. Leader. SEO Marker. Bilingual. Photographer. Videographer. UI/UX Designer and Frontend Engineer with a passion for experience creation.</h2>
     <Box
       sx={{
         display: 'grid',
@@ -19,13 +20,13 @@ const Index = props => (
     >
 
       {props.shows.map(show => (
-        // <Link href="/p/[id]" as={`/p/${show.id}`}>
+        <Link href="/p/[id]" as={`/p/${show.id}`} key={show.id}>
           <ImageCard
             key={show.name}
             image={show.image.medium}
             name={show.name}
           />
-        // </Link>
+        </Link>
       ))}
     </Box>
 

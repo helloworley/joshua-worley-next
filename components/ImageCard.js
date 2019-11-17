@@ -6,31 +6,43 @@ const ImageCard = props => (
       width={[256, 320]}
       mx='auto'
       sx={{
-        p: 1,
-        borderRadius: 2,
         margin: '0 0 40px',
-        padding: '8px',
+        borderRadius: 8,
         boxShadow: '0 0 16px rgba(0, 0, 0, .25)',
       }}>
       <Box
         sx={{
           backgroundImage: `url(${props.image})`,
-          px: 4,
-          py: 6,
+          borderTopLeftRadius: 8,
+          borderTopRightRadius: 8,
+          height: 240,
           backgroundSize: 'cover',
-          borderRadius: 8,
           color: 'white',
           bg: 'gray',
           margin: '0 0 8px',
         }}
       />
-      <Heading
-        fontSize={[2, 3, 4]}
-        color='primary'>
-        {props.name}
-      </Heading>
-      <Text>
-      </Text>
+        <Box
+          sx={{
+            px: 4,
+            py: 4,
+          }}
+        >
+          <Heading
+            fontSize={[2, 3, 4]}
+            color='text'
+            mb={3}
+          >
+            {props.name}
+          </Heading>
+          <Text
+            fontSize={[ 2 ]}
+            fontWeight='bold'
+            color='primary'>
+            The candle burns quietly on my desk.
+            
+          </Text>
+        </Box>
     </Card>
   </Flex>
 );
