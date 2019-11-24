@@ -17,32 +17,30 @@ const ImageCard = props => (
           borderTopRightRadius: 8,
           height: 240,
           backgroundSize: 'cover',
+          backgroundPosition: 'center',
           color: 'white',
           bg: 'gray',
           margin: '0 0 8px',
         }}
       />
-        <Box
+      <Box
+        sx={{
+          px: 4,
+          py: 4,
+        }}
+      >
+        <Heading fontSize={[2, 3, 4]} color='text' mb={3}>{props.name}</Heading>
+        <Text
           sx={{
-            px: 4,
-            py: 4,
+            mb: 3,
           }}
-        >
-          <Heading
-            fontSize={[2, 3, 4]}
-            color='text'
-            mb={3}
-          >
-            {props.name}
-          </Heading>
-          <Text
-            fontSize={[ 2 ]}
-            fontWeight='bold'
-            color='primary'>
-            The candle burns quietly on my desk.
-            
-          </Text>
-        </Box>
+        fontSize={[1]}>
+          {props.date}
+        </Text>
+        <Text fontSize={[2]}>
+          {props.excerpt}
+        </Text>
+      </Box>
     </Card>
   </Flex>
 );

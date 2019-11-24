@@ -1,20 +1,23 @@
 
-h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, small, span {
-  font-family: Helvetica, Arial; 
+h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, small, span, td {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
   max-width: 800px;
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
 }
-p, li {
+p, li, td {
   line-height: 1.8;
 }
 h1 {
   font-size: 4em;
+  font-weight: 300;
   margin: 0 0 56px;
 }
 h2 {
+  font-size: 2em;
   margin: 0 0 56px;
+  font-weight: 300;
 }
 
 .menu-items {
@@ -42,3 +45,19 @@ a {
   text-transform: uppercase;
 }
 
+
+// tables
+table td, table td * {
+  vertical-align: top;
+}
+table {
+  margin: 0 0 120px;
+  td {
+    padding: 0 40px 64px 0;
+    max-width: 640px;
+  }
+}
+
+figure.wp-block-table {
+  margin: 0;
+}
