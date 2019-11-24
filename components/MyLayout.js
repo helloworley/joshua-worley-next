@@ -1,4 +1,4 @@
-import Header from './Header';
+import Navigation from './Navigation';
 import { ThemeProvider } from 'theme-ui'
 import theme from '../theme'
 import { Flex, Box } from 'rebass'
@@ -15,7 +15,7 @@ const Layout = props => (
         p={4}
         width={[0, 1/6]}
         bg=''>
-        <Header />
+        <Navigation />
       </Box>
       <Box
         p={4}

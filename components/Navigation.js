@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Heading } from 'rebass'
+import { Heading, Text } from 'rebass';
 // import menuItems from '../data/menuItems'
 
 const listStyle = {
@@ -18,10 +18,6 @@ const linkStyle = {
 };
 
 const menuItems = [
-  {
-    link: '/',
-    name: 'About',
-  },
   {
     link: '/resume',
     name: 'Resume',
@@ -68,40 +64,53 @@ const getSingleMenuItem = menuItem => {
   )
 }
 
-const getMenuChildren = menuChildren => {
+const getMenuChildren = (name, menuChildren) => {
   return (
-    <ul>
-      {menuChildren.map(childItem => (
-        <li key={childItem.name} style={listItemStyle}>
-          <Link
-            href={childItem.link}
-          >
-            <a>
-              {childItem.name}
-            </a>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <span>
+      <Text
+        sx={{
+          color: '#bababa'
+        }}
+      >
+        {name}
+      </Text>
+      <ul>
+        {menuChildren.map(childItem => (
+          <li key={childItem.name} style={listItemStyle}>
+            <Link
+              href={childItem.link}
+            >
+              <a>
+                {childItem.name}
+              </a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </span>
   )
 }
 
-const Header = () => (
+const Navigation = () => (
   <>
+    <Link href="/">
     <Heading
       sx={{
-        color: 'text'
+        color: 'text',
+        cursor: 'pointer',
+        mb: 5
       }}
     >
       Joshua Worley
     </Heading>
-    <ul style={listStyle} className="menu-items">
-      {menuItems.map(menuItem => (
-        <li key={menuItem.name} style={listItemStyle}>
-          {menuItem.children ? getMenuChildren(menuItem.children) : getSingleMenuItem(menuItem)}
-        </li>
-      ))}
-    </ul>
+  </Link>
+  <ul style={listStyle} className="menu-items">
+    {menuItems.map(menuItem => (
+      <li key={menuItem.name} style={listItemStyle}>
+        {menuItem.children ? getMenuChildren(menuItem.name, menuItem.children) : getSingleMenuItem(menuItem)}
+      </li>
+    ))}
+  </ul>
   </>
 );
 
@@ -109,4 +118,4 @@ const Header = () => (
 
 
 
-export default Header;
+export default Navigation;
