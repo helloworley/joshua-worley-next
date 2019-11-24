@@ -2,6 +2,7 @@ import Layout from '../../../components/MyLayout'
 import '../../../style/style.scss'
 import ImageCard from '../../../components/ImageCard';
 import Link from 'next/link';
+import fetch from 'isomorphic-unfetch';
 
 const Page = props => {
   const websiteExamples = props.websiteExamples;
