@@ -3,7 +3,6 @@ import { Flex, Card, Image, Heading, Text, Box } from 'rebass';
 const ImageCard = props => (
   <Flex>
     <Card
-      width={[256, 320]}
       mx='auto'
       sx={{
         margin: '0 0 40px',
