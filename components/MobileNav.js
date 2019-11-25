@@ -77,16 +77,18 @@ const MobileNav = () => {
     </div>
   );
 
-  
+
 
   return (
     <Hidden mdUp>
 
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="menu">
-            <MenuIcon onClick={toggleDrawer('left', true)}/>
-          </IconButton>
+          <div onClick={toggleDrawer('left', true)}>
+            <IconButton edge="start" color="inherit" aria-label="menu">
+              <MenuIcon />
+            </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
 
