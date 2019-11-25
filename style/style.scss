@@ -61,3 +61,23 @@ table {
 figure.wp-block-table {
   margin: 0;
 }
+
+
+// resume
+#resume {
+  .resume-brand {
+    max-width: 120px;
+    display: block;
+    margin: 0 0 40px;
+  }
+  table {
+    td:first-of-type {
+      width: 280px;
+    }
+  }
+  h2 {
+    border-top: solid 1px #ccc;
+    padding: 64px 0 24px;
+    max-width: 100%;
+  }
+}

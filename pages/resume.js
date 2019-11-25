@@ -4,14 +4,16 @@ import '../style/style.scss'
 const Page = props => {
   return (
     <Layout>
-      <h1>{props.wpData.title.rendered}</h1>
-      <h2>Digital Producer. Leader. SEO Marker. Bilingual. Photographer. Videographer. UI/UX Designer and Frontend Engineer with a passion for experience creation.</h2>
-      <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} />
+      <div id="resume">
+        <h1>{props.wpData.title.rendered}</h1>
+        <h2>Digital Producer. Leader. SEO Marker. Bilingual. Photographer. Videographer. UI/UX Designer and Frontend Engineer with a passion for experience creation.</h2>
+        <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} />
+      </div>
     </Layout>
   );
 }
 
-Page.getInitialProps = async function(context) {
+Page.getInitialProps = async function (context) {
   const res = await fetch(`https://wp.joshuaworley.com/wp-json/wp/v2/pages/5`);
   const wpData = await res.json();
 

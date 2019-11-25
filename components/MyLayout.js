@@ -13,13 +13,13 @@ const Layout = props => (
     >
       <Box
         p={4}
-        width={[0, 1/6]}
+        width={[0, 1 / 6]}
         bg=''>
         <Navigation />
       </Box>
       <Box
         p={4}
-        width={[1, 5/6]}
+        width={[1, 5 / 6]}
         bg=''
         sx={{
           overflow: 'auto'
