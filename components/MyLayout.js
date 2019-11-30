@@ -1,13 +1,9 @@
 
 import Navigation from './Navigation';
-import { ThemeProvider } from 'theme-ui'
-import theme from '../theme'
 import { Grid, Hidden } from '@material-ui/core/';
 
 import { makeStyles } from '@material-ui/core/styles';
 import MobileNav from './MobileNav';
-
-
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -39,7 +35,7 @@ const Layout = props => {
   const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme} {...props}>
+    <>
       <MobileNav />
 
       <Grid container spacing={4} className={classes.root}>
@@ -54,7 +50,7 @@ const Layout = props => {
           </div>
         </Grid>
       </Grid>
-    </ThemeProvider>
+      </>
   );
 }
 

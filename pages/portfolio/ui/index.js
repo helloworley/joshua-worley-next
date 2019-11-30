@@ -18,10 +18,10 @@ const Page = props => {
   const classes = useStyles();
   return (
     <Layout>
-      <h1
-        className={classes.image}
-      >UI Projects</h1>
-      <Grid container spacing={3}>
+      <Grid container spacing={8}>
+      <Grid item xs={12}>
+        <h1 className={classes.image}>UI Projects</h1>
+      </Grid>
       {uiProjects.map((uiProject) => {
         return (
           <Grid item xs={12} sm={6} lg={4} key={uiProject.post_title}>

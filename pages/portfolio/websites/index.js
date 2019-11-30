@@ -9,8 +9,10 @@ const Page = props => {
   const websiteExamples = props.websiteExamples;
   return (
     <Layout>
-      <h1>Websites</h1>
-      <Grid container spacing={4}>
+      <Grid container spacing={8}>
+        <Grid item xs={12}>
+          <h1>Websites</h1>
+        </Grid>
         {websiteExamples.map((websiteExample) => {
           return (
             <Grid item xs={12} sm={6} lg={4} key={websiteExample.post_title}>
