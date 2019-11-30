@@ -20,16 +20,6 @@ h2 {
   font-weight: 300;
 }
 
-.menu-items {
-  a {
-    list-style: none;
-    padding: 6px 0;
-    color: #333;
-    &:hover {
-      color: pink;
-    }
-  }
-}
 
 a {
   text-decoration: none;
@@ -80,4 +70,19 @@ figure.wp-block-table {
     padding: 64px 0 24px;
     max-width: 100%;
   }
+}
+
+// cards
+.image-card {
+  width: 100%;
+}
+
+
+// Grid Overrideds
+.MuiGrid-root {
+  margin: 0 !important;
+}
+.MuiGrid-container {
+  width: 100% !important;
+  overflow: hidden;
 }

@@ -1,15 +1,17 @@
-import Layout from '../components/MyLayout';
 import '../style/style.scss'
+import fetch from 'isomorphic-unfetch';
+import Layout from '../components/MyLayout';
 
 const Page = props => {
   return (
-    <Layout>
-      <div id="resume">
+    <div id="resume">
+      <Layout>
         <h1>{props.wpData.title.rendered}</h1>
         <h2>Digital Producer. Leader. SEO Marker. Bilingual. Photographer. Videographer. UI/UX Designer and Frontend Engineer with a passion for experience creation.</h2>
         <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} />
-      </div>
-    </Layout>
+      </Layout>
+    </div>
+
   );
 }
 

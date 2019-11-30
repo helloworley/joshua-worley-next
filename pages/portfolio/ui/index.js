@@ -3,28 +3,44 @@ import '../../../style/style.scss'
 import ImageCard from '../../../components/ImageCard';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
+import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core/';
+
+const useStyles = makeStyles({
+  imageCard: {
+    width: '100%',
+    backgroundColor: 'red',
+  },
+});
 
 const Page = props => {
   const uiProjects = props.uiProjects;
+  const classes = useStyles();
   return (
     <Layout>
-      <h1>UI Projects</h1>
-      {/* <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} /> */}
+      <h1
+        className={classes.image}
+      >UI Projects</h1>
+      <Grid container spacing={3}>
       {uiProjects.map((uiProject) => {
         return (
-          <span key={uiProject.post_title}>
-            <Link href="/portfolio/websites/[slug]" as={`/p/${uiProject.slug}`}>
-              <ImageCard
-                name={uiProject.post_title}
-                image={uiProject.featured_image}
-                date={uiProject.post_date_formatted}
-                excerpt={uiProject.post_excerpt}
-                id={uiProject.id}
-              />
-            </Link>
-          </span>
+          <Grid item xs={12} sm={6} lg={4} key={uiProject.post_title}>
+            <span key={uiProject.post_title}>
+              <Link href="/portfolio/websites/[slug]" as={`/p/${uiProject.slug}`}>
+                <ImageCard
+                  className={classes.imageCard}
+                  name={uiProject.post_title}
+                  image={uiProject.featured_image}
+                  date={uiProject.post_date_formatted}
+                  excerpt={uiProject.post_excerpt}
+                  id={uiProject.id}
+                />
+              </Link>
+            </span>
+          </Grid>
         );
       })}
+      </Grid>
     </Layout>
   );
 }

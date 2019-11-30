@@ -6,10 +6,10 @@ import '../style/style.scss'
 const Page = props => {
   const wpData = props.wpData;
   return (
-    <Layout>
+    <>
       <h1>{wpData.title.rendered}</h1>
       <div dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} />
-    </Layout>
+    </>
   );
 }
 

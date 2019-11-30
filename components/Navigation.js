@@ -1,21 +1,39 @@
 import Link from 'next/link';
-import { Heading, Text } from 'rebass';
-// import menuItems from '../data/menuItems'
+import { Text } from 'rebass';
+import { Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-const listStyle = {
-  margin: '0',
-  padding: '0',
-}
 
-const listItemStyle = {
-  listStyle: 'none',
-  padding: '6px 0',
-};
+const useStyles = makeStyles(theme => ({
+  navigation: {
+    padding: '32px',
+  },
+  list: {
+    margin: 0,
+    padding: '40px 0 0',
+  },
+  listItem: {
+    listStyle: 'none',
+    padding: '6px 0',
+  },
+  linkStyle: {
+    textDecoration: 'none',
+    color: 'text'
+  },
+  logo: {
+    color: 'text',
+    cursor: 'pointer',
+  },
+  a: {
+    listStyle: 'none',
+    padding: '6px 0',
+    color: '#333',
+    '&:hover': {
+      color: 'pink',
+    }
+  }
+}));
 
-const linkStyle = {
-  textDecoration: 'none',
-  color: 'text'
-};
 
 const menuItems = [
   {
@@ -55,9 +73,10 @@ const menuItems = [
 ]
 
 const getSingleMenuItem = menuItem => {
+  const classes = useStyles();
   return (
     <Link href={menuItem.link}>
-      <a>
+      <a className={classes.a}>
         {menuItem.name}
       </a>
     </Link>
@@ -65,6 +84,7 @@ const getSingleMenuItem = menuItem => {
 }
 
 const getMenuChildren = (name, menuChildren) => {
+  const classes = useStyles();
   return (
     <span>
       <Text
@@ -76,11 +96,11 @@ const getMenuChildren = (name, menuChildren) => {
       </Text>
       <ul>
         {menuChildren.map(childItem => (
-          <li key={childItem.name} style={listItemStyle}>
+          <li key={childItem.name} className={classes.listItem}>
             <Link
               href={childItem.link}
             >
-              <a>
+              <a className={classes.a}>
                 {childItem.name}
               </a>
             </Link>
@@ -91,28 +111,25 @@ const getMenuChildren = (name, menuChildren) => {
   )
 }
 
-const Navigation = () => (
-  <>
-    <Link href="/">
-    <Heading
-      sx={{
-        color: 'text',
-        cursor: 'pointer',
-        mb: 5
-      }}
-    >
-      Joshua Worley
-    </Heading>
-  </Link>
-  <ul style={listStyle} className="menu-items">
-    {menuItems.map(menuItem => (
-      <li key={menuItem.name} style={listItemStyle}>
-        {menuItem.children ? getMenuChildren(menuItem.name, menuItem.children) : getSingleMenuItem(menuItem)}
-      </li>
-    ))}
-  </ul>
-  </>
-);
+
+const Navigation = props => {
+  const classes = useStyles();
+  return (
+    <div className={classes.navigation}>
+      <Link href="/">
+        <Typography className={classes.logo}> Joshua Worley</Typography>
+      </Link>
+      <ul className={classes.list}>
+        {menuItems.map(menuItem => (
+          <li key={menuItem.name} className={classes.listItem}>
+            {menuItem.children ? getMenuChildren(menuItem.name, menuItem.children) : getSingleMenuItem(menuItem)}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  )
+};
 
 
 
