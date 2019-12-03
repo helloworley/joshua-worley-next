@@ -16,7 +16,7 @@ const Page = props => {
 }
 
 Page.getInitialProps = async function (context) {
-  const res = await fetch(`https://wp.joshuaworley.com/wp-json/wp/v2/pages/5`);
+  const res = await fetch(`https://jw.helloworley.com/wp-json/wp/v2/pages/6`);
   const wpData = await res.json();
 
   console.log(wpData);
