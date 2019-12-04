@@ -86,3 +86,28 @@ figure.wp-block-table {
   width: 100% !important;
   overflow: hidden;
 }
+
+
+// Navigation
+#navigation {
+  a {
+    &:hover {
+      color: pink;
+    }
+  }
+}
+
+
+// WP Content
+.wp-content {
+  max-width: 100%;
+  figure {
+    &.wp-block-image {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  img {
+    max-width: 100%;
+  }
+}

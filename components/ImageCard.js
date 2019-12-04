@@ -1,5 +1,3 @@
-import { Card, Text, Box } from 'rebass';
-
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core/';
 
@@ -21,7 +19,6 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     color: 'white',
-    bg: 'gray',
     margin: '0 0 24px',
   }
 
@@ -31,10 +28,10 @@ const ImageCard = props => {
   const classes = useStyles();
   return (
     <div className={classes.card}>
-      <Box className={classes.image} style={{backgroundImage: `url(${props.image})`}}/>
-        <Typography variant="h5" className={classes.heading}>{props.name}</Typography>
-        <Typography className={classes.date}>{props.date}</Typography>
-        <Typography>{props.excerpt}</Typography>
+      <div className={classes.image} style={{ backgroundImage: `url(${props.image})` }}></div>
+      <Typography variant="h5" className={classes.heading}>{props.name}</Typography>
+      <Typography className={classes.date}>{props.date}</Typography>
+      <Typography>{props.excerpt}</Typography>
     </div>
   )
 };

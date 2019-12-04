@@ -18,14 +18,16 @@ const Page = props => {
         {photographyProjects.map((photographyProject) => {
           return (
             <Grid item xs={12} sm={6} lg={4} key={photographyProject.post_title}>
-              <Link href="/portfolio/photography/[slug]" as={`/p/${photographyProject.slug}`}>
-                <ImageCard
-                  name={photographyProject.post_title}
-                  excerpt={photographyProject.post_excerpt}
-                  image={photographyProject.featured_image}
-                  date={photographyProject.post_date_formatted}
-                  id={photographyProject.id}
-                />
+              <Link href="/portfolio/photography/[slug]" as={`/portfolio/photography/  b${photographyProject.slug}`}>
+                <a>
+                  <ImageCard
+                    name={photographyProject.post_title}
+                    excerpt={photographyProject.post_excerpt}
+                    image={photographyProject.featured_image}
+                    date={photographyProject.post_date_formatted}
+                    id={photographyProject.id}
+                  />
+                </a>
               </Link>
             </Grid>
           );

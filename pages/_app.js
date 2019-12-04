@@ -1,10 +1,8 @@
 import React from 'react';
 import App from 'next/app';
-import { motion, AnimatePresence } from "framer-motion"
-
+import { motion, AnimatePresence } from "framer-motion";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Fonts from '../style/fonts'
-
+import Fonts from '../style/fonts';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 
@@ -23,8 +21,6 @@ const theme = createMuiTheme({
     useNextVariants: true
   }
 });
-
-
 class MyApp extends App {
   componentDidMount() {
     Fonts()

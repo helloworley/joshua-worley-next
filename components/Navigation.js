@@ -28,9 +28,6 @@ const useStyles = makeStyles(theme => ({
     listStyle: 'none',
     padding: '6px 0',
     color: '#333',
-    '&:hover': {
-      color: 'pink',
-    }
   }
 }));
 
@@ -72,18 +69,18 @@ const menuItems = [
   },
 ]
 
-const getSingleMenuItem = menuItem => {
+const getSingleMenuItem = (menuItem, menuColor) => {
   const classes = useStyles();
   return (
     <Link href={menuItem.link}>
-      <a className={classes.a}>
+      <a className={classes.a} style={{color: menuColor}}>
         {menuItem.name}
       </a>
     </Link>
   )
 }
 
-const getMenuChildren = (name, menuChildren) => {
+const getMenuChildren = (name, menuChildren, menuColor) => {
   const classes = useStyles();
   return (
     <span>
@@ -100,7 +97,7 @@ const getMenuChildren = (name, menuChildren) => {
             <Link
               href={childItem.link}
             >
-              <a className={classes.a}>
+              <a className={classes.a} style={{color: menuColor}}>
                 {childItem.name}
               </a>
             </Link>
@@ -115,14 +112,14 @@ const getMenuChildren = (name, menuChildren) => {
 const Navigation = props => {
   const classes = useStyles();
   return (
-    <div className={classes.navigation}>
+    <div className={classes.navigation} id="navigation">
       <Link href="/">
-        <Typography className={classes.logo}> Joshua Worley</Typography>
+        <Typography className={classes.logo} style={{color: props.menuColor}}> Joshua Worley</Typography>
       </Link>
       <ul className={classes.list}>
         {menuItems.map(menuItem => (
           <li key={menuItem.name} className={classes.listItem}>
-            {menuItem.children ? getMenuChildren(menuItem.name, menuItem.children) : getSingleMenuItem(menuItem)}
+            {menuItem.children ? getMenuChildren(menuItem.name, menuItem.children, props.menuColor) : getSingleMenuItem(menuItem, props.menuColor)}
           </li>
         ))}
       </ul>

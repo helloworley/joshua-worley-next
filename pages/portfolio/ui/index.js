@@ -26,15 +26,17 @@ const Page = props => {
         return (
           <Grid item xs={12} sm={6} lg={4} key={uiProject.post_title}>
             <span key={uiProject.post_title}>
-              <Link href="/portfolio/websites/[slug]" as={`/p/${uiProject.slug}`}>
-                <ImageCard
-                  className={classes.imageCard}
-                  name={uiProject.post_title}
-                  image={uiProject.featured_image}
-                  date={uiProject.post_date_formatted}
-                  excerpt={uiProject.post_excerpt}
-                  id={uiProject.id}
-                />
+              <Link href="/portfolio/ui/[slug]" as={`/portfolio/ui/${uiProject.slug}`}>
+                <a>
+                  <ImageCard
+                    className={classes.imageCard}
+                    name={uiProject.post_title}
+                    image={uiProject.featured_image}
+                    date={uiProject.post_date_formatted}
+                    excerpt={uiProject.post_excerpt}
+                    id={uiProject.id}
+                  />
+                </a>
               </Link>
             </span>
           </Grid>

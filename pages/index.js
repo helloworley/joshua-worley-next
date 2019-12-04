@@ -1,6 +1,17 @@
 import '../style/style.scss'
 import { Typography } from '@material-ui/core'
 import Layout from '../components/MyLayout';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+  heading: {
+    color: 'white',
+    margin: '0 0 24px',
+  },
+  subheading: {
+    color: 'white',
+  }
+}));
 
 
 const bgImageContainer = {
@@ -16,12 +27,13 @@ const bgImage = {
 }
 
 const Page = props => {
+  const classes = useStyles();
   return (
     <div style={bgImageContainer}>
       <div style={bgImage}>
-        <Layout>
-          <Typography variant="h1" component="h2" >Joshua Worley</Typography>
-          <h2>Digital Producer. Leader. SEO Marker. Bilingual. Photographer. Videographer. UI/UX Designer and Frontend Engineer with a passion for experience creation.</h2>
+        <Layout menuColor="#fff" navBackgroundColor="#333">
+          <Typography variant="h1" component="h2" className={classes.heading}>Joshua Worley</Typography>
+          <h2 className={classes.subheading}>Digital Producer. Leader. SEO Marker. Bilingual. Photographer. Videographer. UI/UX Designer and Frontend Engineer with a passion for experience creation.</h2>
         </Layout>
       </div>
     </div>
