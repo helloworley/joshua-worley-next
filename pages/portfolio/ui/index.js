@@ -14,13 +14,15 @@ const useStyles = makeStyles({
 });
 
 const Page = props => {
+  const wpData = props.wpData;
   const uiProjects = props.uiProjects;
   const classes = useStyles();
   return (
     <Layout>
       <Grid container spacing={8}>
       <Grid item xs={12}>
-        <h1 className={classes.image}>UI Projects</h1>
+        <h1 className={classes.image}>{wpData.title.rendered}</h1>
+        <div dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} />
       </Grid>
       {uiProjects.map((uiProject) => {
         return (
@@ -48,13 +50,16 @@ const Page = props => {
 }
 
 Page.getInitialProps = async function (context) {
-  const res = await fetch(`https://wp.joshuaworley.com/wp-json/headless/ui`);
-  const wpData = await res.json();
+  const wpRes = await fetch(`https://jw.helloworley.com/wp-json/wp/v2/pages/15`);
+  const headlessRes = await fetch(`https://jw.helloworley.com/wp-json/headless/ui`);
+  const wpData = await wpRes.json();
+  const headlessData = await headlessRes.json();
 
   console.log(wpData);
 
   return {
-    uiProjects: wpData.map(entry => entry)
+    wpData: wpData,
+    uiProjects: headlessData.map(entry => entry)
   };
 };
 
