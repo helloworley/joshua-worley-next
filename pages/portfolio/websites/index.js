@@ -50,7 +50,7 @@ const Page = props => {
 }
 
 Page.getInitialProps = async function (context) {
-  const res = await fetch(`https://wp.joshuaworley.com/wp-json/headless/websites`);
+  const res = await fetch(`https://jw.helloworley.com/wp-json/headless/websites`);
   const wpData = await res.json();
 
   console.log(wpData);
