@@ -4,13 +4,13 @@ import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   navigation: {
     padding: '32px',
   },
   list: {
     margin: 0,
-    padding: '40px 0 0',
+    padding: '64px 0 0',
   },
   listItem: {
     listStyle: 'none',
@@ -20,16 +20,21 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none',
     color: 'text'
   },
+  logoContainer: {
+    textAlign: 'center',
+  },
   logo: {
     color: 'text',
     cursor: 'pointer',
+    maxWidth: '80px',
+    margin: '0 0 4px',
   },
   a: {
     listStyle: 'none',
     padding: '6px 0',
     color: '#333',
   }
-}));
+});
 
 
 const menuItems = [
@@ -108,13 +113,23 @@ const getMenuChildren = (name, menuChildren, menuColor) => {
   )
 }
 
+function logo(color) {
+  if (color == '#fff') {
+    return "/ikigai-light.svg";
+  }
+  return "/ikigai-dark.svg";
+}
+
 
 const Navigation = props => {
   const classes = useStyles();
   return (
     <div className={classes.navigation} id="navigation">
       <Link href="/">
-        <Typography className={classes.logo} style={{color: props.menuColor}}> Joshua Worley</Typography>
+        <div className={classes.logoContainer}>
+          <img className={classes.logo} src={logo(props.menuColor)} />
+          <Typography style={{color: props.menuColor}}> Joshua Worley</Typography>
+        </div>
       </Link>
       <ul className={classes.list}>
         {menuItems.map(menuItem => (

@@ -18,12 +18,14 @@ const useStyles = makeStyles(theme => ({
 
 const Page = props => {
   const websiteExamples = props.websiteExamples;
+  const pageData = props.pageData;
   const classes = useStyles();
   return (
     <Layout>
       <Grid container spacing={8}>
         <Grid item xs={12} className={classes.headingGrid}>
-          <h1 className={classes.heading}>Websites</h1>
+        <h1 className={classes.heading}>{pageData.title.rendered}</h1>
+        <div dangerouslySetInnerHTML={{ __html: pageData.content.rendered }} />
         </Grid>
         {websiteExamples.map((websiteExample) => {
           return (
@@ -50,12 +52,16 @@ const Page = props => {
 }
 
 Page.getInitialProps = async function (context) {
+  const pageRes = await fetch(`https://jw.helloworley.com/wp-json/wp/v2/pages/12`);
   const res = await fetch(`https://jw.helloworley.com/wp-json/headless/websites`);
+  const pageData = await pageRes.json();
   const wpData = await res.json();
 
   console.log(wpData);
+  console.log(pageData);
 
   return {
+    pageData: pageData,
     websiteExamples: wpData.map(entry => entry)
   };
 };
