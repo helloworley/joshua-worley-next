@@ -1,5 +1,6 @@
-import Layout from '../../../components/MyLayout'
-import '../../../style/style.scss'
+import Layout from '../../../components/MyLayout';
+import '../../../style/style.scss';
+import fetch from 'isomorphic-unfetch';
 
 const printExample = props => {
   const printExample = props.printResponse.print;

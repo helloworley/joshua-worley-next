@@ -18,12 +18,12 @@ const ResumeEducation = props => {
     return (
         <Grid container>
 
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
                     <img className={classes.resumeBrand} src="/carlson.jpg"/>
                 </div>
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
                 <div className={classes.entry}>
                     <strong>Carlson School of Management, University of Minnesota</strong><br/>
                     BS Marketing, East Asian Studies Minor<br/>
@@ -32,24 +32,24 @@ const ResumeEducation = props => {
                 </div>
             </Grid>
 
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
                     <img className={classes.resumeBrand} src="/sophia.png"/>
                 </div>
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
                 <strong>Sophia University 上智大学</strong><br/>
                 One year bi-lateral exchange program<br/>
                 Yotsuya, Tokyo Japan<br/>
                 2014 September - 2015 August
             </Grid>
 
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
                     <img className={classes.resumeBrand} src="/codecademy.png"/>
                 </div>
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
                 <div className={classes.entry}>
                     <strong>Codecademy.com</strong><br/>
                     Class: Build Frontend Web Applications from Scratch<br/>
@@ -60,12 +60,12 @@ const ResumeEducation = props => {
                     </ul>
                 </div>
             </Grid>
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
                     <img className={classes.resumeBrand} src="/coursera.png"/>
                 </div>
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
                 <div className={classes.entry}>
                     <strong>Coursera.org</strong>
                     < br/>

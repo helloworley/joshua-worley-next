@@ -55,8 +55,6 @@ Page.getInitialProps = async function (context) {
   const wpData = await wpRes.json();
   const headlessData = await headlessRes.json();
 
-  console.log(wpData);
-
   return {
     wpData: wpData,
     printProjects: headlessData.map(entry => entry)

@@ -28,7 +28,7 @@ const Page = props => {
         {photographyProjects.map((photographyProject) => {
           return (
             <Grid item xs={12} sm={6} lg={4} key={photographyProject.post_title}>
-              <Link href="/portfolio/photography/[slug]" as={`/portfolio/photography/  b${photographyProject.slug}`}>
+              <Link href="/portfolio/photography/[slug]" as={`/portfolio/photography/${photographyProject.slug}`}>
                 <a>
                   <ImageCard
                     name={photographyProject.post_title}
@@ -52,8 +52,6 @@ Page.getInitialProps = async function (context) {
   const headlessRes = await fetch(`https://jw.helloworley.com/wp-json/headless/photography`);
   const wpData = await wpRes.json();
   const headlessData = await headlessRes.json();
-
-  console.log(wpData);
 
   return {
     wpData: wpData,

@@ -48,12 +48,12 @@ const Page = props => {
 
         <div className={classes.intro}>
           <Grid container>
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
               <div className={classes.profileWrapper}>
                 <img src="/joshua-worley.jpg" alt="Joshua Worley" className={classes.profile} />
               </div>
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
               <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} />
             </Grid>
           </Grid>
@@ -62,28 +62,28 @@ const Page = props => {
         <div id="resume-entries">
 
           <div className={classes.resumeSection}>
-            <Grid xs={12}>
+            <Grid item xs={12}>
               <h3 className={classes.resumeSectionHeading}>Experience</h3>
             </Grid>
             <ResumeExperience />
           </div>
 
           <div className={classes.resumeSection}>
-            <Grid xs={12}>
+            <Grid item xs={12}>
               <h3 className={classes.resumeSectionHeading}>Education</h3>
             </Grid>
             <ResumeEducation />
           </div>
 
           <div className={classes.resumeSection}>
-            <Grid xs={12}>
+            <Grid item xs={12}>
               <h3 className={classes.resumeSectionHeading}>Awards</h3>
             </Grid>
             <ResumeAwards />
           </div>
 
           <div className={classes.resumeSection}>
-            <Grid xs={12}>
+            <Grid item xs={12}>
               <h3 className={classes.resumeSectionHeading}>Skills</h3>
             </Grid>
             <ResumeSkills />
@@ -100,8 +100,6 @@ const Page = props => {
 Page.getInitialProps = async function (context) {
   const res = await fetch(`https://jw.helloworley.com/wp-json/wp/v2/pages/6`);
   const wpData = await res.json();
-
-  console.log(wpData);
 
   return { wpData };
 };

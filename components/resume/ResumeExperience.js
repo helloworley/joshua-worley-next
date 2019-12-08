@@ -18,7 +18,7 @@ const ResumeExperience = props => {
     return (
         <Grid container>
 
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
                     <img className={classes.resumeBrand} src="/ptmind.png"/>
                     <strong>PTMIND, Inc.</strong><br/>
@@ -30,7 +30,7 @@ const ResumeExperience = props => {
                     2019 April - Present
                 </div>
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
                 <div className={classes.entry}>
                     <strong>Frontend Engineering</strong>
                     <ul>
@@ -94,7 +94,7 @@ const ResumeExperience = props => {
                 </div>
             </Grid>
 
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
                     <img className={classes.resumeBrand} src="/tag.png"/>
                     <strong>tag. (formerly Williams Lea Tag)</strong><br/>
@@ -103,7 +103,7 @@ const ResumeExperience = props => {
                     2018 January – 2019 April
                 </div>
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
                 <div className={classes.entry}>
                     <strong>At Headquarters 2018 December - 2019 April</strong>
                     <ul>
@@ -156,7 +156,7 @@ const ResumeExperience = props => {
                 </div>
             </Grid>
 
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
                     <img className={classes.resumeBrand} src="/rakuten.png"/>
                     <strong>Rakuten Inc</strong><br/>
@@ -166,7 +166,7 @@ const ResumeExperience = props => {
                     2016 April - 2018 January
                 </div>
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
                 <div className={classes.entry}>
                     <ul>
                         <li>Self-start UX/UI improvement projects to benefit the organization, i.e.

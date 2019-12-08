@@ -18,7 +18,7 @@ const ResumeAwards = props => {
     return (
         <Grid container className={classes.entry}>
 
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
                     <img className={classes.resumeBrand} src="/tag.png"/>
                     <p>
@@ -27,7 +27,7 @@ const ResumeAwards = props => {
                 </div>
 
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
                 <div className={classes.entry}>
                     <p>Exceptional Operational Excellence - Second half of the year 2018
                     </p>
@@ -35,7 +35,7 @@ const ResumeAwards = props => {
 
             </Grid>
 
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
 
                     <img className={classes.resumeBrand} src="/rakuten.png"/>
@@ -44,7 +44,7 @@ const ResumeAwards = props => {
                     </p>
                 </div>
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
                 <div className={classes.entry}>
                     <p>Passionately Professional Runner Up - 2017 October
                     </p>
@@ -52,7 +52,7 @@ const ResumeAwards = props => {
                 </div>
             </Grid>
 
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
                     <img className={classes.resumeBrand} src="/bam.png"/>
                     <p>
@@ -61,7 +61,7 @@ const ResumeAwards = props => {
                     </p>
                 </div>
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
                 <div className={classes.entry}>
                     <p>Member of the year 2014</p>
                     <ul>
@@ -72,7 +72,7 @@ const ResumeAwards = props => {
                 </div>
             </Grid>
 
-            <Grid xs={12} md={3}>
+            <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
                     <img className={classes.resumeBrand} src="/vtap-on-white.svg"/>
                     <p>
@@ -81,7 +81,7 @@ const ResumeAwards = props => {
                     </p>
                 </div>
             </Grid>
-            <Grid xs={12} md={9}>
+            <Grid item xs={12} md={9}>
                 <div className={classes.entry}>
                     <p>Member of the year 2014</p>
                     <ul>

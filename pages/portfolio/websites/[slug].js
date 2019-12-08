@@ -1,5 +1,6 @@
-import Layout from '../../../components/MyLayout'
-import '../../../style/style.scss'
+import Layout from '../../../components/MyLayout';
+import '../../../style/style.scss';
+import fetch from 'isomorphic-unfetch';
 
 const websiteExample = props => {
   const websiteExample = props.websiteExample.website;
@@ -19,9 +20,6 @@ websiteExample.getInitialProps = async function (context) {
   const { slug } = context.query;
   const res = await fetch(`https://jw.helloworley.com/wp-json/headless/websites/${slug}`);
   const websiteExample = await res.json();
-
-  // console.log('context query', context.query);
-  console.log('Fetched show', websiteExample);
 
   return { websiteExample };
 };

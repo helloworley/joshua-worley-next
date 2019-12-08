@@ -27,13 +27,13 @@ const ResumeSkills = props => {
     return (
         <Grid container>
 
-            <Grid xs={12} md={4}>
-                <Grid xs={12}>
+            <Grid item xs={12} md={4}>
+                <Grid item xs={12}>
                     <div className={classes.skillSetTitle}>
                         <h4>Language Skill</h4>
                     </div>
                 </Grid>
-                <Grid xs={12}>
+                <Grid item xs={12}>
                     <div className={classes.skillSet}>
                         <ul>
                             <li>Native English</li>
@@ -46,12 +46,12 @@ const ResumeSkills = props => {
                     </div>
                 </Grid>
 
-                <Grid xs={12}>
+                <Grid item xs={12}>
                     <div className={classes.skillSetTitle}>
                         <h4>Professional Design Experience</h4>
                     </div>
                 </Grid>
-                <Grid xs={12}>
+                <Grid item xs={12}>
                     <div className={classes.skillSet}>
                         <ul>
                             <li>Sketch</li>
@@ -68,13 +68,13 @@ const ResumeSkills = props => {
                 </Grid>
             </Grid>
 
-            <Grid xs={12} md={4}>
-                <Grid xs={12}>
+            <Grid item xs={12} md={4}>
+                <Grid item xs={12}>
                     <div className={classes.skillSetTitle}>
                         <h4>Professional Frontend Development experience</h4>
                     </div>
                 </Grid>
-                <Grid xs={12}>
+                <Grid item xs={12}>
                     <div className={classes.skillSet}>
                         <ul>
                             <li>HTML5</li>

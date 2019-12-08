@@ -2,6 +2,7 @@ import '../style/style.scss'
 import { Typography } from '@material-ui/core'
 import Layout from '../components/MyLayout';
 import { makeStyles } from '@material-ui/core/styles';
+import fetch from 'isomorphic-unfetch';
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -43,8 +44,6 @@ const Page = props => {
 Page.getInitialProps = async function (context) {
   const res = await fetch(`https://jw.helloworley.com/wp-json/wp/v2/pages/97`);
   const wpData = await res.json();
-
-  console.log(wpData);
 
   return { wpData };
 };
