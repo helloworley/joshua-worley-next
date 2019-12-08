@@ -1,5 +1,6 @@
 import Layout from '../components/MyLayout';
 import fetch from 'isomorphic-unfetch';
+import ContactForm from '../components/ContactForm';
 import '../style/style.scss'
 
 const Page = props => {
@@ -8,6 +9,7 @@ const Page = props => {
     <Layout>
       <h1>{wpData.title.rendered}</h1>
       <div dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} />
+      <ContactForm />
     </Layout>
   );
 }
