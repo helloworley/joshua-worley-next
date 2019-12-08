@@ -53,19 +53,33 @@ figure.wp-block-table {
 }
 
 
+// home 
+#home {
+  h1, h2, h3, h4, h5, h6, p, div {
+    color: #fff;
+  }
+}
+
+
 // resume
 #resume {
   #resume-entries {
     .MuiGrid-container {
       .MuiGrid-root {
-        margin: 0 0 80px !important;
+        // margin: 0 0 80px !important;
+        
       }
     }
   }
   h2 {
-    border-top: solid 1px #ccc;
-    padding: 64px 0 24px;
+    font-size: 32px;
+    margin: 0 0 24px;
     max-width: 100%;
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: 300;
+    margin: 0 0 40px;
   }
 }
 
