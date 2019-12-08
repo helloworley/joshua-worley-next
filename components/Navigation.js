@@ -8,6 +8,22 @@ const useStyles = makeStyles({
   navigation: {
     padding: '32px',
   },
+  socialLogos: {
+    position: 'absolute',
+    bottom: '40px',
+    left: '0',
+  },
+  socialsList: {
+    display: 'flex',
+  },
+  socialsListItem: {
+    listStyle: 'none',
+    margin: '0 12px 0 0'
+  },
+  socialLogo: {
+    height: '12px',
+    width: 'auto',
+  },
   list: {
     margin: 0,
     padding: '64px 0 0',
@@ -35,6 +51,24 @@ const useStyles = makeStyles({
     color: '#333',
   }
 });
+
+const socialItems = [
+  {
+    link: 'https://www.linkedin.com/in/joshua-worley/',
+    logoDark: '/linkedin-dark.svg',
+    logoLight: '/linkedin-white.svg',
+  },
+  {
+    link: 'https://www.facebook.com/helloworley',
+    logoDark: '/facebook-dark.svg',
+    logoLight: '/facebook-white.svg',
+  },
+  {
+    link: 'https://www.instagram.com/ohmyjoshworley/?hl=en',
+    logoDark: '/instagram-dark.svg',
+    logoLight: '/instagram-white.svg',
+  },
+]
 
 
 const menuItems = [
@@ -103,9 +137,7 @@ const getMenuChildren = (name, menuChildren, menuColor) => {
       <ul>
         {menuChildren.map(childItem => (
           <li key={childItem.name} className={classes.listItem}>
-            <Link
-              href={childItem.link}
-            >
+            <Link href={childItem.link}>
               <a className={classes.a} style={{color: menuColor}}>
                 {childItem.name}
               </a>
@@ -122,6 +154,13 @@ function logo(color) {
     return "/ikigai-light.svg";
   }
   return "/ikigai-dark.svg";
+}
+
+function socialLogo(color, lightLogo, darkLogo) {
+  if (color == '#fff') {
+    return lightLogo;
+  }
+  return darkLogo;
 }
 
 
@@ -142,6 +181,17 @@ const Navigation = props => {
           </li>
         ))}
       </ul>
+      <div className={classes.socialLogos}>
+          <ul className={classes.socialsList}>
+            {socialItems.map(socialItem => (
+              <li className={classes.socialsListItem} key={socialItem.logoDark}>
+                <a href={socialItem.link} target="_blank">
+                  <img className={classes.socialLogo} src={socialLogo(props.menuColor, socialItem.logoLight, socialItem.logoDark)} />
+                </a>
+              </li>  
+            ))}
+          </ul>
+      </div>
     </div>
 
   )
