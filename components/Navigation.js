@@ -97,7 +97,7 @@ const menuItems = [
         name: 'Photography',
       },
       {
-        link: '/Video',
+        link: '/portfolio/video',
         name: 'Video',
       },
     ]

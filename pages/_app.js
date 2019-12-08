@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Fonts from '../style/fonts';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Head from 'next/head'
 
 
 const theme = createMuiTheme({
@@ -31,6 +32,11 @@ class MyApp extends App {
 
     return (
       <>
+      <Head>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="shortcut icon" href="/static/favicon.ico" />
+        <title>Joshua Worley</title>
+      </Head>
         <CssBaseline />
         <MuiThemeProvider theme={theme}>
           <AnimatePresence exitBeforeEnter>
