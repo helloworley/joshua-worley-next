@@ -17,7 +17,7 @@ const uiExample = props => {
 
 uiExample.getInitialProps = async function (context) {
   const { slug } = context.query;
-  const res = await fetch(`https://wp.joshuaworley.com/wp-json/headless/ui/${slug}`);
+  const res = await fetch(`https://jw.helloworley.com/wp-json/headless/ui/${slug}`);
   const uiExample = await res.json();
 
   // console.log('context query', context.query);

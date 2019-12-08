@@ -17,7 +17,7 @@ const photographyProject = props => {
 
 photographyProject.getInitialProps = async function (context) {
   const { slug } = context.query;
-  const res = await fetch(`https://wp.joshuaworley.com/wp-json/headless/photography/${slug}`);
+  const res = await fetch(`https://jw.helloworley.com/wp-json/headless/photography/${slug}`);
   const photographyProject = await res.json();
 
   // console.log('context query', context.query);

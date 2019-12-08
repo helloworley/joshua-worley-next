@@ -52,7 +52,11 @@ const menuItems = [
       },
       {
         link: '/portfolio/ui',
-        name: 'UI',
+        name: 'UI Design',
+      },
+      {
+        link: '/portfolio/print',
+        name: 'Print Design',
       },
       {
         link: '/portfolio/photography',
@@ -60,7 +64,7 @@ const menuItems = [
       },
       {
         link: '/Video',
-        name: 'video',
+        name: 'Video',
       },
     ]
   },
