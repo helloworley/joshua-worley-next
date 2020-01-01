@@ -6,11 +6,23 @@ const useStyles = makeStyles(theme => ({
         maxWidth: '100%',
         width: '120px',
         display: 'block',
-        margin: '0 0 24px'
+        margin: '24px auto 24px',
+        [theme.breakpoints.up('md')]: {
+            margin: '0 0 24px',
+        },
     },
     entry: {
-        margin: '0 0 64px'
-    }
+        margin: '0 0 32px'
+    },
+    details: {
+        margin: '0 0 64px',
+    },
+    place: {
+        textAlign: 'center',
+        [theme.breakpoints.up('md')]: {
+            textAlign: 'left',
+        },
+    },
 }));
 
 const ResumeExperience = props => {
@@ -20,18 +32,20 @@ const ResumeExperience = props => {
 
             <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
-                    <img className={classes.resumeBrand} src="/ptmind.png"/>
-                    <strong>PTMIND, Inc.</strong><br/>
-                    Main: Growth Manager<br/>
-                    Sub: UI Designer, Videographer,
-                    <br/>
-                    Frontend Engineer<br/>
-                    Shibuya, Tokyo<br/>
-                    2019 April - Present
+                    <div className={classes.place}>
+                        <img className={classes.resumeBrand} src="/ptmind.png"/>
+                        <strong>PTMIND, Inc.</strong><br/>
+                        Main: Marketing Growth Manager<br/>
+                        Sub: UI Designer, Videographer,
+                        <br/>
+                        Frontend Engineer<br/>
+                        Shibuya, Tokyo<br/>
+                        2019 April - Present
+                    </div>
                 </div>
             </Grid>
             <Grid item xs={12} md={9}>
-                <div className={classes.entry}>
+                <div className={`${classes.entry} ${classes.details}`}>
                     <strong>Frontend Engineering</strong>
                     <ul>
                         <li>Coded the English and Japanese Ptengine (flagship product) webapps in Vue
@@ -64,8 +78,8 @@ const ResumeExperience = props => {
                         <li>Travel between Tokyo and Beijing to work with Chinese and Japanese teams to
                             unify global retention strategies.</li>
                         <li>Co-developed retention KPIs and OKRs with Beijing office quarterly.</li>
-                        <li>Tranlated all copy on
-                            <a href="https://www.ptengine.com" target="_blank">ptengine.com</a>
+                        <li>Translated all copy on
+                            <a href="https://www.ptengine.com" target="_blank"> ptengine.com </a>
                             from Japanese to enter the global market.</li>
                     </ul>
                     <strong>Design / Photography / Videography / Branding</strong>
@@ -96,15 +110,17 @@ const ResumeExperience = props => {
 
             <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
-                    <img className={classes.resumeBrand} src="/tag.png"/>
-                    <strong>tag. (formerly Williams Lea Tag)</strong><br/>
-                    Senior Web Designer, Digital Producer<br/>
-                    Shinagawa / Otemachi, Tokyo<br/>
-                    2018 January – 2019 April
+                    <div className={classes.place}>
+                        <img className={classes.resumeBrand} src="/tag.png"/>
+                        <strong>tag. (formerly Williams Lea Tag)</strong><br/>
+                        Senior Web Designer, Digital Producer<br/>
+                        Shinagawa / Otemachi, Tokyo<br/>
+                        2018 January – 2019 April
+                    </div>
                 </div>
             </Grid>
             <Grid item xs={12} md={9}>
-                <div className={classes.entry}>
+                <div className={`${classes.entry} ${classes.details}`}>
                     <strong>At Headquarters 2018 December - 2019 April</strong>
                     <ul>
                         <li>Create the UI and UX for Cunard (Queen Mary 2, etc) Luxury Cruise Line’s new
@@ -158,18 +174,20 @@ const ResumeExperience = props => {
 
             <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
-                    <img className={classes.resumeBrand} src="/rakuten.png"/>
-                    <strong>Rakuten Inc</strong><br/>
-                    Center of Excellence dept&nbsp;<br/>
-                    Frontend engineer, UX/UI Designer<br/>
-                    Futakotamagawa, Tokyo<br/>
-                    2016 April - 2018 January
+                    <div className={classes.place}>
+                        <img className={classes.resumeBrand} src="/rakuten.png"/>
+                        <strong>Rakuten Inc</strong><br/>
+                        Center of Excellence dept&nbsp;<br/>
+                        Frontend engineer, UX/UI Designer<br/>
+                        Futakotamagawa, Tokyo<br/>
+                        2016 April - 2018 January
+                    </div>
                 </div>
             </Grid>
             <Grid item xs={12} md={9}>
-                <div className={classes.entry}>
+                <div className={`${classes.entry} ${classes.details}`}>
                     <ul>
-                        <li>Self-start UX/UI improvement projects to benefit the organization, i.e.
+                        <li>Self-started UX/UI improvement projects to benefit the organization, i.e.
                             internal chat app design and coding.</li>
                         <li>Started and finished version 1 of Rakuten’s new group-wide CSS framework and
                             JavaScript React component library to design specs, to eventually be implemented

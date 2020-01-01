@@ -12,7 +12,7 @@ p, li, td {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 300;
   margin: 0 0 56px;
 }
@@ -77,6 +77,9 @@ figure.wp-block-table {
 // resume
 #resume {
   #resume-entries {
+    li {
+      text-align: left;
+    }
     .MuiGrid-container {
       .MuiGrid-root {
         // margin: 0 0 80px !important;
@@ -85,12 +88,10 @@ figure.wp-block-table {
     }
   }
   h2 {
-    font-size: 32px;
     margin: 0 0 24px;
     max-width: 100%;
   }
   h3 {
-    font-size: 24px;
     font-weight: 300;
     margin: 0 0 40px;
   }

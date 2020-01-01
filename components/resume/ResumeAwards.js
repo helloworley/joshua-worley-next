@@ -6,10 +6,21 @@ const useStyles = makeStyles(theme => ({
         maxWidth: '100%',
         width: '120px',
         display: 'block',
-        margin: '0'
+        margin: '24px auto 24px',
+        [theme.breakpoints.up('md')]: {
+            margin: '0 0 24px',
+        },
     },
     entry: {
-        margin: '0 0 64px'
+        margin: '0 0 8px',
+        textAlign: 'center',
+        [theme.breakpoints.up('md')]: {
+            textAlign: 'left',
+            margin: '32px 0 64px',
+        },
+    },
+    details: {
+        margin: '0 0 64px',
     }
 }));
 
@@ -22,14 +33,14 @@ const ResumeAwards = props => {
                 <div className={classes.entry}>
                     <img className={classes.resumeBrand} src="/tag.png"/>
                     <p>
-                        <strong>tag. <br/> (formerly Willeams Lea Tag)</strong>
+                        <strong>tag. (formerly Willeams Lea Tag)</strong>
                     </p>
                 </div>
 
             </Grid>
             <Grid item xs={12} md={9}>
-                <div className={classes.entry}>
-                    <p>Exceptional Operational Excellence - Second half of the year 2018
+                <div className={`${classes.entry} ${classes.details}`}>
+                    <p>Exceptional Operational Excellence <br/> Second half of the year 2018
                     </p>
                 </div>
 
@@ -37,7 +48,6 @@ const ResumeAwards = props => {
 
             <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
-
                     <img className={classes.resumeBrand} src="/rakuten.png"/>
                     <p>
                         <strong>Rakuten</strong>
@@ -45,8 +55,8 @@ const ResumeAwards = props => {
                 </div>
             </Grid>
             <Grid item xs={12} md={9}>
-                <div className={classes.entry}>
-                    <p>Passionately Professional Runner Up - 2017 October
+                <div className={`${classes.entry} ${classes.details}`}>
+                    <p>Passionately Professional Runner Up<br/> 2017 October
                     </p>
 
                 </div>
@@ -62,7 +72,7 @@ const ResumeAwards = props => {
                 </div>
             </Grid>
             <Grid item xs={12} md={9}>
-                <div className={classes.entry}>
+                <div className={`${classes.entry} ${classes.details}`}>
                     <p>Member of the year 2014</p>
                     <ul>
                         <li>For volunteer leadership</li>
@@ -74,7 +84,7 @@ const ResumeAwards = props => {
 
             <Grid item xs={12} md={3}>
                 <div className={classes.entry}>
-                    <img className={classes.resumeBrand} src="/vtap-on-white.svg"/>
+                    <img className={classes.resumeBrand} src="/vtap-on-white.png"/>
                     <p>
                         <strong>Volunteer Tax Assistance Program</strong><br/>
                         University of Minnesota organization
@@ -82,7 +92,7 @@ const ResumeAwards = props => {
                 </div>
             </Grid>
             <Grid item xs={12} md={9}>
-                <div className={classes.entry}>
+                <div className={`${classes.entry} ${classes.details}`}>
                     <p>Member of the year 2014</p>
                     <ul>
                         <li>For rebranding the organization</li>

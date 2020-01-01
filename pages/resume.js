@@ -14,10 +14,14 @@ const useStyles = makeStyles(theme => ({
     lineHeight: 1,
   },
   resumeSectionHeading: {
-    fontSize: '32px !important',
+    fontSize: '2em !important',
     fontWeight: 400,
     // color: '#bababa',
-    margin: '0 0 64px !important',
+    margin: '32px 0 64px !important',
+    textAlign: 'center',
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'left',
+    },
   },
   resumeSection: {
     margin: '0 0 48px',
@@ -34,8 +38,14 @@ const useStyles = makeStyles(theme => ({
     }
   },
   profile: {
+    width: '100%',
     maxWidth: '100%',
-    paddingRight: '16px'
+    margin: '0 0 32px',
+    [theme.breakpoints.up('sm')]: {
+      width: 'initial',
+      paddingRight: '16px',
+      margin: '0',
+    }
   }
 }));
 
@@ -48,12 +58,12 @@ const Page = props => {
 
         <div className={classes.intro}>
           <Grid container>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} sm={3}>
               <div className={classes.profileWrapper}>
                 <img src="/joshua-worley.jpg" alt="Joshua Worley" className={classes.profile} />
               </div>
             </Grid>
-            <Grid item xs={12} md={9}>
+            <Grid item xs={12} sm={9}>
               <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} />
             </Grid>
           </Grid>

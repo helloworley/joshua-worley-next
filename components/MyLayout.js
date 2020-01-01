@@ -18,11 +18,12 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: '0 !important'
   },
   rightPannel: {
+    overflow: 'auto',
+    padding: '120px 0 0',
     [theme.breakpoints.up('md')]: {
+      padding: '108px 0 0',
       height: '100vh',
     },
-    overflow: 'auto',
-    padding: '108px 0 0',
   },
   normalizeGridItem: {
     paddingTop: '0 !important',
