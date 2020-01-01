@@ -107,10 +107,6 @@ const menuItems = [
     ]
   },
   {
-    link: '/blog',
-    name: 'Blog',
-  },
-  {
     link: '/contact',
     name: 'Contact',
   },
