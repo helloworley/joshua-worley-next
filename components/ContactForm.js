@@ -24,7 +24,14 @@ const useStyles = makeStyles(theme => ({
 const ContactForm = props => {
   const classes = useStyles();
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form 
+      className={classes.root} 
+      noValidate 
+      autoComplete="off"
+      action="/" 
+      method="POST" 
+      onSubmit={(e) => { e.preventDefault(); alert('Submitted form!'); this.handleClose(); } }
+    >
 
       <Grid container spacing={4} className={classes.root}>
 
@@ -68,10 +75,15 @@ const ContactForm = props => {
 
           <Grid item xs={12} className={classes.normalizeGridItem}>
             <div className={classes.buttonWrapper}>
-              <Button variant="contained">Submit</Button>
+              <Button 
+                variant="contained"
+                type="submit"
+                label="Submit"
+              >Submit</Button>
             </div>
           </Grid>
 
+          https://usebasin.com/f/157e96a3e6e6
 
         </Grid>
 

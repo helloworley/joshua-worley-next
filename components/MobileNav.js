@@ -1,13 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-
-
-
+import Link from 'next/link';
 import { AppBar, Toolbar, Drawer, Typography, Hidden } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-// import Navigation from './Navigation'
 
 
 const drawerWidth = 240;
@@ -28,9 +24,24 @@ const useStyles = makeStyles({
   list: {
     width: 250,
   },
+  burgerContainer: {
+    zIndex: 1000,
+  },
   fullList: {
     width: 'auto',
   },
+  toolbar: {
+    textAlign: 'center',
+    position: 'relative',
+  },
+  navName: {
+    position: 'absolute',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    left: 0,
+    right: 0,
+    top: '3px'
+  }
 });
 
 const MobileNav = () => {
@@ -83,12 +94,16 @@ const MobileNav = () => {
     <Hidden mdUp>
 
       <AppBar position="static">
-        <Toolbar>
-          <div onClick={toggleDrawer('left', true)}>
+        <Toolbar className={classes.toolbar}>
+          <div className={classes.burgerContainer} onClick={toggleDrawer('left', true)}>
             <IconButton edge="start" color="inherit" aria-label="menu">
               <MenuIcon />
             </IconButton>
           </div>
+          <Link href="/">
+            <p className={classes.navName}>Joshua Worley</p>
+          </Link>
+          {/* <img className={classes.logo} src="/ikigai-light.svg" /> */}
         </Toolbar>
       </AppBar>
 

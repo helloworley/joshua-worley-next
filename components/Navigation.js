@@ -97,6 +97,10 @@ const menuItems = [
         name: 'Photography',
       },
       {
+        link: '/portfolio/logos-and-illustrations',
+        name: 'Logos and Illustrations',
+      },
+      {
         link: '/portfolio/video',
         name: 'Video',
       },
@@ -171,7 +175,9 @@ const Navigation = props => {
       <Link href="/">
         <div className={classes.logoContainer}>
           <img className={classes.logo} src={logo(props.menuColor)} />
-          <Typography style={{color: props.menuColor}}> Joshua Worley</Typography>
+          <Link href="/">
+            <Typography style={{color: props.menuColor}}> Joshua Worley</Typography>
+          </Link>
         </div>
       </Link>
       <ul className={classes.list}>

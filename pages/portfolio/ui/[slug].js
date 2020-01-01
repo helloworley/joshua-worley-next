@@ -6,10 +6,12 @@ const uiExample = props => {
   const uiExample = props.uiExample.ui;
   return (
     <Layout>
-      <h1>{uiExample.post_title}</h1>
-      <p>Date {uiExample.post_date_formatted}</p>
-      <div className="wp-content">
-        <div dangerouslySetInnerHTML={{ __html: uiExample.post_content }}></div>
+      <div id="ui-example">
+        <h1>{uiExample.post_title}</h1>
+        <p>Date {uiExample.post_date_formatted}</p>
+        <div className="wp-content">
+          <div dangerouslySetInnerHTML={{ __html: uiExample.post_content }}></div>
+        </div>
       </div>
     </Layout>
 
