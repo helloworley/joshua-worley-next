@@ -13,8 +13,8 @@ p, li, td {
 
 h1 {
   font-size: 2em;
-  font-weight: 300;
-  margin: 0 0 56px;
+  font-weight: 600;
+  margin: 0 0 80px;
 }
 h2 {
   font-size: 1.5em;
@@ -27,7 +27,7 @@ h3 {
 
 @media(min-width: 960px) {
   h1 {
-    font-size: 4em;
+    font-size: 2em;
   }
   h2 {
     font-size: 2em;
@@ -152,3 +152,34 @@ figure.wp-block-table {
     }
   }
 }
+
+
+
+// project 
+.project-snapshot {
+  padding: 40px 0;
+}
+
+.portfolio-type-description {
+  margin: 0 0 64px;
+}
+
+@media(min-width: 600px) {
+  .project-snapshot {
+    padding: 32px 32px 32px 0;
+  } 
+}
+
+@media(min-width: 960px) {
+  .project-snapshot {
+    padding: 40px 40px 40px 0;
+  } 
+}
+
+@media(min-width: 1280px) {
+  .project-snapshot {
+    padding: 40px 40px 40px 0;
+  } 
+}
+
+

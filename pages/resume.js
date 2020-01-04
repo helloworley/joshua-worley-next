@@ -14,8 +14,8 @@ const useStyles = makeStyles(theme => ({
     lineHeight: 1,
   },
   resumeSectionHeading: {
-    fontSize: '2em !important',
-    fontWeight: 400,
+    fontSize: '1.8em !important',
+    fontWeight: 600,
     // color: '#bababa',
     margin: '32px 0 64px !important',
     textAlign: 'center',

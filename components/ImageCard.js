@@ -9,10 +9,14 @@ const useStyles = makeStyles(theme => ({
   },
   heading: {
     margin: '0 0 8px',
+    color: theme.palette.primary.main,
+    fontSize: '1.3em',
   },
   date: {
     margin: '0 0 8px',
-    color: theme.palette.primary.main
+    color: theme.palette.primary.main,
+    color: 'rgba(0,0,0,.4)',
+    fontSize: '1em',
   },
   image: {
     height: 240,
@@ -20,6 +24,10 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'center',
     color: 'white',
     margin: '0 0 24px',
+  },
+  excerpt: {
+    color: 'rgba(0,0,0,.4)',
+    fontSize: '1em',
   }
 
 }));
@@ -31,7 +39,7 @@ const ImageCard = props => {
       <div className={classes.image} style={{ backgroundImage: `url(${props.image})` }}></div>
       <Typography variant="h5" className={classes.heading}>{props.name}</Typography>
       <Typography className={classes.date}>{props.date}</Typography>
-      <Typography>{props.excerpt}</Typography>
+      <Typography className={classes.excerpt}>{props.excerpt}</Typography>
     </div>
   )
 };

@@ -22,14 +22,14 @@ const Page = props => {
   const classes = useStyles();
   return (
     <Layout>
-      <Grid container spacing={8}>
+      <Grid container spacing={0}>
         <Grid item xs={12} className={classes.headingGrid}>
         <h1 className={classes.heading}>{pageData.title.rendered}</h1>
-        <div dangerouslySetInnerHTML={{ __html: pageData.content.rendered }} />
+        <div className="portfolio-type-description" dangerouslySetInnerHTML={{ __html: pageData.content.rendered }} />
         </Grid>
         {websiteExamples.map((websiteExample) => {
           return (
-            <Grid item xs={12} sm={6} lg={4} key={websiteExample.post_title}>
+            <Grid item xs={12} sm={6} lg={4} className="project-snapshot" key={websiteExample.post_title}>
               <span>
                 <Link href="/portfolio/websites/[slug]" as={`/portfolio/websites/${websiteExample.slug}`}>
                   <a>

@@ -6,10 +6,12 @@ import fetch from 'isomorphic-unfetch';
 
 const useStyles = makeStyles(theme => ({
   h1: {
-    fontSize: '1.9em',
-    [theme.breakpoints.up('md')]: {
-      fontSize: '3.5em',
-    }
+    // fontSize: '1.9em',
+    fontWeight: '300',
+    margin: '0 0 40px',
+    // [theme.breakpoints.up('md')]: {
+    //   fontSize: '3.5em',
+    // }
   },
   h2: {
     fontSize: '1.2em',

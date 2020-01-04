@@ -17,10 +17,11 @@ const Page = props => {
     const classes = useStyles();
     return (
         <Layout>
-            <Grid container spacing={8}>
+            <Grid container spacing={0}>
                 <Grid item xs={12}>
                     <h1 className={classes.image}>{wpData.title.rendered}</h1>
                     <div
+                        className="portfolio-type-description"
                         dangerouslySetInnerHTML={{
                         __html: wpData.content.rendered
                     }}/>
@@ -29,7 +30,7 @@ const Page = props => {
                 {/* <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} /> */}
                 {illustrationProjects.map((illustrationProject) => {
                     return (
-                        <Grid item xs={12} sm={6} lg={4} key={illustrationProject.post_title}>
+                        <Grid item xs={12} sm={6} lg={4} className="project-snapshot" key={illustrationProject.post_title}>
 
                             <FullCard
                                 name={illustrationProject.post_title}

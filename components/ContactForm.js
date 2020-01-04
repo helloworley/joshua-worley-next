@@ -1,5 +1,6 @@
 import { withStyles } from '@material-ui/styles';
-import { Grid, TextField, Button, FormControl, InputLabel, Input, FormHelperText} from '@material-ui/core/';
+import { Grid, Button, FormControl, InputLabel, Input, FormHelperText} from '@material-ui/core/';
+import SendIcon from '@material-ui/icons/Send';
 
 
 const styles = theme => ({
@@ -18,6 +19,19 @@ const styles = theme => ({
   },
   input: {
     margin: '0'
+  },
+  submitButtonWrapper: {
+    textAlign: 'center',
+    margin: '0 0 80px',
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'left',
+    }
+  },
+  sendIcon: {
+    margin: '-3px 0 0 8px',
+    transform: 'rotate(-45deg)',
+    fontSize: '18px',
+
   }
 });
 
@@ -112,7 +126,14 @@ class ContactForm extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const submitButton = <Button variant="contained" type="submit" label="Submit" value="Send">Submit</Button>;
+    const submitButton = (
+      <div className={classes.submitButtonWrapper}>
+        <Button className={classes.submitButton} variant="contained" type="submit" label="Submit" value="Send">
+          Send        
+          <SendIcon className={classes.sendIcon} />
+        </Button>
+      </div>
+    );
     const thankYouMessage = <p>Thank you for your message! I'll get back to you as soon as I can :)</p>;
 
     return (

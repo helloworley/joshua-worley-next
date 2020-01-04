@@ -19,14 +19,14 @@ const Page = props => {
   const classes = useStyles();
   return (
     <Layout>
-      <Grid container spacing={8}>
-      <Grid item xs={12}>
-        <h1 className={classes.image}>{wpData.title.rendered}</h1>
-        <div dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} />
-      </Grid>
+      <Grid container spacing={0} className="project-snapshots">
+        <Grid item xs={12}>
+          <h1 className={classes.image}>{wpData.title.rendered}</h1>
+          <div className="portfolio-type-description" dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} />
+        </Grid>
       {uiProjects.map((uiProject) => {
         return (
-          <Grid item xs={12} sm={6} lg={4} key={uiProject.post_title}>
+          <Grid item xs={12} sm={6} lg={4} className="project-snapshot" key={uiProject.post_title}>
             <span key={uiProject.post_title}>
               <Link href="/portfolio/ui/[slug]" as={`/portfolio/ui/${uiProject.slug}`}>
                 <a>
