@@ -141,7 +141,9 @@ figure.wp-block-table {
   
 
 // ui-example
-#ui-example {
+#ui-example,
+#website-example {
+  margin-bottom: 120px;
   .wp-block-image {
     text-align: center;
     img {
@@ -183,3 +185,81 @@ figure.wp-block-table {
 }
 
 
+
+
+
+// carousel
+.carousel {
+  &.carousel-slider {
+    .control-arrow {
+      height: 40px;
+      width: 40px;
+      border-radius: 100%;
+      box-shadow: 0 10px 16px 0 rgba(205, 217, 231, 0.47);
+      -webkit-box-shadow: 0 10px 16px 0 rgba(205, 217, 231, 0.47);
+      position: absolute !important;
+      top: 48% !important;
+      opacity: inherit;
+    }
+  }
+  .control-next.control-arrow {
+    right: 10px;
+    &:before {
+      color: rgba(0,0,0,.5) !important;
+      border-left: 8px solid rgba(0,0,0,.5) !important;
+      top: 29%;
+      left: 33%;
+      position: absolute;
+    }
+  }
+  .control-prev.control-arrow {
+    left: 10px;
+    &:before {
+      color: rgba(0,0,0,.5) !important;
+      border-right: 8px solid rgba(0,0,0,.5) !important;
+      top: 29%;
+      left: 23%;
+      position: absolute;
+    }
+  }
+  .slide {
+    background: none !important;
+    h4 {
+      margin: 0;
+    }
+    small {
+      margin: 0 0 24px;
+      color: rgba(0,0,0,.5);
+    }
+    p {
+      color: rgba(0,0,0,.5);
+    }
+    img {
+      max-width: 80% !important;
+      max-height: 320px !important;
+      width: auto !important;
+      margin: 0 0 40px !important;
+    }
+  }
+}
+
+@media(min-width: 960px) {
+  .carousel {
+    .slide {
+      img {
+        max-width: 400px !important;
+      }
+    }
+  }
+}
+
+
+// website examples 
+#website-example {
+  .wp-block-image {
+    margin: 40px 0;
+    img {
+      max-width: 100%;
+    }
+  }
+}

@@ -9,16 +9,24 @@ const useStyles = makeStyles(theme => ({
   },
   heading: {
     margin: '0 0 8px',
+    color: theme.palette.primary.main,
+    fontSize: '1.3em',
   },
   date: {
     margin: '0 0 8px',
-    color: theme.palette.primary.main
+    color: theme.palette.primary.main,
+    color: 'rgba(0,0,0,.4)',
+    fontSize: '1em',
   },
   image: {
     width: '100%',
     height: 'auto',
     color: 'white',
     margin: '0 0 24px',
+  },
+  excerpt: {
+    color: 'rgba(0,0,0,.4)',
+    fontSize: '1em',
   }
 
 }));
@@ -30,7 +38,7 @@ const FullCard = props => {
       <img className={classes.image} src={props.image} />
       <Typography variant="h5" className={classes.heading}>{props.name}</Typography>
       <Typography className={classes.date}>{props.date}</Typography>
-      <Typography>{props.excerpt}</Typography>
+      <Typography className={classes.date}>{props.excerpt}</Typography>
     </div>
   )
 };

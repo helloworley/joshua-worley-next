@@ -4,7 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Fonts from '../style/fonts';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Head from 'next/head'
+import Head from 'next/head';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 
 
 const theme = createMuiTheme({

@@ -4,10 +4,15 @@ import FullCard from '../../../components/FullCard';
 import {Grid} from '@material-ui/core/';
 import {makeStyles} from '@material-ui/core/styles';
 import fetch from 'isomorphic-unfetch';
+import IllustrationsCarousel from '../../../components/IllustrationsCarousel';
 
 const useStyles = makeStyles({
     image: {
         width: '100%'
+    },
+    carouselWrapper: {
+        maxWidth: '800px',
+        margin: '0 auto',
     }
 });
 
@@ -20,15 +25,23 @@ const Page = props => {
             <Grid container spacing={0}>
                 <Grid item xs={12}>
                     <h1 className={classes.image}>{wpData.title.rendered}</h1>
-                    <div
+                    {/* <div
                         className="portfolio-type-description"
                         dangerouslySetInnerHTML={{
                         __html: wpData.content.rendered
-                    }}/>
+                    }}/> */}
                 </Grid>
 
-                {/* <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} /> */}
-                {illustrationProjects.map((illustrationProject) => {
+                <Grid item xs={12}>
+                    <div className={classes.carouselWrapper}>
+                        <IllustrationsCarousel examples={illustrationProjects}/>
+                    </div>
+                </Grid>
+
+                
+
+                
+                {/* {illustrationProjects.map((illustrationProject) => {
                     return (
                         <Grid item xs={12} sm={6} lg={4} className="project-snapshot" key={illustrationProject.post_title}>
 
@@ -40,7 +53,7 @@ const Page = props => {
                                 id={illustrationProject.id}/>
                         </Grid>
                     );
-                })}
+                })} */}
             </Grid>
         </Layout>
     );
