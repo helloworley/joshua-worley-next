@@ -46,10 +46,22 @@ const ResumeExperience = props => {
             </Grid>
             <Grid item xs={12} md={9}>
                 <div className={`${classes.entry} ${classes.details}`}>
+                    <strong>Project Management</strong>
+                    <ul>
+                        <li>Lead the marketing growth department’s effort in Japan, focusing on project management for content creation and marketing. This includes managing creation, translation, and measurement for Japanese and English languages for articles, social media, webinars, ebooks, videos, etc.</li>
+                        <li>Travel between Tokyo and Beijing to work with Chinese and Japanese teams to unify global retention strategies.</li>
+                        <li>Co-develop retention KPIs and OKRs with the Beijing office quarterly.</li>
+                    </ul>
+                    <strong>Digital Marketing</strong>
+                    <ul>
+                        <li>Co-develop Japanese social media strategy and set up tracking dashboards to measure marketing efforts.</li>
+                        <li>Set up social media accounts for Facebook, Twitter, LinkedIn, and YouTube in English and Japanese.</li>
+                        <li>Lead a digital marketing team to manage social media and content marketing efforts.</li>
+                        <li>Translate all copy on ptengine.com from Japanese to enter the global market.</li>
+                    </ul>
                     <strong>Frontend Engineering</strong>
                     <ul>
-                        <li>Coded the English and Japanese Ptengine (flagship product) webapps in Vue
-                            (Nuxt).
+                        <li>Coded 100% of the English and Japanese Ptengine (flagship product) web apps in Vue (Nuxt).
                             <ul>
                                 <li>
                                     <a
@@ -68,28 +80,14 @@ const ResumeExperience = props => {
                             </ul>
                         </li>
                     </ul>
-                    <strong>Digital Marketing</strong>
-                    <ul>
-                        <li>Co-developed Japanese social media strategy and set up tracking dashboards
-                            to measure marketing efforts. Set up social media accounts for Facebook,
-                            Twitter, LinkedIn, and YouTube in English and Japanese.</li>
-                        <li>Found, hired, and leading a digital marketing intern to manage all social
-                            media efforts daily.</li>
-                        <li>Travel between Tokyo and Beijing to work with Chinese and Japanese teams to
-                            unify global retention strategies.</li>
-                        <li>Co-developed retention KPIs and OKRs with Beijing office quarterly.</li>
-                        <li>Translated all copy on
-                            <a href="https://www.ptengine.com" target="_blank"> ptengine.com </a>
-                            from Japanese to enter the global market.</li>
-                    </ul>
+                    
                     <strong>Design / Photography / Videography / Branding</strong>
                     <ul>
-                        <li>Designed company branded business cards.</li>
-                        <li>Took portrait photos for all members' business cards, Intercom profiles, SNS
-                            intros, etc.
-                        </li>
-                        <li>Recorded, edited, and posted case studies for multiple success stories with
-                            clients in Japanese. Then measured their effect on sales.
+                        <li>Created UI definitions for Ptengine, including column definitions, font styles, then set up a base framework in Vue to be easily translated to code.</li>
+                        <li>Consolidated and created a brand/photography/design assets library for the company.</li>
+                        <li>Designed company-branded business cards.</li>
+                        <li>Took portrait photos for all members' business cards, Intercom profiles, SNS intros, etc.</li>
+                        <li>Recorded, edited, and posted case studies for multiple success stories with clients in Japanese. Then measured their effect on sales.
                             <ul>
                                 <li>DMM.com (coming soon)</li>
                                 <li>
@@ -100,10 +98,6 @@ const ResumeExperience = props => {
                                 </li>
                             </ul>
                         </li>
-                        <li>Created UI definitions for Ptengine, including column definitions, font
-                            styles, then set up a base framework in Vue to be easily tranlated to code.</li>
-                        <li>Consolidated and created a brand / photography / design assets library for
-                            the company.</li>
                     </ul>
                 </div>
             </Grid>
@@ -123,13 +117,19 @@ const ResumeExperience = props => {
                 <div className={`${classes.entry} ${classes.details}`}>
                     <strong>At Headquarters 2018 December - 2019 April</strong>
                     <ul>
-                        <li>Create the UI and UX for Cunard (Queen Mary 2, etc) Luxury Cruise Line’s new
-                            Japanese website.</li>
+                        <li>Created the UI and UX for Cunard (Queen Mary 2, etc) Luxury Cruise Line’s new
+                            Japanese website.
+                            <ul>
+                            <li>
+                                <a href="https://www.cunard.jp/" target="_blank">cunard.jp</a>
+                            </li>
+                            </ul>
+                        </li>
                         <li>Worked one-on-one with Cunard Japan’s CEO to understand business goals and
                             design the site to achieve them.</li>
                         <li>Proposed market strategy and customer segmentation for domestic and
                             international markets.</li>
-                        <li>Create luxury cruise experience videos for site content and social media
+                        <li>Created luxury cruise experience videos for site content and social media
                             campaigns.</li>
                     </ul>
                     <strong>Onsite Morgan Stanley 2018 January - 2018 December</strong>
