@@ -46,17 +46,29 @@ const useStyles = makeStyles(theme => ({
   },
   heading: {
     margin: '24px 0px 8px 0',
-    fontSize: '1.5em',
+    fontSize: '1em',
+    letterSpacing: '6px',
+    textAlign: 'center',
+    textTransform: 'uppercase',
     color: theme.palette.primary.main,
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'initial',
+      // display: 'none',
+    },
   },
   tabBar: {
     backgroundColor: '#fafafa',
     boxShadow: '0 4px 10px -10px gray',
     position: 'fixed',
-    top: '0'
+    top: '56px',
+    left: '0',
+    [theme.breakpoints.up('md')]: {
+      top: '0',
+      left: 'initial',
+    },
   },
   tabPanel: {
-    padding: '80px 0 0',
+    padding: '64px 0 0',
   }
 }));
 
@@ -72,7 +84,7 @@ export default function ScrollableTabsButtonAuto(props) {
     <div className={classes.root}>
       
       <AppBar position="static" className={classes.tabBar}>
-        <h1 className={classes.heading}>What I've Developed</h1>
+        <h1 className={classes.heading}>{props.title}</h1>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -109,6 +121,7 @@ export default function ScrollableTabsButtonAuto(props) {
               title={tabItem.post_title}
               date={tabItem.post_date_formatted}
               content={tabItem.post_content}
+              logo={tabItem.featured_image}
             />
           </TabPanel>
         );   

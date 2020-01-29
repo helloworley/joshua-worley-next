@@ -85,36 +85,6 @@ const menuItems = [
     name: "What I've Designed",
   },
   {
-    link: '#',
-    name: 'Portfolio',
-    children: [
-      {
-        link: '/portfolio/websites',
-        name: 'Websites',
-      },
-      {
-        link: '/portfolio/ui',
-        name: 'UI Design',
-      },
-      {
-        link: '/portfolio/print',
-        name: 'Print Design',
-      },
-      {
-        link: '/portfolio/photography',
-        name: 'Photography',
-      },
-      {
-        link: '/portfolio/logos-and-illustrations',
-        name: 'Logos and Illustrations',
-      },
-      {
-        link: '/portfolio/video',
-        name: 'Video',
-      },
-    ]
-  },
-  {
     link: '/contact',
     name: 'Contact',
   },

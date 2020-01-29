@@ -27,8 +27,8 @@ const Page = props => {
     <Layout>
       <Grid container spacing={0}>
         <Grid item xs={12} className={classes.headingGrid}>
-        <TabsNavigation 
-          links={websiteExamples} 
+        <TabsNavigation
+          links={websiteExamples}
           title="What I've Developed"
         />
         {/* <div className="portfolio-type-description" dangerouslySetInnerHTML={{ __html: pageData.content.rendered }} /> */}

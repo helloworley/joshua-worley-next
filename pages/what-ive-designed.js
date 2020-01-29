@@ -38,8 +38,8 @@ const Page = props => {
 }
 
 Page.getInitialProps = async function (context) {
-  const pageRes = await fetch(`https://jw.helloworley.com/wp-json/wp/v2/pages/12`);
-  const res = await fetch(`https://jw.helloworley.com/wp-json/headless/websites`);
+  const pageRes = await fetch(`https://jw.helloworley.com/wp-json/wp/v2/pages/15`);
+  const res = await fetch(`https://jw.helloworley.com/wp-json/headless/brand`);
   const pageData = await pageRes.json();
   const wpData = await res.json();
 
