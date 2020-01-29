@@ -142,7 +142,8 @@ figure.wp-block-table {
 
 // ui-example
 #ui-example,
-#website-example {
+#website-example,
+#page-content {
   margin-bottom: 120px;
   .wp-block-image {
     text-align: center;
@@ -255,7 +256,8 @@ figure.wp-block-table {
 
 
 // website examples 
-#website-example {
+#website-example,
+#page-content {
   .wp-block-image {
     margin: 40px 0;
     img {
