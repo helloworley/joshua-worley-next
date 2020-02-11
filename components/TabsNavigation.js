@@ -47,9 +47,7 @@ const useStyles = makeStyles(theme => ({
   heading: {
     margin: '24px 0px 8px 0',
     fontSize: '1em',
-    letterSpacing: '6px',
     textAlign: 'center',
-    textTransform: 'uppercase',
     color: theme.palette.primary.main,
     [theme.breakpoints.up('md')]: {
       textAlign: 'initial',

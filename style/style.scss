@@ -18,11 +18,12 @@ h1 {
 }
 h2 {
   font-size: 1.5em;
-  margin: 0 0 56px;
-  font-weight: 300;
+  margin: 96px 0 40px;
+  font-weight: 800;
 }
 h3 {
-  font-weight: 300;
+  font-weight: 800;
+  margin: 64px 0 24px;
 }
 
 @media(min-width: 960px) {
@@ -70,6 +71,14 @@ figure.wp-block-table {
 #home {
   h1, h2, h3, h4, h5, h6, p, div {
     color: #fff;
+  }
+  @media(min-width: 960px) {
+    h1 {
+      font-size: 5rem;
+    }
+    h2 {
+      font-size: 2.5rem;
+    }
   }
 }
 
@@ -145,13 +154,37 @@ figure.wp-block-table {
 #website-example,
 #page-content {
   margin-bottom: 120px;
+  max-width: 1200px;
+  margin: 0 auto;
   .wp-block-image {
-    text-align: center;
     img {
       margin: 24px 0 24px;
       -webkit-box-shadow: $box-shadow;
       -moz-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
+    }
+    figcaption {
+      margin: 12px 0 0;
+      color: rgba(0,0,0,.5) !important;
+      font-size: .8em;
+    }
+  }
+}
+
+#page-content {
+  .wp-block-columns {
+    display: flex;
+    justify-content: space-evenly;
+    .wp-block-column {
+        padding: 0 0 0 20px;
+      &:first-of-type {
+        padding: 0 20px 0 0;
+      }
+      .wp-block-image {
+        img {
+          margin: 0;
+        }
+      }
     }
   }
 }
@@ -208,23 +241,7 @@ figure.wp-block-table {
 }
 
 
-#page-content {
-  .wp-block-columns {
-    display: flex;
-    justify-content: space-evenly;
-    .wp-block-column {
-        padding: 0 0 0 20px;
-      &:first-of-type {
-        padding: 0 20px 0 0;
-      }
-      .wp-block-image {
-        img {
-          margin: 0;
-        }
-      }
-    }
-  }
-}
+
 
 
 
@@ -298,6 +315,7 @@ figure.wp-block-table {
 }
 
 
+
 // website examples 
 #website-example,
 #page-content {
@@ -305,6 +323,24 @@ figure.wp-block-table {
     margin: 40px 0;
     img {
       max-width: 100%;
+    }
+  }
+}
+
+// post
+.post {
+  h2,
+  h2 strong {
+    margin: 48px 0 32px;
+  }
+  p {
+    margin: 0 0 16px;
+    display: inline-block;
+  }
+  table {
+    margin: 40px 0;
+    td {
+      padding: 0 16px 8px 0;
     }
   }
 }

@@ -11,7 +11,6 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     fontSize: '2em',
-    textTransform: 'uppercase',
     letterSpacing: '8px',
 
   },
@@ -20,8 +19,11 @@ const useStyles = makeStyles(theme => ({
     fontSize: '.8em',
   },
   logo: {
-    maxWidth: '200px',
-    maxHeight: '80px',
+    maxWidth: '180px',
+    maxHeight: '100px',
+  },
+  projectIntro: {
+    margin: '0 0 64px',
   }
 }));
 
@@ -30,9 +32,11 @@ const Layout = props => {
 
   return (
     <div id="page-content">
-      <img src={props.logo} className={classes.logo}/>
-      {/* <h2 className={classes.title}>{props.title} </h2> */}
-      <p className={classes.exampleDate}>{props.date}</p>
+      <div className={classes.projectIntro}>
+        <img src={props.logo} className={classes.logo}/>
+        {/* <h2 className={classes.title}>{props.title} </h2> */}
+        <p className={classes.exampleDate}>{props.date}</p>
+      </div>
       <div>
         <div dangerouslySetInnerHTML={{ __html: props.content }}></div>
       </div>

@@ -77,12 +77,12 @@ const menuItems = [
     name: 'Resume',
   },
   {
-    link: '/what-ive-developed',
-    name: "What I've Developed",
-  },
-  {
     link: '/what-ive-designed',
     name: "What I've Designed",
+  },
+  {
+    link: '/what-ive-developed',
+    name: "What I've Developed",
   },
   {
     link: '/contact',
