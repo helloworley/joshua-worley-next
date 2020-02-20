@@ -1,17 +1,15 @@
 import '../style/style.scss'
-import { Hidden } from '@material-ui/core'
+import { Grid, Hidden } from '@material-ui/core/';
 import Layout from '../components/MyLayout';
+import ButtonWrapped from '../components/ButtonWrapped';
+import FullWidthImage from '../components/FullWidthImage';
 import { makeStyles } from '@material-ui/core/styles';
 import fetch from 'isomorphic-unfetch';
 
 const useStyles = makeStyles(theme => ({
-  h1: {
-    // fontSize: '1.9em',
-    fontWeight: '300',
+  helloText: {
+    fontSize: '3em',
     margin: '0 0 40px',
-    // [theme.breakpoints.up('md')]: {
-    //   fontSize: '3.5em',
-    // }
   },
   h2: {
     fontSize: '1.2em',
@@ -24,51 +22,76 @@ const useStyles = makeStyles(theme => ({
     margin: '0 0 8px',
   },
   centeredWrapper: {
-    textAlign: 'center',
+    width: '100%',
+    margin: '40px auto 80px',
     [theme.breakpoints.up('md')]: {
-      textAlign: 'left'
+      maxWidth: '960px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      maxWidth: '1200px',
     },
   },
-  bgImageContainer: {
-    backgroundPositionX: '580px !important',
-    backgroundSize: 'cover !important',
-    height: '100vh !important',
-    [theme.breakpoints.up('sm')]: {
-      backgroundPosition: 'right !important',
-    },
-    [theme.breakpoints.up('md')]: {
-      backgroundPosition: 'center !important',
-    },
+  homePortrait: {
+    backgroundColor: 'pink',
+    height: '200px',
+    width: '200px',
+    borderRadius: '50%',
   },
+  secondButton: {
+    margin: '0 0 0 20px',
+  },
+  headerCTAs: {
+
+  }
 }));
 
+const profileImage = '/stream-profile.png';
 
-const bgImageContainer = {
-  background: `url(/home-background.jpg)`,
-}
-const bgOverlay = {
-  backgroundColor: 'rgba(0,0,0,.3)',
-  width: '100%',
-  height: '100vh',
-}
 
 const Page = props => {
   const classes = useStyles();
   return (
-    <div style={bgImageContainer} className={classes.bgImageContainer} id="home">
-      <div style={bgOverlay}>
-        <Layout menuColor="#fff" navBackgroundColor="#333">
+    <div id="home">
+      <Layout>
+        
           <div className={classes.centeredWrapper}>
-            <Hidden mdUp>
-              <img className={classes.logo} src="/ikigai-light.svg" />
-            </Hidden>
-            <h1 className={classes.h1}>{props.wpData.title.rendered}</h1>
+            <Grid spacing={4} container justify="center">
+              <Grid item xs={12} sm={8}>
+                {/* <h1 className={classes.h1}>{props.wpData.title.rendered}</h1> */}
+                <h1 className={classes.helloText}>
+                  Hi! I’m Josh.<br/>
+                  I’m a UX Designer living in Tokyo.
+                </h1>
+
+                <div className="headerCTAs">
+                  <ButtonWrapped 
+                    text="More about me"
+                    variant="outlined" 
+                    link="/about"
+                  />
+                  <ButtonWrapped 
+                    className={classes.secondButton}
+                    text="My Resume"
+                    variant="" 
+                    link="/resume"
+                  />
+                </div>
+
+              </Grid>
+              <Grid item xs={12} sm={3}>
+                <div className={classes.homePortrait} style={{ backgroundImage: `url(${profileImage})` }}></div>
+              </Grid>
+            </Grid>
           </div>
-          <div className={classes.centeredWrapper}>
-            <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} />
-          </div>
-        </Layout>
-      </div>
+          
+          <FullWidthImage image="/tokyo-from-mori.jpg" />
+        
+
+
+          
+        
+          {/* <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} /> */}
+      </Layout>
     </div>
   )
 }

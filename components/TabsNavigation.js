@@ -55,7 +55,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
   tabBar: {
-    backgroundColor: '#fafafa',
     boxShadow: '0 4px 10px -10px gray',
     position: 'fixed',
     top: '56px',
