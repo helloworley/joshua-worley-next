@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: '0 !important'
   },
   content: {
-    margin: '120px 0 0',
+    margin: '95px 0 0',
     width: '100%',
   },
   rightPannel: {

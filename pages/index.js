@@ -1,4 +1,5 @@
 import '../style/style.scss'
+import Link from 'next/link';
 import { Grid, Hidden } from '@material-ui/core/';
 import Layout from '../components/MyLayout';
 import ButtonWrapped from '../components/ButtonWrapped';
@@ -11,19 +12,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: '3em',
     margin: '0 0 40px',
   },
-  h2: {
-    fontSize: '1.2em',
-    [theme.breakpoints.up('md')]: {
-      fontSize: '2em',
-    }
-  },
-  logo: {
-    maxWidth: '120px',
-    margin: '0 0 8px',
-  },
   centeredWrapper: {
     width: '100%',
-    margin: '40px auto 80px',
+    margin: '80px auto 80px',
     [theme.breakpoints.up('md')]: {
       maxWidth: '960px',
     },
@@ -32,17 +23,14 @@ const useStyles = makeStyles(theme => ({
     },
   },
   homePortrait: {
-    backgroundColor: 'pink',
     height: '200px',
+    cursor: 'pointer',
     width: '200px',
     borderRadius: '50%',
   },
   secondButton: {
     margin: '0 0 0 20px',
   },
-  headerCTAs: {
-
-  }
 }));
 
 const profileImage = '/stream-profile.png';
@@ -63,23 +51,23 @@ const Page = props => {
                   I’m a UX Designer living in Tokyo.
                 </h1>
 
-                <div className="headerCTAs">
-                  <ButtonWrapped 
-                    text="More about me"
-                    variant="outlined" 
-                    link="/about"
-                  />
-                  <ButtonWrapped 
-                    className={classes.secondButton}
-                    text="My Resume"
-                    variant="" 
-                    link="/resume"
-                  />
-                </div>
+                <ButtonWrapped 
+                  text="More about me"
+                  variant="outlined" 
+                  link="/about"
+                />
+                <ButtonWrapped 
+                  className={classes.secondButton}
+                  text="My Resume"
+                  variant="" 
+                  link="/resume"
+                />
 
               </Grid>
               <Grid item xs={12} sm={3}>
-                <div className={classes.homePortrait} style={{ backgroundImage: `url(${profileImage})` }}></div>
+                <Link href="/about">
+                  <div className={classes.homePortrait} style={{ backgroundImage: `url(${profileImage})` }}></div>
+                </Link>
               </Grid>
             </Grid>
           </div>

@@ -10,6 +10,16 @@ import ResumeSkills from '../components/resume/ResumeSkills';
 import ResumeAwards from '../components/resume/ResumeAwards';
 
 const useStyles = makeStyles(theme => ({
+  centeredWrapper: {
+    width: '100%',
+    margin: '120px auto 80px',
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '960px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      maxWidth: '1200px',
+    },
+  },
   heading: {
     lineHeight: 1,
   },
@@ -54,6 +64,8 @@ const Page = props => {
   return (
     <div id="resume">
       <Layout>
+      <div className={classes.centeredWrapper}>
+            
         <h1 className={classes.heading}>{props.wpData.title.rendered}</h1>
 
         <div className={classes.intro}>
@@ -100,7 +112,7 @@ const Page = props => {
           </div>
 
         </div>
-
+        </div>
       </Layout>
     </div>
 

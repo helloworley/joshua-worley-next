@@ -56,13 +56,16 @@ const useStyles = makeStyles(theme => ({
   },
   tabBar: {
     boxShadow: '0 4px 10px -10px gray',
-    position: 'fixed',
+    // position: 'fixed',
     top: '56px',
     left: '0',
     [theme.breakpoints.up('md')]: {
       top: '0',
       left: 'initial',
     },
+  },
+  barInner: {
+    backgroundColor: '#fff',
   },
   tabPanel: {
     padding: '64px 0 0',
@@ -81,7 +84,7 @@ export default function ScrollableTabsButtonAuto(props) {
     <div className={classes.root}>
       
       <AppBar position="static" className={classes.tabBar}>
-        <h1 className={classes.heading}>{props.title}</h1>
+        {/* <h1 className={classes.heading}>{props.title}</h1> */}
         <Tabs
           value={value}
           onChange={handleChange}
@@ -90,6 +93,7 @@ export default function ScrollableTabsButtonAuto(props) {
           variant="scrollable"
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
+          className={classes.barInner}
         >
           {props.links.map((tabItem, i) => { 
             return(

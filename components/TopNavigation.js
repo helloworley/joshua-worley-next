@@ -3,6 +3,12 @@ import { Text } from 'rebass';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+import navItems from '../navItems';
+import navSocials from '../navSocials';
+
+const menuItems = navItems;
+const socialItems = navSocials;
+
 
 const useStyles = makeStyles({
   navigation: {
@@ -13,6 +19,7 @@ const useStyles = makeStyles({
     position: 'fixed',
     backgroundColor: 'white',
     top: '0',
+    zIndex: '1000',
   },
   socialLogos: {
   
@@ -69,43 +76,6 @@ const useStyles = makeStyles({
   }
 });
 
-const socialItems = [
-  {
-    link: 'https://www.linkedin.com/in/joshua-worley/',
-    logoDark: '/linkedin-dark.svg',
-    logoLight: '/linkedin-white.svg',
-  },
-  {
-    link: 'https://www.facebook.com/helloworley',
-    logoDark: '/facebook-dark.svg',
-    logoLight: '/facebook-white.svg',
-  },
-  {
-    link: 'https://www.instagram.com/jshwrly/?hl=en',
-    logoDark: '/instagram-dark.svg',
-    logoLight: '/instagram-white.svg',
-  },
-]
-
-
-const menuItems = [
-  {
-    link: '/resume',
-    name: 'Resume',
-  },
-  {
-    link: '/what-ive-designed',
-    name: "What I've Designed",
-  },
-  {
-    link: '/what-ive-developed',
-    name: "What I've Developed",
-  },
-  {
-    link: '/contact',
-    name: 'Contact',
-  },
-]
 
 const getSingleMenuItem = (menuItem, menuColor) => {
   const classes = useStyles();
