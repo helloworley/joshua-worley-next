@@ -33,6 +33,8 @@ const useStyles = makeStyles({
   toolbar: {
     textAlign: 'center',
     position: 'relative',
+    backgroundColor: 'white',
+    color: '#333',
   },
   navName: {
     position: 'absolute',

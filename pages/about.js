@@ -43,8 +43,9 @@ const Page = props => {
   return (
     <div id="home">
       <Layout>
-        
+
           <div className={classes.centeredWrapper}>
+          
             <Grid spacing={10} container justify="center">
               <Grid item xs={12} sm={4}>
                 {/* <h1 className={classes.h1}>{props.wpData.title.rendered}</h1> */}

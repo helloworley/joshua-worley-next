@@ -8,12 +8,12 @@ export default [
     name: 'Resume',
   },
   {
-    link: '/what-ive-designed',
-    name: "What I've Designed",
+    link: '/branding',
+    name: "Branding",
   },
   {
-    link: '/what-ive-developed',
-    name: "What I've Developed",
+    link: '/development',
+    name: "Development",
   },
   {
     link: '/contact',

@@ -65,6 +65,9 @@ const Page = props => {
     <div id="resume">
       <Layout>
       <div className={classes.centeredWrapper}>
+      <Grid spacing={4} container justify="center">
+        <Grid item xs={12} sm={8}>
+        
             
         <h1 className={classes.heading}>{props.wpData.title.rendered}</h1>
 
@@ -112,6 +115,8 @@ const Page = props => {
           </div>
 
         </div>
+        </Grid>
+      </Grid>
         </div>
       </Layout>
     </div>

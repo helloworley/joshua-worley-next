@@ -13,17 +13,24 @@ const useStyles = makeStyles(theme => ({
     },
   },
   image: {
-    height: 240,
     backgroundColor: 'lightgray',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     color: 'white',
     margin: '0',
+    height: '400px',
+    [theme.breakpoints.up('sm')]: {
+      height: '580px',
+    },
   },
   cardDetails: {
+    height: '108px',
     padding: '5% 8%',
     position: 'relative',
-    height: '108px',
+    [theme.breakpoints.up('sm')]: {
+      padding: '3% 8%',  
+      height: '140px',
+    },
   },
   heading: {
     margin: '0',
@@ -49,7 +56,7 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-const ImageCard = props => {
+const ImageCardLarge = props => {
   const classes = useStyles();
   return (
     <Link href={`${props.urlBase}/${props.link}`}>
@@ -57,8 +64,8 @@ const ImageCard = props => {
         <div className={classes.image} style={{ backgroundImage: `url(${props.image})` }}></div>
         <div className={classes.cardDetails}>
           <Typography variant="h5" className={classes.heading}>{props.name}</Typography>
-          <Typography className={classes.date}>{props.date}</Typography>
           <Typography className={classes.brand}>{props.brand}</Typography>
+          <Typography className={classes.date}>{props.date}</Typography>
           <Typography className={classes.excerpt}>{props.excerpt}</Typography>
         </div>
       </div>
@@ -66,6 +73,6 @@ const ImageCard = props => {
   )
 };
 
-export default ImageCard;
+export default ImageCardLarge;
 
 
