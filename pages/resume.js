@@ -65,7 +65,7 @@ const Page = props => {
     <div id="resume">
       <Layout>
       <div className={classes.centeredWrapper}>
-      <Grid spacing={4} container justify="center">
+      <Grid container justify="center">
         <Grid item xs={12} sm={8}>
         
             
@@ -75,7 +75,7 @@ const Page = props => {
           <Grid container>
             <Grid item xs={12} sm={3}>
               <div className={classes.profileWrapper}>
-                <img src="/joshua-worley.jpg" alt="Joshua Worley" className={classes.profile} />
+                <img src="/profile-200221-square.jpg" alt="Joshua Worley" className={classes.profile} />
               </div>
             </Grid>
             <Grid item xs={12} sm={9}>

@@ -71,32 +71,38 @@ const ImageCardSectionFocus = props => {
         <Grid container>
           <Grid item xs={12} sm={6} md={12}>
 
-            <ImageCard
-              className={classes.imageCard}
-              name={props.projects[1].post_title}
-              brand={props.projects[1].brand}
-              link={props.projects[1].slug}
-              image={props.projects[1].featured_image}
-              date={props.projects[1].post_date_formatted}
-              excerpt={props.projects[1].post_excerpt}
-              id={props.projects[1].post_title}
-              urlBase={props.urlBase}
-            />
+            {
+              props.projects[1] &&
+              <ImageCard
+                className={classes.imageCard}
+                name={props.projects[1].post_title}
+                brand={props.projects[1].brand}
+                link={props.projects[1].slug}
+                image={props.projects[1].featured_image}
+                date={props.projects[1].post_date_formatted}
+                excerpt={props.projects[1].post_excerpt}
+                id={props.projects[1].post_title}
+                urlBase={props.urlBase}
+              />
+            }
 
           </Grid>
           <Grid item xs={12} sm={6} md={12}>
 
-            <ImageCard
-              className={classes.imageCard}
-              name={props.projects[2].post_title}
-              brand={props.projects[2].brand}
-              link={props.projects[2].slug}
-              image={props.projects[2].featured_image}
-              date={props.projects[2].post_date_formatted}
-              excerpt={props.projects[2].post_excerpt}
-              id={props.projects[2].post_title}
-              urlBase={props.urlBase}
-            />
+          {
+              props.projects[2] &&
+              <ImageCard
+                className={classes.imageCard}
+                name={props.projects[2].post_title}
+                brand={props.projects[2].brand}
+                link={props.projects[2].slug}
+                image={props.projects[2].featured_image}
+                date={props.projects[2].post_date_formatted}
+                excerpt={props.projects[2].post_excerpt}
+                id={props.projects[2].post_title}
+                urlBase={props.urlBase}
+              />
+          }
             
           </Grid>
         </Grid>

@@ -4,13 +4,46 @@ import { Grid, Hidden } from '@material-ui/core/';
 import Layout from '../components/MyLayout';
 import ButtonWrapped from '../components/ButtonWrapped';
 import FullWidthImage from '../components/FullWidthImage';
+import ImageCard from '../components/ImageCard';
 import { makeStyles } from '@material-ui/core/styles';
 import fetch from 'isomorphic-unfetch';
 
 const useStyles = makeStyles(theme => ({
   helloText: {
     fontSize: '3em',
+    margin: '0 0 10px',
+    textAlign: 'center',
+    [theme.breakpoints.up('sm')]: {
+      textAlign: 'initial',
+    }
+  },
+  moreHelloText: {
     margin: '0 0 40px',
+    textAlign: 'center',
+    [theme.breakpoints.up('sm')]: {
+      textAlign: 'initial',
+    }
+  },
+  centeredHeading: {
+    textAlign: 'center',
+    margin: '0 auto 30px'
+  },
+  projectType: {
+    margin: '0 0 50px',
+  },
+  projectTypeHeading: {
+    textAlign: 'center',
+    margin: '0 auto 30px',
+  },
+  projectTypeButtonWrapper: {
+    margin: '40px auto 0',
+    textAlign: 'center',
+  },
+  moreAboutMeLinksWrapper: {
+    textAlign: 'center',
+    [theme.breakpoints.up('sm')]: {
+      textAlign: 'initial',
+    }
   },
   centeredWrapper: {
     width: '100%',
@@ -27,13 +60,20 @@ const useStyles = makeStyles(theme => ({
     cursor: 'pointer',
     width: '200px',
     borderRadius: '50%',
+    backgroundPosition:'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    margin: '0 auto',
+    [theme.breakpoints.up('sm')]: {
+      margin: '0',
+    }
   },
   secondButton: {
     margin: '0 0 0 20px',
   },
 }));
 
-const profileImage = '/stream-profile.png';
+const profileImage = '/profile-200221-circle@2x.png';
 
 
 const Page = props => {
@@ -48,20 +88,26 @@ const Page = props => {
                 {/* <h1 className={classes.h1}>{props.wpData.title.rendered}</h1> */}
                 <h1 className={classes.helloText}>
                   Hi! I’m Josh.<br/>
-                  I’m a UX Designer living in Tokyo.
+                  I’m a UX/UI Designer living in Tokyo.
                 </h1>
+                <p className={classes.moreHelloText}>
+                  I also do Frontend Development, Marketing and Photography.
+                </p>
 
-                <ButtonWrapped 
-                  text="More about me"
-                  variant="outlined" 
-                  link="/about"
-                />
-                <ButtonWrapped 
-                  className={classes.secondButton}
-                  text="My Resume"
-                  variant="" 
-                  link="/resume"
-                />
+                <div className={classes.moreAboutMeLinksWrapper}>
+                  <ButtonWrapped 
+                    text="More about me"
+                    variant="outlined" 
+                    link="/about"
+                  />
+                  <ButtonWrapped 
+                    className={classes.secondButton}
+                    text="My Resume"
+                    variant="" 
+                    link="/resume"
+                  />
+
+                </div>
 
               </Grid>
               <Grid item xs={12} sm={3}>
@@ -73,6 +119,90 @@ const Page = props => {
           </div>
           
           <FullWidthImage image="/tokyo-from-mori.jpg" />
+
+
+          <div className={classes.centeredWrapper}>
+            <Grid spacing={4} container justify="center">
+              <Grid item xs={12}>
+                {/* <h1 className={classes.h1}>{props.wpData.title.rendered}</h1> */}
+                <h2 className={classes.centeredHeading}>
+                  Check out some of my latest work!
+                </h2>
+              </Grid>
+            </Grid>
+            <Grid spacing={4} container justify="center">
+              <Grid item xs={12} md={4}>
+                <div className={classes.projectType}>
+                  <h3 className={classes.projectTypeHeading}>UX</h3>
+                    <ImageCard
+                      className={classes.imageCard}
+                      name="Tidy Finance"
+                      brand=""
+                      link="tidy-finance"
+                      image="https://jw.helloworley.com/wp-content/uploads/2020/02/tidy-finance-feature.jpg"
+                      date="February 21, 2020"
+                      excerpt='"Grow Your Finances" - Financial Goals Mobile App Concept'
+                      id=""
+                      urlBase="ux"
+                    />
+                    <div className={classes.projectTypeButtonWrapper}>
+                      <ButtonWrapped 
+                        text="More UX Projects"
+                        variant="outlined" 
+                        link="/ux"
+                      />
+                  </div>
+                </div>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <div className={classes.projectType}>
+                  <h3 className={classes.projectTypeHeading}>Branding</h3>
+                  <ImageCard
+                    className={classes.imageCard}
+                    name="Mango Factory"
+                    brand=""
+                    link="mango-factory"
+                    image="https://jw.helloworley.com/wp-content/uploads/2014/03/mangofactory-branding.jpg"
+                    date="March 6, 2014"
+                    excerpt="Menu, Ad, Photography and Brand design for Minneapolis Sushi Restaurant. Adobe InDesign, Illustrator, Lightroom."
+                    id=""
+                    urlBase="branding"
+                  />
+                  <div className={classes.projectTypeButtonWrapper}>
+                    <ButtonWrapped 
+                      text="More Branding Projects"
+                      variant="outlined" 
+                      link="/branding"
+                    />
+                  </div>
+                </div>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <div className={classes.projectType}>
+                  <h3 className={classes.projectTypeHeading}>Development</h3>
+                  <ImageCard
+                    className={classes.imageCard}
+                    name="ptengine.jp"
+                    brand=""
+                    link="ptengine-jp"
+                    image="https://jw.helloworley.com/wp-content/uploads/2019/12/ptengine-desktop-mobile.jpg"
+                    date="December 4, 2019"
+                    excerpt="Ptengine analytics platform product website. Nuxt.js, Vue.js, Vuetify, Wordpress Rest API."
+                    id=""
+                    urlBase="development"
+                  />
+                  <div className={classes.projectTypeButtonWrapper}>
+                    <ButtonWrapped 
+                      text="More Development Projects"
+                      variant="outlined" 
+                      link="/development"
+                      className={classes.projectTypeButtonWrapper}
+                    />
+                  </div>
+                </div>
+              </Grid>
+            </Grid>
+          </div>
         
 
 

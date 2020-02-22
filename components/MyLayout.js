@@ -18,8 +18,11 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: '0 !important'
   },
   content: {
-    margin: '95px 0 0',
+    margin: '56px 0 0',
     width: '100%',
+    [theme.breakpoints.up('md')]: {
+      margin: '95px 0 0',
+    },
   },
   rightPannel: {
     overflow: 'auto',

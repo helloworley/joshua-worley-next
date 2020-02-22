@@ -57,7 +57,6 @@ const ImageCardSectionFocus = props => {
         return (
           <Grid item xs={12} sm={6} lg={4} className="project-snapshot" key={project.post_title}>
             <span key={project.post_title}>
-              <Link href="/portfolio/ui/[slug]" as={`/portfolio/ui/${project.slug}`}>
                 <a>
                   <ImageCard
                     className={classes.imageCard}
@@ -71,7 +70,7 @@ const ImageCardSectionFocus = props => {
                     urlBase={props.urlBase}
                   />
                 </a>
-              </Link>
+
             </span>
           </Grid>
         );

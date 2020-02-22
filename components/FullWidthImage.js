@@ -4,7 +4,6 @@ import { Typography } from '@material-ui/core/';
 
 const useStyles = makeStyles(theme => ({
   fullWidthImage: {
-    backgroundColor: 'pink',
     padding: '40px 0',
     height: '400px',
     backgroundPosition: 'center',

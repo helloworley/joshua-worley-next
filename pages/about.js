@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
   
 }));
 
-const profileImage = '/stream-profile-portrait.png';
+const profileImage = '/profile-200221-square.jpg';
 const logoImage = '/ikigai-dark.svg';
 
 

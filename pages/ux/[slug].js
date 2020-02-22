@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/styles';
 import Layout from '../../components/MyLayout';
-import HeroFull from '../../components/HeroFull';
 import '../../style/style.scss';
 import fetch from 'isomorphic-unfetch';
+import HeroFull from '../../components/HeroFull';
 import { Grid } from '@material-ui/core/';
 
 const useStyles = makeStyles(theme => ({
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 
 const project = props => {
-  const project = props.project.brand;
+  const project = props.project.ux;
   const classes = useStyles();
   return (
     <Layout>
@@ -40,11 +40,11 @@ const project = props => {
         <Grid spacing={4} container justify="center">
           <Grid item xs={12}>
 
-          <div id="brand-example">
-            <div className="wp-content">
-              <div dangerouslySetInnerHTML={{ __html: project.post_content }}></div>
+            <div id="page-content">
+              <div className="wp-content">
+                <div dangerouslySetInnerHTML={{ __html: project.post_content }}></div>
+              </div>
             </div>
-          </div>
 
           </Grid>
         </Grid>
@@ -56,7 +56,7 @@ const project = props => {
 
 project.getInitialProps = async function (context) {
   const { slug } = context.query;
-  const res = await fetch(`https://jw.helloworley.com/wp-json/headless/brand/${slug}`);
+  const res = await fetch(`https://jw.helloworley.com/wp-json/headless/ux/${slug}`);
   const project = await res.json();
 
   return { project };
