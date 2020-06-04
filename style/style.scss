@@ -4,6 +4,14 @@ body, html, #__next {
 
 $box-shadow: 0 10px 16px 0 rgba(205,217,231,.47);
 
+a {
+  color: salmon;
+  transition: .2s;
+  &:hover {
+    color: pink;
+  }
+}
+
 h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, small, span, td {
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   max-width: 800px;
@@ -136,6 +144,38 @@ figure.wp-block-table {
   }
 }
 
+// text on pages
+#page-content {
+  h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, small, span, td {
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: 2.8em;
+    margin: 120px auto 30px;
+    &:first-of-type {
+      margin: 0px auto 30px;  
+    }
+    & + h3,
+    & + h4 {
+      margin: 0px auto 10px;
+    }
+  }
+  h3 {
+    font-size: 2em;
+    margin: 60px auto 10px;
+    & + h4 {
+      margin: 0px auto 10px;
+    }
+  }
+  h4 {
+    font-size: 1.5em;
+    margin: 60px auto 10px;
+  }
+  .wp-block-image {
+    text-align: center;
+  }
+}
+
 
   
 
@@ -213,6 +253,7 @@ figure.wp-block-table {
 // buttons
 .wp-block-button {
   margin: 24px 0 24px;
+  text-align: center;
   a {
     background-color: #333;
     display: inline-block;
@@ -310,7 +351,7 @@ figure.wp-block-table {
 #website-example,
 #page-content {
   .wp-block-image {
-    margin: 40px 0;
+    margin: 20px 0;
     img {
       max-width: 100%;
     }

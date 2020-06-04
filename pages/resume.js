@@ -3,6 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import Layout from '../components/MyLayout';
 import { Grid } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
+import Footer from '../components/Footer';
 
 import ResumeExperience from '../components/resume/ResumeExperience';
 import ResumeEducation from '../components/resume/ResumeEducation';
@@ -79,7 +80,10 @@ const Page = props => {
               </div>
             </Grid>
             <Grid item xs={12} sm={9}>
-              <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} />
+              <h2>Joshua Worley<br/>
+                  UX UI Designer living in Shibuya, Tokyo.
+              </h2>
+              <p>Professional experience in Frontend Development, Marketing, and Photography.</p>
             </Grid>
           </Grid>
         </div>
@@ -119,6 +123,7 @@ const Page = props => {
       </Grid>
         </div>
       </Layout>
+      <Footer />
     </div>
 
   );

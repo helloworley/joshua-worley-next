@@ -5,6 +5,7 @@ import Layout from '../components/MyLayout';
 import ButtonWrapped from '../components/ButtonWrapped';
 import FullWidthImage from '../components/FullWidthImage';
 import ImageCard from '../components/ImageCard';
+import Footer from '../components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import fetch from 'isomorphic-unfetch';
 
@@ -56,9 +57,11 @@ const useStyles = makeStyles(theme => ({
     },
   },
   homePortrait: {
-    height: '200px',
     cursor: 'pointer',
-    width: '200px',
+    width: '220px',
+    maxWidth: '100%',
+    height: '220px',
+    maxHeight: '100%',
     borderRadius: '50%',
     backgroundPosition:'center',
     backgroundSize: 'cover',
@@ -84,17 +87,22 @@ const Page = props => {
         
           <div className={classes.centeredWrapper}>
             <Grid spacing={4} container justify="center">
-              <Grid item xs={12} sm={8}>
+            <Grid item xs={12} sm={3}>
+                <Link href="/about">
+                  <div className={classes.homePortrait} style={{ backgroundImage: `url(${profileImage})` }}></div>
+                </Link>
+              </Grid>
+              <Grid item xs={12} sm={9}>
                 {/* <h1 className={classes.h1}>{props.wpData.title.rendered}</h1> */}
                 <h1 className={classes.helloText}>
                   Hi! I’m Josh.<br/>
-                  I’m a UX/UI Designer living in Tokyo.
+                  I’m a UX UI Designer living in Tokyo.
                 </h1>
                 <p className={classes.moreHelloText}>
                   I also do Frontend Development, Marketing and Photography.
                 </p>
 
-                <div className={classes.moreAboutMeLinksWrapper}>
+                {/* <div className={classes.moreAboutMeLinksWrapper}>
                   <ButtonWrapped 
                     text="More about me"
                     variant="outlined" 
@@ -103,22 +111,17 @@ const Page = props => {
                   <ButtonWrapped 
                     className={classes.secondButton}
                     text="My Resume"
-                    variant="" 
+                    variant="text" 
                     link="/resume"
                   />
 
-                </div>
+                </div> */}
 
-              </Grid>
-              <Grid item xs={12} sm={3}>
-                <Link href="/about">
-                  <div className={classes.homePortrait} style={{ backgroundImage: `url(${profileImage})` }}></div>
-                </Link>
               </Grid>
             </Grid>
           </div>
           
-          <FullWidthImage image="/tokyo-from-mori.jpg" />
+          
 
 
           <div className={classes.centeredWrapper}>
@@ -133,23 +136,23 @@ const Page = props => {
             <Grid spacing={4} container justify="center">
               <Grid item xs={12} md={4}>
                 <div className={classes.projectType}>
-                  <h3 className={classes.projectTypeHeading}>UX</h3>
+                  <h3 className={classes.projectTypeHeading}>UX UI</h3>
                     <ImageCard
                       className={classes.imageCard}
                       name="Tidy Finance"
                       brand=""
                       link="tidy-finance"
-                      image="https://jw.helloworley.com/wp-content/uploads/2020/02/tidy-finance-feature.jpg"
+                      image="https://jw.helloworley.com/wp-content/uploads/2020/02/tidy-finance-feature-1.jpg"
                       date="February 21, 2020"
                       excerpt='"Grow Your Finances" - Financial Goals Mobile App Concept'
                       id=""
-                      urlBase="ux"
+                      urlBase="uxui"
                     />
                     <div className={classes.projectTypeButtonWrapper}>
                       <ButtonWrapped 
-                        text="More UX Projects"
+                        text="More UX UI Projects"
                         variant="outlined" 
-                        link="/ux"
+                        link="/uxui"
                       />
                   </div>
                 </div>
@@ -159,12 +162,12 @@ const Page = props => {
                   <h3 className={classes.projectTypeHeading}>Branding</h3>
                   <ImageCard
                     className={classes.imageCard}
-                    name="Mango Factory"
+                    name="PKMASA"
                     brand=""
-                    link="mango-factory"
-                    image="https://jw.helloworley.com/wp-content/uploads/2014/03/mangofactory-branding.jpg"
-                    date="March 6, 2014"
-                    excerpt="Menu, Ad, Photography and Brand design for Minneapolis Sushi Restaurant. Adobe InDesign, Illustrator, Lightroom."
+                    link="pkmasa"
+                    image="https://jw.helloworley.com/wp-content/uploads/2020/02/pkmasa-feature-white.png"
+                    date="September 21, 2019"
+                    excerpt="Logo and Branding kit for PKMASA, a multitalented aerobatics teacher. Adobe Illustrator, Photoshop, Sketch."
                     id=""
                     urlBase="branding"
                   />
@@ -205,11 +208,14 @@ const Page = props => {
           </div>
         
 
+          <FullWidthImage image="/tokyo-from-mori.jpg" />
+
 
           
         
           {/* <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} /> */}
       </Layout>
+      <Footer/>
     </div>
   )
 }

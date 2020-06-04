@@ -31,7 +31,6 @@ const styles = theme => ({
     margin: '-3px 0 0 8px',
     transform: 'rotate(-45deg)',
     fontSize: '18px',
-
   }
 });
 

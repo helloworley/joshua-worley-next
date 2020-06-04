@@ -5,6 +5,7 @@ import ButtonWrapped from '../components/ButtonWrapped';
 import FullWidthImage from '../components/FullWidthImage';
 import { makeStyles } from '@material-ui/core/styles';
 import fetch from 'isomorphic-unfetch';
+import Footer from '../components/Footer';
 
 const useStyles = makeStyles(theme => ({
   
@@ -69,12 +70,6 @@ const Page = props => {
                   Josh
                 </p>
 
-                <ButtonWrapped 
-                  className={classes.secondButton}
-                  text="My Resume"
-                  variant="outlined" 
-                  link="/resume"
-                />
               </Grid>
             </Grid>
           </div>
@@ -107,6 +102,7 @@ const Page = props => {
         
           {/* <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} /> */}
       </Layout>
+      <Footer />
     </div>
   )
 }

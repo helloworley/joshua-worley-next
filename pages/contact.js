@@ -4,6 +4,7 @@ import ContactForm from '../components/ContactForm';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core/';
 import '../style/style.scss'
+import Footer from '../components/Footer';
 
 const useStyles = makeStyles(theme => ({
   centeredWrapper: {
@@ -22,17 +23,20 @@ const Page = props => {
   const classes = useStyles();
   const wpData = props.wpData;
   return (
-    <Layout>
-      <div className={classes.centeredWrapper}>
-      <Grid spacing={4} container justify="center">
-        <Grid item xs={12}>
-          <h1>{wpData.title.rendered}</h1>
-          <div dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} />
-          <ContactForm />
+    <div>
+      <Layout>
+        <div className={classes.centeredWrapper}>
+        <Grid spacing={4} container justify="center">
+          <Grid item xs={12}>
+            <h1>{wpData.title.rendered}</h1>
+            <div dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} />
+            <ContactForm />
+          </Grid>
         </Grid>
-      </Grid>
-      </div>
-    </Layout>
+        </div>
+      </Layout>
+      <Footer />
+    </div>
   );
 }
 

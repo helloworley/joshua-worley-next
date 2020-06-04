@@ -5,7 +5,8 @@ import ImageCardSectionEqual from '../../components/ImageCardSectionEqual';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core/';
+import Footer from '../../components/Footer';
+
 
 const useStyles = makeStyles(theme => ({
   imageCard: {
@@ -29,21 +30,24 @@ const Page = props => {
   const brandProjects = props.brandProjects;
   const classes = useStyles();
   return (
-    <Layout>
-      <div className={classes.centeredWrapper}>
-          {/* <h1 className={classes.image}>{wpData.title.rendered}</h1> */}
-          {/* <div className="portfolio-type-description" dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} /> */}
-        <h1 className={classes.image}>Development</h1>
-        <ImageCardSectionFocus 
-          projects={props.firstThreeProjects}
-          urlBase="development"
-        />
-        <ImageCardSectionEqual
-          projects={props.remainingProjects}
-          urlBase="development"
-        />
-      </div>
-    </Layout>
+    <div>
+      <Layout>
+        <div className={classes.centeredWrapper}>
+            {/* <h1 className={classes.image}>{wpData.title.rendered}</h1> */}
+            {/* <div className="portfolio-type-description" dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} /> */}
+          <h1 className={classes.image}>Development</h1>
+          <ImageCardSectionFocus 
+            projects={props.firstThreeProjects}
+            urlBase="development"
+          />
+          <ImageCardSectionEqual
+            projects={props.remainingProjects}
+            urlBase="development"
+          />
+        </div>
+      </Layout>
+      <Footer/>
+    </div>
   );
 }
 

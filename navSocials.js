@@ -10,8 +10,13 @@ export default [
     logoLight: '/facebook-white.svg',
   },
   {
-    link: 'https://www.instagram.com/ohmyjoshworley/?hl=en',
+    link: 'https://www.instagram.com/jshwrly/?hl=en',
     logoDark: '/instagram-dark.svg',
     logoLight: '/instagram-white.svg',
+  },
+  {
+    link: 'https://github.com/helloworley',
+    logoDark: '/github.svg',
+    logoLight: '/github.svg',
   },
 ]

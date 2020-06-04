@@ -6,6 +6,7 @@ import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core/';
+import Footer from '../../components/Footer';
 
 const useStyles = makeStyles(theme => ({
   imageCard: {
@@ -27,21 +28,24 @@ const useStyles = makeStyles(theme => ({
 const Page = props => {
   const classes = useStyles();
   return (
-    <Layout>
-      <div className={classes.centeredWrapper}>
-          {/* <h1 className={classes.image}>{wpData.title.rendered}</h1> */}
-          {/* <div className="portfolio-type-description" dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} /> */}
-        <h1 className={classes.image}>UX</h1>
-        <ImageCardSectionFocus 
-          projects={props.firstThreeProjects}
-          urlBase="ux"
-        />
-        <ImageCardSectionEqual
-          projects={props.remainingProjects}
-          urlBase="ux"
-        />
-      </div>
-    </Layout>
+    <div>
+      <Layout>
+        <div className={classes.centeredWrapper}>
+            {/* <h1 className={classes.image}>{wpData.title.rendered}</h1> */}
+            {/* <div className="portfolio-type-description" dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} /> */}
+          <h1 className={classes.image}>UX UI</h1>
+          <ImageCardSectionFocus 
+            projects={props.firstThreeProjects}
+            urlBase="uxui"
+          />
+          <ImageCardSectionEqual
+            projects={props.remainingProjects}
+            urlBase="uxui"
+          />
+        </div>
+      </Layout>
+      <Footer />
+    </div>
   );
 }
 

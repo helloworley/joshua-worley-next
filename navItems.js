@@ -1,7 +1,7 @@
 export default [
   {
-    link: '/ux',
-    name: "UX",
+    link: '/uxui',
+    name: "UX UI",
   },
   {
     link: '/branding',
@@ -14,10 +14,6 @@ export default [
   {
     link: '/about',
     name: 'About',
-  },
-  {
-    link: '/resume',
-    name: 'Resume',
   },
   {
     link: '/contact',

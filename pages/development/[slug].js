@@ -3,6 +3,8 @@ import Layout from '../../components/MyLayout';
 import '../../style/style.scss';
 import fetch from 'isomorphic-unfetch';
 import { Grid } from '@material-ui/core/';
+import BackToExamples from '../../components/BackToExamples';
+import Footer from '../../components/Footer';
 
 const useStyles = makeStyles(theme => ({
   exampleDate: {
@@ -21,6 +23,9 @@ const useStyles = makeStyles(theme => ({
       maxWidth: '1200px',
     },
   },
+  devExample: {
+    padding: '20px 0 0',
+  }
 }));
 
 
@@ -28,24 +33,32 @@ const devExample = props => {
   const devExample = props.devExample.website;
   const classes = useStyles();
   return (
-    <Layout>
-      <div className={classes.centeredWrapper}>
-        <Grid spacing={4} container justify="center">
-          <Grid item xs={12}>
+    <div>
+      <Layout>
+        <div className={classes.centeredWrapper}>
+          <Grid spacing={4} container justify="center">
+            <Grid item xs={12}>
 
-          <div id="brand-example">
-            <h1>{devExample.post_title} <span className={classes.exampleDate}>{devExample.post_date_formatted}</span></h1>
-            <div className="wp-content">
-              <div dangerouslySetInnerHTML={{ __html: devExample.post_content }}></div>
+            <div id="development-example" className={classes.devExample}>
+              <h1>{devExample.post_title} <span className={classes.exampleDate}>{devExample.post_date_formatted}</span></h1>
+              <div className="wp-content">
+                <div dangerouslySetInnerHTML={{ __html: devExample.post_content }}></div>
+                <BackToExamples
+                  link="/development"
+                  text="More Development Projects"
+                />
+              </div>
             </div>
-          </div>
 
 
 
+            </Grid>
           </Grid>
-        </Grid>
-      </div>
-    </Layout>
+        </div>
+      </Layout>
+      <Footer />
+
+    </div>
 
   )
 };

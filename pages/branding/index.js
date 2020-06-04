@@ -6,6 +6,7 @@ import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core/';
+import Footer from '../../components/Footer';
 
 const useStyles = makeStyles(theme => ({
   imageCard: {
@@ -25,33 +26,29 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Page = props => {
-  const wpData = props.wpData;
-  const firstThreeProjects = props.firstThreeProjects;
-  const remainingProjects = props.remainingProjects;
   const classes = useStyles();
   return (
-    <Layout>
-      <div className={classes.centeredWrapper}>
-        {/* <h1 className={classes.image}>{wpData.title.rendered}</h1> */}
-        {/* <div className="portfolio-type-description" dangerouslySetInnerHTML={{ __html: wpData.content.rendered }} /> */}
-      <h1 className={classes.image}>Branding</h1>
-        <ImageCardSectionFocus 
-          projects={props.firstThreeProjects}
-          urlBase="branding"
-        />
-        <ImageCardSectionEqual
-          projects={props.remainingProjects}
-          urlBase="branding"
-        />
-      </div>
-    </Layout>
+    <div>
+      <Layout>
+        <div className={classes.centeredWrapper}>
+        <h1 className={classes.image}>Branding</h1>
+          <ImageCardSectionFocus 
+            projects={props.firstThreeProjects}
+            urlBase="branding"
+          />
+          <ImageCardSectionEqual
+            projects={props.remainingProjects}
+            urlBase="branding"
+          />
+        </div>
+      </Layout>
+      <Footer />
+    </div>
   );
 }
 
 Page.getInitialProps = async function (context) {
-  const wpRes = await fetch(`https://jw.helloworley.com/wp-json/wp/v2/pages/15`);
   const headlessRes = await fetch(`https://jw.helloworley.com/wp-json/headless/brand`);
-  const wpData = await wpRes.json();
   const headlessData = await headlessRes.json();
 
   const brandProjects = headlessData.map(entry => entry);
@@ -59,7 +56,6 @@ Page.getInitialProps = async function (context) {
   const remainingProjects = brandProjects.slice(3, 9);
 
   return {
-    wpData: wpData,
     firstThreeProjects: firstThreeProjects,
     remainingProjects: remainingProjects,
   };

@@ -3,7 +3,9 @@ import Layout from '../../components/MyLayout';
 import '../../style/style.scss';
 import fetch from 'isomorphic-unfetch';
 import HeroFull from '../../components/HeroFull';
+import BackToExamples from '../../components/BackToExamples';
 import { Grid } from '@material-ui/core/';
+import Footer from '../../components/Footer';
 
 const useStyles = makeStyles(theme => ({
   exampleDate: {
@@ -29,27 +31,34 @@ const project = props => {
   const project = props.project.ux;
   const classes = useStyles();
   return (
-    <Layout>
-      <HeroFull
-        title={project.post_title}
-        excerpt={project.post_excerpt}
-        date={project.post_date_formatted}
-        image={project.featured_image}
-      />
-      <div className={classes.centeredWrapper}>
-        <Grid spacing={4} container justify="center">
-          <Grid item xs={12}>
+    <div>
+      <Layout>
+        <HeroFull
+          title={project.post_title}
+          excerpt={project.post_excerpt}
+          date={project.post_date_formatted}
+          image={project.featured_image}
+        />
+        <div className={classes.centeredWrapper}>
+          <Grid spacing={4} container justify="center">
+            <Grid item xs={12}>
 
-            <div id="page-content">
-              <div className="wp-content">
-                <div dangerouslySetInnerHTML={{ __html: project.post_content }}></div>
+              <div id="page-content">
+                <div className="wp-content">
+                  <div dangerouslySetInnerHTML={{ __html: project.post_content }}></div>
+                  <BackToExamples
+                    link="/uxui"
+                    text="More UX UI Projects"
+                  />
+                </div>
               </div>
-            </div>
 
+            </Grid>
           </Grid>
-        </Grid>
-      </div>
-    </Layout>
+        </div>
+      </Layout>
+      <Footer />
+    </div>
 
   )
 };
