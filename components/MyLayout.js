@@ -1,8 +1,12 @@
-
+import { useEffect } from 'react';
 import TopNavigation from './TopNavigation';
 import { Grid, Hidden } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import MobileNav from './MobileNav';
+
+// GA
+import React from 'react';
+import { initGA, logPageView } from '../utils/analytics';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -40,6 +44,15 @@ const useStyles = makeStyles(theme => ({
 
 const Layout = props => {
   const classes = useStyles();
+
+  useEffect(() => {
+    // code to run on component mount
+    if (!window.GA_INITIALIZED) {
+      initGA()
+      window.GA_INITIALIZED = true
+    }
+    logPageView()
+  }, [])
 
   return (
     <>
