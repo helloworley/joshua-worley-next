@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
   heading: {
     fontSize: '16px',
     marginBottom: '10px',
+    fontWeight: '600'
   },
   logo: {
     maxWidth: '70px',
@@ -35,8 +36,11 @@ const useStyles = makeStyles(theme => ({
     }
   },
   heroImg: {
-    backgroundColor: 'pink',
     minHeight: minHeightXs,
+    backgroundImage: 'url(/bamboo-forest.jpg)',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'bottom',
     [theme.breakpoints.up('sm')]: {
       minHeight: minHeightSm,
     },
@@ -45,9 +49,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   info: {
-    // borderTop: `solid 1px ${theme.colors.line}`,
+    borderTop: `solid 1px ${theme.colors.line}`,
     paddingTop: '30px',
     maxWidth: '420px',
+    margin: '0 auto'
   }
 }));
 
@@ -62,12 +67,10 @@ const Hero = props => {
             <h2 className={classes.heading}>Building the future through digital design.</h2>
             <p>Web / App / UX / UI Designer & Frontend Developer.<br/>
               Joshua Worley solves complicated problems with simple solutions.
-              test
             </p>
           </div>
         </Grid>
         <Grid item xs={12} md={6} className={classes.heroImg}>
-          <h1>Test</h1>
         </Grid>
       </Grid>
     </div> 

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Text } from 'rebass';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -93,13 +92,7 @@ const getMenuChildren = (name, menuChildren, menuColor) => {
   const classes = useStyles();
   return (
     <span>
-      <Text
-        sx={{
-          color: '#bababa'
-        }}
-      >
-        {name}
-      </Text>
+      <Typography>{name}</Typography>
       <ul>
         {menuChildren.map(childItem => (
           <li key={childItem.name} className={classes.listItem}>
