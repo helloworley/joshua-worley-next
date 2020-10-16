@@ -8,6 +8,7 @@ import ImageCard from '../components/ImageCard';
 import Footer from '../components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import fetch from 'isomorphic-unfetch';
+import Hero from '../components/layout/Hero'
 
 const useStyles = makeStyles(theme => ({
   helloText: {
@@ -46,16 +47,7 @@ const useStyles = makeStyles(theme => ({
       textAlign: 'initial',
     }
   },
-  centeredWrapper: {
-    width: '100%',
-    margin: '80px auto 80px',
-    [theme.breakpoints.up('md')]: {
-      maxWidth: '960px',
-    },
-    [theme.breakpoints.up('lg')]: {
-      maxWidth: '1200px',
-    },
-  },
+  
   homePortrait: {
     cursor: 'pointer',
     width: '220px',
@@ -84,42 +76,9 @@ const Page = props => {
   return (
     <div id="home">
       <Layout>
+        <Hero />
         
-          <div className={classes.centeredWrapper}>
-            <Grid spacing={4} container justify="center">
-            <Grid item xs={12} sm={3}>
-                <Link href="/about">
-                  <div className={classes.homePortrait} style={{ backgroundImage: `url(${profileImage})` }}></div>
-                </Link>
-              </Grid>
-              <Grid item xs={12} sm={9}>
-                {/* <h1 className={classes.h1}>{props.wpData.title.rendered}</h1> */}
-                <h1 className={classes.helloText}>
-                  Hi! I’m Josh.<br/>
-                  I’m a UX UI Designer living in Tokyo.
-                </h1>
-                <p className={classes.moreHelloText}>
-                  I also do Frontend Development, Marketing and Photography.
-                </p>
-
-                {/* <div className={classes.moreAboutMeLinksWrapper}>
-                  <ButtonWrapped 
-                    text="More about me"
-                    variant="outlined" 
-                    link="/about"
-                  />
-                  <ButtonWrapped 
-                    className={classes.secondButton}
-                    text="My Resume"
-                    variant="text" 
-                    link="/resume"
-                  />
-
-                </div> */}
-
-              </Grid>
-            </Grid>
-          </div>
+        
           
           
 

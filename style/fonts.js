@@ -2,15 +2,14 @@ const FontFaceObserver = require('fontfaceobserver')
 
 const Fonts = () => {
   const link = document.createElement('link')
-  link.href = 'https://fonts.googleapis.com/css?family=Lato&display=swap'
+  link.href = 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap'
   link.rel = 'stylesheet'
-
   document.head.appendChild(link)
 
-  const roboto = new FontFaceObserver('Roboto')
+  const lato = new FontFaceObserver('Lato')
 
-  roboto.load().then(() => {
-    document.documentElement.classList.add('roboto')
+  lato.load().then(() => {
+    document.documentElement.classList.add('lato')
   })
 }
 

@@ -56,7 +56,7 @@ const Page = props => {
               <Grid item xs={12} sm={8}>
                 <h2>Background</h2>
                 <p>
-                  Hi! I’m Josh. I’m a UX Designer living in Tokyo for 5 years. Over those past 5 years, I’ve grown as a designer, marketer, engineer, bilingual and overall okay human being.
+                  Hi! I’m notJosh. I’m a UX Designer living in Tokyo for 5 years. Over those past 5 years, I’ve grown as a designer, marketer, engineer, bilingual and overall okay human being.
                   <br/><br/>
                   The son of a US military family, I was accidentally born in Okinawa, Japan in 1992. We then left when I was 2 years old, moving all across the United States to places like North Carolina, Alaska, California, Florida, and Minnesota (Alaska was the best, and no people don’t live in igloos).
                   <br/><br/>

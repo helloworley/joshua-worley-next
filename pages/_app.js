@@ -6,23 +6,12 @@ import Fonts from '../style/fonts';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Head from 'next/head';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import themeStyles from '../style/theme'
 
 
 
 const theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: '#fff',
-      main: '#333',
-      dark: '#000'
-    },
-    secondary: {
-      main: '#f44336',
-    },
-  },
-  typography: {
-    useNextVariants: true
-  }
+  ...themeStyles
 });
 class MyApp extends App {
   componentDidMount() {
@@ -37,7 +26,7 @@ class MyApp extends App {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="shortcut icon" href="/static/favicon.ico" />
-        <title>Joshua Worley</title>
+        {/* <title>Joshua Worley</title> */}
       </Head>
         <CssBaseline />
         <MuiThemeProvider theme={theme}>
