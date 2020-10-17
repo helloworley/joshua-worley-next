@@ -85,31 +85,15 @@ figure.wp-block-table {
 }
 
 
-
-
-
-// resume
-#resume {
-  #resume-entries {
-    li {
-      text-align: left;
-    }
-    .MuiGrid-container {
-      .MuiGrid-root {
-        // margin: 0 0 80px !important;
-        
-      }
-    }
-  }
-  h2 {
-    margin: 0 0 24px;
-    max-width: 100%;
-  }
-  h3 {
-    font-weight: 300;
-    margin: 0 0 24px;
-  }
+.section-wrapper {
+ max-width: 1080px; 
+ margin: 0 auto;
 }
+
+
+
+
+
 
 // cards
 .image-card {
@@ -133,21 +117,6 @@ figure.wp-block-table {
     &:hover {
       color: pink;
     }
-  }
-}
-
-
-// WP Content
-.wp-content {
-  max-width: 100%;
-  figure {
-    &.wp-block-image {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
-  img {
-    max-width: 100%;
   }
 }
 
@@ -257,36 +226,6 @@ figure.wp-block-table {
 
 
 
-// buttons
-.wp-block-button {
-  margin: 24px 0 24px;
-  text-align: center;
-  a {
-    background-color: #333;
-    display: inline-block;
-    padding: 12px 24px;
-    color: #fff;
-    border-radius: 4px;
-    border: solid 1px #333;
-    transition: .2s;
-    box-shadow: 0 10px 16px 0 rgba(205, 217, 231, 0.47);
-    -webkit-box-shadow: 0 10px 16px 0 rgba(205, 217, 231, 0.47);
-    &:hover {
-      background-color: #fff;
-      color: #333;
-    }
-  }
-}
-
-
-
-
-
-
-
-
-
-
 // carousel
 .carousel {
   &.carousel-slider {
@@ -352,33 +291,3 @@ figure.wp-block-table {
   }
 }
 
-
-
-// website examples 
-#website-example,
-#page-content {
-  .wp-block-image {
-    margin: 20px 0;
-    img {
-      max-width: 100%;
-    }
-  }
-}
-
-// post
-.post {
-  h2,
-  h2 strong {
-    margin: 48px 0 32px;
-  }
-  p {
-    margin: 0 0 16px;
-    display: inline-block;
-  }
-  table {
-    margin: 40px 0;
-    td {
-      padding: 0 16px 8px 0;
-    }
-  }
-}

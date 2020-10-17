@@ -21,6 +21,11 @@ const themeStyles = {
     primary: '#333',
     line: '#C4C4C4'
   },
+  padding: {
+    xs: '60px 20px',
+    sm: '60px 40px',
+    md: '60px 0',
+  },
   colors: {
     text: '#000',
     background: '#fff',
