@@ -10,6 +10,7 @@ import Footer from '../components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import fetch from 'isomorphic-unfetch';
 import Hero from '../components/layout/Hero'
+import About from '../components/About'
 
 const client = require('contentful').createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -74,17 +75,33 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const types = [
+  'about',
+]
+
 
 const Page = props => {
   const classes = useStyles();
 
   async function fetchEntries() {
-    const entries = await client.getEntries()
-    if (entries.items) return entries.items
-    console.log(`Error getting Entries for ${contentType.name}`)
+    for (const type of types) {
+      const entries = await client.getEntries({
+        content_type: type,
+        locale: '*'
+      }).catch((error) => {
+        console.error(error);
+      })
+      console.log('entries', entries)
+      if (entries.items) return entries.items
+      console.log(`Error getting Entries for ${contentType.name}`)
+    }
   }
 
+  // Data from Contentful
   const [ about, setPosts] = useState([])
+  const aboutObj = about.length > 0 ? about[0].fields : null
+  
+  console.log('about', aboutObj)
 
   useEffect(() => {
     async function getPosts() {
@@ -98,8 +115,17 @@ const Page = props => {
     <div id="home">
       <Layout>
         <Hero />
+
+        {about.length > 0 ? 
+          <About
+            imgSrc={aboutObj.image["en-US"].fields.file["en-US"].url}
+            imageAbout=""
+            content={aboutObj.introduction["en-US"].content}
+            resumeLink={aboutObj.resume["en-US"].fields.file["en-US"].url}
+            resumeAbout={aboutObj.resume["en-US"].fields.description["en-US"]}
+          />
+        : null}
         
-        {about.length > 0 ? <h1>{about.introduction}</h1>: null}
         
         <ButtonWrapped 
           text="More Development Projects"

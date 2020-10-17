@@ -15,13 +15,20 @@ const useStyles = makeStyles(theme => ({
 
 const ButtonWrapped = props => {
   const classes = useStyles();
-  return (
-    <span className={classes.buttonWrapped}>
-      <Link href={props.link}>
-        <Button className={classes.button} variant={props.variant}>{props.text}</Button>
-      </Link>
-    </span>
-  )
+  if (props.link.indexOf('/') !== 0 ) {
+    return (
+      <span className={classes.buttonWrapped}>
+        <Link href={props.link}>
+          <Button className={classes.button} variant={props.variant}>{props.text}</Button>
+        </Link>
+      </span>
+    )
+  }
+  return <span className={classes.buttonWrapped}>
+    <a target="_blank" href={props.link}>
+      <Button className={classes.button} variant={props.variant}>{props.text}</Button>  
+    </a>
+  </span>
 };
 
 export default ButtonWrapped;
