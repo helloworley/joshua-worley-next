@@ -13,10 +13,9 @@ import Hero from '../components/sections/Hero'
 import About from '../components/sections/About'
 import ServicesOffered from '../components/sections/ServicesOffered'
 
-const client = require('contentful').createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
-})
+import fetchAbout from '../helpers/fetchAbout'
+import fetchServicesOffered from '../helpers/fetchServicesOffered'
+
 
 const useStyles = makeStyles(theme => ({
   centeredHeading: {
@@ -32,65 +31,64 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const types = [
-  'about',
-]
-
-
 const Page = props => {
   const classes = useStyles();
 
-  async function fetchEntries() {
-    for (const type of types) {
-      const entries = await client.getEntries({
-        content_type: type,
-        locale: '*'
-      }).catch((error) => {
-        console.error(error);
-      })
-      console.log('entries', entries)
-      if (entries.items) return entries.items
-      console.log(`Error getting Entries for ${contentType.name}`)
-    }
-  }
 
-  // Data from Contentful
-  const [ about, setPosts] = useState([])
-  const aboutObj = about.length > 0 ? about[0].fields : null
   
-  console.log('about', aboutObj)
+  // Data from Contentful
+  const [ contentfulData, setPosts ] = useState([])
+  const contentfulDataCheck = Object.entries(contentfulData).length !== 0 
+  
+  console.log('serviceOffered', contentfulData.servicesOffered)
+  
 
   useEffect(() => {
     async function getPosts() {
-      const allPosts = await fetchEntries()
-      setPosts([...allPosts])
+      // about
+      const about = await fetchAbout()
+      // services offered
+      let servicesOffered = []
+      await fetchServicesOffered().then(
+       res => {
+        res.map( service => {
+          servicesOffered.push(service.fields)
+        })
+       }
+      )
+
+      setPosts({
+        about: about[0].fields,
+        servicesOffered: servicesOffered
+      })
     }
     getPosts()
   }, [])
+
+
 
   return (
     <div id="home">
       <Layout>
         
-        { about.length > 0 ? 
+        { contentfulDataCheck ? 
           <Hero 
-            resumeLink={aboutObj.resume["en-US"].fields.file["en-US"].url}
+            resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}
           />
         : null}
         
 
-        {about.length > 0 ? 
+        { contentfulDataCheck ? 
           <About
-            imgSrc={aboutObj.image["en-US"].fields.file["en-US"].url}
+            imgSrc={contentfulData.about.image["en-US"].fields.file["en-US"].url}
             imageAbout=""
-            content={aboutObj.introduction["en-US"].content}
-            resumeLink={aboutObj.resume["en-US"].fields.file["en-US"].url}
-            resumeAbout={aboutObj.resume["en-US"].fields.description["en-US"]}
+            content={contentfulData.about.introduction["en-US"].content}
+            resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}
+            resumeAbout={contentfulData.about.resume["en-US"].fields.description["en-US"]}
           />
         : null}
 
         <ServicesOffered />
-        
         
         <ButtonWrapped 
           text="More Development Projects"
@@ -98,7 +96,7 @@ const Page = props => {
           link="/development"
         />
 
-          <FullWidthImage image="/tokyo-from-mori.jpg" />
+          {/* <FullWidthImage image="/tokyo-from-mori.jpg" /> */}
 
           {/* <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} /> */}
       </Layout>
