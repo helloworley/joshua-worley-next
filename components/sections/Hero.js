@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core/';
-import Link from 'next/link';
+import ButtonWrapped from '../ButtonWrapped'
+import Socials from '../Socials'
 
 const minHeightXs = '375px';
 const minHeightSm = '520px';
@@ -53,6 +54,9 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '30px',
     maxWidth: '420px',
     margin: '0 auto'
+  },
+  socialsWrapper: {
+    textAlign: 'center'
   }
 }));
 
@@ -68,6 +72,15 @@ const Hero = props => {
             <p>Web / App / UX / UI Designer & Frontend Developer.<br/>
               Joshua Worley solves complicated problems with simple solutions.
             </p>
+            <ButtonWrapped 
+              text="Resume"
+              variant="outlined" 
+              link={props.resumeLink}
+              className={classes.projectTypeButtonWrapper}
+            />
+            <div className={classes.socialsWrapper}>
+              <Socials />
+            </div>
           </div>
         </Grid>
         <Grid item xs={12} md={6} className={classes.heroImg}>

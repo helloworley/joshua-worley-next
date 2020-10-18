@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Socials from './Socials'
 
 import navItems from '../navItems';
 import navSocials from '../navSocials';
@@ -20,24 +21,6 @@ const useStyles = makeStyles({
     backgroundColor: 'white',
     top: '0',
     zIndex: '1000',
-  },
-  socialLogos: {
-  
-    bottom: '40px',
-    left: '0',
-  },
-  socialsList: {
-    display: 'flex',
-    padding: '0',
-  },
-  socialsListItem: {
-    listStyle: 'none',
-    margin: '0 20px 0 0'
-  },
-  socialLogo: {
-    height: '12px',
-    width: 'auto',
-    margin: '8px 0 0 0',
   },
   list: {
     margin: 0,
@@ -131,17 +114,7 @@ const TopNavigation = props => {
             </li>
           ))}
         </ul>
-        <div className={classes.socialLogos}>
-            <ul className={classes.socialsList}>
-              {socialItems.map(socialItem => (
-                <li className={classes.socialsListItem} key={socialItem.logoDark}>
-                  <a href={socialItem.link} target="_blank">
-                    <img className={classes.socialLogo} src={socialItem.logoDark}/>
-                  </a>
-                </li>  
-              ))}
-            </ul>
-        </div>
+        <Socials />
 
       </div>
     </div>

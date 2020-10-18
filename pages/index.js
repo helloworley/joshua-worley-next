@@ -9,8 +9,9 @@ import ImageCard from '../components/ImageCard';
 import Footer from '../components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import fetch from 'isomorphic-unfetch';
-import Hero from '../components/layout/Hero'
-import About from '../components/About'
+import Hero from '../components/sections/Hero'
+import About from '../components/sections/About'
+import ServicesOffered from '../components/sections/ServicesOffered'
 
 const client = require('contentful').createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -18,21 +19,6 @@ const client = require('contentful').createClient({
 })
 
 const useStyles = makeStyles(theme => ({
-  helloText: {
-    fontSize: '3em',
-    margin: '0 0 10px',
-    textAlign: 'center',
-    [theme.breakpoints.up('sm')]: {
-      textAlign: 'initial',
-    }
-  },
-  moreHelloText: {
-    margin: '0 0 40px',
-    textAlign: 'center',
-    [theme.breakpoints.up('sm')]: {
-      textAlign: 'initial',
-    }
-  },
   centeredHeading: {
     textAlign: 'center',
     margin: '0 auto 30px'
@@ -43,35 +29,6 @@ const useStyles = makeStyles(theme => ({
   projectTypeHeading: {
     textAlign: 'center',
     margin: '0 auto 30px',
-  },
-  projectTypeButtonWrapper: {
-    margin: '40px auto 0',
-    textAlign: 'center',
-  },
-  moreAboutMeLinksWrapper: {
-    textAlign: 'center',
-    [theme.breakpoints.up('sm')]: {
-      textAlign: 'initial',
-    }
-  },
-  
-  homePortrait: {
-    cursor: 'pointer',
-    width: '220px',
-    maxWidth: '100%',
-    height: '220px',
-    maxHeight: '100%',
-    borderRadius: '50%',
-    backgroundPosition:'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    margin: '0 auto',
-    [theme.breakpoints.up('sm')]: {
-      margin: '0',
-    }
-  },
-  secondButton: {
-    margin: '0 0 0 20px',
   },
 }));
 
@@ -114,7 +71,13 @@ const Page = props => {
   return (
     <div id="home">
       <Layout>
-        <Hero />
+        
+        { about.length > 0 ? 
+          <Hero 
+            resumeLink={aboutObj.resume["en-US"].fields.file["en-US"].url}
+          />
+        : null}
+        
 
         {about.length > 0 ? 
           <About
@@ -125,13 +88,14 @@ const Page = props => {
             resumeAbout={aboutObj.resume["en-US"].fields.description["en-US"]}
           />
         : null}
+
+        <ServicesOffered />
         
         
         <ButtonWrapped 
           text="More Development Projects"
           variant="outlined" 
           link="/development"
-          className={classes.projectTypeButtonWrapper}
         />
 
           <FullWidthImage image="/tokyo-from-mori.jpg" />

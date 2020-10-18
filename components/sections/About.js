@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button } from '@material-ui/core/';
-import ContentfulToHTML from '../helpers/ContentfulToHTML'
-import ButtonWrapped from '../components/ButtonWrapped'
-import SectionHeading from '../components/layout/SectionHeading'
+import ContentfulToHTML from '../../helpers/ContentfulToHTML'
+import ButtonWrapped from '../ButtonWrapped'
+import SectionHeading from '../layout/SectionHeading'
 
 
 const useStyles = makeStyles(theme => ({

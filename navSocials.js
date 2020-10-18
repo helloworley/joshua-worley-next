@@ -1,22 +1,18 @@
 export default [
   {
     link: 'https://www.linkedin.com/in/joshua-worley/',
-    logoDark: '/linkedin-dark.svg',
-    logoLight: '/linkedin-white.svg',
+    logo: '/linkedin-dark.svg',
   },
   {
     link: 'https://www.facebook.com/helloworley',
-    logoDark: '/facebook-dark.svg',
-    logoLight: '/facebook-white.svg',
+    logo: '/facebook-dark.svg',
   },
   {
     link: 'https://www.instagram.com/jshwrly/?hl=en',
-    logoDark: '/instagram-dark.svg',
-    logoLight: '/instagram-white.svg',
+    logo: '/instagram-dark.svg',
   },
   {
     link: 'https://github.com/helloworley',
-    logoDark: '/github.svg',
-    logoLight: '/github.svg',
+    logo: '/github.svg',
   },
 ]

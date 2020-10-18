@@ -3,6 +3,7 @@ import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import navItems from '../navItems';
 import navSocials from '../navSocials';
+import Socials from './Socials'
 
 const menuItems = navItems;
 const socialItems = navSocials;
@@ -11,30 +12,6 @@ const socialItems = navSocials;
 const useStyles = makeStyles({
   navigation: {
     padding: '32px',
-  },
-  socialLogos: {
-    position: 'absolute',
-    bottom: '40px',
-    left: '0',
-  },
-  socialsList: {
-    display: 'flex',
-  },
-  socialsListItem: {
-    listStyle: 'none',
-    margin: '0 12px 0 0'
-  },
-  socialLogo: {
-    height: '12px',
-    width: 'auto',
-  },
-  list: {
-    margin: 0,
-    padding: '64px 0 0',
-  },
-  listItem: {
-    listStyle: 'none',
-    padding: '6px 0',
   },
   linkStyle: {
     textDecoration: 'none',
@@ -96,14 +73,6 @@ function logo(color) {
   return "/ikigai-dark.svg";
 }
 
-function socialLogo(color, lightLogo, darkLogo) {
-  if (color == '#fff') {
-    return lightLogo;
-  }
-  return darkLogo;
-}
-
-
 const Navigation = props => {
   const classes = useStyles();
   return (
@@ -123,17 +92,7 @@ const Navigation = props => {
           </li>
         ))}
       </ul>
-      <div className={classes.socialLogos}>
-          <ul className={classes.socialsList}>
-            {socialItems.map(socialItem => (
-              <li className={classes.socialsListItem} key={socialItem.logoDark}>
-                <a href={socialItem.link} target="_blank">
-                  <img className={classes.socialLogo} src={socialLogo(props.menuColor, socialItem.logoLight, socialItem.logoDark)} />
-                </a>
-              </li>  
-            ))}
-          </ul>
-      </div>
+      <Socials />
     </div>
 
   )
