@@ -13,8 +13,8 @@ import Hero from '../components/sections/Hero'
 import About from '../components/sections/About'
 import ServicesOffered from '../components/sections/ServicesOffered'
 
-import fetchAbout from '../helpers/fetchAbout'
-import fetchServicesOffered from '../helpers/fetchServicesOffered'
+import fetchAbout from '../contentful/fetchAbout'
+import fetchServicesOffered from '../contentful/fetchServicesOffered'
 
 
 const useStyles = makeStyles(theme => ({
