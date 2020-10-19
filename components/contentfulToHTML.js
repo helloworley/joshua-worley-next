@@ -1,5 +1,3 @@
-import React from 'react';
-
 // custom
 import { makeStyles } from '@material-ui/core/styles';
 
