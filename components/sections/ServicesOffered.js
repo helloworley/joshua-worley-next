@@ -1,7 +1,7 @@
 
 import { makeStyles } from '@material-ui/core/styles';
 import SectionHeading from '../layout/SectionHeading'
-import ContentfulToHTML from '../ContentfulToHTML'
+import ContentfulToHTML from '../ContentfulToHTML.js'
 import { useState } from 'react';
 
 import FormControl from '@material-ui/core/FormControl';
