@@ -4,6 +4,11 @@ import SectionHeading from '../layout/SectionHeading'
 import ContentfulToHTML from '../../helpers/ContentfulToHTML'
 import { useState } from 'react';
 
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 const useStyles = makeStyles(theme => ({
   servicesOffered: {
     minHeight: '400px',
@@ -30,6 +35,31 @@ const ServicesOffered = props => {
   const classes = useStyles();
   const [selectedService, setSelectedService] = useState('App Design');
 
+  const handleChange = (event) => {
+    setSelectedService(event.target.value)
+  };
+
+  const materialSelect = (
+      <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="age-native-simple">Age</InputLabel>
+        <Select
+          native
+          value={selectedService}
+          onChange={handleChange}
+        >
+          {
+            props.services.map( service => {
+              const title = service.title["en-US"]
+              return (
+                <option key={title} value={title}>{title}</option>
+              ) 
+            })
+          }
+        </Select>
+      </FormControl>
+  )
+  
+
   return (
     <div className={classes.servicesOffered}>
       <div className="section-wrapper">
@@ -41,10 +71,13 @@ const ServicesOffered = props => {
               props.services.map( service => {
                 const title = service.title["en-US"]
                 return  (
-                  <h1 onClick={() => setSelectedService(title)}>{title}</h1>
+                  <>
+                    <h1 onClick={() => setSelectedService(title)}>{title}</h1>
+                  </>
                 )
               })
             }
+          {materialSelect}
           </div>
           <div className={classes.serviceContent}>
             {
