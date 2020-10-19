@@ -34,28 +34,23 @@ const useStyles = makeStyles(theme => ({
 const Page = props => {
   const classes = useStyles();
 
-
-  
   // Data from Contentful
   const [ contentfulData, setPosts ] = useState([])
   const contentfulDataCheck = Object.entries(contentfulData).length !== 0 
-  
-  console.log('serviceOffered', contentfulData.servicesOffered)
-  
 
   useEffect(() => {
     async function getPosts() {
+
       // about
       const about = await fetchAbout()
+
       // services offered
       let servicesOffered = []
-      await fetchServicesOffered().then(
-       res => {
+      await fetchServicesOffered().then(res => {
         res.map( service => {
           servicesOffered.push(service.fields)
         })
-       }
-      )
+      })
 
       setPosts({
         about: about[0].fields,
@@ -76,7 +71,6 @@ const Page = props => {
             resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}
           />
         : null}
-        
 
         { contentfulDataCheck ? 
           <About
@@ -88,7 +82,10 @@ const Page = props => {
           />
         : null}
 
-        <ServicesOffered />
+        { contentfulDataCheck ?
+          <ServicesOffered services={contentfulData.servicesOffered}/>
+        : null}
+        
         
         <ButtonWrapped 
           text="More Development Projects"
