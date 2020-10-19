@@ -69,8 +69,7 @@ const ContentfulToHTML = props => {
 
   return(
     <div className={classes.ContentfulToHTML}>
-      {/* <div dangerouslySetInnerHTML={createMarkup()} /> */}
-      test
+      <div dangerouslySetInnerHTML={createMarkup()} />
     </div>
   )
 };
