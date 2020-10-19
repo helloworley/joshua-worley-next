@@ -1,7 +1,7 @@
 
 import { makeStyles } from '@material-ui/core/styles';
 import SectionHeading from '../layout/SectionHeading'
-import ContentfulToHTML from '../ContentfulToHTML'
+import RichTextToHTML from '../RichTextToHTML'
 import { useState } from 'react';
 
 import FormControl from '@material-ui/core/FormControl';
@@ -130,7 +130,7 @@ const ServicesOffered = props => {
                   return  (
                     <div className={title == selectedService ? 'show' : 'hide'}>
                       <h3 className="hide">{title}</h3>
-                      <ContentfulToHTML data={description} />
+                      <RichTextToHTML data={description} />
                     </div>
                   )
                 })

@@ -1,9 +1,9 @@
-import { makeStyles } from '@material-ui/core/styles';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { makeStyles } from '@material-ui/core/styles'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 
 const useStyles = makeStyles(theme => ({
-  ContentfulToHTML: {
+  RichTextToHTML: {
     'h1': {
       fontFamily: 'Lato,"Helvetica Neue",Arial,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
     },
@@ -40,6 +40,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 // documentToHtmlString doesn't return image embeds, so custom options are needed
 let options = {
   renderNode: {
@@ -48,7 +49,7 @@ let options = {
   }
 }
 // let bodyHTML = body ? documentToHtmlString(body, options) : ''
-const ContentfulToHTML = props => {
+const RichTextToHTML = props => {
   const classes = useStyles();
 
   const document = {
@@ -61,10 +62,10 @@ const ContentfulToHTML = props => {
   }
 
   return(
-    <div className={classes.ContentfulToHTML}>
+    <div className={classes.RichTextToHTML}>
       <div dangerouslySetInnerHTML={createMarkup()} />
     </div>
   )
 };
 
-export default ContentfulToHTML;
+export default RichTextToHTML;

@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button } from '@material-ui/core/';
-import ContentfulToHTML from '../ContentfulToHTML'
+import RichTextToHTML from '../RichTextToHTML'
 import ButtonWrapped from '../ButtonWrapped'
 import SectionHeading from '../layout/SectionHeading'
 
@@ -37,7 +37,7 @@ const About = props => {
         <SectionHeading text="About" />
         <img src={props.imgSrc} className={classes.image} />
         <div className={classes.infoWrapper}>
-          <ContentfulToHTML data={props.content} />
+          <RichTextToHTML data={props.content} />
           <ButtonWrapped 
             text="Resume"
             variant="outlined" 
