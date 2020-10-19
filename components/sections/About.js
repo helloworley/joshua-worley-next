@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button } from '@material-ui/core/';
-import ContentfulToHTML from '../ContentfulToHTML'
+import ContentfulToHTML from '../ContentfulToHTML.js'
 import ButtonWrapped from '../ButtonWrapped'
 import SectionHeading from '../layout/SectionHeading'
 
