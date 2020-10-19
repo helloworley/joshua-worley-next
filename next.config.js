@@ -14,7 +14,13 @@ module.exports = withCSS(withSass({
                options: {
                    limit: 100000
                }
-           }
+           },
+           resolve: {
+            "modules": ['js'],
+            "alias": {
+                '../ContentfulToHTML': path.resolve('./components/contentfulToHTML.js')
+             }
+            }
        });
 
        return config;
