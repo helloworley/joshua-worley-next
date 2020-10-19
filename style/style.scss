@@ -99,6 +99,17 @@ figure.wp-block-table {
 
 
 
+.MuiInput-underline.MuiInputBase-formControl {
+  padding: 10px 10px 5px;
+  background-color: #ffffff;
+  select {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    option {
+      text-transform: capitalize;
+    }
+  }
+}
 
 
 // cards

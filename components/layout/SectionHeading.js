@@ -6,6 +6,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '40px',
     [theme.breakpoints.up('md')]: {
       marginBottom: '60px',
+    },
+    '&.no-border': {
+      borderBottom: 'none'
     }
   },
   heading: {
@@ -26,7 +29,12 @@ const useStyles = makeStyles(theme => ({
 const SectionHeading = props => {
   const classes = useStyles();
   return (
-    <div className={classes.headingWrapper}>
+    props.noBorder === true ? 
+      <div className={`${classes.headingWrapper} no-border`}>
+        <h2 className={classes.heading}>{props.text}</h2>
+      </div>
+    :
+    <div className={`${classes.headingWrapper} border`}>
       <h2 className={classes.heading}>{props.text}</h2>
     </div>
   )
