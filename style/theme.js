@@ -34,7 +34,8 @@ const themeStyles = {
     muted: '#f6f6f6',
     line: '#C4C4C4',
     headings: '#5B5B5B',
-    textUnfocused: '#C4C4C4'
+    textUnfocused: '#C4C4C4',
+    meta: '#B5B5B5',
   },
   palette: {
     primary: {

@@ -12,6 +12,8 @@ import fetch from 'isomorphic-unfetch';
 import Hero from '../components/sections/Hero'
 import About from '../components/sections/About'
 import ServicesOffered from '../components/sections/ServicesOffered'
+import client from '../contentful/client'
+import RecentProjects from '../components/sections/RecentProjects'
 
 import fetchAbout from '../contentful/fetchAbout'
 import fetchServicesOffered from '../contentful/fetchServicesOffered'
@@ -31,9 +33,20 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+async function fetchContent(type) {
+  console.log(`getting entry for ${type}`)
+  const entries = await client.getEntries({
+    content_type: type,
+    locale: '*'
+  }).catch((error) => {
+    console.error(error);
+  })
+  if (entries.items) return entries.items
+  console.log(`Error getting Entries for ${contentType.name}`)
+}
+
 const Page = props => {
   const classes = useStyles();
-
   // Data from Contentful
   const [ contentfulData, setPosts ] = useState([])
   const contentfulDataCheck = Object.entries(contentfulData).length !== 0 
@@ -52,15 +65,24 @@ const Page = props => {
         })
       })
 
+      // recent projects
+      let recentProjects = []
+      await fetchContent('recentProject').then(res => {
+        res.map( project => {
+          recentProjects.push(project.fields)
+        })
+      })
+
       setPosts({
         about: about[0].fields,
-        servicesOffered: servicesOffered
+        servicesOffered: servicesOffered,
+        recentProjects: recentProjects
       })
     }
     getPosts()
   }, [])
 
-
+  console.log('contentful data', contentfulData)
 
   return (
     <div id="home">
@@ -84,6 +106,10 @@ const Page = props => {
 
         { contentfulDataCheck ?
           <ServicesOffered services={contentfulData.servicesOffered}/>
+        : null}
+
+        { contentfulDataCheck ?
+          <RecentProjects projects={contentfulData.recentProjects}/>
         : null}
         
         

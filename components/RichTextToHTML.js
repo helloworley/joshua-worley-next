@@ -22,8 +22,11 @@ const useStyles = makeStyles(theme => ({
       fontWeight: '500',
       lineHeight: '1.8',
       margin: '0 0 32px',
-      fontSize: '1em',
-      lineHeight: '1.8'
+      fontSize: '12px',
+      lineHeight: '1.8',
+      [theme.breakpoints.up('md')]: {
+        marginTop: '14px'
+      },
     },
     '& li p': {
       margin: '0',
