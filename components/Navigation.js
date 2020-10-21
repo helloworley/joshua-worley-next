@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import navItems from '../navItems';
+// import navItems from '../navItems';
 import navSocials from '../navSocials';
 import Socials from './Socials'
 
-const menuItems = navItems;
+// const menuItems = navItems;
 const socialItems = navSocials;
 
 
@@ -86,11 +86,11 @@ const Navigation = props => {
         </div>
       </Link>
       <ul className={classes.list}>
-        {menuItems.map(menuItem => (
+        {/* {menuItems.map(menuItem => (
           <li key={menuItem.name} className={classes.listItem}>
             {menuItem.children ? getMenuChildren(menuItem.name, menuItem.children, props.menuColor) : getSingleMenuItem(menuItem, props.menuColor)}
           </li>
-        ))}
+        ))} */}
       </ul>
       <Socials />
     </div>

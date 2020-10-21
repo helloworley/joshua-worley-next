@@ -123,9 +123,10 @@ const Page = props => {
 
           {/* <FullWidthImage image="/tokyo-from-mori.jpg" /> */}
 
-          {/* <div dangerouslySetInnerHTML={{ __html: props.wpData.content.rendered }} /> */}
       </Layout>
-      <Footer/>
+      { contentfulDataCheck ?
+        <Footer resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}/>
+      : null}
     </div>
   )
 }

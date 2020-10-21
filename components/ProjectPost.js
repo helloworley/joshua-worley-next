@@ -6,7 +6,12 @@ import { Grid } from '@material-ui/core/'
 
 const useStyles = makeStyles(theme => ({
   projectPost: {
-    marginTop: '50px'
+    marginBottom: '80px',
+    paddingBottom: '80px',
+    borderBottom: `solid 1px ${theme.colors.line}`,
+    '&:last-of-type': {
+      borderBottom: 'none',
+    }
   },
   infoWrapper: {
     maxWidth: '800px',

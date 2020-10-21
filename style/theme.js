@@ -35,7 +35,9 @@ const themeStyles = {
     line: '#C4C4C4',
     headings: '#5B5B5B',
     textUnfocused: '#C4C4C4',
+    brandDark: '#535557',
     meta: '#B5B5B5',
+    white: '#ffffff',
   },
   palette: {
     primary: {

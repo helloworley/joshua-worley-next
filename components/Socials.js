@@ -15,10 +15,6 @@ const useStyles = makeStyles({
     height: '12px',
     width: 'auto',
   },
-  list: {
-    margin: 0,
-    padding: '64px 0 0',
-  },
   listItem: {
     listStyle: 'none',
     padding: '6px 0',
@@ -33,7 +29,7 @@ const Socials = props => {
           {socialItems.map(socialItem => (
             <li className={classes.socialsListItem} key={socialItem.logo}>
               <a href={socialItem.link} target="_blank">
-                <img className={classes.socialLogo}  src={socialItem.logo}/>
+                <img src={socialItem.logo} className={classes.socialLogo} />
               </a>
             </li>  
           ))}

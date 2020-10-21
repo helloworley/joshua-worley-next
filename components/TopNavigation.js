@@ -3,10 +3,8 @@ import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Socials from './Socials'
 
-import navItems from '../navItems';
 import navSocials from '../navSocials';
 
-const menuItems = navItems;
 const socialItems = navSocials;
 
 
@@ -108,11 +106,11 @@ const TopNavigation = props => {
 
       <div className={classes.navRight}>
         <ul className={classes.list}>
-          {menuItems.map(menuItem => (
+          {/* {menuItems.map(menuItem => (
             <li key={menuItem.name} className={classes.listItem}>
               {menuItem.children ? getMenuChildren(menuItem.name, menuItem.children, props.menuColor) : getSingleMenuItem(menuItem, props.menuColor)}
             </li>
-          ))}
+          ))} */}
         </ul>
         <Socials />
 
