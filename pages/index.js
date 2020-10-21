@@ -33,14 +33,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-async function fetchContent(type) {
+async function fetchContent(type, order) {
   console.log(`getting entry for ${type}`)
   const entries = await client.getEntries({
     content_type: type,
+    order: order,
     locale: '*'
   }).catch((error) => {
     console.error(error);
   })
+  console.log('entries', entries)
   if (entries.items) return entries.items
   console.log(`Error getting Entries for ${contentType.name}`)
 }
@@ -67,7 +69,7 @@ const Page = props => {
 
       // recent projects
       let recentProjects = []
-      await fetchContent('recentProject').then(res => {
+      await fetchContent('recentProject', '-fields.orderingDate').then(res => {
         res.map( project => {
           recentProjects.push(project.fields)
         })
