@@ -114,13 +114,6 @@ const Page = props => {
           <RecentProjects projects={contentfulData.recentProjects}/>
         : null}
         
-        
-        <ButtonWrapped 
-          text="More Development Projects"
-          variant="outlined" 
-          link="/development"
-        />
-
           {/* <FullWidthImage image="/tokyo-from-mori.jpg" /> */}
 
       </Layout>
