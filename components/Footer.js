@@ -57,7 +57,7 @@ const Footer = props => {
         <img className={classes.logo} src="/ikigai-light.svg" />
         <h4 className={classes.footerText}>Joshua Worley</h4>
         <div className={classes.contact}>
-          <Socials color="light"/>
+          <Socials color="white"/>
           <a className={classes.link} href={props.resumeLink} target="_blank">
             Resume
           </a>

@@ -23,17 +23,21 @@ const useStyles = makeStyles(theme => ({
   logo: {
     maxWidth: '70px',
     marginBottom: '30px',
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '100px',
+    }
   },
   introInfo: {
     padding: '60px 20px 70px',
     textAlign: 'center',
-    backgroundColor: 'beige',
     minHeight: minHeightXs,
     [theme.breakpoints.up('sm')]: {
       minHeight: minHeightSm,
+      paddingTop: '110px',
     },
     [theme.breakpoints.up('md')]: {
       minHeight: minHeightMd,
+      paddingTop: '200px',
     }
   },
   heroImg: {
@@ -56,7 +60,10 @@ const useStyles = makeStyles(theme => ({
     margin: '0 auto'
   },
   socialsWrapper: {
-    textAlign: 'center'
+    textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '15px'
   }
 }));
 

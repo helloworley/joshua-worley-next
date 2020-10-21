@@ -6,6 +6,7 @@ const socialItems = navSocials;
 const useStyles = makeStyles({
   socialsList: {
     display: 'flex',
+    paddingLeft: '0',
   },
   socialsListItem: {
     listStyle: 'none',
@@ -29,7 +30,12 @@ const Socials = props => {
           {socialItems.map(socialItem => (
             <li className={classes.socialsListItem} key={socialItem.logo}>
               <a href={socialItem.link} target="_blank">
-                <img src={socialItem.logo} className={classes.socialLogo} />
+                {
+                  props.color == 'white' ? 
+                    <img src={socialItem.logoLight} className={classes.socialLogo} /> :
+                    <img src={socialItem.logoDark} className={classes.socialLogo} /> 
+                }
+                
               </a>
             </li>  
           ))}
