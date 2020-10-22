@@ -22,6 +22,11 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: '2px',
     color: theme.colors.whisp
   },
+  [theme.breakpoints.down('xs')]: {
+    logo: {
+      maxWidth: '40px',
+    },
+  }
 }));
 
 

@@ -1,15 +1,15 @@
 import React from 'react';
-import Link from 'next/link';
+import { useState } from 'react'
 import { AppBar, Toolbar, Drawer, Hidden } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 import LogoHorizontal from '../LogoHorizontal'
-import NavMobileSheet from './NavMobileSheet'
+import LogoVertical from '../LogoVertical'
+import Socials from '../Socials'
+import Link from 'next/link'
 
 const useStyles = makeStyles( theme => ({
-  list: {
-  },
   burgerContainer: {
     zIndex: 1000,
   },
@@ -40,23 +40,65 @@ const useStyles = makeStyles( theme => ({
       transition: '1s',
     }
   },
+  navSheet: {
+    padding: '80px 20px',
+    backgroundColor: theme.colors.abyss,
+    width: '100vw',
+    position: 'fixed',
+    transition: '.5s',
+    zIndex: '2000',
+    '&.open': {
+      top: '0',
+    },
+    '&.closed': {
+      top: '-400px',
+    }
+  },
+  list: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    margin: '30px 0',
+    padding: '0'
+  },
+  listItem: {
+    listStyle: 'none',
+  },
+  a: {
+    listStyle: 'none',
+    padding: '6px 0',
+    color: '#333',
+    color: theme.colors.whisp,
+    fontSize: '12px',
+    letterSpacing: '2px',
+    textTransform: 'uppercase',
+    fontWeight: '600'
+  },
+  linksWrapper: {
+    borderTop: `solid 1px ${theme.colors.whisp}`,
+    marginTop: '30px'
+  },
+  socialsWrapper: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  skrim: {
+    backgroundColor: 'rgba(0,0,0,.5)',
+    width: '100vw',
+    height: '100vh',
+    position: 'fixed',
+    zIndex: '1999',
+    transition: '.5s'
+  }
 }));
 
 const NavMobile = props => {
   const classes = useStyles();
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+  const [ toggleNav, setToggleNav] = useState('Mobile Nav');
 
-  const toggleDrawer = (side, open) => event => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-    setState({ ...state, [side]: open });
-  };
+  const handleChange = event => {
+    setToggleNav( !toggleNav )
+    console.log('state', toggleNav)
+  }
 
   return (
     <>
@@ -64,8 +106,8 @@ const NavMobile = props => {
         <Toolbar className={classes.toolbar}>
           <div className={classes.toolbarInner}>
             <LogoHorizontal />
-            <div className={classes.burgerContainer} onClick={toggleDrawer('left', true)}>
-              <IconButton edge="start" color="inherit" aria-label="menu">
+            <div className={classes.burgerContainer} onClick={handleChange}>
+              <IconButton edge="start" color="inherit" aria-label="menu" >
                 <MenuIcon className={classes.icon} />
               </IconButton>
             </div>
@@ -73,9 +115,30 @@ const NavMobile = props => {
         </Toolbar>
       </AppBar>
 
-      <Drawer open={state.left} onClose={toggleDrawer('left', false)} className={classes.drawer}>
-        <NavMobileSheet navItems={props.navItems} />
-      </Drawer>
+      
+      <div className={`${classes.navSheet} ${toggleNav ? 'closed' : 'open'}`} id="navigation">
+        <LogoVertical />
+        <div className={classes.linksWrapper}>
+          <ul className={classes.list}>
+            {props.navItems.map(menuItem => (
+              <li key={menuItem.name} className={classes.listItem}>
+                <Link href={menuItem.link}>
+                  <a className={classes.a}>
+                    {menuItem.name}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className={classes.socialsWrapper}>
+            <Socials />
+          </div>
+        </div>
+      </div>
+
+      <div className={`${classes.skrim} ${toggleNav ? 'hide' : 'show'}`} id="navigation" onClick={handleChange}>
+      </div>
+      
     </>
   );
 }

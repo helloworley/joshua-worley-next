@@ -10,8 +10,7 @@ const useStyles = makeStyles(theme => ({
     height: '50px',
   },
   logoText: {
-    lineHeight: '54px',
-    margin: '0 auto',
+    margin: '12px auto 0',
     cursor: 'pointer',
     fontSize: '12px',
     textTransform: 'uppercase',
