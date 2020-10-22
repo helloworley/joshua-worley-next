@@ -25,7 +25,7 @@ const ButtonWrapped = props => {
     )
   }
   return <span className={classes.buttonWrapped}>
-    <a target="_blank" href={props.link}>
+    <a href={props.link}>
       <Button className={classes.button} variant={props.variant}>{props.text}</Button>  
     </a>
   </span>

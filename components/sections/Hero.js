@@ -80,11 +80,12 @@ const Hero = props => {
               Joshua Worley solves complicated problems with simple solutions.
             </p>
             <ButtonWrapped 
-              text="Resume"
+              text="About"
               variant="outlined" 
-              link={props.resumeLink}
+              link="/about"
               className={classes.projectTypeButtonWrapper}
             />
+            <a href={props.resumeLink} target="_blank">Resume</a>
             <div className={classes.socialsWrapper}>
               <Socials />
             </div>
