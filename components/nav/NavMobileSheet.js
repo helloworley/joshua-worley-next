@@ -12,13 +12,18 @@ const socialItems = navSocials;
 
 const useStyles = makeStyles( theme => ({
   navSheet: {
-    padding: '32px',
+    padding: '80px 20px',
     backgroundColor: theme.colors.abyss,
     width: '80vw',
   },
-  linkStyle: {
-    textDecoration: 'none',
-    color: 'text'
+  list: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    margin: '30px 0',
+    padding: '0'
+  },
+  listItem: {
+    listStyle: 'none',
   },
   logoContainer: {
     textAlign: 'center',
@@ -33,6 +38,17 @@ const useStyles = makeStyles( theme => ({
     listStyle: 'none',
     padding: '6px 0',
     color: '#333',
+    color: theme.colors.whisp,
+    fontSize: '12px',
+    letterSpacing: '2px',
+    textTransform: 'uppercase'
+  },
+  linksWrapper: {
+    borderTop: `solid 1px ${theme.colors.whisp}`
+  },
+  socialsWrapper: {
+    display: 'flex',
+    justifyContent: 'center'
   }
 }));
 
@@ -53,19 +69,19 @@ const NavMobileSheet = props => {
   const classes = useStyles();
   return (
     <div className={classes.navSheet} id="navigation">
-      <Link href="/">
-        <div className={classes.logoContainer}>
-          <LogoVertical />
+      <LogoVertical />
+      <div className={classes.linksWrapper}>
+        <ul className={classes.list}>
+          {props.navItems.map(menuItem => (
+            <li key={menuItem.name} className={classes.listItem}>
+              {getSingleMenuItem(menuItem, props.menuColor)}
+            </li>
+          ))}
+        </ul>
+        <div className={classes.socialsWrapper}>
+          <Socials />
         </div>
-      </Link>
-      <ul className={classes.list}>
-        {props.navItems.map(menuItem => (
-          <li key={menuItem.name} className={classes.listItem}>
-            {getSingleMenuItem(menuItem, props.menuColor)}
-          </li>
-        ))}
-      </ul>
-      <Socials />
+      </div>
     </div>
 
   )

@@ -4,6 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   logo: {
+    textAlign: 'center',
+  },
+  logoIcon: {
     height: '50px',
   },
   logoText: {
@@ -23,10 +26,10 @@ const LogoVertical = props => {
   const classes = useStyles();
   return (
     <Link href="/">
-      <>
-        <img className={classes.logo} src="/ikigai-light.svg" />
+      <div className={classes.logo}>
+        <img className={classes.logoIcon} src="/ikigai-light.svg" />
         <h4 className={classes.logoText}>Joshua Worley</h4>
-      </>
+      </div>
     </Link>
   )
 };
