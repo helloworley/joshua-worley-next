@@ -1,61 +1,38 @@
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Socials from './Socials'
+// import navItems from '../navItems';
+import navSocials from '../../navSocials';
+import Socials from '../Socials'
 
-import navSocials from '../navSocials';
-
+// const menuItems = navItems;
 const socialItems = navSocials;
 
 
 const useStyles = makeStyles({
   navigation: {
-    padding: '20px 40px',
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'space-between',
-    height: '95px',
-    position: 'fixed',
-    backgroundColor: 'white',
-    top: '0',
-    zIndex: '1000',
-  },
-  list: {
-    margin: 0,
-    display: 'flex',
-  },
-  listItem: {
-    listStyle: 'none',
-    padding: '6px 0',
-    margin: '10px 30px 0 0',
+    padding: '32px',
   },
   linkStyle: {
     textDecoration: 'none',
     color: 'text'
   },
   logoContainer: {
-    display: 'flex',
-    minWidth: '200px',
+    textAlign: 'center',
   },
   logo: {
     color: 'text',
     cursor: 'pointer',
-    maxWidth: '40px',
-  },
-  logoText: {
-    lineHeight: '54px',
-    margin: '0 0 0 8px',
-    cursor: 'pointer',
+    maxWidth: '80px',
+    margin: '0 0 4px',
   },
   a: {
     listStyle: 'none',
     padding: '6px 0',
     color: '#333',
-  },
-  navRight: {
-    display: 'flex',
   }
 });
+
 
 
 const getSingleMenuItem = (menuItem, menuColor) => {
@@ -89,32 +66,33 @@ const getMenuChildren = (name, menuChildren, menuColor) => {
   )
 }
 
+function logo(color) {
+  if (color == '#fff') {
+    return "/ikigai-light.svg";
+  }
+  return "/ikigai-dark.svg";
+}
 
-
-
-const TopNavigation = props => {
+const Navigation = props => {
   const classes = useStyles();
   return (
     <div className={classes.navigation} id="navigation">
-      
       <Link href="/">
         <div className={classes.logoContainer}>
-          <img className={classes.logo} src="/ikigai-dark.svg" />
-            <Typography className={classes.logoText} style={{color: props.menuColor}}> Joshua Worley</Typography>
-          </div>
-        </Link>
-
-      <div className={classes.navRight}>
-        <ul className={classes.list}>
-          {/* {menuItems.map(menuItem => (
-            <li key={menuItem.name} className={classes.listItem}>
-              {menuItem.children ? getMenuChildren(menuItem.name, menuItem.children, props.menuColor) : getSingleMenuItem(menuItem, props.menuColor)}
-            </li>
-          ))} */}
-        </ul>
-        <Socials />
-
-      </div>
+          <img className={classes.logo} src={logo(props.menuColor)} />
+          <Link href="/">
+            <Typography style={{color: props.menuColor}}> Joshua Worley</Typography>
+          </Link>
+        </div>
+      </Link>
+      <ul className={classes.list}>
+        {/* {menuItems.map(menuItem => (
+          <li key={menuItem.name} className={classes.listItem}>
+            {menuItem.children ? getMenuChildren(menuItem.name, menuItem.children, props.menuColor) : getSingleMenuItem(menuItem, props.menuColor)}
+          </li>
+        ))} */}
+      </ul>
+      <Socials />
     </div>
 
   )
@@ -124,4 +102,4 @@ const TopNavigation = props => {
 
 
 
-export default TopNavigation;
+export default Navigation;

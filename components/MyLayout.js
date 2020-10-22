@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
-import TopNavigation from './TopNavigation';
+import { useEffect, useState } from 'react'
+import NavDesktop from './nav/NavDesktop';
+import NavMobile from './nav/NavMobile';
 import { Grid, Hidden } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
-import MobileNav from './MobileNav';
+import client from '../contentful/client'
+import fetchContent from '../contentful/fetchContent'
 
 // GA
 import React from 'react';
@@ -43,33 +45,65 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Layout = props => {
-  const classes = useStyles();
+  const classes = useStyles()
+  const [ contentfulData, setResumeLink ] = useState([])
+  const contentfulDataCheck = Object.entries(contentfulData).length !== 0 
 
   useEffect(() => {
     // code to run on component mount
+    // GA
     if (!window.GA_INITIALIZED) {
       initGA()
       window.GA_INITIALIZED = true
     }
     logPageView()
+
+    // get resume link
+    async function getResumeLink() {
+      const about = await fetchContent('about', '')
+      setResumeLink({
+        resumeLink: about
+      })
+    }
+    getResumeLink()
+    
   }, [])
+
+  let navItems = []
+  { contentfulDataCheck ?
+    navItems = [
+      {
+        'name': 'About',
+        'link': '/about'
+      },
+      {
+        'name': 'Projects',
+        'link': '/projects'
+      },
+      {
+        'name': 'Resume',
+        'link': contentfulData.resumeLink[0].fields.resume["en-US"].fields.file["en-US"].url
+      }
+    ]
+  : null}
+  
 
   return (
     <>
-      <MobileNav />
-
+      <NavMobile />
       <div className={classes.root}>
-        
         <Hidden smDown>
-          <TopNavigation menuColor={props.menuColor} />
+          {
+            contentfulDataCheck ?
+            <NavDesktop navItems={navItems} /> 
+            : null
+          }
         </Hidden>
-
         <div className={classes.content}>
           {props.children}
         </div>        
-
       </div>
-      </>
+    </>
   );
 }
 

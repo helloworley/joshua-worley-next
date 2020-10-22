@@ -1,7 +1,7 @@
 import client from './client'
 
 export default async function fetchAbout() {
-  console.log('getting entry for services offered')
+  // console.log('getting entry for services offered')
   const entries = await client.getEntries({
     content_type: 'serviceOffered',
     locale: '*'
@@ -9,5 +9,5 @@ export default async function fetchAbout() {
     console.error(error);
   })
   if (entries.items) return entries.items
-  console.log(`Error getting Entries for ${contentType.name}`)
+  // console.log(`Error getting Entries for ${contentType.name}`)
 }

@@ -4,9 +4,8 @@ import '../style/style.scss'
 import Layout from '../components/MyLayout';
 import Footer from '../components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
-import fetch from 'isomorphic-unfetch';
+
 import Hero from '../components/sections/Hero'
-import About from '../components/sections/About'
 import ServicesOffered from '../components/sections/ServicesOffered'
 import client from '../contentful/client'
 import RecentProjects from '../components/sections/RecentProjects'
@@ -30,9 +29,24 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const menuItems = [
+  {
+    name: '/about',
+    link: 'About'
+  },
+  {
+    name: '/projects',
+    link: 'Projects'
+  },
+  {
+    name: '/projects',
+    link: 'Projects'
+  },
+]
 
 
-const Page = props => {
+
+const IndexPage = props => {
   const classes = useStyles();
   // Data from Contentful
   const [ contentfulData, setPosts ] = useState([])
@@ -73,43 +87,24 @@ const Page = props => {
     getPosts()
   }, [])
 
-  console.log('contentful data', contentfulData)
+  // console.log('contentful data', contentfulData)
 
   return (
     <div id="home">
-      <Layout>
-        
-        { contentfulDataCheck ? 
-          <Hero 
-            resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}
-          />
-        : null}
-
-        { contentfulDataCheck ?
-          <ServicesOffered services={contentfulData.servicesOffered}/>
-        : null}
-
-        { contentfulDataCheck ?
-          <RecentProjects projects={contentfulData.recentProjects}/>
-        : null}
-        
-        { contentfulDataCheck ?
-          <ThankYou content={contentfulData.thankYou} />
-        : null}
-
-      </Layout>
       { contentfulDataCheck ?
-        <Footer resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}/>
+        <>
+          <Layout>
+            <Hero resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}/>
+            <ServicesOffered services={contentfulData.servicesOffered}/>
+            <RecentProjects projects={contentfulData.recentProjects}/>
+            <ThankYou content={contentfulData.thankYou} />
+          </Layout>
+          <Footer resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}/>
+        </>
       : null}
     </div>
+    
   )
 }
 
-Page.getInitialProps = async function (context) {
-  const res = await fetch(`https://jw.helloworley.com/wp-json/wp/v2/pages/97`);
-  const wpData = await res.json();
-
-  return { wpData };
-};
-
-export default Page;
+export default IndexPage;

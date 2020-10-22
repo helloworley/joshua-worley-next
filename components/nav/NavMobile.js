@@ -1,16 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import { AppBar, Toolbar, Drawer, Typography, Hidden } from '@material-ui/core';
+import { AppBar, Toolbar, Drawer, Hidden } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-
+import { makeStyles } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
 
-
-
-import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
@@ -46,7 +42,7 @@ const useStyles = makeStyles({
   }
 });
 
-const MobileNav = () => {
+const NavMobile = () => {
   const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
@@ -117,4 +113,4 @@ const MobileNav = () => {
 }
 
 
-export default MobileNav;
+export default NavMobile;
