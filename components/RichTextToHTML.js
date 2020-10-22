@@ -39,6 +39,11 @@ const useStyles = makeStyles(theme => ({
     },
     '& h3': {
       margin: '40px 0 16px'
+    },
+    [theme.breakpoints.up('md')]: {
+      '& p': {
+        fontSize: '14px'
+      }
     }
   },
 }));
