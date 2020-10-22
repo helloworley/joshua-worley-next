@@ -3,6 +3,7 @@ import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Socials from '../Socials'
 import navSocials from '../../navSocials';
+import LogoHorizontal from '../LogoHorizontal'
 
 const socialItems = navSocials;
 
@@ -79,12 +80,7 @@ const NavDesktop = props => {
   return (
     <div className={classes.navigation} id="navigation">
       
-      <Link href="/">
-        <div className={classes.logoContainer}>
-          <img className={classes.logo} src="/ikigai-light.svg" />
-          <h1 className={classes.logoText}> Joshua Worley</h1>
-        </div>
-      </Link>
+      <LogoHorizontal />
 
       <div className={classes.navRight}>
         <ul className={classes.list}>
@@ -115,9 +111,5 @@ const NavDesktop = props => {
 
   )
 };
-
-
-
-
 
 export default NavDesktop;

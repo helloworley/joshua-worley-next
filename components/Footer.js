@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core/';
-import Link from 'next/link';
+import LogoVertical from './LogoVertical'
 import Socials from './Socials'
 
 
@@ -23,19 +22,6 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     margin: '0 auto'
   },
-  logo: {
-    height: '50px',
-  },
-  footerText: {
-    color: theme.colors.white,
-    textAlign: 'center',
-    maxWidth: 'initial',
-    fontWeight: '400',
-    textTransform: 'uppercase',
-    letterSpacing: '1px',
-    marginTop: '12px',
-    marginBottom: '32px'
-  },
   contact: {
     borderTop: `solid 1px ${theme.colors.white}`,
     maxWidth: '572px',
@@ -55,8 +41,7 @@ const Footer = props => {
     <div className={classes.footer}>
       <div className="section-wrapper">
         <div className={classes.centeredWrapper}>
-          <img className={classes.logo} src="/ikigai-light.svg" />
-          <h4 className={classes.footerText}>Joshua Worley</h4>
+          <LogoVertical />
           <div className={classes.contact}>
             <div className={classes.socialsWrapper}>
               <Socials color="white"/>

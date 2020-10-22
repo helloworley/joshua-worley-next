@@ -91,7 +91,7 @@ const Layout = props => {
   return (
     <>
       <Hidden smUp>
-        <NavMobile />
+        <NavMobile navItems={navItems} />
       </Hidden>
       <div className={classes.root}>
         <Hidden xsDown>
