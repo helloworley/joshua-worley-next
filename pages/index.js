@@ -12,7 +12,6 @@ import RecentProjects from '../components/sections/RecentProjects'
 import ThankYou from '../components/sections/ThankYou'
 
 import fetchContent from '../contentful/fetchContent'
-import fetchServicesOffered from '../contentful/fetchServicesOffered'
 
 
 const useStyles = makeStyles(theme => ({
@@ -60,7 +59,7 @@ const IndexPage = props => {
 
       // services offered
       let servicesOffered = []
-      await fetchServicesOffered().then(res => {
+      await fetchContent('serviceOffered', '').then(res => {
         res.map( service => {
           servicesOffered.push(service.fields)
         })

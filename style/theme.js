@@ -29,6 +29,7 @@ const themeStyles = {
   colors: {
     text: '#000',
     abyss: '#3F4651',
+    whisp: '#F5F5F5',
     background: '#fff',
     primary: '#07c',
     secondary: '#30c',

@@ -3,7 +3,6 @@ import NavDesktop from './nav/NavDesktop';
 import NavMobile from './nav/NavMobile';
 import { Grid, Hidden } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
-import client from '../contentful/client'
 import fetchContent from '../contentful/fetchContent'
 
 // GA
@@ -49,6 +48,7 @@ const Layout = props => {
   const [ contentfulData, setResumeLink ] = useState([])
   const contentfulDataCheck = Object.entries(contentfulData).length !== 0 
 
+
   useEffect(() => {
     // code to run on component mount
     // GA
@@ -59,15 +59,15 @@ const Layout = props => {
     logPageView()
 
     // get resume link
-    async function getResumeLink() {
+    async function getResume() {
       const about = await fetchContent('about', '')
       setResumeLink({
         resumeLink: about
-      })
+      })    
     }
-    getResumeLink()
-    
+    getResume()
   }, [])
+
 
   let navItems = []
   { contentfulDataCheck ?

@@ -9,11 +9,11 @@ const socialItems = navSocials;
 
 const useStyles = makeStyles(theme => ({
   navigation: {
-    padding: '20px 40px',
+    padding: '12px 40px',
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
-    height: '95px',
+    height: '80px',
     position: 'fixed',
     backgroundColor: theme.colors.abyss,
     top: '0',
@@ -22,11 +22,12 @@ const useStyles = makeStyles(theme => ({
   list: {
     margin: 0,
     display: 'flex',
+    alignItems: 'center'
   },
   listItem: {
     listStyle: 'none',
     padding: '6px 0',
-    margin: '10px 30px 0 0',
+    margin: '0 30px 0 0',
   },
   linkStyle: {
     textDecoration: 'none',
@@ -49,44 +50,20 @@ const useStyles = makeStyles(theme => ({
   a: {
     listStyle: 'none',
     padding: '6px 0',
-    color: '#333',
+    color: theme.colors.whisp,
+    textTransform: 'uppercase',
+    letterSpacing: '2px',
+    fontWeight: '600',
   },
   navRight: {
     display: 'flex',
+  },
+  socialsWrapper: {
+    display: 'flex',
+    alignItems: 'center'
   }
 }));
 
-
-const getSingleMenuItem = (menuItem, menuColor) => {
-  const classes = useStyles();
-  return (
-    <Link href={menuItem.link}>
-      <a className={classes.a} style={{color: menuColor}}>
-        {menuItem.name}
-      </a>
-    </Link>
-  )
-}
-
-const getMenuChildren = (name, menuChildren, menuColor) => {
-  const classes = useStyles();
-  return (
-    <span>
-      <Typography>{name}</Typography>
-      <ul>
-        {menuChildren.map(childItem => (
-          <li key={childItem.name} className={classes.listItem}>
-            <Link href={childItem.link}>
-              <a className={classes.a} style={{color: menuColor}}>
-                {childItem.name}
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </span>
-  )
-}
 
 const NavDesktop = props => {
   const classes = useStyles();
@@ -104,11 +81,27 @@ const NavDesktop = props => {
         <ul className={classes.list}>
           {props.navItems.map(menuItem => (
             <li key={menuItem.name} className={classes.listItem}>
-              {menuItem.children ? getMenuChildren(menuItem.name, menuItem.children, props.menuColor) : getSingleMenuItem(menuItem, props.menuColor)}
+              {
+                menuItem.link.substring(0, 2) == '//' ?
+                <Link href={menuItem.link}>
+                  <a className={classes.a} target="_blank">
+                    {menuItem.name}
+                  </a>
+                </Link>
+                :
+                <Link href={menuItem.link}>
+                  <a className={classes.a}>
+                    {menuItem.name}
+                  </a>
+                </Link>
+              }
+              
             </li>
           ))}
         </ul>
-        <Socials />
+        <div className={classes.socialsWrapper}>
+          <Socials />
+        </div>
       </div>
     </div>
 
