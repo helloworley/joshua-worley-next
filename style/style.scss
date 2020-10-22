@@ -80,6 +80,19 @@ table {
   }
 }
 
+body {
+  .thank-you-section {
+    p {
+      max-width: 100%;
+      margin-bottom: 8px;
+      @media(min-width: 960px) {
+        text-align: center;
+      }
+    }
+  }
+}
+
+
 figure.wp-block-table {
   margin: 0;
 }

@@ -112,8 +112,8 @@ const ServicesOffered = props => {
                     const title = service.title["en-US"]
                     return  (
                       selectedService == title ? 
-                        <li className={`${classes.desktopServiceSelectLi} selected`} onClick={() => setSelectedService(title)}>{title}</li> :
-                        <li className={`${classes.desktopServiceSelectLi} deselected`} onClick={() => setSelectedService(title)}>{title}</li>
+                        <li key={title} className={`${classes.desktopServiceSelectLi} selected`} onClick={() => setSelectedService(title)}>{title}</li> :
+                        <li key={title} className={`${classes.desktopServiceSelectLi} deselected`} onClick={() => setSelectedService(title)}>{title}</li>
                     )
                   })
                 }
@@ -128,7 +128,7 @@ const ServicesOffered = props => {
                   const title = service.title["en-US"]
                   const description = (service.description["en-US"].content)
                   return  (
-                    <div className={title == selectedService ? 'show' : 'hide'}>
+                    <div key={title} className={title == selectedService ? 'show' : 'hide'}>
                       <h3 className="hide">{title}</h3>
                       <RichTextToHTML data={description} />
                     </div>

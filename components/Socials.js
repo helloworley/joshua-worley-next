@@ -32,7 +32,7 @@ const Socials = props => {
     <div className={classes.socialLogos}>
         <ul className={classes.socialsList}>
           {socialItems.map(socialItem => (
-            <li className={classes.socialsListItem} key={socialItem.logo}>
+            <li className={classes.socialsListItem} key={socialItem.logoDark}>
               <a href={socialItem.link} target="_blank">
                 {
                   props.color == 'white' ? 

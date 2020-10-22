@@ -81,7 +81,6 @@ const useStyles = makeStyles(theme => ({
 const ProjectPost = props => {
   const classes = useStyles();
   const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, sections } = props;
-  console.log('final thoughts', finalThoughts)
 
   return (
     <div className={classes.projectPost}>
@@ -104,7 +103,6 @@ const ProjectPost = props => {
       <div className={classes.projectSections}>
         {
           sections.map( section => {
-            console.log('sectionxxxxxxxxx', section)
             const img = section.fields.image["en-US"].fields
             const imgUrl = img.file["en-US"].url
             const imgAlt = img.title["en-US"]

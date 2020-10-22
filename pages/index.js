@@ -14,6 +14,7 @@ import About from '../components/sections/About'
 import ServicesOffered from '../components/sections/ServicesOffered'
 import client from '../contentful/client'
 import RecentProjects from '../components/sections/RecentProjects'
+import ThankYou from '../components/sections/ThankYou'
 
 import fetchAbout from '../contentful/fetchAbout'
 import fetchServicesOffered from '../contentful/fetchServicesOffered'
@@ -75,10 +76,14 @@ const Page = props => {
         })
       })
 
+      // thank you 
+      const thankYou = await fetchContent('thankYou', '')
+
       setPosts({
         about: about[0].fields,
         servicesOffered: servicesOffered,
-        recentProjects: recentProjects
+        recentProjects: recentProjects,
+        thankYou: thankYou[0].fields
       })
     }
     getPosts()
@@ -114,7 +119,9 @@ const Page = props => {
           <RecentProjects projects={contentfulData.recentProjects}/>
         : null}
         
-          {/* <FullWidthImage image="/tokyo-from-mori.jpg" /> */}
+        { contentfulDataCheck ?
+          <ThankYou content={contentfulData.thankYou} />
+        : null}
 
       </Layout>
       { contentfulDataCheck ?

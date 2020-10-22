@@ -14,12 +14,6 @@ const useStyles = makeStyles(theme => ({
   centeredWrapper: {
     width: '100%',
     textAlign: 'center',
-    [theme.breakpoints.up('md')]: {
-      maxWidth: '960px',
-    },
-    [theme.breakpoints.up('lg')]: {
-      maxWidth: '1200px',
-    },
   },
   socialsWrapper: {
     marginBottom: '8px'
