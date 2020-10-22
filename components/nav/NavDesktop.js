@@ -35,17 +35,22 @@ const useStyles = makeStyles(theme => ({
   },
   logoContainer: {
     display: 'flex',
-    minWidth: '200px',
+    alignItems: 'center',
+    minWidth: '240px',
   },
   logo: {
     color: 'text',
     cursor: 'pointer',
-    maxWidth: '40px',
+    maxWidth: '50px',
   },
   logoText: {
     lineHeight: '54px',
     margin: '0 0 0 8px',
     cursor: 'pointer',
+    fontSize: '12px',
+    textTransform: 'uppercase',
+    letterSpacing: '2px',
+    color: theme.colors.whisp
   },
   a: {
     listStyle: 'none',
@@ -54,6 +59,7 @@ const useStyles = makeStyles(theme => ({
     textTransform: 'uppercase',
     letterSpacing: '2px',
     fontWeight: '600',
+    fontSize: '12px'
   },
   navRight: {
     display: 'flex',
@@ -72,8 +78,8 @@ const NavDesktop = props => {
       
       <Link href="/">
         <div className={classes.logoContainer}>
-          <img className={classes.logo} src="/ikigai-dark.svg" />
-          <Typography className={classes.logoText} style={{color: props.menuColor}}> Joshua Worley</Typography>
+          <img className={classes.logo} src="/ikigai-light.svg" />
+          <h1 className={classes.logoText}> Joshua Worley</h1>
         </div>
       </Link>
 
@@ -95,7 +101,6 @@ const NavDesktop = props => {
                   </a>
                 </Link>
               }
-              
             </li>
           ))}
         </ul>
