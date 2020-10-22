@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
   },
   centeredWrapper: {
     width: '100%',
-    margin: '20px auto',
     textAlign: 'center',
     [theme.breakpoints.up('md')]: {
       maxWidth: '960px',
@@ -22,8 +21,11 @@ const useStyles = makeStyles(theme => ({
       maxWidth: '1200px',
     },
   },
+  socialsWrapper: {
+    marginBottom: '8px'
+  },
   copyRightText: {
-    color: 'rgba(0,0,0,.2)',
+    color: theme.colors.meta,
     textAlign: 'center',
     margin: '0 auto'
   },
@@ -42,10 +44,14 @@ const useStyles = makeStyles(theme => ({
   },
   contact: {
     borderTop: `solid 1px ${theme.colors.white}`,
+    maxWidth: '572px',
+    margin: '0 auto',
     paddingTop: '32px', 
   },
   link: {
-    color: theme.colors.white
+    color: theme.colors.white,
+    marginBottom: '12px',
+    display: 'inline-block'
   }
 }));
 
@@ -53,19 +59,23 @@ const Footer = props => {
   const classes = useStyles();
   return (
     <div className={classes.footer}>
-      <div className={classes.centeredWrapper}>
-        <img className={classes.logo} src="/ikigai-light.svg" />
-        <h4 className={classes.footerText}>Joshua Worley</h4>
-        <div className={classes.contact}>
-          <Socials color="white"/>
-          <a className={classes.link} href={props.resumeLink} target="_blank">
-            Resume
-          </a>
+      <div className="section-wrapper">
+        <div className={classes.centeredWrapper}>
+          <img className={classes.logo} src="/ikigai-light.svg" />
+          <h4 className={classes.footerText}>Joshua Worley</h4>
+          <div className={classes.contact}>
+            <div className={classes.socialsWrapper}>
+              <Socials color="white"/>
+            </div>
+            <a className={classes.link} href={props.resumeLink} target="_blank">
+              Resume
+            </a>
+          </div>
+          <p className={classes.copyRightText}>
+            &copy; {new Date().getFullYear()} Joshua Worley. All Rights Reserved.
+          </p>
+          
         </div>
-        <p className={classes.copyRightText}>
-          &copy; {new Date().getFullYear()} Joshua Worley. All Rights Reserved.
-        </p>
-        
       </div>
     </div>
   )

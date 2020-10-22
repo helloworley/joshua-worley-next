@@ -5,12 +5,16 @@ const socialItems = navSocials;
 
 const useStyles = makeStyles({
   socialsList: {
-    display: 'flex',
     paddingLeft: '0',
+    margin: '0',
   },
   socialsListItem: {
     listStyle: 'none',
-    margin: '0 12px 0 0'
+    margin: '0 12px 0 0',
+    display: 'inline-block',
+    '&:last-of-type': {
+      margin: '0'
+    }
   },
   socialLogo: {
     height: '12px',
