@@ -45,7 +45,7 @@ const useStyles = makeStyles( theme => ({
     backgroundColor: theme.colors.abyss,
     width: '100vw',
     position: 'fixed',
-    transition: '.5s',
+    transition: 'top .5s',
     zIndex: '2000',
     '&.open': {
       top: '0',
@@ -87,7 +87,9 @@ const useStyles = makeStyles( theme => ({
     height: '100vh',
     position: 'fixed',
     zIndex: '1999',
-    transition: '.5s'
+    [theme.breakpoints.up('md')]: {
+      display: 'none !important'
+    }
   }
 }));
 
@@ -115,7 +117,6 @@ const NavMobile = props => {
         </Toolbar>
       </AppBar>
 
-      
       <div className={`${classes.navSheet} ${toggleNav ? 'closed' : 'open'}`} id="navigation">
         <LogoVertical />
         <div className={classes.linksWrapper}>
