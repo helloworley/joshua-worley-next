@@ -41,6 +41,11 @@ const themeStyles = {
     meta: '#B5B5B5',
     white: '#ffffff',
   },
+  navHeight: {
+    xs: '',
+    sm: '',
+    md: '80px',
+  },
   palette: {
     primary: {
       light: '#fff',

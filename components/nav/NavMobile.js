@@ -16,7 +16,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Navigation from './Navigation';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( theme => ({
   list: {
     width: 250,
   },
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   toolbar: {
     textAlign: 'center',
     position: 'relative',
-    backgroundColor: 'white',
+    backgroundColor: theme.colors.abyss,
     color: '#333',
   },
   navName: {
@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     right: 0,
     top: '3px'
   }
-});
+}));
 
 const NavMobile = () => {
   const classes = useStyles();
@@ -89,8 +89,7 @@ const NavMobile = () => {
 
 
   return (
-    <Hidden mdUp>
-
+    <>
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <div className={classes.burgerContainer} onClick={toggleDrawer('left', true)}>
@@ -108,7 +107,7 @@ const NavMobile = () => {
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         <Navigation />
       </Drawer>
-    </Hidden>
+    </>
   );
 }
 

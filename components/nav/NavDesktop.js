@@ -9,15 +9,18 @@ const socialItems = navSocials;
 
 const useStyles = makeStyles(theme => ({
   navigation: {
-    padding: '12px 40px',
+    padding: '12px 20px',
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
-    height: '80px',
+    height: theme.navHeight.md,
     position: 'fixed',
     backgroundColor: theme.colors.abyss,
     top: '0',
     zIndex: '1000',
+    [theme.breakpoints.up('lg')]: {
+      padding: '12px 40px',
+    }
   },
   list: {
     margin: 0,
@@ -36,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   logoContainer: {
     display: 'flex',
     alignItems: 'center',
-    minWidth: '240px',
+    minWidth: '190px',
   },
   logo: {
     color: 'text',

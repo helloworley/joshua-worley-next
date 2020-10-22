@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     margin: '56px 0 0',
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      margin: '95px 0 0',
+      margin: `${theme.navHeight.md} 0 0`,
     },
   },
   rightPannel: {
@@ -90,9 +90,11 @@ const Layout = props => {
 
   return (
     <>
-      <NavMobile />
+      <Hidden smUp>
+        <NavMobile />
+      </Hidden>
       <div className={classes.root}>
-        <Hidden smDown>
+        <Hidden xsDown>
           {
             contentfulDataCheck ?
             <NavDesktop navItems={navItems} /> 
