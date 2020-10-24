@@ -4,6 +4,7 @@ import NavMobile from './nav/NavMobile';
 import { Grid, Hidden } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import fetchContent from '../contentful/fetchContent'
+import Footer from './Footer'
 
 // GA
 import React from 'react';
@@ -105,6 +106,11 @@ const Layout = props => {
           {props.children}
         </div>        
       </div>
+      {
+        contentfulDataCheck ?
+          <Footer resumeLink={contentfulData.resumeLink[0].fields.resume["en-US"].fields.file["en-US"].url}/>
+        : 
+      null}
     </>
   );
 }

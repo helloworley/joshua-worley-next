@@ -97,8 +97,7 @@ const IndexPage = props => {
             <ServicesOffered services={contentfulData.servicesOffered}/>
             <RecentProjects projects={contentfulData.recentProjects}/>
             <ThankYou content={contentfulData.thankYou} />
-          </Layout>
-          <Footer resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}/>
+          </Layout>q
         </>
       : null}
     </div>

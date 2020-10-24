@@ -58,9 +58,6 @@ const Page = props => {
         : null}
 
       </Layout>
-      { contentfulDataCheck ?
-        <Footer resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}/>
-      : null}
     </div>
   )
 }
