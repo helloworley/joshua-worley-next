@@ -3,8 +3,7 @@ import '../../style/style.scss'
 import Layout from '../../components/layout/MyLayout';
 import { makeStyles } from '@material-ui/core/styles';
 import fetchContent from '../../contentful/fetchContent'
-import Projects from '../../components/sections/Projects'
-import client from '../../contentful/client'
+import ProjectPost from '../../components/ProjectPost'
 
 
 const useStyles = makeStyles(theme => ({
@@ -30,10 +29,12 @@ const Page = props => {
 
   useEffect(() => {
     async function getPosts() {
-
       // recent projects
-      const slug = 'namonai'
-      const project = fetchContent('recentProject', '')
+      const slug = 'snaphabit'
+      const project = await fetchContent({
+        type: 'recentProject',
+        slug: slug
+      })
 
       setContentfulData({
         project: project
@@ -42,17 +43,25 @@ const Page = props => {
     getPosts()
   }, [])
 
-  console.log('data', contentfulData)
-
-
   return (
     <div id="projects">
       { contentfulDataCheck ? 
-        <>
           <Layout>
-            test
-          </Layout>
-        </>
+            <div class="section-wrapper">
+              <ProjectPost
+                brand={contentfulData.project[0].fields.brand["en-US"]}
+                brandAbout={contentfulData.project[0].fields.brandAbout["en-US"].content}
+                date={contentfulData.project[0].fields.date["en-US"]}
+                finalThoughts={contentfulData.project[0].fields.finalThoughts["en-US"].content}
+                heroImage={contentfulData.project[0].fields.heroImage["en-US"]}
+                logo={contentfulData.project[0].fields.logo["en-US"]}
+                projectIntro={contentfulData.project[0].fields.projectIntro["en-US"].content}
+                projectTitle={contentfulData.project[0].fields.projectTitle["en-US"]}
+                projectType={contentfulData.project[0].fields.projectType["en-US"]}
+                sections={contentfulData.project[0].fields.sections["en-US"]}
+              />
+            </div>
+        </Layout>
       : null}
     </div>
   )
