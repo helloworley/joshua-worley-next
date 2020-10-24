@@ -33,7 +33,9 @@ const Page = props => {
     async function getPosts() {
 
       // about
-      const about = await fetchContent('about', '')
+      const about = await fetchContent({
+        type: 'about'
+      })
 
       setPosts({
         about: about[0].fields,

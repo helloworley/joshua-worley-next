@@ -56,11 +56,17 @@ const IndexPage = props => {
     async function getPosts() {
 
       // about
-      const about = await fetchContent('about', '')
+      const about = await fetchContent({
+        type: 'about',
+        order: ''
+      })
 
       // services offered
       let servicesOffered = []
-      await fetchContent('serviceOffered', '').then(res => {
+      await fetchContent({
+        type: 'serviceOffered',
+        order: ''
+      }).then(res => {
         res.map( service => {
           servicesOffered.push(service.fields)
         })
@@ -68,14 +74,20 @@ const IndexPage = props => {
 
       // recent projects
       let projects = []
-      await fetchContent('recentProject', '-fields.orderingDate').then(res => {
+      await fetchContent({
+        type: 'recentProject', 
+        order: '-fields.orderingDate'
+      }).then(res => {
         res.map( project => {
           projects.push(project.fields)
         })
       })
 
       // thank you 
-      const thankYou = await fetchContent('thankYou', '')
+      const thankYou = await fetchContent({
+        type: 'thankYou',
+        order: ''
+      })
 
       const recentProjects = projects.slice(0, 1)
       const otherProjects = projects.slice(1, projects.length)

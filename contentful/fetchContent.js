@@ -1,7 +1,8 @@
 import client from './client'
 
-export default async function fetchContent(type, order) {
+export default async function fetchContent(info) {
   // console.log(`getting entry for ${type}`)
+  const {type, order } = info
   const entries = await client.getEntries({
     content_type: type,
     order: order,

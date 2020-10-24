@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import '../../style/style.scss'
 import Layout from '../../components/layout/MyLayout';
 import { makeStyles } from '@material-ui/core/styles';
+import fetchContent from '../../contentful/fetchContent'
 import Projects from '../../components/sections/Projects'
 import client from '../../contentful/client'
-import fetchContent from  '../../contentful/fetchContent'
 
 
 const useStyles = makeStyles(theme => ({
@@ -32,24 +32,17 @@ const Page = props => {
     async function getPosts() {
 
       // recent projects
-      let projects = []
-      await fetchContent({
-        type: 'recentProject', 
-        order: '-fields.orderingDate'
-      }).then(res => {
-        res.map( project => {
-          projects.push(project.fields)
-        })
-      })
+      const slug = 'namonai'
+      const project = fetchContent('recentProject', '')
 
       setContentfulData({
-        projects: projects
+        project: project
       })
     }
     getPosts()
   }, [])
 
-  console.log(contentfulData.projects)
+  console.log('data', contentfulData)
 
 
   return (
@@ -57,7 +50,7 @@ const Page = props => {
       { contentfulDataCheck ? 
         <>
           <Layout>
-            <Projects projects={contentfulData.projects} title="Projects" />
+            test
           </Layout>
         </>
       : null}

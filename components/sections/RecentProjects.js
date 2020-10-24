@@ -37,7 +37,7 @@ const RecentProjects = props => {
         <SectionHeading text="Recent Project" />
         {
           props.projects.map( service => {
-            console.log('service', service)
+            // console.log('service', service)
             const brand = service.brand["en-US"]
             const brandAbout = service.brandAbout["en-US"].content
             const date = service.date["en-US"]

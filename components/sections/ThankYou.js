@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 const ThankYou = props => {
   const classes = useStyles();
-  console.log('thank you props', props)
+  // console.log('thank you props', props)
   const thankYouText = props.content.text["en-US"].content
 
   return (

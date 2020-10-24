@@ -99,7 +99,7 @@ const NavMobile = props => {
 
   const handleChange = event => {
     setToggleNav( !toggleNav )
-    console.log('state', toggleNav)
+    // console.log('state', toggleNav)
   }
 
   return (

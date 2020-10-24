@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
 
 const ImageCard = props => {
   const classes = useStyles();
-  console.log('props', props)
+  // console.log('props', props)
   const { brand, date, logo, projectTitle, projectType } = props;
   return (
     <Link href={`${props.urlBase}/${props.link}`}>
