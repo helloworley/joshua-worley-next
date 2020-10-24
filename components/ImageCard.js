@@ -21,9 +21,9 @@ const useStyles = makeStyles(theme => ({
     margin: '0',
   },
   cardDetails: {
-    padding: '5% 8%',
+    padding: '20px 25px',
     position: 'relative',
-    height: '108px',
+    backgroundColor: theme.colors.white
   },
   heading: {
     margin: '0',
@@ -34,32 +34,37 @@ const useStyles = makeStyles(theme => ({
     margin: '0 0 10px',
     fontSize: '.8em',
   },
-  date: {
-    position: 'absolute',
-    right: '8%',
-    top: '20%',
-    color: theme.palette.primary.main,
-    color: 'rgba(0,0,0,.4)',
-    fontSize: '.8em',
+  projectMeta: {
+    color: theme.colors.meta,
+    fontSize: '10px',
+    margin: '0',
   },
-  excerpt: {
-    color: 'rgba(0,0,0,.4)',
-    fontSize: '.8em',
-  }
-
+  projectTitle: {
+    fontSize: '16px',
+    fontWeight: '400',
+    letterSpacing: '1px',
+    marginTop: '5px',
+    marginBottom: '20px',
+  },
+  logo: {
+    maxHeight: '50px',
+    maxWidth: '150px'
+  },
 }));
 
 const ImageCard = props => {
   const classes = useStyles();
+  console.log('props', props)
+  const { brand, date, logo, projectTitle, projectType } = props;
   return (
     <Link href={`${props.urlBase}/${props.link}`}>
       <div className={classes.card}>
-        <div className={classes.image} style={{ backgroundImage: `url(${props.image})` }}></div>
+        <div className={classes.image} style={{ backgroundImage: `url(${props.image.fields.file["en-US"].url})` }}></div>
         <div className={classes.cardDetails}>
-          <Typography variant="h5" className={classes.heading}>{props.name}</Typography>
-          <Typography className={classes.date}>{props.date}</Typography>
-          <Typography className={classes.brand}>{props.brand}</Typography>
-          <Typography className={classes.excerpt}>{props.excerpt}</Typography>
+          <img className={classes.logo} src={logo.fields.file["en-US"].url} alt={logo.fields.title["en-US"]} />
+          <h4 className={classes.projectMeta}>{projectType}</h4>
+          <h4 className={classes.projectMeta}>{date}</h4>
+          <h2 className={classes.projectTitle}>{projectTitle}</h2>
         </div>
       </div>
     </Link>

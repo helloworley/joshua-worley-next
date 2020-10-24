@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import '../../style/style.scss'
 import Layout from '../../components/layout/MyLayout';
 import { makeStyles } from '@material-ui/core/styles';
-import About from '../../components/sections/About'
+import Projects from '../../components/sections/Projects'
 import client from '../../contentful/client'
 import fetchContent from  '../../contentful/fetchContent'
 
@@ -54,14 +54,7 @@ const Page = props => {
       { contentfulDataCheck ? 
         <>
           <Layout>
-            <h1>Projects</h1>
-            {/* <About
-              imgSrc={contentfulData.about.image["en-US"].fields.file["en-US"].url}
-              imageAbout=""
-              content={contentfulData.about.introduction["en-US"].content}
-              resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}
-              resumeAbout={contentfulData.about.resume["en-US"].fields.description["en-US"]}
-            /> */}
+            <Projects projects={contentfulData.projects} />
           </Layout>
           
         </>

@@ -40,6 +40,7 @@ const themeStyles = {
     brandDark: '#535557',
     meta: '#B5B5B5',
     white: '#ffffff',
+    sand: '#F2F0F0'
   },
   navHeight: {
     xs: '',
