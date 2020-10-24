@@ -9,6 +9,7 @@ import Hero from '../components/sections/Hero'
 import ServicesOffered from '../components/sections/ServicesOffered'
 import client from '../contentful/client'
 import RecentProjects from '../components/sections/RecentProjects'
+import Projects from '../components/sections/Projects'
 import ThankYou from '../components/sections/ThankYou'
 
 import fetchContent from '../contentful/fetchContent'
@@ -66,20 +67,24 @@ const IndexPage = props => {
       })
 
       // recent projects
-      let recentProjects = []
+      let projects = []
       await fetchContent('recentProject', '-fields.orderingDate').then(res => {
         res.map( project => {
-          recentProjects.push(project.fields)
+          projects.push(project.fields)
         })
       })
 
       // thank you 
       const thankYou = await fetchContent('thankYou', '')
 
+      const recentProjects = projects.slice(0, 1)
+      const otherProjects = projects.slice(1, projects.length)
+
       setPosts({
         about: about[0].fields,
         servicesOffered: servicesOffered,
         recentProjects: recentProjects,
+        otherProjects: otherProjects,
         thankYou: thankYou[0].fields
       })
     }
@@ -96,8 +101,9 @@ const IndexPage = props => {
             <Hero resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}/>
             <ServicesOffered services={contentfulData.servicesOffered}/>
             <RecentProjects projects={contentfulData.recentProjects}/>
+            <Projects projects={contentfulData.otherProjects} title="Other Projects"/>
             <ThankYou content={contentfulData.thankYou} />
-          </Layout>q
+          </Layout>
         </>
       : null}
     </div>

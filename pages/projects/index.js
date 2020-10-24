@@ -54,9 +54,8 @@ const Page = props => {
       { contentfulDataCheck ? 
         <>
           <Layout>
-            <Projects projects={contentfulData.projects} />
+            <Projects projects={contentfulData.projects} title="Projects" />
           </Layout>
-          
         </>
       : null}
     </div>

@@ -35,7 +35,7 @@ const Projects = props => {
   return (
     <div className={classes.projects}>
       <div className="section-wrapper">
-        <SectionHeading text="Projects" />
+        <SectionHeading text={props.title} />
         <Grid container spacing={4}>
           {
             props.projects.map( service => {
