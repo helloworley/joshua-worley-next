@@ -39,8 +39,9 @@ const Projects = props => {
         <Grid container spacing={4}>
           {
             props.projects.map( service => {
-              // console.log('service', service)
+              console.log('service', service)
               const brand = service.brand["en-US"]
+              const slug = service.slug["en-US"]
               const brandAbout = service.brandAbout["en-US"].content
               const date = service.date["en-US"]
               const finalThoughts = service.finalThoughts["en-US"].content
@@ -52,7 +53,8 @@ const Projects = props => {
               const sections = service.sections["en-US"]
               return <Grid item xs={12} md={4} key={brand}>
                 <ImageCard 
-                  brand={brand}
+                  urlBase="projects"
+                  slug={slug}
                   brandAbout={brandAbout}
                   date={date}
                   finalThoughts={finalThoughts}

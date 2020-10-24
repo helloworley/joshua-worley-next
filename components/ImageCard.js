@@ -55,9 +55,9 @@ const useStyles = makeStyles(theme => ({
 const ImageCard = props => {
   const classes = useStyles();
   // console.log('props', props)
-  const { brand, date, logo, projectTitle, projectType } = props;
+  const { brand, slug, date, logo, projectTitle, projectType } = props;
   return (
-    <Link href={`${props.urlBase}/${props.link}`}>
+    <Link href={`${props.urlBase}/${props.slug}`}>
       <div className={classes.card}>
         <div className={classes.image} style={{ backgroundImage: `url(${props.image.fields.file["en-US"].url})` }}></div>
         <div className={classes.cardDetails}>
