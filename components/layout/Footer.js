@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
-import LogoVertical from './LogoVertical'
-import Socials from './Socials'
+import LogoVertical from '../assets/LogoVertical'
+import Socials from '../assets/Socials'
 
 
 const useStyles = makeStyles(theme => ({

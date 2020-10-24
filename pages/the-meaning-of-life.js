@@ -1,6 +1,6 @@
 import '../style/style.scss'
 import fetch from 'isomorphic-unfetch';
-import Layout from '../components/MyLayout';
+import Layout from '../components/layout/MyLayout';
 import { Grid } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 

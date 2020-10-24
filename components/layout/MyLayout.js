@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
-import NavDesktop from './nav/NavDesktop';
-import NavMobile from './nav/NavMobile';
+import NavDesktop from '../nav/NavDesktop';
+import NavMobile from '../nav/NavMobile';
 import { Grid, Hidden } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
-import fetchContent from '../contentful/fetchContent'
+import fetchContent from '../../contentful/fetchContent'
 import Footer from './Footer'
 
 // GA
 import React from 'react';
-import { initGA, logPageView } from '../utils/analytics';
+import { initGA, logPageView } from '../../utils/analytics';
 
 const useStyles = makeStyles(theme => ({
   paper: {

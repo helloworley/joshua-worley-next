@@ -1,10 +1,10 @@
-import Layout from '../components/MyLayout';
+import Layout from '../components/layout/MyLayout';
 import fetch from 'isomorphic-unfetch';
 import ContactForm from '../components/ContactForm';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core/';
 import '../style/style.scss'
-import Footer from '../components/Footer';
+import Footer from '../components/layout/Footer';
 
 const useStyles = makeStyles(theme => ({
   centeredWrapper: {

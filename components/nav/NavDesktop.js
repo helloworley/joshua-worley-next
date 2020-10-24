@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Socials from '../Socials'
+import Socials from '../assets/Socials'
 import navSocials from '../../navSocials';
-import LogoHorizontal from '../LogoHorizontal'
+import LogoHorizontal from '../assets/LogoHorizontal'
 
 const socialItems = navSocials;
 

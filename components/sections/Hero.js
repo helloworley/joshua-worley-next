@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core/';
 import ButtonWrapped from '../ButtonWrapped'
-import Socials from '../Socials'
+import Socials from '../assets/Socials'
 
 const minHeightXs = '375px';
 const minHeightSm = '520px';

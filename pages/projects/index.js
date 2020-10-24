@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import '../../style/style.scss'
-import Layout from '../../components/MyLayout';
+import Layout from '../../components/layout/MyLayout';
 import { makeStyles } from '@material-ui/core/styles';
 import About from '../../components/sections/About'
 import client from '../../contentful/client'

@@ -1,4 +1,4 @@
-import Layout from '../../components/MyLayout'
+import Layout from '../../components/layout/MyLayout'
 import '../../style/style.scss'
 import ImageCardSectionFocus from '../../components/ImageCardSectionFocus';
 import ImageCardSectionEqual from '../../components/ImageCardSectionEqual';
@@ -6,7 +6,7 @@ import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core/';
-import Footer from '../../components/Footer';
+import Footer from '../../components/layout/Footer';
 
 const useStyles = makeStyles(theme => ({
   imageCard: {

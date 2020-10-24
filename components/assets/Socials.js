@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import navSocials from '../navSocials';
+import navSocials from '../../navSocials';
 
 const socialItems = navSocials;
 

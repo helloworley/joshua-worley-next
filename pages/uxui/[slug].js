@@ -1,11 +1,11 @@
 import { makeStyles } from '@material-ui/styles';
-import Layout from '../../components/MyLayout';
+import Layout from '../../components/layout/MyLayout';
 import '../../style/style.scss';
 import fetch from 'isomorphic-unfetch';
 import HeroFull from '../../components/HeroFull';
 import BackToExamples from '../../components/BackToExamples';
 import { Grid } from '@material-ui/core/';
-import Footer from '../../components/Footer';
+import Footer from '../../components/layout/Footer';
 
 const useStyles = makeStyles(theme => ({
   exampleDate: {

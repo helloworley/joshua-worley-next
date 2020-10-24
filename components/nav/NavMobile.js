@@ -4,9 +4,9 @@ import { AppBar, Toolbar, Drawer, Hidden } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
-import LogoHorizontal from '../LogoHorizontal'
-import LogoVertical from '../LogoVertical'
-import Socials from '../Socials'
+import LogoHorizontal from '../assets/LogoHorizontal'
+import LogoVertical from '../assets/LogoVertical'
+import Socials from '../assets/Socials'
 import Link from 'next/link'
 
 const useStyles = makeStyles( theme => ({
