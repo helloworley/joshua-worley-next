@@ -26,11 +26,12 @@ const Page = props => {
   // Data from Contentful
   const [ contentfulData, setContentfulData ] = useState([])
   const contentfulDataCheck = Object.entries(contentfulData).length !== 0 
+  console.log('props', props)
 
   useEffect(() => {
     async function getPosts() {
       // recent projects
-      const slug = 'snaphabit'
+      const slug = props.slug
       const project = await fetchContent({
         type: 'recentProject',
         slug: slug
@@ -43,11 +44,13 @@ const Page = props => {
     getPosts()
   }, [])
 
+  console.log('props', props)
+
   return (
     <div id="projects">
       { contentfulDataCheck ? 
           <Layout>
-            <div class="section-wrapper">
+            <div className="section-wrapper">
               <ProjectPost
                 brand={contentfulData.project[0].fields.brand["en-US"]}
                 brandAbout={contentfulData.project[0].fields.brandAbout["en-US"].content}
@@ -65,6 +68,10 @@ const Page = props => {
       : null}
     </div>
   )
+}
+
+Page.getInitialProps = async function (context) {
+  return context.query
 }
 
 export default Page;
