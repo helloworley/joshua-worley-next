@@ -3,8 +3,7 @@ import Layout from '../../components/layout/MyLayout';
 import '../../style/style.scss';
 import fetch from 'isomorphic-unfetch';
 import { Grid } from '@material-ui/core/';
-import BackToExamples from '../../components/BackToExamples';
-import Footer from '../../components/layout/Footer';
+import Footer from '../../components/Footer';
 
 const useStyles = makeStyles(theme => ({
   exampleDate: {
@@ -43,10 +42,6 @@ const devExample = props => {
               <h1>{devExample.post_title} <span className={classes.exampleDate}>{devExample.post_date_formatted}</span></h1>
               <div className="wp-content">
                 <div dangerouslySetInnerHTML={{ __html: devExample.post_content }}></div>
-                <BackToExamples
-                  link="/development"
-                  text="More Development Projects"
-                />
               </div>
             </div>
 

@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/styles';
 import Layout from '../../components/layout/MyLayout';
 import HeroFull from '../../components/HeroFull';
-import BackToExamples from '../../components/BackToExamples';
 import '../../style/style.scss';
 import fetch from 'isomorphic-unfetch';
 import { Grid } from '@material-ui/core/';
@@ -46,10 +45,6 @@ const project = props => {
             <div id="page-content">
               <div className="wp-content">
                 <div dangerouslySetInnerHTML={{ __html: project.post_content }}></div>
-                <BackToExamples
-                  link="/branding"
-                  text="More Branding Projects"
-                />
               </div>
             </div>
 

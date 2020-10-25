@@ -3,7 +3,6 @@ import Layout from '../../components/layout/MyLayout';
 import '../../style/style.scss';
 import fetch from 'isomorphic-unfetch';
 import HeroFull from '../../components/HeroFull';
-import BackToExamples from '../../components/BackToExamples';
 import { Grid } from '@material-ui/core/';
 import Footer from '../../components/layout/Footer';
 
@@ -46,10 +45,6 @@ const project = props => {
               <div id="page-content">
                 <div className="wp-content">
                   <div dangerouslySetInnerHTML={{ __html: project.post_content }}></div>
-                  <BackToExamples
-                    link="/uxui"
-                    text="More UX UI Projects"
-                  />
                 </div>
               </div>
 
