@@ -64,13 +64,16 @@ const Layout = props => {
       const about = await fetchContent({
         type: 'about'
       })
+      const resume = await fetchContent({
+        type: 'resume'
+      })
       setResumeLink({
-        resumeLink: about
+        resume: resume[0].fields.english["en-US"].fields.file["en-US"].url,
+        shokumukeireki: resume[0].fields.shokumukeireki["en-US"].fields.file["en-US"].url
       })    
     }
     getResume()
   }, [])
-
 
   let navItems = []
   { contentfulDataCheck ?
@@ -85,8 +88,12 @@ const Layout = props => {
       },
       {
         'name': 'Resume',
-        'link': contentfulData.resumeLink[0].fields.resume["en-US"].fields.file["en-US"].url
-      }
+        'link': contentfulData.resume
+      },
+      {
+        'name': '職務経歴書',
+        'link': contentfulData.shokumukeireki
+      },
     ]
   : null}
   
@@ -110,7 +117,7 @@ const Layout = props => {
       </div>
       {
         contentfulDataCheck ?
-          <Footer resumeLink={contentfulData.resumeLink[0].fields.resume["en-US"].fields.file["en-US"].url}/>
+          <Footer resumeLink={contentfulData.resume}/>
         : 
       null}
     </>
