@@ -36,9 +36,14 @@ const Page = props => {
       const about = await fetchContent({
         type: 'about'
       })
+      const resume = await fetchContent({
+        type: 'resume'
+      })
 
       setPosts({
         about: about[0].fields,
+        resume: resume[0].fields.english["en-US"].fields.file["en-US"].url,
+        resumeAbout: resume[0].fields.english["en-US"].fields.description["en-US"]
       })
     }
     getPosts()
@@ -54,8 +59,8 @@ const Page = props => {
             imgSrc={contentfulData.about.image["en-US"].fields.file["en-US"].url}
             imageAbout=""
             content={contentfulData.about.introduction["en-US"].content}
-            resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}
-            resumeAbout={contentfulData.about.resume["en-US"].fields.description["en-US"]}
+            resumeLink={contentfulData.resume}
+            resumeAbout={contentfulData.resumeAbout}
           />
         : null}
 

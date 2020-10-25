@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Hero from '../components/sections/Hero'
 import ServicesOffered from '../components/sections/ServicesOffered'
-import client from '../contentful/client'
 import RecentProjects from '../components/sections/RecentProjects'
 import Projects from '../components/sections/Projects'
 import ThankYou from '../components/sections/ThankYou'
@@ -55,6 +54,16 @@ const IndexPage = props => {
   useEffect(() => {
     async function getPosts() {
 
+      // resume
+      const resume = await fetchContent({
+        type: 'resume'
+      })
+
+      // hero
+      const hero = await fetchContent({
+        type: 'homeHero'
+      })
+
       // about
       const about = await fetchContent({
         type: 'about',
@@ -93,6 +102,9 @@ const IndexPage = props => {
       const otherProjects = projects.slice(1, projects.length)
 
       setPosts({
+        resume: resume[0].fields.english["en-US"].fields.file["en-US"].url,
+        shokumukeireki: resume[0].fields.shokumukeireki["en-US"].fields.file["en-US"].url,
+        hero: hero[0].fields,
         about: about[0].fields,
         servicesOffered: servicesOffered,
         recentProjects: recentProjects,
@@ -110,7 +122,12 @@ const IndexPage = props => {
       { contentfulDataCheck ?
         <>
           <Layout>
-            <Hero resumeLink={contentfulData.about.resume["en-US"].fields.file["en-US"].url}/>
+            <Hero 
+              resumeLink={contentfulData.resume}
+              image={contentfulData.hero.image["en-US"].fields}
+              heading={contentfulData.hero.heading["en-US"]}
+              description={contentfulData.hero.description["en-US"].content}
+            />
             <ServicesOffered services={contentfulData.servicesOffered}/>
             <RecentProjects projects={contentfulData.recentProjects}/>
             <Projects projects={contentfulData.otherProjects} title="Other Projects"/>

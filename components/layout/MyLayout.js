@@ -61,9 +61,6 @@ const Layout = props => {
 
     // get resume link
     async function getResume() {
-      const about = await fetchContent({
-        type: 'about'
-      })
       const resume = await fetchContent({
         type: 'resume'
       })

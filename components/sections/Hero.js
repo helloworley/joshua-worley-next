@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core/';
 import ButtonWrapped from '../ButtonWrapped'
 import Socials from '../assets/Socials'
+import RichTextToHTML from '../RichTextToHTML'
 
 const minHeightXs = '375px';
 const minHeightSm = '520px';
@@ -42,7 +43,6 @@ const useStyles = makeStyles(theme => ({
   },
   heroImg: {
     minHeight: minHeightXs,
-    backgroundImage: 'url(/bamboo-forest.jpg)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'bottom',
@@ -67,18 +67,19 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
+
 const Hero = props => {
   const classes = useStyles();
+  console.log('image', props.image)
   return (
     <div className={classes.hero}>
       <Grid container className={classes.root} spacing={0}>
         <Grid item xs={12} md={6} className={classes.introInfo}>
           <img className={classes.logo} src="/ikigai-dark.svg" />
           <div className={classes.info}>
-            <h2 className={classes.heading}>Building the future through digital design.</h2>
-            <p>Web / App / UX / UI Designer & Frontend Developer.<br/>
-              Joshua Worley solves complicated problems with simple solutions.
-            </p>
+            <h2 className={classes.heading}>{props.heading}</h2>
+            <RichTextToHTML data={props.description}/>
             <ButtonWrapped 
               text="About"
               variant="outlined" 
@@ -91,7 +92,9 @@ const Hero = props => {
             </div>
           </div>
         </Grid>
-        <Grid item xs={12} md={6} className={classes.heroImg}>
+        <Grid item xs={12} md={6} className={classes.heroImg} style={{
+          backgroundImage: `url(${props.image.file["en-US"].url})`
+          }}>
         </Grid>
       </Grid>
     </div> 
