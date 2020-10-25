@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
-
+import { NextSeo } from 'next-seo'
 import '../style/style.scss'
 import Layout from '../components/layout/MyLayout';
-import Footer from '../components/layout/Footer';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Hero from '../components/sections/Hero'
@@ -10,6 +9,7 @@ import ServicesOffered from '../components/sections/ServicesOffered'
 import RecentProjects from '../components/sections/RecentProjects'
 import Projects from '../components/sections/Projects'
 import ThankYou from '../components/sections/ThankYou'
+
 
 import fetchContent from '../contentful/fetchContent'
 
@@ -53,6 +53,11 @@ const IndexPage = props => {
 
   useEffect(() => {
     async function getPosts() {
+
+      // home 
+      const pageHome = await fetchContent({
+        type: 'pageHome'
+      })
 
       // resume
       const resume = await fetchContent({
@@ -102,6 +107,8 @@ const IndexPage = props => {
       const otherProjects = projects.slice(1, projects.length)
 
       setPosts({
+        seoTitle: pageHome[0].fields.seoTitle["en-US"],
+        seoDescription: pageHome[0].fields.seoDescription["en-US"],
         resume: resume[0].fields.english["en-US"].fields.file["en-US"].url,
         shokumukeireki: resume[0].fields.shokumukeireki["en-US"].fields.file["en-US"].url,
         hero: hero[0].fields,
@@ -121,6 +128,10 @@ const IndexPage = props => {
     <div id="home">
       { contentfulDataCheck ?
         <>
+          <NextSeo
+            title={contentfulData.seoTitle}
+            description={contentfulData.seoDescription}
+          />
           <Layout>
             <Hero 
               resumeLink={contentfulData.resume}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { NextSeo } from 'next-seo'
 import '../../style/style.scss'
 import Layout from '../../components/layout/MyLayout';
 import { makeStyles } from '@material-ui/core/styles';
@@ -31,6 +32,11 @@ const Page = props => {
   useEffect(() => {
     async function getPosts() {
 
+      // page 
+      const pageProjects = await fetchContent({
+        type: 'pageProjects'
+      })
+
       // recent projects
       let projects = []
       await fetchContent({
@@ -43,6 +49,8 @@ const Page = props => {
       })
 
       setContentfulData({
+        seoTitle: pageProjects[0].fields.seoTitle["en-US"],
+        seoDescription: pageProjects[0].fields.seoDescription["en-US"],
         projects: projects
       })
     }
@@ -56,6 +64,10 @@ const Page = props => {
     <div id="projects">
       { contentfulDataCheck ? 
         <>
+          <NextSeo
+            title={`Joshua Worley - ${contentfulData.seoTitle}`}
+            description={contentfulData.seoDescription}
+          />
           <Layout>
             <Projects projects={contentfulData.projects} title="Projects" />
           </Layout>

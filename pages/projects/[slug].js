@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { NextSeo } from 'next-seo'
 import '../../style/style.scss'
 import Layout from '../../components/layout/MyLayout';
 import { makeStyles } from '@material-ui/core/styles';
@@ -38,7 +39,18 @@ const Page = props => {
       })
 
       setContentfulData({
-        project: project
+        project: project,
+        brand: project[0].fields.brand["en-US"],
+        seoDescription: project[0].fields.seoDescription["en-US"],
+        brandAbout: project[0].fields.brandAbout["en-US"].content,
+        date: project[0].fields.date["en-US"],
+        finalThoughts: project[0].fields.finalThoughts["en-US"].content,
+        heroImage: project[0].fields.heroImage["en-US"],
+        logo: project[0].fields.logo["en-US"],
+        projectIntro: project[0].fields.projectIntro["en-US"].content,
+        projectTitle: project[0].fields.projectTitle["en-US"],
+        projectType: project[0].fields.projectType["en-US"],
+        sections: project[0].fields.sections["en-US"]
       })
     }
     getPosts()
@@ -47,26 +59,32 @@ const Page = props => {
   console.log('props', props)
 
   return (
-    <div id="projects">
+    <>
       { contentfulDataCheck ? 
+        <div id="projects">
+          <NextSeo
+            title={`Joshua Worley - ${contentfulData.brand}`}
+            description={contentfulData.seoDescription}
+          />
           <Layout>
             <div className="section-wrapper">
               <ProjectPost
-                brand={contentfulData.project[0].fields.brand["en-US"]}
-                brandAbout={contentfulData.project[0].fields.brandAbout["en-US"].content}
-                date={contentfulData.project[0].fields.date["en-US"]}
-                finalThoughts={contentfulData.project[0].fields.finalThoughts["en-US"].content}
-                heroImage={contentfulData.project[0].fields.heroImage["en-US"]}
-                logo={contentfulData.project[0].fields.logo["en-US"]}
-                projectIntro={contentfulData.project[0].fields.projectIntro["en-US"].content}
-                projectTitle={contentfulData.project[0].fields.projectTitle["en-US"]}
-                projectType={contentfulData.project[0].fields.projectType["en-US"]}
-                sections={contentfulData.project[0].fields.sections["en-US"]}
+                brand={contentfulData.brand}
+                brandAbout={contentfulData.brandAbout}
+                date={contentfulData.date}
+                finalThoughts={contentfulData.finalThoughts}
+                heroImage={contentfulData.heroImage}
+                logo={contentfulData.logo}
+                projectIntro={contentfulData.projectIntro}
+                projectTitle={contentfulData.projectTitle}
+                projectType={contentfulData.projectType}
+                sections={contentfulData.sections}
               />
             </div>
-        </Layout>
+          </Layout>
+        </div>
       : null}
-    </div>
+    </>
   )
 }
 

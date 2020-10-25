@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { NextSeo } from 'next-seo'
 import '../style/style.scss'
 import Layout from '../components/layout/MyLayout';
 import Footer from '../components/layout/Footer';
@@ -42,6 +43,8 @@ const Page = props => {
 
       setPosts({
         about: about[0].fields,
+        seoTitle: about[0].fields.seoTitle["en-US"],
+        seoDescription: about[0].fields.seoDescription["en-US"],
         resume: resume[0].fields.english["en-US"].fields.file["en-US"].url,
         resumeAbout: resume[0].fields.english["en-US"].fields.description["en-US"]
       })
@@ -49,12 +52,18 @@ const Page = props => {
     getPosts()
   }, [])
 
+  console.log('contentful data', contentfulData)
+
 
   return (
     <div id="about">
-      <Layout>
-
-        { contentfulDataCheck ? 
+      { contentfulDataCheck ? 
+      <>
+        <NextSeo
+          title={`Joshua Worley - ${contentfulData.seoTitle}`}
+          description={contentfulData.seoDescription}
+        />
+        <Layout>  
           <About
             imgSrc={contentfulData.about.image["en-US"].fields.file["en-US"].url}
             imageAbout=""
@@ -62,9 +71,9 @@ const Page = props => {
             resumeLink={contentfulData.resume}
             resumeAbout={contentfulData.resumeAbout}
           />
-        : null}
-
-      </Layout>
+        </Layout>
+      </>
+      : null}
     </div>
   )
 }
