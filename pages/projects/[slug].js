@@ -42,16 +42,16 @@ const Page = props => {
       })
 
       // recent projects
-      let projects = []
-      await fetchContent({
-        type: 'recentProject', 
-        order: '-fields.orderingDate'
-      }).then(res => {
-        res.map( project => {
-          projects.push(project.fields)
-        })
-      })
-      const filteredProjects = projects.filter( project => project.slug["en-US"] !== slug);
+      // let projects = []
+      // await fetchContent({
+      //   type: 'recentProject', 
+      //   order: '-fields.orderingDate'
+      // }).then(res => {
+      //   res.map( project => {
+      //     projects.push(project.fields)
+      //   })
+      // })
+      // const filteredProjects = projects.filter( project => project.slug["en-US"] !== slug);
       
 
       setContentfulData({
@@ -67,7 +67,7 @@ const Page = props => {
         projectTitle: project[0].fields.projectTitle["en-US"],
         projectType: project[0].fields.projectType["en-US"],
         sections: project[0].fields.sections["en-US"],
-        projects: filteredProjects
+        // projects: filteredProjects
       })
     }
     getPosts()
@@ -99,7 +99,7 @@ const Page = props => {
                 sections={contentfulData.sections}
               />
             </div>
-            <Projects projects={contentfulData.projects} title="More Projects" />
+            {/* <Projects projects={contentfulData.projects} title="More Projects" /> */}
           </Layout>
         </div>
       : null}

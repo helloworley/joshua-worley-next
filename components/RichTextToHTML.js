@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
       lineHeight: '1.8',
       [theme.breakpoints.up('md')]: {
         marginTop: '14px',
+        fontSize: '14px'
+      },
+      [theme.breakpoints.up('md')]: {
         fontSize: '15px'
       },
     },
@@ -41,6 +44,9 @@ const useStyles = makeStyles(theme => ({
       },
       [theme.breakpoints.up('md')]: {
         marginTop: '14px',
+        fontSize: '14px'
+      },
+      [theme.breakpoints.up('md')]: {
         fontSize: '15px'
       },
     },
