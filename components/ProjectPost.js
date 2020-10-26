@@ -74,9 +74,10 @@ const useStyles = makeStyles(theme => ({
   },
   projectMeta: {
     color: theme.colors.meta,
+    textTransform: 'uppercase',
     fontSize: '10px',
     margin: '0',
-    letterSpacing: '3px',
+    letterSpacing: '2px',
     fontWeight: 'bold',
     [theme.breakpoints.up('md')]: {
       fontSize: '16px',
@@ -133,12 +134,33 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       marginBottom: '90px'
     }
+  },
+  tech: {
+    display: 'inline-block',
+    marginRight: '30px',
+    '&:hover': {
+      opacity: '.8'
+    },
+    '& img': {
+      maxWidth: '80px',
+      maxHeight: '80px',
+    },
+    '& h5': {
+      marginTop: '10px',
+      textAlign: 'center',
+      color: theme.colors.abyss
+    },
+  },
+  techUsed: {
+    marginTop: '40px',
+    marginBottom: '20px'
   }
 }));
 
 const ProjectPost = props => {
   const classes = useStyles();
-  const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, sections } = props;
+  const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, technologies, sections } = props;
+  console.log('technologies', technologies)
 
   return (
     <div className={classes.projectPost}>
@@ -162,7 +184,26 @@ const ProjectPost = props => {
             <h4 className={classes.projectMeta}>{date}</h4>
             <h2 className={classes.projectTitle}>{projectTitle}</h2>
             <RichTextToHTML data={projectIntro} />
+
+            <h3 className={`${classes.projectMeta} ${classes.techUsed}`}>Technologies Used</h3>
+            {
+              technologies.map( tech => {
+                console.log('tech', tech)
+                const image = tech.fields.image["en-US"].fields.file["en-US"].url
+                const text = tech.fields.name["en-US"]
+                const link = tech.fields.link["en-US"]
+                return (
+                  <a href={link} target="_blank">
+                    <div className={classes.tech}>
+                      <img src={image} />
+                      <h5>{text}</h5>
+                    </div>
+                  </a>
+                )
+              })
+            }
           </div>
+
         </div>
 
         <div className={classes.projectSections}>

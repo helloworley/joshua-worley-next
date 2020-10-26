@@ -67,6 +67,7 @@ const Page = props => {
         projectTitle: project[0].fields.projectTitle["en-US"],
         projectType: project[0].fields.projectType["en-US"],
         sections: project[0].fields.sections["en-US"],
+        technologies: project[0].fields.technologies["en-US"],
         // projects: filteredProjects
       })
     }
@@ -97,6 +98,7 @@ const Page = props => {
                 projectTitle={contentfulData.projectTitle}
                 projectType={contentfulData.projectType}
                 sections={contentfulData.sections}
+                technologies={contentfulData.technologies}
               />
             </div>
             {/* <Projects projects={contentfulData.projects} title="More Projects" /> */}

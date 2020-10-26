@@ -48,6 +48,7 @@ const RecentProjects = props => {
             const projectTitle = service.projectTitle["en-US"]
             const projectType = service.projectType["en-US"]
             const sections = service.sections["en-US"]
+            const technologies = service.technologies["en-US"]
             return <ProjectPost 
               key={brand}
               brand={brand}
@@ -60,6 +61,7 @@ const RecentProjects = props => {
               projectTitle={projectTitle}
               projectType={projectType}
               sections={sections}
+              technologies={technologies}
             />
           })
         }
