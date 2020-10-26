@@ -50,6 +50,8 @@ const themeStyles = {
     sand: '#F2F0F0',
     link: '#C7BEAD',
     linkHovered: '#B9B2A4',
+    linkGrey: '#8E8E8E',
+    linkGreyHovered: '#676767'
   },
   navHeight: {
     xs: '',

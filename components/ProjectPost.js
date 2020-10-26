@@ -6,7 +6,6 @@ import { Grid } from '@material-ui/core/'
 
 const useStyles = makeStyles(theme => ({
   projectPost: {
-    marginBottom: '80px',
     paddingBottom: '80px',
     borderBottom: `solid 1px ${theme.colors.line}`,
     '&:last-of-type': {
@@ -25,13 +24,17 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   brandAbout: {
-    marginBottom: '50px'
+    marginBottom: '60px',
+    [theme.breakpoints.up('md')]: {
+      marginBottom: '90px'
+    }
   },
   projectImgExample: {
     width: '100%',
-    marginBottom: '20px',
+    marginBottom: '40px',
     [theme.breakpoints.up('md')]: {
       paddingRight: '40px',
+      marginBottom: '0',
     },
   },
   projectSectionDesc: {
@@ -45,21 +48,22 @@ const useStyles = makeStyles(theme => ({
     },
   },
   projectSection: {
-    marginBottom: '40px',
+    marginBottom: '90px',
     [theme.breakpoints.up('md')]: {
-      marginBottom: '80px',
+      marginBottom: '90px',
     },
   },
   projectHero: {
     width: '100%',
     marginBottom: '30px',
-    height: '650px',
+    height: '350px',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeast',
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
     [theme.breakpoints.up('md')]: {
       marginBottom: '50px',
+      height: '650px',
     },
   },
   logo: {
@@ -86,8 +90,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '20px',
     fontWeight: 'bold',
     letterSpacing: '3px',
+    fontSize: '22px',
     [theme.breakpoints.up('md')]: {
-      fontSize: '28px',
+      fontSize: '36px',
     }
   },
   projectAbout: {
@@ -106,6 +111,28 @@ const useStyles = makeStyles(theme => ({
   singleColumn: {
     maxWidth: '960px',
     margin: '0 auto'
+  },
+  buttonWrapper: {
+    margin: '30px 0 0',
+    textAlign: 'center',
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'initial'
+    }
+  },
+  sectionTitle: {
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    fontSize: '18px',
+    letterSpacing: '3px',
+    marginBottom: '10px',
+    marginTop: '0'
+  },
+  brandProjectAbout: {
+    marginTop: '60px',
+    marginBottom: '60px',
+    [theme.breakpoints.up('md')]: {
+      marginBottom: '90px'
+    }
   }
 }));
 
@@ -124,7 +151,7 @@ const ProjectPost = props => {
 
         <h1 className="hide">{brand}</h1>
 
-        <div className={classes.singleColumn}>
+        <div className={`${classes.singleColumn} ${classes.brandProjectAbout}`}>
           <div className={classes.brandAbout}>
             <img className={classes.logo} src={logo.fields.file["en-US"].url} alt={logo.fields.title["en-US"]} />
             <RichTextToHTML data={brandAbout} />
@@ -145,6 +172,8 @@ const ProjectPost = props => {
               const imgUrl = img.file["en-US"].url
               const imgAlt = img.title["en-US"]
               const description = section.fields.description["en-US"].content
+              const title = section.fields.title["en-US"]
+              console.log('project section', section)
               let link
               let linkText
               {
@@ -157,15 +186,18 @@ const ProjectPost = props => {
               return (
                 <div className={classes.projectSection} key={imgUrl}>
                   <Grid container spacing={0}>
-                    <Grid item xs={12} md={7} lg={7}>
+                    <Grid item xs={12} md={6} lg={7}>
                       <img src={imgUrl} alt={imgAlt} className={classes.projectImgExample} />
                     </Grid>
-                    <Grid item xs={12} md={5} lg={5}>
+                    <Grid item xs={12} md={6} lg={5}>
                       <div className={classes.projectSectionDesc}>
+                        <h4 className={classes.sectionTitle}>{title}</h4>
                         <RichTextToHTML data={description} />
                         {
-                          link ? 
-                            <ButtonWrapped link={link} text={linkText} />
+                          link ?
+                            <div className={classes.buttonWrapper}>
+                              <ButtonWrapped link={link} text={linkText} />
+                            </div>
                           : null
                         }
                       </div>
@@ -178,7 +210,9 @@ const ProjectPost = props => {
           }
         </div>
 
-        <RichTextToHTML data={finalThoughts} />
+        <div className={classes.singleColumn}>
+          <RichTextToHTML data={finalThoughts} />
+        </div>
 
       </div>
     </div>

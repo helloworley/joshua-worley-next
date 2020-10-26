@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   }, 
   button: {
     textTransform:'none',
-    backgroundColor: theme.colors.link,
+    backgroundColor: theme.colors.linkGrey,
     color: theme.colors.whisp,
     padding: '10px 20px',
     borderRadius: '0',
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     fontFamily: theme.fontFamily.serif,
     '&:hover': {
-      backgroundColor: theme.colors.linkHovered
+      backgroundColor: theme.colors.linkGreyHovered
     }
   },
 }));

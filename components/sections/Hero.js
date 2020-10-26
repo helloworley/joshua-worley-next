@@ -75,6 +75,10 @@ const Hero = props => {
   return (
     <div className={classes.hero}>
       <Grid container className={classes.root} spacing={0}>
+        <Grid item xs={12} md={6} className={classes.heroImg} style={{
+          backgroundImage: `url(${props.image.file["en-US"].url})`
+          }}>
+        </Grid>
         <Grid item xs={12} md={6} className={classes.introInfo}>
           <img className={classes.logo} src="/ikigai-dark.svg" />
           <div className={classes.info}>
@@ -91,10 +95,6 @@ const Hero = props => {
               <Socials />
             </div>
           </div>
-        </Grid>
-        <Grid item xs={12} md={6} className={classes.heroImg} style={{
-          backgroundImage: `url(${props.image.file["en-US"].url})`
-          }}>
         </Grid>
       </Grid>
     </div> 

@@ -21,8 +21,8 @@ const useStyles = makeStyles(theme => ({
       fontFamily: "'Lora', Garamond, serif",
       fontWeight: '500',
       lineHeight: '1.8',
-      margin: '0 0 32px',
-      fontSize: '12px',
+      margin: '0 0 10px',
+      fontSize: '14px',
       lineHeight: '1.8',
       [theme.breakpoints.up('md')]: {
         marginTop: '14px',
@@ -34,8 +34,7 @@ const useStyles = makeStyles(theme => ({
       fontFamily: "'Lora', Garamond, serif",
       fontWeight: '500',
       lineHeight: '1.8',
-      margin: '0 0 32px',
-      fontSize: '12px',
+      fontSize: '14px',
       lineHeight: '1.8',
       '&:hover': {
         color: theme.colors.linkHovered

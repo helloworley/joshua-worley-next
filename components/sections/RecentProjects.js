@@ -34,7 +34,7 @@ const RecentProjects = props => {
   return (
     <div className={classes.RecentProjects}>
       <div>
-        <SectionHeading text="Recent Project" />
+        <SectionHeading text="Recent Project" noBorder={true} />
         {
           props.projects.map( service => {
             // console.log('service', service)
