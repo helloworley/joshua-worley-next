@@ -5,6 +5,7 @@ import Layout from '../../components/layout/MyLayout';
 import { makeStyles } from '@material-ui/core/styles';
 import fetchContent from '../../contentful/fetchContent'
 import ProjectPost from '../../components/ProjectPost'
+import Projects from '../../components/sections/Projects'
 
 
 const useStyles = makeStyles(theme => ({
@@ -28,15 +29,30 @@ const Page = props => {
   const [ contentfulData, setContentfulData ] = useState([])
   const contentfulDataCheck = Object.entries(contentfulData).length !== 0 
   console.log('props', props)
+  const slug = props.slug
 
   useEffect(() => {
     async function getPosts() {
-      // recent projects
+
+      // page (project data)
       const slug = props.slug
       const project = await fetchContent({
         type: 'recentProject',
         slug: slug
       })
+
+      // recent projects
+      let projects = []
+      await fetchContent({
+        type: 'recentProject', 
+        order: '-fields.orderingDate'
+      }).then(res => {
+        res.map( project => {
+          projects.push(project.fields)
+        })
+      })
+      const filteredProjects = projects.filter( project => project.slug["en-US"] !== slug);
+      
 
       setContentfulData({
         project: project,
@@ -50,13 +66,15 @@ const Page = props => {
         projectIntro: project[0].fields.projectIntro["en-US"].content,
         projectTitle: project[0].fields.projectTitle["en-US"],
         projectType: project[0].fields.projectType["en-US"],
-        sections: project[0].fields.sections["en-US"]
+        sections: project[0].fields.sections["en-US"],
+        projects: filteredProjects
       })
     }
     getPosts()
   }, [])
 
   console.log('props', props)
+  console.log('contentfulData', contentfulData)
 
   return (
     <>
@@ -67,7 +85,7 @@ const Page = props => {
             description={contentfulData.seoDescription}
           />
           <Layout>
-            <div className="section-wrapper">
+            <div>
               <ProjectPost
                 brand={contentfulData.brand}
                 brandAbout={contentfulData.brandAbout}
@@ -81,6 +99,7 @@ const Page = props => {
                 sections={contentfulData.sections}
               />
             </div>
+            <Projects projects={contentfulData.projects} title="More Projects" />
           </Layout>
         </div>
       : null}

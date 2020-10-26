@@ -16,16 +16,33 @@ const useStyles = makeStyles(theme => ({
     'h4': {
       fontFamily: 'Lato,"Helvetica Neue",Arial,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
     },
-    '& p': {
-      color: '#616161',
-      fontFamily: 'Lato,"Helvetica Neue",Arial,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
+    '& p' : {
+      color: theme.colors.abyss,
+      fontFamily: "'Lora', Garamond, serif",
       fontWeight: '500',
       lineHeight: '1.8',
       margin: '0 0 32px',
       fontSize: '12px',
       lineHeight: '1.8',
       [theme.breakpoints.up('md')]: {
-        marginTop: '14px'
+        marginTop: '14px',
+        fontSize: '15px'
+      },
+    },
+    '& a' : {
+      color: theme.colors.link,
+      fontFamily: "'Lora', Garamond, serif",
+      fontWeight: '500',
+      lineHeight: '1.8',
+      margin: '0 0 32px',
+      fontSize: '12px',
+      lineHeight: '1.8',
+      '&:hover': {
+        color: theme.colors.linkHovered
+      },
+      [theme.breakpoints.up('md')]: {
+        marginTop: '14px',
+        fontSize: '15px'
       },
     },
     '& li p': {

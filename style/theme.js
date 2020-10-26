@@ -8,6 +8,13 @@ const heading = {
 const themeStyles = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
+  fontFamily: {
+    serif: "'Lora', Garamond, serif",
+    sansSerif: "'Lato', Helvetica, Arial, sans-serif"
+  },
+  boxShadows: {
+    buttonPrimary: '0px 4px 4px 0px rgba(199, 190, 173, .25)'
+  },
   fontWeights: {
     body: 400,
     heading: 700,
@@ -40,7 +47,9 @@ const themeStyles = {
     brandDark: '#535557',
     meta: '#B5B5B5',
     white: '#ffffff',
-    sand: '#F2F0F0'
+    sand: '#F2F0F0',
+    link: '#C7BEAD',
+    linkHovered: '#B9B2A4',
   },
   navHeight: {
     xs: '',

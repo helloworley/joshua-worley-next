@@ -51,9 +51,9 @@ const Projects = props => {
               const projectTitle = service.projectTitle["en-US"]
               const projectType = service.projectType["en-US"]
               const sections = service.sections["en-US"]
-              return <Grid item xs={12} md={4} key={brand}>
+              return <Grid item xs={12} sm={6} md={4} key={brand}>
                 <ImageCard 
-                  urlBase="projects"
+                  urlBase="/projects"
                   slug={slug}
                   brandAbout={brandAbout}
                   date={date}

@@ -5,22 +5,22 @@ body, html, #__next {
 $box-shadow: 0 10px 16px 0 rgba(205,217,231,.47);
 
 a {
-  color: salmon;
+  color: #C7BEAD;
   transition: .2s;
   &:hover {
-    color: pink;
+    color: #B9B2A4;
   }
 }
 
 h1, h2, h3, h4, h5, h6, p, a, small, span, td {
   font-family: 'Lato', Helvetica, Arial, sans-serif;
-  max-width: 800px;
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
 }
 p, li, td {
   line-height: 1.8;
+  font-family: 'Lora', Garamond, serif;
 }
 
 h1 {
