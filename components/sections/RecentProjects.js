@@ -7,6 +7,7 @@ import ProjectPost from '../ProjectPost'
 
 const useStyles = makeStyles(theme => ({
   RecentProjects: {
+    paddingTop: '40px',
   },
   infoWrapper: {
     maxWidth: '800px',
