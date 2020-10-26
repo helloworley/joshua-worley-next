@@ -32,6 +32,9 @@ const useStyles = makeStyles(theme => ({
     color: theme.colors.white,
     marginBottom: '12px',
     display: 'inline-block'
+  },
+  logoWrapper: {
+    marginBottom: '30px'
   }
 }));
 
@@ -41,7 +44,9 @@ const Footer = props => {
     <div className={classes.footer}>
       <div className="section-wrapper">
         <div className={classes.centeredWrapper}>
-          <LogoVertical />
+          <div className={classes.logoWrapper}>
+            <LogoVertical />
+          </div>
           <div className={classes.contact}>
             <div className={classes.socialsWrapper}>
               <Socials color="white"/>
