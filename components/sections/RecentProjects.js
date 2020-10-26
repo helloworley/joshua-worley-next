@@ -7,13 +7,6 @@ import ProjectPost from '../ProjectPost'
 
 const useStyles = makeStyles(theme => ({
   RecentProjects: {
-    padding: theme.padding.xs,
-    [theme.breakpoints.up('sm')]: {
-      padding: theme.padding.sm
-    },
-    [theme.breakpoints.up('md')]: {
-      padding: theme.padding.md
-    },
   },
   infoWrapper: {
     maxWidth: '800px',

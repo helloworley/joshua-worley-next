@@ -10,7 +10,8 @@ const useStyles = makeStyles(theme => ({
     borderBottom: `solid 1px ${theme.colors.line}`,
     '&:last-of-type': {
       borderBottom: 'none',
-    }
+    },
+    
   },
   infoWrapper: {
     maxWidth: '800px',
@@ -60,10 +61,10 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeast',
     backgroundSize: 'cover',
-    backgroundAttachment: 'fixed',
     [theme.breakpoints.up('md')]: {
       marginBottom: '50px',
       height: '650px',
+      backgroundAttachment: 'fixed',
     },
   },
   logo: {
@@ -103,6 +104,10 @@ const useStyles = makeStyles(theme => ({
     },
   },
   projectSectionWrapper: {
+    padding: theme.padding.xs,
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.padding.sm
+    },
     [theme.breakpoints.up('md')]: {
       maxWidth: '1560px',
       padding: '0 80px',
@@ -129,7 +134,6 @@ const useStyles = makeStyles(theme => ({
     marginTop: '0'
   },
   brandProjectAbout: {
-    marginTop: '60px',
     marginBottom: '60px',
     [theme.breakpoints.up('md')]: {
       marginBottom: '90px'
