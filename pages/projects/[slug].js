@@ -55,7 +55,7 @@ const Page = props => {
       
 
       setContentfulData({
-        project: project,
+        project: project[0].fields,
         brand: project[0].fields.brand["en-US"],
         seoDescription: project[0].fields.seoDescription["en-US"],
         brandAbout: project[0].fields.brandAbout["en-US"].content,
@@ -74,8 +74,8 @@ const Page = props => {
     getPosts()
   }, [])
 
-  console.log('props', props)
-  console.log('contentfulData', contentfulData)
+  // console.log('props', props)
+  console.log('contentfulData', contentfulData.aboutImage)
 
   return (
     <>
@@ -99,6 +99,9 @@ const Page = props => {
                 projectType={contentfulData.projectType}
                 sections={contentfulData.sections}
                 technologies={contentfulData.technologies}
+                aboutImage={contentfulData.project.aboutImage ? contentfulData.project.aboutImage["en-US"] : null }
+                aboutLink={contentfulData.project.aboutLink ? contentfulData.project.aboutLink["en-US"] : null }
+                aboutLinkText={contentfulData.project.aboutLinkText ? contentfulData.project.aboutLinkText["en-US"] : null }
               />
             </div>
             {/* <Projects projects={contentfulData.projects} title="More Projects" /> */}

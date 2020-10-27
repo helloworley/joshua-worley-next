@@ -163,8 +163,7 @@ const useStyles = makeStyles(theme => ({
 
 const ProjectPost = props => {
   const classes = useStyles();
-  const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, technologies, sections } = props;
-  console.log('technologies', technologies)
+  const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, technologies, sections, aboutImage, aboutLink, aboutLinkText } = props;
 
   return (
     <div className={classes.projectPost}>
@@ -188,16 +187,23 @@ const ProjectPost = props => {
             <h4 className={classes.projectMeta}>{date}</h4>
             <h2 className={classes.projectTitle}>{projectTitle}</h2>
             <RichTextToHTML data={projectIntro} />
+            {
+              aboutLink ?
+                <div className={classes.buttonWrapper}>
+                  <ButtonWrapped text={aboutLinkText} link={aboutLink} />
+                </div>
+              : null
+            }
 
             <h3 className={`${classes.projectMeta} ${classes.techUsed}`}>Technologies Used</h3>
             {
               technologies.map( tech => {
-                console.log('tech', tech)
+                // console.log('tech', tech)
                 const image = tech.fields.image["en-US"].fields.file["en-US"].url
                 const text = tech.fields.name["en-US"]
                 const link = tech.fields.link["en-US"]
                 return (
-                  <a href={link} target="_blank">
+                  <a key={link} href={link} target="_blank">
                     <div className={classes.tech}>
                       <img src={image} />
                       <h5>{text}</h5>
@@ -205,6 +211,14 @@ const ProjectPost = props => {
                   </a>
                 )
               })
+            }
+
+            {
+              aboutImage ?
+                <div className={classes.buttonWrapper}>
+                  <img src={aboutImage.fields.file["en-US"].url} />
+                </div>
+              : null
             }
           </div>
 
@@ -218,7 +232,7 @@ const ProjectPost = props => {
               const imgAlt = img.title["en-US"]
               const description = section.fields.description["en-US"].content
               const title = section.fields.title["en-US"]
-              console.log('project section', section)
+              // console.log('project section', section)
               let link
               let linkText
               {
