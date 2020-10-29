@@ -48,8 +48,8 @@ const themeStyles = {
     meta: '#B5B5B5',
     white: '#ffffff',
     sand: '#F2F0F0',
-    link: '#C7BEAD',
-    linkHovered: '#B9B2A4',
+    link: '#CFA54E',
+    linkHovered: '#AD8A40',
     linkGrey: '#3A3A3A',
     linkGreyHovered: '#676767'
   },

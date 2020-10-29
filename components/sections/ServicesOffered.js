@@ -73,11 +73,11 @@ const useStyles = makeStyles(theme => ({
 
 const ServicesOffered = props => {
   const classes = useStyles();
-  const [selectedService, setSelectedService] = useState('App Design');
+  const [selectedService, setSelectedService] = useState(props.services[1].title["en-US"]);
 
   const handleChange = (event) => {
     setSelectedService(event.target.value)
-  };
+  }; 
 
   const materialSelect = (
     <FormControl fullWidth className={classes.formControl}>

@@ -5,10 +5,10 @@ body, html, #__next {
 $box-shadow: 0 10px 16px 0 rgba(205,217,231,.47);
 
 a {
-  color: #C7BEAD;
+  color: #CFA54E;
   transition: .2s;
   &:hover {
-    color: #B9B2A4;
+    color: #AD8A40;
   }
 }
 
@@ -145,7 +145,7 @@ figure.wp-block-table {
 #navigation {
   a {
     &:hover {
-      color: pink;
+      color: #CFA54E;
     }
   }
 }
