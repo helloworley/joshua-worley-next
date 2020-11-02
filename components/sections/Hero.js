@@ -17,15 +17,16 @@ const useStyles = makeStyles(theme => ({
     textTransform:'none',
   },
   heading: {
-    fontSize: '16px',
+    fontSize: '22px',
     marginBottom: '10px',
-    fontWeight: '600'
+    fontWeight: '300',
+    fontFamily: theme.fontFamily.serif,
   },
   logo: {
-    maxWidth: '70px',
+    maxWidth: '160px',
     marginBottom: '30px',
     [theme.breakpoints.up('md')]: {
-      maxWidth: '100px',
+      maxWidth: '200px',
     }
   },
   introInfo: {
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up('md')]: {
       minHeight: minHeightMd,
-      paddingTop: '200px',
+      paddingTop: '180px',
     }
   },
   heroImg: {
@@ -57,13 +58,26 @@ const useStyles = makeStyles(theme => ({
     borderTop: `solid 1px ${theme.colors.line}`,
     paddingTop: '30px',
     maxWidth: '420px',
-    margin: '0 auto'
+    margin: '0 auto',
+    '& p': {
+      marginBottom: '0'
+    },
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '560px',
+    }
   },
   socialsWrapper: {
     textAlign: 'center',
     display: 'flex',
     justifyContent: 'center',
     marginTop: '15px'
+  },
+  ctas: {
+    marginTop: '30px',
+  },
+  resumeLink: {
+    marginLeft: '10px',
+    fontFamily: theme.fontFamily.serif,
   }
 }));
 
@@ -80,19 +94,21 @@ const Hero = props => {
           }}>
         </Grid>
         <Grid item xs={12} md={6} className={classes.introInfo}>
-          <img className={classes.logo} src="/ikigai-dark.svg" />
+          <img className={classes.logo} src="/logo-vertical-dark.svg" />
           <div className={classes.info}>
             <h2 className={classes.heading}>{props.heading}</h2>
             <RichTextToHTML data={props.description}/>
-            <ButtonWrapped 
-              text="About"
-              variant="outlined" 
-              link="/about"
-              className={classes.projectTypeButtonWrapper}
-            />
-            <a href={props.resumeLink} target="_blank">Resume</a>
-            <div className={classes.socialsWrapper}>
-              <Socials />
+            <div className={classes.ctas}>
+              <ButtonWrapped 
+                text="About"
+                variant="outlined" 
+                link="/about"
+                className={classes.projectTypeButtonWrapper}
+              />
+              <a className={classes.resumeLink} href={props.resumeLink} target="_blank">Resume</a>
+              <div className={classes.socialsWrapper}>
+                <Socials />
+              </div>
             </div>
           </div>
         </Grid>
