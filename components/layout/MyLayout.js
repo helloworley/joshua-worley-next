@@ -114,7 +114,7 @@ const Layout = props => {
       </div>
       {
         contentfulDataCheck ?
-          <Footer resumeLink={contentfulData.resume}/>
+          <Footer navItems={navItems}/>
         : 
       null}
     </>

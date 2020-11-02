@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
   },
   logoIcon: {
-    height: '50px',
+    height: '80px',
   },
   logoText: {
     margin: '12px auto 0',
@@ -26,8 +26,7 @@ const LogoVertical = props => {
   return (
     <Link href="/">
       <div className={classes.logo}>
-        <img className={classes.logoIcon} src="/ikigai-light.svg" />
-        <h4 className={classes.logoText}>Joshua Worley</h4>
+        <img className={classes.logoIcon} src="/logo-vertical-dark.svg" />
       </div>
     </Link>
   )
