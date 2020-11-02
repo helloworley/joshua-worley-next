@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     borderTop: `solid 1px ${theme.colors.line}`,
     // backgroundColor: theme.colors.sand,
     [theme.breakpoints.up('sm')]: {
-      padding: '120px 60px'
+      padding: '120px 20px'
     },
     [theme.breakpoints.up('md')]: {
       padding: '120px 60px'
@@ -64,7 +64,7 @@ const Projects = props => {
             const projectTitle = service.projectTitle["en-US"]
             const projectType = service.projectType["en-US"]
             const sections = service.sections["en-US"]
-            return <Grid item xs={12} sm={6} md={3} key={brand} className={classes.gridItem}>
+            return <Grid item xs={12} sm={6} lg={3} key={brand} className={classes.gridItem}>
               <ImageCard 
                 urlBase="/projects"
                 slug={slug}

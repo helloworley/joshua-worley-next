@@ -23,7 +23,13 @@ const useStyles = makeStyles(theme => ({
   cardDetails: {
     padding: '20px 25px',
     position: 'relative',
-    backgroundColor: theme.colors.white
+    backgroundColor: theme.colors.white,
+    [theme.breakpoints.up('sm')]: {
+      height: '240px'
+    },
+    [theme.breakpoints.up('lg')]: {
+      height: '210px'
+    }
   },
   heading: {
     margin: '0',
@@ -38,6 +44,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.colors.meta,
     fontSize: '10px',
     margin: '0',
+    textTransform: 'uppercase',
   },
   projectTitle: {
     fontSize: '16px',
@@ -45,6 +52,13 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: '1px',
     marginTop: '5px',
     marginBottom: '20px',
+    textTransform: 'uppercase',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '15px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '16px',
+    }
   },
   logo: {
     maxHeight: '50px',

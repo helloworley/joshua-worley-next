@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
   projectSection: {
     marginBottom: '90px',
     [theme.breakpoints.up('md')]: {
-      marginBottom: '90px',
+      marginBottom: '120px',
     },
   },
   projectHero: {
@@ -93,6 +93,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     letterSpacing: '3px',
     fontSize: '22px',
+    textTransform: 'uppercase',
     [theme.breakpoints.up('md')]: {
       fontSize: '36px',
     }
@@ -118,6 +119,16 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '960px',
     margin: '0 auto'
   },
+  aboutImageWrapper: {
+    margin: '30px 0 0',
+    textAlign: 'center',
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'initial'
+    },
+    '& img': {
+      maxWidth: '100%',
+    }
+  },
   buttonWrapper: {
     margin: '30px 0 0',
     textAlign: 'center',
@@ -142,18 +153,24 @@ const useStyles = makeStyles(theme => ({
   tech: {
     display: 'inline-block',
     marginRight: '30px',
+    textAlign: 'center',
     '&:hover': {
       opacity: '.8'
     },
     '& img': {
       maxWidth: '80px',
-      maxHeight: '80px',
+      maxHeight: '50px',
     },
     '& h5': {
       marginTop: '10px',
       textAlign: 'center',
       color: theme.colors.abyss
     },
+    [theme.breakpoints.up('md')]: {
+      '& img': {
+        maxHeight: '80px',
+      },
+    }
   },
   techUsed: {
     marginTop: '40px',
@@ -215,7 +232,7 @@ const ProjectPost = props => {
 
             {
               aboutImage ?
-                <div className={classes.buttonWrapper}>
+                <div className={classes.aboutImageWrapper}>
                   <img src={aboutImage.fields.file["en-US"].url} />
                 </div>
               : null
