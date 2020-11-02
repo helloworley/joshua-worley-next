@@ -109,6 +109,7 @@ const IndexPage = props => {
       setPosts({
         seoTitle: pageHome[0].fields.seoTitle["en-US"],
         seoDescription: pageHome[0].fields.seoDescription["en-US"],
+        seoImage: pageHome[0].fields.seoImage["en-US"].fields.file["en-US"].url,
         resume: resume[0].fields.english["en-US"].fields.file["en-US"].url,
         shokumukeireki: resume[0].fields.shokumukeireki["en-US"].fields.file["en-US"].url,
         hero: hero[0].fields,
@@ -131,6 +132,22 @@ const IndexPage = props => {
           <NextSeo
             title={contentfulData.seoTitle}
             description={contentfulData.seoDescription}
+            openGraph={{
+              type: 'website',
+              locale: 'en_IE',
+              url: 'https://www.joshuaworley.com/',
+              site_name: 'Joshua Worley Portfolio',
+              title: contentfulData.seoTitle,
+              description: contentfulData.seoDescription,
+              images: [
+                {
+                  url: contentfulData.seoImage,
+                  width: 800,
+                  height: 600,
+                  alt: 'Og Image Alt',
+                }
+              ],
+            }}
           />
           <Layout>
             <Hero 
