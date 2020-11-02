@@ -8,8 +8,9 @@ import ProjectPost from '../ProjectPost'
 const useStyles = makeStyles(theme => ({
   RecentProjects: {
     paddingTop: '40px',
+    marginBottom: '70px',
     [theme.breakpoints.up('md')]: {
-      paddingTop: '60px',
+      paddingTop: '100px',
     }
   },
   infoWrapper: {
@@ -31,7 +32,7 @@ const RecentProjects = props => {
   return (
     <div className={classes.RecentProjects}>
       <div>
-        <SectionHeading text="Recent Project" noBorder={true} />
+        <SectionHeading text="Highlighted Project" noBorder={true} />
         {
           props.projects.map( service => {
             // console.log('service', service)
