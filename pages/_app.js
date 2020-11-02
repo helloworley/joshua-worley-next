@@ -30,8 +30,8 @@ class MyApp extends App {
         {/* <title>Joshua Worley</title> */}
       </Head>
         <DefaultSeo
-           title={contentfulData.seoTitle}
-           description={contentfulData.seoDescription}
+           title="Joshua Worley"
+           description="Digital Designer (App, Web, UI, UX, Product) & Frontend Developer. Joshua Worley solves complicated problems with simple solutions."
            openGraph={{
              type: 'website',
              locale: 'en_IE',
