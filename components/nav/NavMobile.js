@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { AppBar, Toolbar, Drawer, Hidden } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import ClearIcon from '@material-ui/icons/Clear';
 import { makeStyles } from '@material-ui/core/styles';
 import LogoHorizontal from '../assets/LogoHorizontal'
 import LogoVertical from '../assets/LogoVertical'
@@ -90,6 +91,12 @@ const useStyles = makeStyles( theme => ({
     [theme.breakpoints.up('md')]: {
       display: 'none !important'
     }
+  },
+  clear: {
+    position: 'absolute',
+    top: '40px',
+    right: '40px',
+    color: theme.colors.whisp
   }
 }));
 
@@ -118,7 +125,8 @@ const NavMobile = props => {
       </AppBar>
 
       <div className={`${classes.navSheet} ${toggleNav ? 'closed' : 'open'}`} id="navigation">
-        <LogoVertical />
+        <ClearIcon className={classes.clear} onClick={handleChange}/>
+        <LogoVertical color="white" />
         <div className={classes.linksWrapper}>
           <ul className={classes.list}>
             {props.navItems.map(menuItem => (

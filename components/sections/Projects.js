@@ -13,10 +13,13 @@ const useStyles = makeStyles(theme => ({
     borderTop: `solid 1px ${theme.colors.line}`,
     // backgroundColor: theme.colors.sand,
     [theme.breakpoints.up('sm')]: {
-      padding: theme.padding.sm
+      padding: '120px 60px'
     },
     [theme.breakpoints.up('md')]: {
-      padding: '120px 0'
+      padding: '120px 60px'
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: '120px 30px'
     },
   },
   infoWrapper: {
@@ -46,7 +49,7 @@ const Projects = props => {
   return (
     <div className={classes.projects}>
       <SectionHeading text={props.title} noBorder={true} />
-      <Grid container spacing={4}>
+      <Grid container spacing={6}>
         {
           props.projects.map( service => {
             // console.log('service', service)

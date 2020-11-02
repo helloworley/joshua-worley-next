@@ -26,7 +26,13 @@ const LogoVertical = props => {
   return (
     <Link href="/">
       <div className={classes.logo}>
-        <img className={classes.logoIcon} src="/logo-vertical-dark.svg" />
+        {
+          props.color == "white" ?
+            <img className={classes.logoIcon} src="/logo-vertical-light.svg" />
+          :
+            <img className={classes.logoIcon} src="/logo-vertical-dark.svg" />
+        }
+        
       </div>
     </Link>
   )
