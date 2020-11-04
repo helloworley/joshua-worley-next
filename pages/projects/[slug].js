@@ -1,119 +1,78 @@
-import { useEffect, useState } from 'react'
 import { NextSeo } from 'next-seo'
 import '../../style/style.scss'
 import Layout from '../../components/layout/MyLayout';
-import { makeStyles } from '@material-ui/core/styles';
 import fetchContent from '../../contentful/fetchContent'
 import ProjectPost from '../../components/ProjectPost'
-import Projects from '../../components/sections/Projects'
-
-
-const useStyles = makeStyles(theme => ({
-  centeredHeading: {
-    textAlign: 'center',
-    margin: '0 auto 30px'
-  },
-  projectType: {
-    margin: '0 0 50px',
-  },
-  projectTypeHeading: {
-    textAlign: 'center',
-    margin: '0 auto 30px',
-  },
-}));
+// import Projects from '../../components/sections/Projects'
 
 
 const Page = props => {
-  const classes = useStyles();
-  // Data from Contentful
-  const [ contentfulData, setContentfulData ] = useState([])
-  const contentfulDataCheck = Object.entries(contentfulData).length !== 0 
-  console.log('props', props)
-  const slug = props.slug
-
-  useEffect(() => {
-    async function getPosts() {
-
-      // page (project data)
-      const slug = props.slug
-      const project = await fetchContent({
-        type: 'recentProject',
-        slug: slug
-      })
-
-      // recent projects
-      // let projects = []
-      // await fetchContent({
-      //   type: 'recentProject', 
-      //   order: '-fields.orderingDate'
-      // }).then(res => {
-      //   res.map( project => {
-      //     projects.push(project.fields)
-      //   })
-      // })
-      // const filteredProjects = projects.filter( project => project.slug["en-US"] !== slug);
-      
-
-      setContentfulData({
-        project: project[0].fields,
-        brand: project[0].fields.brand["en-US"],
-        seoDescription: project[0].fields.seoDescription["en-US"],
-        brandAbout: project[0].fields.brandAbout["en-US"].content,
-        date: project[0].fields.date["en-US"],
-        finalThoughts: project[0].fields.finalThoughts["en-US"].content,
-        heroImage: project[0].fields.heroImage["en-US"],
-        logo: project[0].fields.logo["en-US"],
-        projectIntro: project[0].fields.projectIntro["en-US"].content,
-        projectTitle: project[0].fields.projectTitle["en-US"],
-        projectType: project[0].fields.projectType["en-US"],
-        sections: project[0].fields.sections["en-US"],
-        technologies: project[0].fields.technologies["en-US"],
-        // projects: filteredProjects
-      })
-    }
-    getPosts()
-  }, [])
-
-  // console.log('props', props)
-  console.log('contentfulData', contentfulData.aboutImage)
-
+  
   return (
-    <>
-      { contentfulDataCheck ? 
-        <div id="projects">
-          <NextSeo
-            title={`Joshua Worley - ${contentfulData.brand}`}
-            description={contentfulData.seoDescription}
+    <div id="projects">
+      <NextSeo
+        title={`Joshua Worley - ${props.brand}`}
+        description={props.seoDescription}
+      />
+      <Layout>
+        <div>
+          <ProjectPost
+            brand={props.brand}
+            brandAbout={props.brandAbout}
+            date={props.date}
+            finalThoughts={props.finalThoughts}
+            heroImage={props.heroImage}
+            logo={props.logo}
+            projectIntro={props.projectIntro}
+            projectTitle={props.projectTitle}
+            projectType={props.projectType}
+            sections={props.sections}
+            technologies={props.technologies}
+            aboutImage={props.project.aboutImage ? props.project.aboutImage["en-US"] : null }
+            aboutLink={props.project.aboutLink ? props.project.aboutLink["en-US"] : null }
+            aboutLinkText={props.project.aboutLinkText ? props.project.aboutLinkText["en-US"] : null }
           />
-          <Layout>
-            <div>
-              <ProjectPost
-                brand={contentfulData.brand}
-                brandAbout={contentfulData.brandAbout}
-                date={contentfulData.date}
-                finalThoughts={contentfulData.finalThoughts}
-                heroImage={contentfulData.heroImage}
-                logo={contentfulData.logo}
-                projectIntro={contentfulData.projectIntro}
-                projectTitle={contentfulData.projectTitle}
-                projectType={contentfulData.projectType}
-                sections={contentfulData.sections}
-                technologies={contentfulData.technologies}
-                aboutImage={contentfulData.project.aboutImage ? contentfulData.project.aboutImage["en-US"] : null }
-                aboutLink={contentfulData.project.aboutLink ? contentfulData.project.aboutLink["en-US"] : null }
-                aboutLinkText={contentfulData.project.aboutLinkText ? contentfulData.project.aboutLinkText["en-US"] : null }
-              />
-            </div>
-            {/* <Projects projects={contentfulData.projects} title="More Projects" /> */}
-          </Layout>
         </div>
-      : null}
-    </>
+        {/* <Projects projects={contentfulData.projects} title="More Projects" /> */}
+      </Layout>
+    </div>
   )
 }
 
-Page.getInitialProps = async function (context) {
-  return context.query
+Page.getInitialProps = async (ctx) => {
+  // page (project data)
+  const project = await fetchContent({
+    type: 'recentProject',
+    slug: ctx.query.slug
+  })
+  // recent projects
+  // let projects = []
+  // await fetchContent({
+  //   type: 'recentProject', 
+  //   order: '-fields.orderingDate'
+  // }).then(res => {
+  //   res.map( project => {
+  //     projects.push(project.fields)
+  //   })
+  // })
+  // const filteredProjects = projects.filter( project => project.slug["en-US"] !== slug);
+
+  return {
+    project: project,
+    project: project[0].fields,
+    brand: project[0].fields.brand["en-US"],
+    seoDescription: project[0].fields.seoDescription["en-US"],
+    brandAbout: project[0].fields.brandAbout["en-US"].content,
+    date: project[0].fields.date["en-US"],
+    finalThoughts: project[0].fields.finalThoughts["en-US"].content,
+    heroImage: project[0].fields.heroImage["en-US"],
+    logo: project[0].fields.logo["en-US"],
+    projectIntro: project[0].fields.projectIntro["en-US"].content,
+    projectTitle: project[0].fields.projectTitle["en-US"],
+    projectType: project[0].fields.projectType["en-US"],
+    sections: project[0].fields.sections["en-US"],
+    technologies: project[0].fields.technologies["en-US"],
+  }
 }
 
 export default Page;
