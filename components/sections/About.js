@@ -26,6 +26,12 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     width: '100%'
+  },
+  buttonContainer: {
+    marginTop: '50px',
+  },
+  resumeAbout: {
+    marginLeft: '15px'
   }
 }));
 
@@ -38,13 +44,15 @@ const About = props => {
         <img src={props.imgSrc} className={classes.image} />
         <div className={classes.infoWrapper}>
           <RichTextToHTML data={props.content} />
-          <ButtonWrapped 
-            text="Resume"
-            variant="outlined" 
-            link={props.resumeLink}
-            className={classes.projectTypeButtonWrapper}
-          />
-          <small>{props.resumeAbout}</small>
+          <div className={classes.buttonContainer}>
+            <ButtonWrapped 
+              text="Resume"
+              variant="outlined" 
+              link={props.resumeLink}
+              className={classes.projectTypeButtonWrapper}
+            />
+            <small className={classes.resumeAbout}>{props.resumeAbout}</small>
+          </div>
         </div>
       </div>
     </div>

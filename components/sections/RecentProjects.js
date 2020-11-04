@@ -1,6 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-import RichTextToHTML from '../RichTextToHTML'
-import ButtonWrapped from '../ButtonWrapped'
 import SectionHeading from '../layout/SectionHeading'
 import ProjectPost from '../ProjectPost'
 
