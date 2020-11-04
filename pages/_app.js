@@ -35,6 +35,7 @@ class MyApp extends App {
            openGraph={{
              type: 'website',
              locale: 'en_IE',
+             prefix: 'og: http://ogp.me/ns#',
              url: 'https://www.joshuaworley.com/',
              site_name: 'Joshua Worley Portfolio',
              title: 'Joshua Worley',

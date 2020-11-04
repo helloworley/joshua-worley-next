@@ -1,171 +1,116 @@
-import { useEffect, useState } from 'react'
 import { NextSeo } from 'next-seo'
 import '../style/style.scss'
 import Layout from '../components/layout/MyLayout';
-import { makeStyles } from '@material-ui/core/styles';
 
 import Hero from '../components/sections/Hero'
 import ServicesOffered from '../components/sections/ServicesOffered'
 import RecentProjects from '../components/sections/RecentProjects'
 import Projects from '../components/sections/Projects'
 import ThankYou from '../components/sections/ThankYou'
-
-
 import fetchContent from '../contentful/fetchContent'
 
-
-const useStyles = makeStyles(theme => ({
-  centeredHeading: {
-    textAlign: 'center',
-    margin: '0 auto 30px'
-  },
-  projectType: {
-    margin: '0 0 50px',
-  },
-  projectTypeHeading: {
-    textAlign: 'center',
-    margin: '0 auto 30px',
-  },
-}));
-
-const menuItems = [
-  {
-    name: '/about',
-    link: 'About'
-  },
-  {
-    name: '/projects',
-    link: 'Projects'
-  },
-  {
-    name: '/projects',
-    link: 'Projects'
-  },
-]
-
-
-
 const IndexPage = props => {
-  const classes = useStyles();
-  // Data from Contentful
-  const [ contentfulData, setPosts ] = useState([])
-  const contentfulDataCheck = Object.entries(contentfulData).length !== 0 
-
-  useEffect(() => {
-    async function getPosts() {
-
-      // home 
-      const pageHome = await fetchContent({
-        type: 'pageHome'
-      })
-
-      // resume
-      const resume = await fetchContent({
-        type: 'resume'
-      })
-
-      // hero
-      const hero = await fetchContent({
-        type: 'homeHero'
-      })
-
-      // about
-      const about = await fetchContent({
-        type: 'about',
-        order: ''
-      })
-
-      // services offered
-      let servicesOffered = []
-      await fetchContent({
-        type: 'serviceOffered',
-        order: ''
-      }).then(res => {
-        res.map( service => {
-          servicesOffered.push(service.fields)
-        })
-      })
-
-      // recent projects
-      let projects = []
-      await fetchContent({
-        type: 'recentProject', 
-        order: '-fields.orderingDate'
-      }).then(res => {
-        res.map( project => {
-          projects.push(project.fields)
-        })
-      })
-
-      // thank you 
-      const thankYou = await fetchContent({
-        type: 'thankYou',
-        order: ''
-      })
-
-      const recentProjects = projects.slice(0, 1)
-      const otherProjects = projects.slice(1, projects.length)
-
-      setPosts({
-        seoTitle: pageHome[0].fields.seoTitle["en-US"],
-        seoDescription: pageHome[0].fields.seoDescription["en-US"],
-        seoImage: pageHome[0].fields.seoImage["en-US"].fields.file["en-US"].url,
-        resume: resume[0].fields.english["en-US"].fields.file["en-US"].url,
-        shokumukeireki: resume[0].fields.shokumukeireki["en-US"].fields.file["en-US"].url,
-        hero: hero[0].fields,
-        about: about[0].fields,
-        servicesOffered: servicesOffered,
-        recentProjects: recentProjects,
-        otherProjects: otherProjects,
-        thankYou: thankYou[0].fields
-      })
-    }
-    getPosts()
-  }, [])
-
-  // console.log('contentful data', contentfulData)
+  // console.log('props', props)
 
   return (
     <div id="home">
-      { contentfulDataCheck ?
-        <>
-          <NextSeo
-            title={contentfulData.seoTitle}
-            description={contentfulData.seoDescription}
-            openGraph={{
-              type: 'website',
-              locale: 'en_IE',
-              url: 'https://www.joshuaworley.com/',
-              site_name: 'Joshua Worley Portfolio',
-              title: contentfulData.seoTitle,
-              description: contentfulData.seoDescription,
-              images: [
-                {
-                  url: contentfulData.seoImage,
-                  width: 800,
-                  height: 600,
-                  alt: 'Og Image Alt',
-                }
-              ],
-            }}
+      <>
+        <NextSeo
+          title={props.seoTitle}
+          description={props.seoDescription}
+          openGraph={{
+            type: 'website',
+            locale: 'en_IE',
+            url: 'https://www.joshuaworley.com/',
+            site_name: 'Joshua Worley Portfolio',
+            title: props.seoTitle,
+            description: props.seoDescription,
+            images: [
+              {
+                url: props.seoImage,
+                width: 800,
+                height: 600,
+                alt: 'Og Image Alt',
+              }
+            ],
+          }}
+        />
+        <Layout>
+          <Hero 
+            resumeLink={props.resume}
+            image={props.hero.image["en-US"].fields}
+            heading={props.hero.heading["en-US"]}
+            description={props.hero.description["en-US"].content}
           />
-          <Layout>
-            <Hero 
-              resumeLink={contentfulData.resume}
-              image={contentfulData.hero.image["en-US"].fields}
-              heading={contentfulData.hero.heading["en-US"]}
-              description={contentfulData.hero.description["en-US"].content}
-            />
-            <ServicesOffered services={contentfulData.servicesOffered}/>
-            <RecentProjects projects={contentfulData.recentProjects}/>
-            <Projects projects={contentfulData.otherProjects} title="Other Projects"/>
-            <ThankYou content={contentfulData.thankYou} />
-          </Layout>
-        </>
-      : null}
+          <ServicesOffered services={props.servicesOffered}/>
+          <RecentProjects projects={props.recentProjects}/>
+          <Projects projects={props.otherProjects} title="Other Projects"/>
+          <ThankYou content={props.thankYou} />
+        </Layout>
+      </>
     </div>
-    
   )
 }
+
+
+// for Server Side Rendering, we do the API call here instead of in the page component
+IndexPage.getInitialProps = async (ctx) => {
+  // home 
+  const pageHome = await fetchContent({
+    type: 'pageHome'
+  })
+  // resume
+  const resume = await fetchContent({
+    type: 'resume'
+  })
+  // hero
+  const hero = await fetchContent({
+    type: 'homeHero'
+  })
+  // about
+  const about = await fetchContent({
+    type: 'about',
+    order: ''
+  })
+  // services offered
+  let servicesOffered = []
+  await fetchContent({
+    type: 'serviceOffered',
+    order: ''
+  }).then(res => {
+    res.map( service => {
+      servicesOffered.push(service.fields)
+    })
+  })
+  // recent projects
+  let projects = []
+  await fetchContent({
+    type: 'recentProject', 
+    order: '-fields.orderingDate'
+  }).then(res => {
+    res.map( project => {
+      projects.push(project.fields)
+    })
+  })
+  // thank you 
+  const thankYou = await fetchContent({
+    type: 'thankYou',
+    order: ''
+  })
+  return { 
+    seoTitle: pageHome[0].fields.seoTitle["en-US"],
+    seoDescription: pageHome[0].fields.seoDescription["en-US"],
+    seoImage: pageHome[0].fields.seoImage["en-US"].fields.file["en-US"].url,
+    resume: resume[0].fields.english["en-US"].fields.file["en-US"].url,
+    shokumukeireki: resume[0].fields.shokumukeireki["en-US"].fields.file["en-US"].url,
+    hero: hero[0].fields,
+    about: about[0].fields,
+    servicesOffered: servicesOffered,
+    recentProjects: projects.slice(0, 1),
+    otherProjects: projects.slice(1, projects.length),
+    thankYou: thankYou[0].fields
+  }
+}
+
 
 export default IndexPage;
