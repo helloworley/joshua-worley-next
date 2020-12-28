@@ -1,28 +1,110 @@
-
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SectionHeading from '../layout/SectionHeading'
 import RichTextToHTML from '../RichTextToHTML'
-import { useState } from 'react';
+
 
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+
+const ServicesOffered = props => {
+  const classes = useStyles();
+  const [selectedService, setSelectedService] = useState(props.services[1].title["en-US"]);
+
+  const handleChange = (event) => {
+    setSelectedService(event.target.value)
+  }; 
+
+  const materialSelect = (
+    <div className={classes.materialSelect}>
+      <FormControl fullWidth className={classes.formControl}>
+        <Select native value={selectedService} onChange={handleChange}>
+          {
+            props.services.map( service => {
+              const title = service.title["en-US"]
+              return (
+                <option key={title} value={title}>{title}</option>
+              ) 
+            })
+          }
+        </Select>
+      </FormControl>
+    </div>
+  )
+
+  const desktopSelectItems = services => {
+    return (
+      <ul className={classes.desktopServiceSelect}>
+        {services.map( service => {
+          const title = service.title["en-US"]
+          return  (
+            selectedService == title ? 
+              <li key={title} className={`${classes.desktopServiceSelectLi} selected`} onClick={() => setSelectedService(title)}>{title}</li> :
+              <li key={title} className={`${classes.desktopServiceSelectLi} deselected`} onClick={() => setSelectedService(title)}>{title}</li>
+          )
+        })}
+      </ul>
+    );
+  }
+
+  return (
+    <div className={classes.servicesOffered}>
+      <div className={classes.servicesOfferedInner}>
+          <SectionHeading text="Services Offered" noBorder={true} />
+          <div className={classes.infoWrapper}>
+
+            {materialSelect}
+            {desktopSelectItems(props.services)}
+
+            <div className={classes.serviceContent}>
+              {
+                props.services.map( service => {
+                  const title = service.title["en-US"]
+                  const description = (service.description["en-US"].content)
+                  const src = service.image ? service.image['en-US'].fields.file['en-US'].url : null;
+
+                  return  (
+                    <div className={classes.aboutService}>
+                      <div className={classes.aboutServiceInfo}>
+                        <div key={title} className={title == selectedService ? 'show' : 'hide'}>
+                          <h3 className={classes.serviceTitle}>{title}</h3>
+                          <RichTextToHTML data={description} />
+                        </div>
+                      </div>
+                      <div className={classes.aboutServiceImgContainer}>
+                        <div className={title == selectedService ? 'show' : 'hide'}>
+                          <img src={src} className={classes.aboutServiceImg}/>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })
+              }
+            </div>
+          </div>
+      </div>
+      </div>
+  )
+};
+
+
 const useStyles = makeStyles(theme => ({
   infoWrapper: {
-    maxWidth: '800px',
+    maxWidth: '1600px',
     margin: '0 auto',
     marginTop: '30px',
     [theme.breakpoints.up('md')]: {
-      marginTop: '40px'
+      marginTop: '40px',
+      display: 'grid',
     },
   },
   desktopServiceSelect: {
     display: 'none !important',
     paddingLeft: '0',
-    borderBottom: `solid 1px ${theme.colors.line}`,
-    marginBottom: '30px',
+    marginTop: 0,
     [theme.breakpoints.up('md')]: {
-      display: 'flex !important',
+      display: 'block !important',
       justifyContent: 'center',
     },
   },
@@ -31,9 +113,7 @@ const useStyles = makeStyles(theme => ({
     padding: '5px 15px',
     marginBottom: '5px',
     cursor: 'pointer',
-    textTransform: 'uppercase',
-    fontWeight: '600',
-    letterSpacing: '1px',
+    fontWeight: '400',
     transition: '.5s',
     '&.selected': {
       color: theme.colors.headings,
@@ -53,7 +133,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   servicesOffered: {
-    backgroundImage: 'url(/new-york.jpg)',
+    backgroundImage: 'url(https://images.unsplash.com/photo-1608778945974-fc750076be13?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=4234&q=80)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
@@ -65,83 +145,41 @@ const useStyles = makeStyles(theme => ({
       padding: theme.padding.sm
     },
     [theme.breakpoints.up('md')]: {
-      padding: '100px 0'
+      padding: '100px 0',
+      minHeight: '700px'
     },
+  },
+  [theme.breakpoints.up('md')]: {
+    infoWrapper: {
+      gridTemplateColumns: '20% 80%',
+      padding: '0 40px'
+    }
+  },
+  // [theme.breakpoints.up('md')]: {
+  //   infoWrapper: {
+  //     // gridTemplateColumns: '25% 75%'
+  //   }
+  // },
+  serviceTitle: {
+    fontSize: '32px',
+    marginTop: 0,
+    fontFamily: 'Lora',
+    fontWeight: '400'
+  },
+  aboutService: {
+    display: 'flex',
+  },
+  aboutServiceImgContainer: {
+    height: 'auto'
+  },
+  aboutServiceImg: {
+    width: '100%',
+  },
+  aboutServiceInfo: {
+    width: '80%',
+    paddingRight: '80px'
   }
 }));
-
-
-const ServicesOffered = props => {
-  const classes = useStyles();
-  const [selectedService, setSelectedService] = useState(props.services[1].title["en-US"]);
-
-  const handleChange = (event) => {
-    setSelectedService(event.target.value)
-  }; 
-
-  const materialSelect = (
-    <FormControl fullWidth className={classes.formControl}>
-      <Select
-        native
-        value={selectedService}
-        onChange={handleChange}
-      >
-        {
-          props.services.map( service => {
-            const title = service.title["en-US"]
-            return (
-              <option key={title} value={title}>{title}</option>
-            ) 
-          })
-        }
-      </Select>
-    </FormControl>
-  )
-  
-
-  return (
-    <div className={classes.servicesOffered}>
-      <div className={classes.servicesOfferedInner}>
-        <div className="section-wrapper">
-          <SectionHeading text="Services Offered" noBorder={true} />
-          <div className={classes.infoWrapper}>
-            <div className={classes.selectService}>
-              <ul className={classes.desktopServiceSelect}>
-                {
-                  props.services.map( service => {
-                    const title = service.title["en-US"]
-                    return  (
-                      selectedService == title ? 
-                        <li key={title} className={`${classes.desktopServiceSelectLi} selected`} onClick={() => setSelectedService(title)}>{title}</li> :
-                        <li key={title} className={`${classes.desktopServiceSelectLi} deselected`} onClick={() => setSelectedService(title)}>{title}</li>
-                    )
-                  })
-                }
-              </ul>
-              <div className={classes.materialSelect}>
-                {materialSelect}
-              </div>
-            </div>
-            <div className={classes.serviceContent}>
-              {
-                props.services.map( service => {
-                  const title = service.title["en-US"]
-                  const description = (service.description["en-US"].content)
-                  return  (
-                    <div key={title} className={title == selectedService ? 'show' : 'hide'}>
-                      <h3 className="hide">{title}</h3>
-                      <RichTextToHTML data={description} />
-                    </div>
-                  )
-                })
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-  )
-};
 
 export default ServicesOffered;
 

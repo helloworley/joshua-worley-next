@@ -13,10 +13,10 @@ const useStyles = makeStyles(theme => ({
   },
   heading: {
     fontSize: '16px',
-    fontFamily: 'Lato',
+    fontFamily: 'Lora',
     textTransform: 'uppercase',
     letterSpacing: '7px',
-    fontWeight: '600',
+    fontWeight: '400',
     textAlign: 'center',
     margin: '0 auto 30px',
     [theme.breakpoints.up('md')]: {
