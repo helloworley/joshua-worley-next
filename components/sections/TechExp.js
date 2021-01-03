@@ -47,6 +47,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: '10px',
     fontFamily: 'Lora',
     maxWidth: '90%',
+    margin: '10px auto',
     [theme.breakpoints.up('sm')]: {
       fontFamily: '12px'
     },
@@ -65,7 +66,7 @@ const displayTechs = techs => {
           return (
             <div key={title} className={classes.techBlock}>
               <a href={link} target="_blank">
-                <img src={imageUrl} className={classes.techImg} />
+                <img src={imageUrl} alt={`${title} Icon`} className={classes.techImg} />
                 <h4 className={classes.techName}>{title}</h4>
               </a>
             </div>
