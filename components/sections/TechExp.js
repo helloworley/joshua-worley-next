@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     margin: '0 auto'
   },
   techExp: {
-    padding: '100px 24px'
+    padding: '100px 10px'
   },
   displayTechs: {
     display: 'grid',
