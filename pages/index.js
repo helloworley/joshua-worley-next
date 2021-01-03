@@ -8,9 +8,10 @@ import RecentProjects from '../components/sections/RecentProjects'
 import Projects from '../components/sections/Projects'
 import ThankYou from '../components/sections/ThankYou'
 import fetchContent from '../contentful/fetchContent'
+import TechExp from '../components/sections/TechExp'
 
 const IndexPage = props => {
-  // console.log('props', props)
+  console.log('props', props)
 
   return (
     <div id="home">
@@ -43,6 +44,7 @@ const IndexPage = props => {
             description={props.hero.description["en-US"].content}
           />
           <ServicesOffered services={props.servicesOffered}/>
+          <TechExp technologies={props.techExp}/>
           <RecentProjects projects={props.recentProjects}/>
           <Projects projects={props.otherProjects} title="Other Projects"/>
           <ThankYou content={props.thankYou} />
@@ -71,6 +73,16 @@ IndexPage.getInitialProps = async (ctx) => {
   const about = await fetchContent({
     type: 'about',
     order: ''
+  })
+  // tech exp
+  let techExp = [];
+  await fetchContent({
+    type: 'technology',
+    order: 'fields.name'
+  }).then(res => {
+    res.map( tech => {
+      techExp.push(tech.fields)
+    })
   })
   // services offered
   let servicesOffered = []
@@ -108,7 +120,8 @@ IndexPage.getInitialProps = async (ctx) => {
     servicesOffered: servicesOffered,
     recentProjects: projects.slice(0, 1),
     otherProjects: projects.slice(1, projects.length),
-    thankYou: thankYou[0].fields
+    thankYou: thankYou[0].fields,
+    techExp: techExp
   }
 }
 
