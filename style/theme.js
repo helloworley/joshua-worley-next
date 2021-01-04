@@ -51,7 +51,8 @@ const themeStyles = {
     link: '#CFA54E',
     linkHovered: '#AD8A40',
     linkGrey: '#3A3A3A',
-    linkGreyHovered: '#676767'
+    linkGreyHovered: '#676767',
+    gray1: '#F4F4F4',
   },
   navHeight: {
     xs: '',
