@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
     textTransform: 'uppercase',
     letterSpacing: '2px',
     color: theme.colors.whisp,
-    display: 'inline-table'
+    display: 'inline-table',
+    fontFamily: 'Lato, Helvetica, Arial, sans-serif'
   },
   [theme.breakpoints.down('xs')]: {
     logo: {
