@@ -45,8 +45,7 @@ const IndexPage = props => {
           />
           <ServicesOffered services={props.servicesOffered}/>
           <TechExp technologies={props.techExp}/>
-          <RecentProjects projects={props.recentProjects}/>
-          <Projects projects={props.otherProjects} title="Other Projects"/>
+          <Projects projects={props.projects} title="Recent Projects"/>
           <ThankYou content={props.thankYou} />
         </Layout>
       </>
@@ -94,7 +93,7 @@ IndexPage.getInitialProps = async (ctx) => {
       servicesOffered.push(service.fields)
     })
   })
-  // recent projects
+  // projects
   let projects = []
   await fetchContent({
     type: 'recentProject', 
@@ -118,8 +117,7 @@ IndexPage.getInitialProps = async (ctx) => {
     hero: hero[0].fields,
     about: about[0].fields,
     servicesOffered: servicesOffered,
-    recentProjects: projects.slice(0, 1),
-    otherProjects: projects.slice(1, projects.length),
+    projects: projects,
     thankYou: thankYou[0].fields,
     techExp: techExp
   }

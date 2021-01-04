@@ -45,6 +45,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: '10px',
     margin: '0',
     textTransform: 'uppercase',
+    fontWeight: 'normal'
   },
   projectTitle: {
     fontSize: '16px',
@@ -61,24 +62,59 @@ const useStyles = makeStyles(theme => ({
     }
   },
   logo: {
-    maxHeight: '50px',
-    maxWidth: '150px'
+    maxHeight: '30px',
+    maxWidth: '120px',
+    marginTop: '20px',
   },
+  cardTechList: {
+    margin: '0',
+    padding: '0',
+    float: 'right'
+  },
+  cardTechLi: {
+    listStyle: 'none',
+    display: 'inline-block',
+    marginLeft: '10px'
+  },
+  cardTechUsed: {
+    maxHeight: '20px',
+    maxWidth: '20px'
+  }
 }));
+
+const displayTech = arr => {
+  const classes = useStyles();
+  return (
+    <ul className={classes.cardTechList}>
+      {arr.map( tech => {
+        console.log('tech! ', tech)
+        const icon = tech.fields.image['en-US'].fields.file['en-US'].url
+        const alt = tech.fields.image['en-US'].fields.title['en-US']
+        return (
+          <li className={classes.cardTechLi}>
+            <img className={classes.cardTechUsed} src={icon} alt={`${alt} Icon`} />
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
 
 const ImageCard = props => {
   const classes = useStyles();
   // console.log('props', props)
-  const { brand, slug, date, logo, projectTitle, projectType } = props;
+  const { brand, slug, date, logo, projectTitle, projectType, tech } = props;
+
   return (
     <Link href={`${props.urlBase}/${props.slug}`}>
       <div className={classes.card}>
         <div className={classes.image} style={{ backgroundImage: `url(${props.image.fields.file["en-US"].url})` }}></div>
         <div className={classes.cardDetails}>
+          {displayTech(tech)}
           <img className={classes.logo} src={logo.fields.file["en-US"].url} alt={logo.fields.title["en-US"]} />
-          <h4 className={classes.projectMeta}>{projectType}</h4>
-          <h4 className={classes.projectMeta}>{date}</h4>
           <h2 className={classes.projectTitle}>{projectTitle}</h2>
+          {/* <h4 className={classes.projectMeta}>{projectType}</h4> */}
+          <h4 className={classes.projectMeta}>{date}</h4>
         </div>
       </div>
     </Link>
