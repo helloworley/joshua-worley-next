@@ -87,11 +87,11 @@ const displayTech = arr => {
   return (
     <ul className={classes.cardTechList}>
       {arr.map( tech => {
-        console.log('tech! ', tech)
+        // console.log('tech! ', tech)
         const icon = tech.fields.image['en-US'].fields.file['en-US'].url
         const alt = tech.fields.image['en-US'].fields.title['en-US']
         return (
-          <li className={classes.cardTechLi}>
+          <li className={classes.cardTechLi} key={alt}>
             <img className={classes.cardTechUsed} src={icon} alt={`${alt} Icon`} />
           </li>
         )

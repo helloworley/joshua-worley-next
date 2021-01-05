@@ -12,30 +12,55 @@ const useStyles = makeStyles(theme => ({
     textTransform:'none',
     backgroundColor: theme.colors.linkGrey,
     color: theme.colors.whisp,
-    padding: '10px 20px',
+    padding: '10px 40px',
     borderRadius: '0',
     boxShadow: theme.boxShadows.buttonPrimary,
     border: 'none',
     fontWeight: 'bold',
+    borderRadius: '30px',
     fontFamily: theme.fontFamily.serif,
+    fontWeight: 'normal',
+    textTransform: 'uppercase',
     '&:hover': {
       backgroundColor: theme.colors.linkGreyHovered
     }
   },
+  outlined: {
+    backgroundColor: theme.colors.whisp,
+    border: `1px solid ${theme.colors.linkGrey}`,
+    color: theme.colors.linkGrey,
+    '&:hover': {
+      color: theme.colors.whisp
+    }
+  }
 }));
+
+const button = (variant, text) => {
+  const classes = useStyles();
+  switch (variant) {
+    case variant: 'outlined'
+       return <Button className={`${classes.button} ${classes.outlined}`} variant={variant}>{text}</Button>        
+      break;
+  
+    default:
+        return <Button className={classes.button} variant={variant}>{text}</Button>        
+      break;
+  }
+}
 
 const ButtonWrapped = props => {
   const classes = useStyles();
-  return props.link.substring(0, 2) == 'ht' ?
+  const { text, link, variant } = props;
+  return link.substring(0, 2) == 'ht' ?
       <span className={classes.buttonWrapped}>
-        <a href={props.link} target="_blank">
-          <Button className={classes.button} variant={props.variant}>{props.text}</Button>  
+        <a href={link} target="_blank">
+          {button(variant, text)}
         </a>
       </span>
     :
       <span className={classes.buttonWrapped}>
-        <Link href={props.link}>
-          <Button className={classes.button} variant={props.variant}>{props.text}</Button>
+        <Link href={link}>
+          {button(variant, text)}
         </Link>
       </span>
 };

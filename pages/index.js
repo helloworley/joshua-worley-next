@@ -9,10 +9,10 @@ import Projects from '../components/sections/Projects'
 import ThankYou from '../components/sections/ThankYou'
 import fetchContent from '../contentful/fetchContent'
 import TechExp from '../components/sections/TechExp'
+import FeaturedProject from '../components/sections/FeaturedProject'
 
 const IndexPage = props => {
-  console.log('props', props)
-
+  // console.log('props', props)
   return (
     <div id="home">
       <>
@@ -45,6 +45,7 @@ const IndexPage = props => {
           />
           <ServicesOffered services={props.servicesOffered}/>
           <TechExp technologies={props.techExp}/>
+          <FeaturedProject project={props.highlightedProject} />
           <Projects projects={props.projects} title="Recent Projects"/>
           <ThankYou content={props.thankYou} />
         </Layout>
@@ -71,6 +72,11 @@ IndexPage.getInitialProps = async (ctx) => {
   // about
   const about = await fetchContent({
     type: 'about',
+    order: ''
+  })
+  // highlighted project
+  const highlightedProject = await fetchContent({
+    type: 'highlightedProject',
     order: ''
   })
   // tech exp
@@ -119,7 +125,8 @@ IndexPage.getInitialProps = async (ctx) => {
     servicesOffered: servicesOffered,
     projects: projects,
     thankYou: thankYou[0].fields,
-    techExp: techExp
+    techExp: techExp,
+    highlightedProject: highlightedProject
   }
 }
 
