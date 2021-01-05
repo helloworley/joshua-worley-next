@@ -2,7 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   headingWrapper: {
-    borderBottom: `solid 1px ${theme.colors.line}`,
     marginBottom: '40px',
     [theme.breakpoints.up('md')]: {
       marginBottom: '60px',
@@ -29,12 +28,7 @@ const useStyles = makeStyles(theme => ({
 const SectionHeading = props => {
   const classes = useStyles();
   return (
-    props.noBorder === true ? 
-      <div className={`${classes.headingWrapper} no-border`}>
-        <h2 className={classes.heading}>{props.text}</h2>
-      </div>
-    :
-    <div className={`${classes.headingWrapper} border`}>
+    <div className={`${classes.headingWrapper}`}>
       <h2 className={classes.heading}>{props.text}</h2>
     </div>
   )
