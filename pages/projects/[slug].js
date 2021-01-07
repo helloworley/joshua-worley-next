@@ -362,7 +362,7 @@ Page.getInitialProps = async (ctx) => {
     seoDescription: project[0].fields.seoDescription["en-US"],
     brandAbout: project[0].fields.brandAbout["en-US"].content,
     date: project[0].fields.date["en-US"],
-    finalThoughts: project[0].fields.finalThoughts["en-US"].content,
+    finalThoughts: project[0].fields.finalThoughts ? project[0].fields.finalThoughts["en-US"].content : null,
     heroImage: project[0].fields.heroImage["en-US"],
     logo: project[0].fields.logo["en-US"],
     projectIntro: project[0].fields.projectIntro["en-US"].content,
