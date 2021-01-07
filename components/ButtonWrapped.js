@@ -19,7 +19,8 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     borderRadius: '30px',
     fontFamily: theme.fontFamily.serif,
-    fontWeight: 'normal',
+    fontWeight: 'bold',
+    letterSpacing: '1px',
     textTransform: 'uppercase',
     '&:hover': {
       backgroundColor: theme.colors.linkGreyHovered

@@ -17,10 +17,7 @@ const useStyles = makeStyles(theme => ({
     textTransform:'none',
   },
   heading: {
-    fontSize: '22px',
     marginBottom: '10px',
-    fontWeight: '300',
-    fontFamily: theme.fontFamily.serif,
   },
   logo: {
     maxWidth: '160px',

@@ -163,7 +163,6 @@ const useStyles = makeStyles(theme => ({
   serviceTitle: {
     fontSize: '32px',
     marginTop: 0,
-    fontFamily: 'Lora',
     fontWeight: '400'
   },
   aboutService: {

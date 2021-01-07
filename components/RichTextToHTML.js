@@ -1,24 +1,26 @@
 import { makeStyles } from '@material-ui/core/styles'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
+const headings = 'Raleway, Sans-Serif';
+const paragraph = `'Frank Ruhl Libre', Sans-Serif`
 
 const useStyles = makeStyles(theme => ({
   RichTextToHTML: {
     'h1': {
-      fontFamily: 'Lato,"Helvetica Neue",Arial,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
+      fontFamily: headings,
     },
     'h2': {
-      fontFamily: 'Lato,"Helvetica Neue",Arial,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
+      fontFamily: headings,
     },
     'h3': {
-      fontFamily: 'Lato,"Helvetica Neue",Arial,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
+      fontFamily: headings,
     },
     'h4': {
-      fontFamily: 'Lato,"Helvetica Neue",Arial,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
+      fontFamily: headings,
     },
     '& p' : {
       color: theme.colors.abyss,
-      fontFamily: "'Lora', Garamond, serif",
+      fontFamily: paragraph,
       fontWeight: '500',
       lineHeight: '1.8',
       margin: '0 0 10px',
@@ -34,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     },
     '& a' : {
       color: theme.colors.link,
-      fontFamily: "'Lora', Garamond, serif",
+      fontFamily: paragraph,
       fontWeight: '500',
       lineHeight: '1.8',
       fontSize: '14px',

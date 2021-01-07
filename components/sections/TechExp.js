@@ -45,7 +45,6 @@ const useStyles = makeStyles(theme => ({
   },
   techName: {
     fontSize: '10px',
-    fontFamily: 'Lora',
     maxWidth: '90%',
     margin: '10px auto',
     [theme.breakpoints.up('sm')]: {

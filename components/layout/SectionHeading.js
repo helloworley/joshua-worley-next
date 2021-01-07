@@ -12,7 +12,6 @@ const useStyles = makeStyles(theme => ({
   },
   heading: {
     fontSize: '16px',
-    fontFamily: 'Lora',
     textTransform: 'uppercase',
     letterSpacing: '7px',
     fontWeight: '400',

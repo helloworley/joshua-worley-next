@@ -13,24 +13,26 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6, p, a, small, span, td {
-  font-family: 'Lora', Helvetica, Arial, sans-serif;
+  // font-family: 'Lora', Helvetica, Arial, sans-serif;
+  Font-Family: 'Raleway', Sans-Serif;
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
 }
 p, li, td {
   line-height: 1.8;
-  font-family: 'Lora', Garamond, serif;
+  // font-family: 'Lora', Garamond, serif;
+  Font-Family: 'Frank Ruhl Libre', Sans-Serif;
 }
 
 h1 {
   font-size: 3em;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0 0 24px;
 }
 h2 {
   font-size: 1.5em;
-  font-weight: 800;
+  font-weight: 400;
   margin: 0 0 40px;
 }
 h3 {

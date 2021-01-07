@@ -9,8 +9,8 @@ const themeStyles = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontFamily: {
-    serif: "'Lora', Garamond, serif",
-    sansSerif: "'Lato', Helvetica, Arial, sans-serif"
+    serif: "'Frank Ruhl Libre', Sans-Serif",
+    sansSerif: "'Raleway', Sans-Serif"
   },
   boxShadows: {
     buttonPrimary: '0px 4px 4px 0px rgba(199, 190, 173, .25)'
