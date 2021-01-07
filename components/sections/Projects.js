@@ -49,7 +49,7 @@ const Projects = props => {
               const slug = service.slug["en-US"]
               const brandAbout = service.brandAbout["en-US"].content
               const date = service.date["en-US"]
-              const finalThoughts = service.finalThoughts["en-US"].content
+              const finalThoughts = service.finalThoughts ? service.finalThoughts["en-US"].content : null;
               const heroImage = service.heroImage["en-US"]
               const logo = service.logo["en-US"]
               const projectIntro = service.projectIntro["en-US"].content
