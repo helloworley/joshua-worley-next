@@ -55,7 +55,7 @@ const Projects = props => {
               const logo = service.logo["en-US"]
               const projectIntro = service.projectIntro["en-US"].content
               const projectTitle = service.projectTitle["en-US"]
-              const projectType = service.projectType["en-US"]
+              // const projectType = service.projectType["en-US"]
               const sections = service.sections["en-US"]
               const tech = service.technologies["en-US"]
               return <Grid item xs={12} sm={6} lg={3} key={brand} className={classes.gridItem}>
@@ -69,7 +69,7 @@ const Projects = props => {
                   logo={logo}
                   projectIntro={projectIntro}
                   projectTitle={projectTitle}
-                  projectType={projectType}
+                  // projectType={projectType}
                   sections={sections}
                   tech={tech}
                 />
