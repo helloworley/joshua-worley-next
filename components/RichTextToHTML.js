@@ -77,7 +77,7 @@ const useStyles = makeStyles(theme => ({
 let options = {
   renderNode: {
     'embedded-asset-block': (node) =>
-      `<img style="max-width: 100%" src="${node.data.target.fields.file.en.url}"/>`
+      `<img style="max-width: 100%" src="${node.data.target.fields.file['en-US'].url}"/>`
   }
 }
 // let bodyHTML = body ? documentToHtmlString(body, options) : ''
