@@ -254,11 +254,9 @@ const useStyles = makeStyles(theme => ({
   projectTitle: {
     fontSize: '16px',
     fontWeight: '400',
-    letterSpacing: '1px',
     marginTop: '5px',
     marginBottom: '20px',
     fontWeight: 'normal',
-    letterSpacing: '3px',
     fontSize: '22px',
     [theme.breakpoints.up('md')]: {
       fontSize: '36px',
