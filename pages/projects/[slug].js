@@ -8,6 +8,29 @@ import ButtonWrapped from '../../components/ButtonWrapped'
 import { Grid } from '@material-ui/core/'
 
 
+const technologiesUsed = (classes, technologies) => {
+  return (
+    <>
+       {
+        technologies.map( tech => {
+          // console.log('tech', tech)
+          const image = tech.fields.image["en-US"].fields.file["en-US"].url
+          const text = tech.fields.name["en-US"]
+          const link = tech.fields.link["en-US"]
+          return (
+            <a key={link} href={link} target="_blank">
+              <div className={classes.tech}>
+                <img src={image} />
+                <h5>{text}</h5>
+              </div>
+            </a>
+          )
+        })
+      }
+    </>
+  )
+}
+
 const displaySections = (classes, sections) => {
   return (
     <div className={classes.projectSections}>
@@ -18,7 +41,6 @@ const displaySections = (classes, sections) => {
           const imgAlt = img.title["en-US"]
           const description = section.fields.description["en-US"].content
           const title = section.fields.title["en-US"]
-          // console.log('project section', section)
           let link
           let linkText
           {
@@ -60,17 +82,17 @@ const displaySections = (classes, sections) => {
 const displayContent = (classes, content) => {
   return (
     <div className={classes.content}>
-      <RichTextToHTML data={content} />
+      <div className={classes.singleColumn}>
+        <RichTextToHTML data={content} />
+      </div>
     </div>
   )
 }
 
-const Page = props => {
-  console.log('content', props.content)
-  const content = props.content ? props.content.content : null;
-  console.log('content content', content)
 
+const Page = props => {
   const classes = useStyles();
+  const content = props.content ? props.content.content : null;
   const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, technologies, sections, aboutImage, aboutLink, aboutLinkText } = props;
 
   return (
@@ -81,26 +103,38 @@ const Page = props => {
       />
       <Layout>
         <div>
-           <div className={classes.projectPost}>
+           <div className={classes.projectSectionWrapper}>
 
-            <div className={classes.projectHero} style={{
-              backgroundImage: `url(${heroImage.fields.file["en-US"].url})`,
-            }}></div>
+            <div className={classes.singleColumn}>
 
-            <div className={classes.projectSectionWrapper}>
+              <div className={classes.brandAbout}>
+                <img className={classes.logo} src={logo.fields.file["en-US"].url} alt={logo.fields.title["en-US"]} />
+                <RichTextToHTML data={brandAbout} />
+              </div>
+              <img className={classes.projectHero} src={heroImage.fields.file["en-US"].url} />
+            
 
-              <h1 className="hide">{brand}</h1>
-
-              <div className={`${classes.singleColumn} ${classes.brandProjectAbout}`}>
-                <div className={classes.brandAbout}>
-                  <img className={classes.logo} src={logo.fields.file["en-US"].url} alt={logo.fields.title["en-US"]} />
-                  <RichTextToHTML data={brandAbout} />
-                </div>
+              <div className={classes.brandProjectAbout}>
 
                 <div className={classes.projectAbout}>
-                  <h4 className={classes.projectMeta}>{date}</h4>
-                  <h2 className={classes.projectTitle}>{projectTitle}</h2>
-                  <RichTextToHTML data={projectIntro} />
+                  <div className={classes.projectMainInfo}>
+                    <h2 className={classes.projectTitle}>{projectTitle}</h2>
+                    <h4 className={classes.date}>{date}</h4>
+                  </div>
+
+                  <Grid container spacing={0}>
+                    <Grid item xs={12} md={6}>
+                        <h3 className={classes.projectMeta}>Project About</h3>
+                        <RichTextToHTML data={projectIntro} />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      <div className={classes.technologiesSec}>
+                        <h3 className={`${classes.projectMeta} ${classes.techUsed}`}>Technologies Used</h3>
+                        {technologiesUsed(classes, technologies)}
+                      </div>
+                    </Grid>
+                  </Grid>
+                  
                   {
                     aboutLink ?
                       <div className={classes.buttonWrapper}>
@@ -108,25 +142,6 @@ const Page = props => {
                       </div>
                     : null
                   }
-
-                  <h3 className={`${classes.projectMeta} ${classes.techUsed}`}>Technologies Used</h3>
-                  {
-                    technologies.map( tech => {
-                      // console.log('tech', tech)
-                      const image = tech.fields.image["en-US"].fields.file["en-US"].url
-                      const text = tech.fields.name["en-US"]
-                      const link = tech.fields.link["en-US"]
-                      return (
-                        <a key={link} href={link} target="_blank">
-                          <div className={classes.tech}>
-                            <img src={image} />
-                            <h5>{text}</h5>
-                          </div>
-                        </a>
-                      )
-                    })
-                  }
-
                   {
                     aboutImage ?
                       <div className={classes.aboutImageWrapper}>
@@ -146,7 +161,8 @@ const Page = props => {
 
             </div>
           </div>
-        </div>
+          </div>
+        
         {/* <Projects projects={contentfulData.projects} title="More Projects" /> */}
       </Layout>
     </div>
@@ -156,7 +172,7 @@ const Page = props => {
 
 const useStyles = makeStyles(theme => ({
   projectPost: {
-    paddingBottom: '80px',
+    padding: '80px 0',
     borderBottom: `solid 1px ${theme.colors.line}`,
     '&:last-of-type': {
       borderBottom: 'none',
@@ -171,13 +187,18 @@ const useStyles = makeStyles(theme => ({
       marginTop: '40px'
     },
   },
+  date: {
+    
+  },
   image: {
     width: '100%'
   },
   brandAbout: {
-    marginBottom: '60px',
+    textAlign: 'center',
+    maxWidth: '660px',
+    margin: '0 auto 60px',
     [theme.breakpoints.up('md')]: {
-      marginBottom: '90px'
+      marginBottom: '80px'
     }
   },
   projectImgExample: {
@@ -207,27 +228,23 @@ const useStyles = makeStyles(theme => ({
   projectHero: {
     width: '100%',
     marginBottom: '30px',
-    height: '350px',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeast',
-    backgroundSize: 'cover',
-    [theme.breakpoints.up('md')]: {
-      marginBottom: '50px',
-      height: '650px',
-      backgroundAttachment: 'fixed',
-    },
   },
   logo: {
     maxHeight: '70px',
+    margin: '0 0 16px',
     [theme.breakpoints.up('md')]: {
       maxHeight: '100px',
+      maxWidth: '200px'
     },
+  },
+  projectMainInfo: {
+    marginBottom: '40px',
   },
   projectMeta: {
     color: theme.colors.meta,
     textTransform: 'uppercase',
     fontSize: '10px',
-    margin: '0',
+    margin: '0 0 20px',
     letterSpacing: '2px',
     fontWeight: 'bold',
     [theme.breakpoints.up('md')]: {
@@ -256,12 +273,12 @@ const useStyles = makeStyles(theme => ({
   },
   projectSectionWrapper: {
     padding: theme.padding.xs,
+    backgroundColor: '#fafafa',
     [theme.breakpoints.up('sm')]: {
       padding: theme.padding.sm
     },
     [theme.breakpoints.up('md')]: {
-      maxWidth: '1560px',
-      padding: '0 80px',
+      padding: '80px',
     },
     margin: '0 auto'
   },
@@ -323,8 +340,12 @@ const useStyles = makeStyles(theme => ({
     }
   },
   techUsed: {
-    marginTop: '40px',
     marginBottom: '20px'
+  },
+  technologiesSec: {
+    [theme.breakpoints.up('md')]: {
+      marginLeft: '60px',
+    }
   }
 }));
 
