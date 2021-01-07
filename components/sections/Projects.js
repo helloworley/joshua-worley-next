@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
 import SectionHeading from '../layout/SectionHeading'
-import ProjectPost from '../ProjectPost'
 import ImageCard from '../ImageCard'
 import { Grid } from '@material-ui/core/'
 

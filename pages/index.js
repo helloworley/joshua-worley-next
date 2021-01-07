@@ -4,7 +4,6 @@ import Layout from '../components/layout/MyLayout';
 
 import Hero from '../components/sections/Hero'
 import ServicesOffered from '../components/sections/ServicesOffered'
-import RecentProjects from '../components/sections/RecentProjects'
 import Projects from '../components/sections/Projects'
 import ThankYou from '../components/sections/ThankYou'
 import fetchContent from '../contentful/fetchContent'
