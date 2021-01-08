@@ -53,6 +53,13 @@ const themeStyles = {
     linkGrey: '#3A3A3A',
     linkGreyHovered: '#676767',
     gray1: '#F4F4F4',
+    gray100: '#F8F8F8',
+    gray200: '#E5E5E5',
+    gray300: '#D3D3D3',
+    gray400: '#A5A5A5',
+    gray500: '#646464',
+    gray600: '#3B3D3C',
+    gray700: '#2B2B28'
   },
   navHeight: {
     xs: '',

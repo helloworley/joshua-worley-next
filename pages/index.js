@@ -9,6 +9,7 @@ import ThankYou from '../components/sections/ThankYou'
 import fetchContent from '../contentful/fetchContent'
 import TechExp from '../components/sections/TechExp'
 import FeaturedProject from '../components/sections/FeaturedProject'
+import Testimonials from '../components/sections/Testimonials'
 
 const IndexPage = props => {
   // console.log('props', props)
@@ -44,6 +45,7 @@ const IndexPage = props => {
           />
           <ServicesOffered services={props.servicesOffered}/>
           <TechExp technologies={props.techExp}/>
+          <Testimonials testimonials={props.testimonials} />
           <FeaturedProject project={props.highlightedProject} />
           <Projects projects={props.projects} title="Recent Projects"/>
           <ThankYou content={props.thankYou} />
@@ -71,6 +73,11 @@ IndexPage.getInitialProps = async (ctx) => {
   // about
   const about = await fetchContent({
     type: 'about',
+    order: ''
+  })
+  // testimonials
+  const testimonials = await fetchContent({
+    type: 'testimonial',
     order: ''
   })
   // highlighted project
@@ -125,7 +132,8 @@ IndexPage.getInitialProps = async (ctx) => {
     projects: projects,
     thankYou: thankYou[0].fields,
     techExp: techExp,
-    highlightedProject: highlightedProject
+    highlightedProject: highlightedProject,
+    testimonials: testimonials
   }
 }
 
