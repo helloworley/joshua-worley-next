@@ -7,11 +7,8 @@ import Link from 'next/link'
 const useStyles = makeStyles(theme => ({
   footer: {
     backgroundPosition: 'center',
-    backgroundColor: theme.colors.whisp,
+    backgroundColor: theme.colors.gray600,
     padding: '60px 20px',
-    '& p': {
-      color: theme.colors.abyss,
-    }
   },
   centeredWrapper: {
     width: '100%',
@@ -22,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '15px'
   },
   copyRightText: {
-    color: theme.colors.meta,
+    color: theme.colors.gray400,
     textAlign: 'center',
     margin: '0 auto'
   },
@@ -69,7 +66,7 @@ const Footer = props => {
       <div className="section-wrapper">
         <div className={classes.centeredWrapper}>
           <div className={classes.logoWrapper}>
-            <LogoVertical />
+            <LogoVertical color="white" />
           </div>
           <div className={classes.contact}>
             <ul className={classes.list}>

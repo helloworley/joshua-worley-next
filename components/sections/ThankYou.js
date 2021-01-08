@@ -7,12 +7,12 @@ import SectionHeading from '../layout/SectionHeading'
 const useStyles = makeStyles(theme => ({
   thankYou: {
     padding: theme.padding.xs,
-    backgroundColor: theme.colors.abyss,
+    backgroundColor: theme.colors.white,
     '& p': {
-      color: theme.colors.whisp
+      color: theme.colors.gray700,
     },
     '& h2': {
-      color: theme.colors.whisp
+      color: theme.colors.gray700,
     },
     [theme.breakpoints.up('sm')]: {
       padding: theme.padding.sm

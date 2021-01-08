@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
     height: theme.navHeight.md,
     position: 'fixed',
-    backgroundColor: theme.colors.abyss,
+    backgroundColor: theme.colors.gray600,
     top: '0',
     zIndex: '1000',
     [theme.breakpoints.up('lg')]: {

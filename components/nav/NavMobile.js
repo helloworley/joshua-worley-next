@@ -20,7 +20,7 @@ const useStyles = makeStyles( theme => ({
   toolbar: {
     textAlign: 'center',
     position: 'relative',
-    backgroundColor: theme.colors.abyss,
+    backgroundColor: theme.colors.gray600,
     color: '#333',
     alignItems: 'center'
   },
@@ -43,7 +43,7 @@ const useStyles = makeStyles( theme => ({
   },
   navSheet: {
     padding: '80px 20px',
-    backgroundColor: theme.colors.abyss,
+    backgroundColor: theme.colors.gray600,
     width: '100vw',
     position: 'fixed',
     transition: 'top .5s',

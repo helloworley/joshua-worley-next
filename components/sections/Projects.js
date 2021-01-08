@@ -3,37 +3,6 @@ import SectionHeading from '../layout/SectionHeading'
 import ImageCard from '../ImageCard'
 import { Grid } from '@material-ui/core/'
 
-
-const useStyles = makeStyles(theme => ({
-  projects: {
-    padding: theme.padding.xs,
-    backgroundColor: theme.colors.gray1,
-    [theme.breakpoints.up('sm')]: {
-      padding: '120px 20px'
-    },
-    [theme.breakpoints.up('md')]: {
-      padding: '120px 60px'
-    },
-    [theme.breakpoints.up('lg')]: {
-      padding: '120px 30px'
-    },
-  },
-  projectsInner: {
-    maxWidth: '1560px',
-    margin: '0 auto',
-  },
-  infoWrapper: {
-    margin: '0 auto',
-    marginTop: '30px',
-    [theme.breakpoints.up('md')]: {
-      marginTop: '40px'
-    },
-  },
-  image: {
-    width: '100%'
-  },
-}));
-
 const Projects = props => {
   const classes = useStyles();
 
@@ -81,6 +50,36 @@ const Projects = props => {
     </div>
   )
 };
+
+const useStyles = makeStyles(theme => ({
+  projects: {
+    padding: theme.padding.xs,
+    backgroundColor: theme.colors.gray100,
+    [theme.breakpoints.up('sm')]: {
+      padding: '120px 20px'
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: '120px 60px'
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: '120px 30px'
+    },
+  },
+  projectsInner: {
+    maxWidth: '1560px',
+    margin: '0 auto',
+  },
+  infoWrapper: {
+    margin: '0 auto',
+    marginTop: '30px',
+    [theme.breakpoints.up('md')]: {
+      marginTop: '40px'
+    },
+  },
+  image: {
+    width: '100%'
+  },
+}));
 
 export default Projects;
 
