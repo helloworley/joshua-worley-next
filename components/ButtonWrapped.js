@@ -40,11 +40,11 @@ const button = (variant, text) => {
   const classes = useStyles();
   switch (variant) {
     case variant: 'outlined'
-       return <Button className={`${classes.button} ${classes.outlined}`} variant={variant}>{text}</Button>        
+       return <Button className={`${classes.button} ${classes.outlined}`}>{text}</Button>        
       break;
   
     default:
-        return <Button className={classes.button} variant={variant}>{text}</Button>        
+        return <Button className={classes.button}>{text}</Button>        
       break;
   }
 }

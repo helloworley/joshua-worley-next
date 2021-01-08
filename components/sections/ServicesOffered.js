@@ -65,7 +65,7 @@ const ServicesOffered = props => {
                   const src = service.image ? service.image['en-US'].fields.file['en-US'].url : null;
 
                   return  (
-                    <div className={classes.aboutService}>
+                    <div className={classes.aboutService} key={title}>
                       <div className={classes.aboutServiceInfo}>
                         <div key={title} className={title == selectedService ? 'show' : 'hide'}>
                           <h3 className={classes.serviceTitle}>{title}</h3>

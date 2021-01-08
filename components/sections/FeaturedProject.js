@@ -56,7 +56,6 @@ const useStyles = makeStyles(theme => ({
 const FeaturedProject = props => {
   const classes = useStyles();
   const project = props.project[0].fields.project['en-US'].fields
-  console.log('featured project', project)
   const title = project.projectTitle['en-US']
   const logo = project.logo['en-US'].fields.file['en-US'].url
   const hero = project.heroImage['en-US'].fields.file['en-US'].url

@@ -92,7 +92,7 @@ const displayContent = (classes, content) => {
 
 const Page = props => {
   const classes = useStyles();
-  console.log('props', props)
+  // console.log('props', props)
   const content = props.content ? props.content.content : null;
   const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, technologies, sections, aboutImage, aboutLink, aboutLinkText } = props;
 

@@ -82,7 +82,6 @@ const useStyles = makeStyles(theme => ({
 
 const Hero = props => {
   const classes = useStyles();
-  console.log('image', props.image)
   return (
     <div className={classes.hero}>
       <Grid container className={classes.root} spacing={0}>

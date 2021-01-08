@@ -11,10 +11,9 @@ const getTestimonial = (classes, testimonial) => {
   position = position['en-US'];
   company = company['en-US'];
   link = link && link['en-US'];
-
-  console.log('position', position)
+  
   return (
-    <div className={classes.testimonial}>
+    <div className={classes.testimonial} key={name}>
       <FormatQuoteIcon className={classes.quote}/>
       <RichTextToHTML data={quote} />
       <img className={classes.avatar} src={avatar} />
@@ -48,6 +47,10 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'column',
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row',
+    }
   },
   testimonialsSection: {
     backgroundColor: theme.colors.gray100,
@@ -59,8 +62,15 @@ const useStyles = makeStyles(theme => ({
   testimonial: {
     maxWidth: '300px',
     textAlign: 'center',
+    '&:not(:last-of-type)': {
+      marginBottom: '50px',
+    },
     [theme.breakpoints.up('md')]: {
-      maxWidth: '600px',
+      maxWidth: '540px',
+      padding: '0 30px',
+      '&:not(:last-of-type)': {
+        marginBottom: 0,
+      },
     }
   },
   personInfo: {

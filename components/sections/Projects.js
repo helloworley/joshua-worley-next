@@ -13,7 +13,6 @@ const Projects = props => {
         <Grid container spacing={6}>
           {
             props.projects.map( service => {
-              console.log('service (project)', service)
               const brand = service.brand["en-US"]
               const slug = service.slug["en-US"]
               const brandAbout = service.brandAbout["en-US"].content
