@@ -24,15 +24,13 @@ const useStyles = makeStyles(theme => ({
     margin: '0 auto'
   },
   contact: {
-    borderTop: `solid 1px ${theme.colors.line}`,
     maxWidth: '572px',
     margin: '0 auto',
-    paddingTop: '32px', 
   },
   link: {
     color: theme.colors.white,
     marginBottom: '12px',
-    display: 'inline-block'
+    display: 'inline-block',
   },
   logoWrapper: {
     marginBottom: '30px'
@@ -55,7 +53,9 @@ const useStyles = makeStyles(theme => ({
     color: 'text',
   },
   a: {
-    fontFamily: theme.fontFamily.serif
+    fontFamily: theme.fontFamily.sansSerif,
+    textTransform: 'uppercase',
+    letterSpacing: '1px'
   }
 }));
 

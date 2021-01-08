@@ -47,8 +47,14 @@ const useStyles = makeStyles(theme => ({
     fontSize: '10px',
     maxWidth: '90%',
     margin: '10px auto',
+    color: theme.colors.gray400,
     [theme.breakpoints.up('sm')]: {
       fontFamily: '12px'
+    },
+  },
+  link: {
+    '&:hover h4': {
+      color: theme.colors.link,
     },
   }
 }))
@@ -64,7 +70,7 @@ const displayTechs = techs => {
           const imageUrl = tech.image['en-US'].fields.file['en-US'].url;
           return (
             <div key={title} className={classes.techBlock}>
-              <a href={link} target="_blank">
+              <a href={link} className={classes.link} target="_blank">
                 <img src={imageUrl} alt={`${title} Icon`} className={classes.techImg} />
                 <h4 className={classes.techName}>{title}</h4>
               </a>

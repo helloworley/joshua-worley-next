@@ -103,6 +103,7 @@ const useStyles = makeStyles(theme => ({
     display: 'none !important',
     paddingLeft: '0',
     marginTop: 0,
+    fontFamily: theme.fontFamily.sansSerif,
     [theme.breakpoints.up('md')]: {
       display: 'block !important',
       justifyContent: 'center',
@@ -113,8 +114,9 @@ const useStyles = makeStyles(theme => ({
     padding: '5px 15px',
     marginBottom: '5px',
     cursor: 'pointer',
-    fontWeight: '400',
+    fontWeight: '600',
     transition: '.5s',
+    fontFamily: theme.fontFamily.sansSerif,
     '&.selected': {
       color: theme.colors.headings,
     },
@@ -167,16 +169,27 @@ const useStyles = makeStyles(theme => ({
   },
   aboutService: {
     display: 'flex',
+    flexDirection: 'column-reverse',
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row'
+    }
   },
   aboutServiceImgContainer: {
-    height: 'auto'
+    height: 'auto',
   },
   aboutServiceImg: {
     width: '100%',
+    marginBottom: '40px',
+    [theme.breakpoints.up('md')]: {
+      marginBottom: 0,
+    }
   },
   aboutServiceInfo: {
-    width: '80%',
-    paddingRight: '80px'
+    [theme.breakpoints.up('md')]: {
+      width: '80%',
+      paddingRight: '80px',
+      marginTop: 0
+    }
   }
 }));
 

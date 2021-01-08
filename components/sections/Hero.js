@@ -1,8 +1,38 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper } from '@material-ui/core/';
+import { Grid } from '@material-ui/core/';
 import ButtonWrapped from '../ButtonWrapped'
-import Socials from '../assets/Socials'
 import RichTextToHTML from '../RichTextToHTML'
+
+const Hero = props => {
+  const classes = useStyles();
+  return (
+    <div className={classes.hero}>
+      <Grid container className={classes.root} spacing={0}>
+        <Grid item xs={12} md={6} className={classes.heroImg} style={{
+          backgroundImage: `url(${props.image.file["en-US"].url})`
+          }}>
+        </Grid>
+        <Grid item xs={12} md={6} className={classes.introInfo}>
+          <img className={classes.logo} src="/logo-vertical-light.svg" />
+          <div className={classes.info}>
+            <h2 className={classes.heading}>{props.heading}</h2>
+            <RichTextToHTML data={props.description}/>
+            <div className={classes.ctas}>
+              <ButtonWrapped text="About" variant="outlined" link="/about" />
+              <div>
+                <a href={props.resumeLink} target="_blank">
+                  <h5 className={classes.resumeLink}>RESUME</h5>
+                </a>
+              </div>
+            </div>
+          </div>
+        </Grid>
+      </Grid>
+    </div> 
+  )
+};
+
+
 
 const minHeightXs = '375px';
 const minHeightSm = '520px';
@@ -22,6 +52,8 @@ const useStyles = makeStyles(theme => ({
   logo: {
     maxWidth: '160px',
     marginBottom: '30px',
+    backgroundColor: theme.colors.gray600,
+    padding: '30px',
     [theme.breakpoints.up('md')]: {
       maxWidth: '200px',
     }
@@ -52,8 +84,6 @@ const useStyles = makeStyles(theme => ({
     }
   },
   info: {
-    borderTop: `solid 1px ${theme.colors.line}`,
-    paddingTop: '30px',
     maxWidth: '420px',
     margin: '0 auto',
     '& p': {
@@ -73,45 +103,12 @@ const useStyles = makeStyles(theme => ({
     marginTop: '30px',
   },
   resumeLink: {
-    marginLeft: '10px',
-    fontFamily: theme.fontFamily.serif,
+    fontFamily: theme.fontFamily.sansSerif,
+    fontSize: '14px',
+    letterSpacing: '1px',
   }
 }));
 
-
-
-const Hero = props => {
-  const classes = useStyles();
-  return (
-    <div className={classes.hero}>
-      <Grid container className={classes.root} spacing={0}>
-        <Grid item xs={12} md={6} className={classes.heroImg} style={{
-          backgroundImage: `url(${props.image.file["en-US"].url})`
-          }}>
-        </Grid>
-        <Grid item xs={12} md={6} className={classes.introInfo}>
-          <img className={classes.logo} src="/logo-vertical-dark.svg" />
-          <div className={classes.info}>
-            <h2 className={classes.heading}>{props.heading}</h2>
-            <RichTextToHTML data={props.description}/>
-            <div className={classes.ctas}>
-              <ButtonWrapped 
-                text="About"
-                variant="outlined" 
-                link="/about"
-                className={classes.projectTypeButtonWrapper}
-              />
-              <a className={classes.resumeLink} href={props.resumeLink} target="_blank">Resume</a>
-              <div className={classes.socialsWrapper}>
-                <Socials />
-              </div>
-            </div>
-          </div>
-        </Grid>
-      </Grid>
-    </div> 
-  )
-};
 
 export default Hero;
 

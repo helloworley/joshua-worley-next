@@ -6,7 +6,6 @@ import Link from 'next/link';
 const useStyles = makeStyles(theme => ({
   buttonWrapped: {
     display: 'inline-block',
-    margin: '0 10px 0 0',
   }, 
   button: {
     textTransform:'none',

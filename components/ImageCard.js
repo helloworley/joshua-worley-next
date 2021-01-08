@@ -5,9 +5,12 @@ import Link from 'next/link';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    margin: '0 0 24px',
+    margin: '0 0 30px',
     boxShadow: '0 10px 16px 0 rgba(205, 217, 231, 0.47)',
     cursor: 'pointer',
+    borderTopLeftRadius: '30px',
+    borderTopRightRadius: '30px',
+    border: `solid 1px ${theme.colors.gray500}`,
     '&:hover': {
       boxShadow: '0 10px 16px 0 rgba(205, 217, 231, 0.8)',
     },
@@ -19,6 +22,8 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'center',
     color: 'white',
     margin: '0',
+    borderTopLeftRadius: '30px',
+    borderTopRightRadius: '30px',
   },
   cardDetails: {
     padding: '20px 25px',

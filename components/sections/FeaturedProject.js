@@ -26,11 +26,17 @@ const useStyles = makeStyles(theme => ({
     left: '0',
     right: '0',
     top: '6.5%',
-    height: '61%',
+    height: '55%',
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '962px',
     backgroundSize: 'cover',
+    [theme.breakpoints.up('sm')]: {
+      height: '58.5%',
+    },
+    [theme.breakpoints.up('md')]: {
+      height: '58.5%',
+    }
   },
   aboutProject: {
     maxWidth: '1040px',
