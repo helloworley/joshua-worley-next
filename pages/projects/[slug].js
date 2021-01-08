@@ -92,6 +92,7 @@ const displayContent = (classes, content) => {
 
 const Page = props => {
   const classes = useStyles();
+  console.log('props', props)
   const content = props.content ? props.content.content : null;
   const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, technologies, sections, aboutImage, aboutLink, aboutLinkText } = props;
 
@@ -113,9 +114,9 @@ const Page = props => {
               </div>
               <img className={classes.projectHero} src={heroImage.fields.file["en-US"].url} />
             
-
+              { aboutLink ? <div className={classes.buttonWrapper}><ButtonWrapped text={aboutLinkText} link={aboutLink} /></div> : null}
               <div className={classes.brandProjectAbout}>
-
+                
                 <div className={classes.projectAbout}>
                   <div className={classes.projectMainInfo}>
                     <h2 className={classes.projectTitle}>{projectTitle}</h2>
@@ -134,21 +135,7 @@ const Page = props => {
                       </div>
                     </Grid>
                   </Grid>
-                  
-                  {
-                    aboutLink ?
-                      <div className={classes.buttonWrapper}>
-                        <ButtonWrapped text={aboutLinkText} link={aboutLink} />
-                      </div>
-                    : null
-                  }
-                  {
-                    aboutImage ?
-                      <div className={classes.aboutImageWrapper}>
-                        <img src={aboutImage.fields.file["en-US"].url} />
-                      </div>
-                    : null
-                  }
+                  { aboutImage ? <div className={classes.aboutImageWrapper}><img src={aboutImage.fields.file["en-US"].url} /></div> : null }
                 </div>
 
               </div>
@@ -294,10 +281,14 @@ const useStyles = makeStyles(theme => ({
     }
   },
   buttonWrapper: {
-    margin: '30px 0 0',
     textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: '40px',
     [theme.breakpoints.up('md')]: {
-      textAlign: 'initial'
+      textAlign: 'initial',
+      justifyContent: 'flex-end',
+      marginBottom: '30px',
     }
   },
   sectionTitle: {
@@ -356,9 +347,10 @@ Page.getInitialProps = async (ctx) => {
   })
 
   return {
-    project: project,
     project: project[0].fields,
     brand: project[0].fields.brand["en-US"],
+    aboutLink: project[0].fields.aboutLink ? project[0].fields.aboutLink["en-US"] : null,
+    aboutLinkText: project[0].fields.aboutLinkText ? project[0].fields.aboutLinkText["en-US"] : null,
     seoDescription: project[0].fields.seoDescription["en-US"],
     brandAbout: project[0].fields.brandAbout["en-US"].content,
     date: project[0].fields.date["en-US"],
