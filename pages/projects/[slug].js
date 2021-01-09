@@ -31,54 +31,6 @@ const technologiesUsed = (classes, technologies) => {
   )
 }
 
-const displaySections = (classes, sections) => {
-  return (
-    <div className={classes.projectSections}>
-      {
-        sections.map( section => {
-          const img = section.fields.image["en-US"].fields
-          const imgUrl = img.file["en-US"].url
-          const imgAlt = img.title["en-US"]
-          const description = section.fields.description["en-US"].content
-          const title = section.fields.title["en-US"]
-          let link
-          let linkText
-          {
-            if (section.fields.link) {
-              link = section.fields.link["en-US"]
-              linkText = section.fields.linkText["en-US"]
-            }
-          }
-          
-          return (
-            <div className={classes.projectSection} key={imgUrl}>
-              <Grid container spacing={0}>
-                <Grid item xs={12} md={6} lg={7}>
-                  <img src={imgUrl} alt={imgAlt} className={classes.projectImgExample} />
-                </Grid>
-                <Grid item xs={12} md={6} lg={5}>
-                  <div className={classes.projectSectionDesc}>
-                    <h4 className={classes.sectionTitle}>{title}</h4>
-                    <RichTextToHTML data={description} />
-                    {
-                      link ?
-                        <div className={classes.buttonWrapper}>
-                          <ButtonWrapped link={link} text={linkText} />
-                        </div>
-                      : null
-                    }
-                  </div>
-                  
-                </Grid>
-              </Grid>
-            </div>
-          )
-        })
-      }
-    </div>
-  )
-}
-
 const displayContent = (classes, content) => {
   return (
     <div className={classes.content}>
@@ -109,8 +61,8 @@ const displayLinks = (classes, buttons) => {
 const Page = props => {
   const classes = useStyles();
   const content = props.content ? props.content.content : null;
-  const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, technologies, sections, aboutImage, links } = props;
-
+  const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, technologies, aboutImage, links } = props;
+  console.log('props', props)
   return (
     <div id="projects">
       <NextSeo
@@ -156,7 +108,7 @@ const Page = props => {
 
               </div>
 
-              { content ? displayContent(classes, content) : displaySections(classes, sections)}
+              { displayContent(classes, content) }
 
               <div className={classes.singleColumn}>
                 <RichTextToHTML data={finalThoughts} />
@@ -387,7 +339,6 @@ Page.getInitialProps = async (ctx) => {
     links: project[0].fields.links ? project[0].fields.links['en-US'] : null,
     projectIntro: project[0].fields.projectIntro["en-US"].content,
     projectTitle: project[0].fields.projectTitle["en-US"],
-    sections: project[0].fields.sections["en-US"],
     content: project[0].fields.content ? project[0].fields.content["en-US"] : null,
     technologies: project[0].fields.technologies["en-US"],
   }
