@@ -61,7 +61,7 @@ const displayLinks = (classes, buttons) => {
 const Page = props => {
   const classes = useStyles();
   const content = props.content ? props.content.content : null;
-  const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, technologies, aboutImage, links } = props;
+  const { brand, brandAbout, date, heroImage, logo, projectIntro, projectTitle, projectType, technologies, aboutImage, links } = props;
   console.log('props', props)
   return (
     <div id="projects">
@@ -109,10 +109,6 @@ const Page = props => {
               </div>
 
               { displayContent(classes, content) }
-
-              <div className={classes.singleColumn}>
-                <RichTextToHTML data={finalThoughts} />
-              </div>
 
             </div>
           </div>
@@ -333,7 +329,6 @@ Page.getInitialProps = async (ctx) => {
     seoDescription: project[0].fields.seoDescription["en-US"],
     brandAbout: project[0].fields.brandAbout["en-US"].content,
     date: project[0].fields.date["en-US"],
-    finalThoughts: project[0].fields.finalThoughts ? project[0].fields.finalThoughts["en-US"].content : null,
     heroImage: project[0].fields.heroImage["en-US"],
     logo: project[0].fields.logo["en-US"],
     links: project[0].fields.links ? project[0].fields.links['en-US'] : null,
