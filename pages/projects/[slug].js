@@ -234,10 +234,12 @@ const useStyles = makeStyles(theme => ({
   },
   logo: {
     maxHeight: '70px',
+    maxWidth: '130px',
     margin: '0 0 16px',
     [theme.breakpoints.up('md')]: {
       maxHeight: '100px',
-      maxWidth: '200px'
+      maxWidth: '200px',
+      maxHeight: '70px',
     },
   },
   projectMainInfo: {
