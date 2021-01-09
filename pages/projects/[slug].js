@@ -20,7 +20,7 @@ const technologiesUsed = (classes, technologies) => {
           return (
             <a key={link} href={link} target="_blank">
               <div className={classes.tech}>
-                <img src={image} />
+                <img className={classes.techImage} src={image} />
                 <h5>{text}</h5>
               </div>
             </a>
@@ -89,12 +89,27 @@ const displayContent = (classes, content) => {
   )
 }
 
+const displayLinks = (classes, buttons) => {
+  return (
+    <div className={classes.aboutButtons}>
+      {buttons.map( button => {
+        const link = button.fields.link['en-US'];
+        const text = button.fields.text['en-US'];
+        return (
+          <div className={classes.buttonWrapper}>
+            <ButtonWrapped text={text} link={link} />
+          </div> 
+        )
+      })}
+    </div>
+  )
+}
+
 
 const Page = props => {
   const classes = useStyles();
-  // console.log('props', props)
   const content = props.content ? props.content.content : null;
-  const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, technologies, sections, aboutImage, aboutLink, aboutLinkText } = props;
+  const { brand, brandAbout, date, finalThoughts, heroImage, logo, projectIntro, projectTitle, projectType, technologies, sections, aboutImage, links } = props;
 
   return (
     <div id="projects">
@@ -114,7 +129,8 @@ const Page = props => {
               </div>
               <img className={classes.projectHero} src={heroImage.fields.file["en-US"].url} />
             
-              { aboutLink ? <div className={classes.buttonWrapper}><ButtonWrapped text={aboutLinkText} link={aboutLink} /></div> : null}
+              { links ?  displayLinks(classes, links) : null}
+              
               <div className={classes.brandProjectAbout}>
                 
                 <div className={classes.projectAbout}>
@@ -280,17 +296,6 @@ const useStyles = makeStyles(theme => ({
       maxWidth: '100%',
     }
   },
-  buttonWrapper: {
-    textAlign: 'center',
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: '40px',
-    [theme.breakpoints.up('md')]: {
-      textAlign: 'initial',
-      justifyContent: 'flex-end',
-      marginBottom: '30px',
-    }
-  },
   sectionTitle: {
     textTransform: 'uppercase',
     fontWeight: 'bold',
@@ -313,8 +318,8 @@ const useStyles = makeStyles(theme => ({
       opacity: '.8'
     },
     '& img': {
-      maxWidth: '80px',
-      maxHeight: '50px',
+      height: '50px',
+      width: '50px',
     },
     '& h5': {
       marginTop: '10px',
@@ -334,7 +339,29 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       marginLeft: '60px',
     }
-  }
+  },
+  buttonWrapper: {
+    textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: '10px',
+    [theme.breakpoints.up('md')]: {
+      marginLeft: '10px',
+      textAlign: 'initial',
+      justifyContent: 'flex-end',
+      marginBottom: '0',
+    }
+  },
+  aboutButtons: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginBottom: '30px',
+    [theme.breakpoints.up('md')]: {
+      marginBottom: '30px',
+      flexDirection: 'row',
+      justifyContent: 'flex-end'
+    }
+  },
 }));
 
 
@@ -349,14 +376,13 @@ Page.getInitialProps = async (ctx) => {
   return {
     project: project[0].fields,
     brand: project[0].fields.brand["en-US"],
-    aboutLink: project[0].fields.aboutLink ? project[0].fields.aboutLink["en-US"] : null,
-    aboutLinkText: project[0].fields.aboutLinkText ? project[0].fields.aboutLinkText["en-US"] : null,
     seoDescription: project[0].fields.seoDescription["en-US"],
     brandAbout: project[0].fields.brandAbout["en-US"].content,
     date: project[0].fields.date["en-US"],
     finalThoughts: project[0].fields.finalThoughts ? project[0].fields.finalThoughts["en-US"].content : null,
     heroImage: project[0].fields.heroImage["en-US"],
     logo: project[0].fields.logo["en-US"],
+    links: project[0].fields.links ? project[0].fields.links['en-US'] : null,
     projectIntro: project[0].fields.projectIntro["en-US"].content,
     projectTitle: project[0].fields.projectTitle["en-US"],
     sections: project[0].fields.sections["en-US"],
