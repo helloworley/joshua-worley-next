@@ -45,8 +45,8 @@ const IndexPage = props => {
           <ServicesOffered services={props.servicesOffered}/>
           <TechExp technologies={props.techExp}/>
           <Testimonials testimonials={props.testimonials} />
-          <FeaturedProject project={props.highlightedProject} />
           <Projects projects={props.projects} title="Recent Projects"/>
+          <FeaturedProject project={props.highlightedProject} />
           <ThankYou content={props.thankYou} />
         </Layout>
       </>
