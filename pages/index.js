@@ -42,10 +42,10 @@ const IndexPage = props => {
             heading={props.hero.heading["en-US"]}
             description={props.hero.description["en-US"].content}
           />
+          <Projects projects={props.projects} title="Recent Projects"/>
           <ServicesOffered services={props.servicesOffered}/>
           <TechExp technologies={props.techExp}/>
           <Testimonials testimonials={props.testimonials} />
-          <Projects projects={props.projects} title="Recent Projects"/>
           <FeaturedProject project={props.highlightedProject} />
           <ThankYou content={props.thankYou} />
         </Layout>
