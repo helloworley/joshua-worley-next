@@ -92,7 +92,6 @@ const displayTech = arr => {
   return (
     <ul className={classes.cardTechList}>
       {arr.map( tech => {
-        // console.log('tech! ', tech)
         const icon = tech.fields.image['en-US'].fields.file['en-US'].url
         const alt = tech.fields.image['en-US'].fields.title['en-US']
         return (
@@ -107,8 +106,7 @@ const displayTech = arr => {
 
 const ImageCard = props => {
   const classes = useStyles();
-  // console.log('props', props)
-  const { brand, slug, date, logo, projectTitle, projectType, tech } = props;
+  const { date, logo, projectTitle, tech } = props;
 
   return (
     <Link href={`${props.urlBase}/${props.slug}`}>
@@ -118,7 +116,6 @@ const ImageCard = props => {
           {displayTech(tech)}
           <img className={classes.logo} src={logo.fields.file["en-US"].url} alt={logo.fields.title["en-US"]} />
           <h2 className={classes.projectTitle}>{projectTitle}</h2>
-          {/* <h4 className={classes.projectMeta}>{projectType}</h4> */}
           <h4 className={classes.projectMeta}>{date}</h4>
         </div>
       </div>

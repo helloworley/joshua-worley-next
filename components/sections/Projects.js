@@ -15,24 +15,18 @@ const Projects = props => {
             props.projects.map( service => {
               const brand = service.brand["en-US"]
               const slug = service.slug["en-US"]
-              const brandAbout = service.brandAbout["en-US"].content
               const date = service.date["en-US"]
-              const finalThoughts = service.finalThoughts ? service.finalThoughts["en-US"].content : null;
               const heroImage = service.heroImage["en-US"]
               const logo = service.logo["en-US"]
-              const projectIntro = service.projectIntro["en-US"].content
               const projectTitle = service.projectTitle["en-US"]
               const tech = service.technologies["en-US"]
               return <Grid item xs={12} sm={6} lg={3} key={brand} className={classes.gridItem}>
                 <ImageCard 
                   urlBase="/projects"
                   slug={slug}
-                  brandAbout={brandAbout}
                   date={date}
-                  finalThoughts={finalThoughts}
                   image={heroImage}
                   logo={logo}
-                  projectIntro={projectIntro}
                   projectTitle={projectTitle}
                   tech={tech}
                 />

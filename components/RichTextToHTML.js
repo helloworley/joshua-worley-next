@@ -80,15 +80,13 @@ let options = {
       `<img style="max-width: 100%" src="${node.data.target.fields.file['en-US'].url}"/>`
   }
 }
-// let bodyHTML = body ? documentToHtmlString(body, options) : ''
+
 const RichTextToHTML = props => {
   const classes = useStyles();
-
   const document = {
     nodeType: 'document',
     content: props.data,
   }
-
   function createMarkup() {
     return {__html: documentToHtmlString(document, options)};
   }

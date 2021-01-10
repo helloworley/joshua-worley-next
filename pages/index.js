@@ -12,7 +12,6 @@ import FeaturedProject from '../components/sections/FeaturedProject'
 import Testimonials from '../components/sections/Testimonials'
 
 const IndexPage = props => {
-  // console.log('props', props)
   return (
     <div id="home">
       <>
