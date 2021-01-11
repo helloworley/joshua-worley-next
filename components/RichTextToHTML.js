@@ -76,8 +76,20 @@ const useStyles = makeStyles(theme => ({
 // documentToHtmlString doesn't return image embeds, so custom options are needed
 let options = {
   renderNode: {
-    'embedded-asset-block': (node) =>
-      `<img style="max-width: 100%" src="${node.data.target.fields.file['en-US'].url}"/>`
+    'embedded-asset-block': (node) => {
+      const path = node.data.target.fields.file['en-US'].url;
+      if (path.indexOf('//images') != -1) {
+        return `<img style="max-width: 100%" src="${node.data.target.fields.file['en-US'].url}"/>`
+      } else if (path.indexOf('//videos') != -1) {
+        return `
+          <video width="100%" height="auto" controls>
+            <source src="${path}" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+        `
+      }
+    }
+      
   }
 }
 
