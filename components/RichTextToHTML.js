@@ -82,7 +82,7 @@ let options = {
         return `<img style="max-width: 100%" src="${node.data.target.fields.file['en-US'].url}"/>`
       } else if (path.indexOf('//videos') != -1) {
         return `
-          <video width="100%" height="auto" controls>
+          <video width="100%" style="margin: 40px 0;" height="auto" controls>
             <source src="${path}" type="video/mp4">
           Your browser does not support the video tag.
           </video>
