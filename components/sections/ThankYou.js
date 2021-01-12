@@ -1,11 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 import RichTextToHTML from '../RichTextToHTML';
 import SectionHeading from '../layout/SectionHeading';
-const bgImage = require('../../public/sanfran.jpg');
 
 const useStyles = makeStyles(theme => ({
   thankYou: {
-    backgroundImage: `url(${bgImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     '& p': {
@@ -29,11 +27,11 @@ const useStyles = makeStyles(theme => ({
 
 const ThankYou = props => {
   const classes = useStyles();
-  // console.log('thank you props', props)
-  const thankYouText = props.content.text["en-US"].content
+  const thankYouText = props.content.text["en-US"].content;
+  const bgImage = '';
 
   return (
-    <div className={classes.thankYou}>
+    <div className={classes.thankYou} style={{backgroundImage: `url('./sanfran.jpg')`}}>
       <div className={classes.thankYouInner}>
         <div className="section-wrapper">
           <SectionHeading text="Thank You" />
