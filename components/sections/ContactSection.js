@@ -7,7 +7,8 @@ const ContactSection = props => {
 
   return (
     <div className={classes.contactSection}>
-      <SectionHeading text="Contact" color="white"/>
+      <SectionHeading text="Contact" color="white" description="Please feel free to reach out with any questions, inquiries, ideas or requests."/>
+      
       <div className={classes.formWrapper}>
         <form action="https://usebasin.com/f/b3b2da236c0c" method="POST">
           <div className={classes.formGrid}>

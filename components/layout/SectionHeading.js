@@ -8,6 +8,10 @@ const useStyles = makeStyles(theme => ({
     },
     '&.no-border': {
       borderBottom: 'none'
+    },
+    '& p': {
+      textAlign: 'center',
+      color: theme.colors.gray100
     }
   },
   heading: {
@@ -25,25 +29,34 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const getHeading = (classes, props) => {
-  let color = props.color;
+const getHeading = (classes, text, color) => {
   color = color === undefined ? 'gray' : color;
-  console.log('color', color)
   switch (color) {
     case 'white':
-        return <h2 className={classes.heading} style={{color: 'white'}}>{props.text}</h2>;
+        return <h2 className={classes.heading} style={{color: 'white'}}>{text}</h2>;
     case 'gray':
-        return <h2 className={classes.heading} style={{color: 'gray'}}>{props.text}</h2>;
+        return <h2 className={classes.heading} style={{color: 'gray'}}>{text}</h2>;
     default:
-        return <h2 className={classes.heading}>{props.text}</h2>
+        return <h2 className={classes.heading}>{text}</h2>
+  }
+}
+
+const getDescription = (color, text) => {
+  switch (color) {
+    case 'white':
+        return <p style={{color: 'white'}}>{text}</p>;
+    default:
+        return <p>{text}</p>;
   }
 }
 
 const SectionHeading = props => {
   const classes = useStyles();
+  const { color, text, description } = props;
   return (
     <div className={`${classes.headingWrapper}`}>
-        {getHeading(classes, props)}
+        {getHeading(classes, text, color)}
+        {props.description && getDescription(color, description)}
     </div>
   )
 };
