@@ -15,17 +15,17 @@ const ContactSection = props => {
             <div className={classes.left}>
               <div className={classes.elWrapper}>
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Tyler Durden"/>
+                <input id="name" name="name" type="text" placeholder="Tyler Durden" required/>
               </div>
               <div className={classes.elWrapper}>
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="tyler@fightclub.com"/>
+                <input id="email" name="email" type="email" placeholder="tyler@fightclub.com" required/>
               </div>
             </div>
             <div className={classes.right}>
               <div className={classes.elWrapper}>
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="6" placeholder="Hey Josh, I have an awesome idea for an app. Let's make it happen."/>
+                <textarea id="message" name="message" rows="6" placeholder="Hey Josh, I have an awesome idea for an app. Let's make it happen." required/>
               </div>
             </div>
           </div>
