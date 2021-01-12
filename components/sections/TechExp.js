@@ -82,16 +82,13 @@ const displayTechs = techs => {
   )
 }
 
+const description = 'I have professional experience and working knowledge of the following design applications and frontend technologies. I am comfortable jumping into projects using these technologies and contributing from day one.';
+
 const TechExp = props => {
   const classes = useStyles();
   return(
     <div className={classes.techExp}>
-      <SectionHeading text="Professional Experience" noBorder={true} />
-      <div className={classes.description}>
-        <p>Joshua has professional experience and working knowledge of the following design applications and frontend technologies.
-          He is comfortable jumping into projects using these technologies and contributing from day one.
-        </p>
-      </div>
+      <SectionHeading text="Professional Experience" description={description} />
       {displayTechs(props.technologies)}
     </div>
   )

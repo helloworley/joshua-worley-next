@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   headingWrapper: {
     marginBottom: '40px',
+    maxWidth: '800px',
+    margin: '0 auto',
     [theme.breakpoints.up('md')]: {
       marginBottom: '60px',
     },
@@ -29,24 +31,35 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const colors = {
+    gray100: '#F8F8F8',
+    gray200: '#E5E5E5',
+    gray300: '#D3D3D3',
+    gray400: '#A5A5A5',
+    gray500: '#646464',
+    gray600: '#3B3D3C',
+    gray700: '#2B2B28'
+}
+
 const getHeading = (classes, text, color) => {
   color = color === undefined ? 'gray' : color;
   switch (color) {
     case 'white':
         return <h2 className={classes.heading} style={{color: 'white'}}>{text}</h2>;
     case 'gray':
-        return <h2 className={classes.heading} style={{color: 'gray'}}>{text}</h2>;
+        return <h2 className={classes.heading} style={{color: colors.gray600}}>{text}</h2>;
     default:
         return <h2 className={classes.heading}>{text}</h2>
   }
 }
 
 const getDescription = (color, text) => {
+  color = color === undefined ? 'gray' : color;
   switch (color) {
     case 'white':
         return <p style={{color: 'white'}}>{text}</p>;
     default:
-        return <p>{text}</p>;
+        return <p style={{color: colors.gray600}}>{text}</p>;
   }
 }
 

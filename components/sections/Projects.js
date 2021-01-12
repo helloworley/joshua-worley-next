@@ -10,7 +10,7 @@ const Projects = props => {
   return (
     <div className={classes.projects}>
       <div className={classes.projectsInner}>
-        <SectionHeading text={props.title} noBorder={true} />
+        <SectionHeading text={props.title} noBorder={true} description="Please see below for examples of websites/apps that I have designed/developed. For each project, the technologies that I personally used to complete the project are displayed." />
           <div className={classes.grid}>
           {
             props.projects.map( service => {

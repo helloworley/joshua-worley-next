@@ -51,7 +51,7 @@ const ServicesOffered = props => {
   return (
     <div className={classes.servicesOffered}>
       <div className={classes.servicesOfferedInner}>
-          <SectionHeading text="Services Offered" noBorder={true} />
+          <SectionHeading text="Services Offered" noBorder={true} description="I am currently accepting freelance requests. Some specialized services that people have hired me for include:"/>
           <div className={classes.infoWrapper}>
 
             {materialSelect}
