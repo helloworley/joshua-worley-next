@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import SectionHeading from '../layout/SectionHeading'
 import ImageCard from '../ImageCard'
 import { Grid } from '@material-ui/core/'
+import { Repeat } from '@material-ui/icons';
 
 const Projects = props => {
   const classes = useStyles();
@@ -10,7 +11,7 @@ const Projects = props => {
     <div className={classes.projects}>
       <div className={classes.projectsInner}>
         <SectionHeading text={props.title} noBorder={true} />
-        <Grid container spacing={6}>
+          <div className={classes.grid}>
           {
             props.projects.map( service => {
               const brand = service.brand["en-US"]
@@ -20,8 +21,7 @@ const Projects = props => {
               const logo = service.logo["en-US"]
               const projectTitle = service.projectTitle["en-US"]
               const tech = service.technologies["en-US"]
-              return <Grid item xs={12} sm={6} lg={3} key={brand} className={classes.gridItem}>
-                <ImageCard 
+              return <ImageCard 
                   urlBase="/projects"
                   slug={slug}
                   date={date}
@@ -29,27 +29,41 @@ const Projects = props => {
                   logo={logo}
                   projectTitle={projectTitle}
                   tech={tech}
-                />
-              </Grid>
+                />   
             })
           }
+
+          </div>
           
-        </Grid>
+        
       </div>
     </div>
   )
 };
 
 const useStyles = makeStyles(theme => ({
+  grid: {
+    display: 'grid',
+    gridColumnGap: '40px',
+    [theme.breakpoints.up('sm')]: {
+      gridTemplateColumns: 'repeat(2, 1fr)'
+    },
+    [theme.breakpoints.up('md')]: {
+      gridTemplateColumns: 'repeat(3, 1fr)'
+    },
+    [theme.breakpoints.up('lg')]: {
+      gridTemplateColumns: 'repeat(4, 1fr)'
+    }
+  },
   projects: {
     padding: theme.padding.xs,
     backgroundColor: theme.colors.gray100,
     [theme.breakpoints.up('sm')]: {
-      padding: '120px 20px'
+      padding: '120px 40px'
     },
-    [theme.breakpoints.up('md')]: {
-      padding: '120px 60px'
-    },
+    // [theme.breakpoints.up('md')]: {
+    //   padding: '120px 0px'
+    // },
     [theme.breakpoints.up('lg')]: {
       padding: '120px 30px'
     },

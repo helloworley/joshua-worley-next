@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    margin: '0 0 30px',
+    margin: '0 0 40px',
     boxShadow: '0 10px 16px 0 rgba(205, 217, 231, 0.47)',
     cursor: 'pointer',
     borderTopLeftRadius: '30px',
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   image: {
-    height: 240,
+    height: '240px',
     backgroundColor: 'lightgray',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -24,17 +24,23 @@ const useStyles = makeStyles(theme => ({
     margin: '0',
     borderTopLeftRadius: '30px',
     borderTopRightRadius: '30px',
+    [theme.breakpoints.up('sm')]: {
+      height: '200px'
+    },
+    [theme.breakpoints.up('md')]: {
+      height: '200px'
+    },
+    [theme.breakpoints.up('lg')]: {
+      height: '220px'
+    },
   },
   cardDetails: {
     padding: '20px 25px',
     position: 'relative',
     backgroundColor: theme.colors.white,
-    [theme.breakpoints.up('sm')]: {
-      height: '240px'
-    },
-    [theme.breakpoints.up('lg')]: {
-      height: '210px'
-    }
+    display: 'relative',
+    height: '200px',
+    
   },
   heading: {
     margin: '0',
@@ -46,11 +52,14 @@ const useStyles = makeStyles(theme => ({
     fontSize: '.8em',
   },
   projectMeta: {
-    color: theme.colors.meta,
+    color: theme.colors.gray500,
     fontSize: '10px',
     margin: '0',
     textTransform: 'uppercase',
-    fontWeight: 'normal'
+    fontWeight: 'normal',
+    position: 'absolute',
+    top: '20px',
+    right: '20px'
   },
   projectTitle: {
     fontSize: '16px',
@@ -68,13 +77,16 @@ const useStyles = makeStyles(theme => ({
   },
   logo: {
     maxHeight: '30px',
-    maxWidth: '120px',
-    marginTop: '20px',
+    maxWidth: '40%',
+    marginTop: '0',
+    marginBottom: '10px',
   },
   cardTechList: {
     margin: '0',
     padding: '0',
-    float: 'right'
+    position: 'absolute',
+    bottom: '20px',
+    right: '20px'
   },
   cardTechLi: {
     listStyle: 'none',
@@ -113,9 +125,10 @@ const ImageCard = props => {
       <div className={classes.card}>
         <div className={classes.image} style={{ backgroundImage: `url(${props.image.fields.file["en-US"].url})` }}></div>
         <div className={classes.cardDetails}>
-          {displayTech(tech)}
+          
           <img className={classes.logo} src={logo.fields.file["en-US"].url} alt={logo.fields.title["en-US"]} />
           <h2 className={classes.projectTitle}>{projectTitle}</h2>
+          {displayTech(tech)}
           <h4 className={classes.projectMeta}>{date}</h4>
         </div>
       </div>
