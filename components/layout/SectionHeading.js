@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: '400',
     textAlign: 'center',
     margin: '0 auto 30px',
+    color: 'black',
     [theme.breakpoints.up('md')]: {
       fontSize: '22px',
       margin: '0 auto 40px',
@@ -24,11 +25,25 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const getHeading = (classes, props) => {
+  let color = props.color;
+  color = color === undefined ? 'gray' : color;
+  console.log('color', color)
+  switch (color) {
+    case 'white':
+        return <h2 className={classes.heading} style={{color: 'white'}}>{props.text}</h2>;
+    case 'gray':
+        return <h2 className={classes.heading} style={{color: 'gray'}}>{props.text}</h2>;
+    default:
+        return <h2 className={classes.heading}>{props.text}</h2>
+  }
+}
+
 const SectionHeading = props => {
   const classes = useStyles();
   return (
     <div className={`${classes.headingWrapper}`}>
-      <h2 className={classes.heading}>{props.text}</h2>
+        {getHeading(classes, props)}
     </div>
   )
 };

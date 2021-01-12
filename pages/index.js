@@ -1,15 +1,16 @@
-import { NextSeo } from 'next-seo'
-import '../style/style.scss'
+import { NextSeo } from 'next-seo';
+import '../style/style.scss';
 import Layout from '../components/layout/MyLayout';
 
-import Hero from '../components/sections/Hero'
-import ServicesOffered from '../components/sections/ServicesOffered'
-import Projects from '../components/sections/Projects'
-import ThankYou from '../components/sections/ThankYou'
-import fetchContent from '../contentful/fetchContent'
-import TechExp from '../components/sections/TechExp'
-import FeaturedProject from '../components/sections/FeaturedProject'
-import Testimonials from '../components/sections/Testimonials'
+import Hero from '../components/sections/Hero';
+import ServicesOffered from '../components/sections/ServicesOffered';
+import Projects from '../components/sections/Projects';
+import ThankYou from '../components/sections/ThankYou';
+import fetchContent from '../contentful/fetchContent';
+import TechExp from '../components/sections/TechExp';
+import FeaturedProject from '../components/sections/FeaturedProject';
+import Testimonials from '../components/sections/Testimonials';
+import ContactSection from '../components/sections/ContactSection';
 
 const IndexPage = props => {
   return (
@@ -47,6 +48,7 @@ const IndexPage = props => {
           <ServicesOffered services={props.servicesOffered}/>
           <Testimonials testimonials={props.testimonials} />
           <FeaturedProject project={props.highlightedProject} />
+          <ContactSection />
           <ThankYou content={props.thankYou} />
         </Layout>
       </>
