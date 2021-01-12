@@ -41,6 +41,9 @@ const useStyles = makeStyles(theme => ({
   contactSection: {
     backgroundColor: theme.colors.gray600,
     padding: '60px 20px',
+    [theme.breakpoints.up('md')]: {
+      padding: '60px 40px',
+    }
   },
   formWrapper: {
     margin: '0 auto',
@@ -51,6 +54,9 @@ const useStyles = makeStyles(theme => ({
     gridColumnGap: '40px',
     [theme.breakpoints.up('md')]: {
       gridTemplateColumns: '1fr 1fr',
+      gridColumnGap: '40px',
+    },
+    [theme.breakpoints.up('lg')]: {
       gridColumnGap: '60px',
     }
   },
