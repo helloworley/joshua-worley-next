@@ -48,8 +48,10 @@ const useStyles = makeStyles(theme => ({
   },
   heading: {
     marginBottom: '40px',
+    fontSize: '2.5rem',
     [theme.breakpoints.up('sm')]: {
       marginBottom: '20px',
+      fontSize: '3rem',
     }
   },
   logo: {
@@ -91,7 +93,8 @@ const useStyles = makeStyles(theme => ({
       marginBottom: '0'
     },
     [theme.breakpoints.up('md')]: {
-      maxWidth: '80%',
+      width: '80%',
+      maxWidth: '840px'
     }
   },
   ctas: {
