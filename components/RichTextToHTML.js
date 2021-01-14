@@ -6,32 +6,16 @@ const paragraph = `'Frank Ruhl Libre', Sans-Serif`
 
 const useStyles = makeStyles(theme => ({
   RichTextToHTML: {
-    'h1': {
-      fontFamily: headings,
-    },
-    'h2': {
-      fontFamily: headings,
-    },
-    'h3': {
-      fontFamily: headings,
-    },
-    'h4': {
-      fontFamily: headings,
-    },
     '& p' : {
       color: theme.colors.abyss,
       fontFamily: paragraph,
       fontWeight: '500',
       lineHeight: '1.8',
       margin: '0 0 10px',
-      fontSize: '14px',
+      fontSize: '16px',
       lineHeight: '1.8',
       [theme.breakpoints.up('md')]: {
         marginTop: '14px',
-        fontSize: '14px'
-      },
-      [theme.breakpoints.up('md')]: {
-        fontSize: '15px'
       },
     },
     '& a' : {
@@ -39,14 +23,12 @@ const useStyles = makeStyles(theme => ({
       fontFamily: paragraph,
       fontWeight: '500',
       lineHeight: '1.8',
-      fontSize: '14px',
       lineHeight: '1.8',
       '&:hover': {
         color: theme.colors.linkHovered
       },
       [theme.breakpoints.up('md')]: {
         marginTop: '14px',
-        fontSize: '14px'
       },
       [theme.breakpoints.up('md')]: {
         fontSize: '15px'
@@ -64,11 +46,6 @@ const useStyles = makeStyles(theme => ({
     '& h3': {
       margin: '40px 0 16px'
     },
-    [theme.breakpoints.up('md')]: {
-      '& p': {
-        fontSize: '14px'
-      }
-    }
   },
 }));
 

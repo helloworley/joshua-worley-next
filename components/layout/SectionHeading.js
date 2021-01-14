@@ -3,8 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   headingWrapper: {
     marginBottom: '40px',
-    maxWidth: '800px',
+    maxWidth: '880px',
     margin: '0 auto',
+    padding: '0 20px',
     [theme.breakpoints.up('md')]: {
       marginBottom: '60px',
     },
@@ -17,15 +18,16 @@ const useStyles = makeStyles(theme => ({
     }
   },
   heading: {
-    fontSize: '16px',
+    fontSize: '1.4rem',
     textTransform: 'uppercase',
-    letterSpacing: '7px',
+    letterSpacing: '3px',
+    maxWidth: '80%',
     fontWeight: '400',
     textAlign: 'center',
     margin: '0 auto 30px',
     color: 'black',
     [theme.breakpoints.up('md')]: {
-      fontSize: '22px',
+      fontSize: '1.8rem',
       margin: '0 auto 40px',
     },
   }

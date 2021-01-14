@@ -13,9 +13,9 @@ const Hero = props => {
           }}>
         </Grid>
         <Grid item xs={12} md={6} className={classes.introInfo}>
-          <img className={classes.logo} src="/logo-vertical-light.svg" />
+          {/* <img className={classes.logo} src="/logo-vertical-light.svg" /> */}
           <div className={classes.info}>
-            <h2 className={classes.heading}>{props.heading}</h2>
+            <h1 className={classes.heading}>{props.heading}</h1>
             <RichTextToHTML data={props.description}/>
             <div className={classes.ctas}>
               <ButtonWrapped text="About" variant="outlined" link="/about" />
@@ -47,7 +47,10 @@ const useStyles = makeStyles(theme => ({
     textTransform:'none',
   },
   heading: {
-    marginBottom: '10px',
+    marginBottom: '40px',
+    [theme.breakpoints.up('sm')]: {
+      marginBottom: '20px',
+    }
   },
   logo: {
     maxWidth: '160px',
@@ -59,14 +62,13 @@ const useStyles = makeStyles(theme => ({
     }
   },
   introInfo: {
-    padding: '60px 20px 70px',
-    textAlign: 'center',
+    padding: '40px 20px 70px',
     minHeight: minHeightXs,
-    [theme.breakpoints.up('sm')]: {
-      minHeight: minHeightSm,
-      paddingTop: '110px',
-    },
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     [theme.breakpoints.up('md')]: {
+      padding: '60px 20px 70px',
       minHeight: minHeightMd,
       paddingTop: '180px',
     }
@@ -84,28 +86,29 @@ const useStyles = makeStyles(theme => ({
     }
   },
   info: {
-    maxWidth: '420px',
     margin: '0 auto',
     '& p': {
       marginBottom: '0'
     },
-    [theme.breakpoints.up('sm')]: {
-      maxWidth: '560px',
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '80%',
     }
   },
-  socialsWrapper: {
-    textAlign: 'center',
-    display: 'flex',
-    justifyContent: 'center',
-    marginTop: '15px'
-  },
   ctas: {
-    marginTop: '30px',
+    marginTop: '40px',
+    textAlign: 'center',
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+    }
   },
   resumeLink: {
     fontFamily: theme.fontFamily.sansSerif,
-    fontSize: '14px',
     letterSpacing: '1px',
+    [theme.breakpoints.up('md')]: {
+      marginLeft: '20px',
+    }
   }
 }));
 
