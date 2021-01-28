@@ -35,8 +35,8 @@ const Socials = props => {
             <li className={classes.socialsListItem} key={socialItem.logoDark}>
               <a href={socialItem.link} target="_blank">
                 {
-                  props.color == 'white' ? 
-                    <img src={socialItem.logoLight} className={classes.socialLogo} /> :
+                  // props.color == 'white' ? 
+                    // <img src={socialItem.logoLight} className={classes.socialLogo} /> :
                     <img src={socialItem.logoDark} className={classes.socialLogo} /> 
                 }
                 

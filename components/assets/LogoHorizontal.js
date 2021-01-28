@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: '12px',
     textTransform: 'uppercase',
     letterSpacing: '2px',
-    color: theme.colors.whisp,
+    color: theme.colors.gray600,
     display: 'inline-table',
     fontFamily: 'Lato, Helvetica, Arial, sans-serif'
   },
@@ -37,7 +37,7 @@ const LogoHorizontal = props => {
   return (
     <Link href="/">
       <div className={classes.logoContainer}>
-        <img className={classes.logo} src="/ikigai-light.svg" />
+        <img className={classes.logo} src="/ikigai-dark.svg" />
         <h1 className={classes.logoText}> Joshua Worley</h1>
       </div>
     </Link>

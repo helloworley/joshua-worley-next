@@ -16,7 +16,9 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
     height: theme.navHeight.md,
     position: 'fixed',
-    backgroundColor: theme.colors.gray600,
+    '-webkit-backdrop-filter': 'blur(10px)',
+    backdropFilter: 'blur(10px)  grayscale(0.8)',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)', 
     top: '0',
     zIndex: '1000',
     [theme.breakpoints.up('lg')]: {
@@ -54,12 +56,12 @@ const useStyles = makeStyles(theme => ({
     fontSize: '12px',
     textTransform: 'uppercase',
     letterSpacing: '2px',
-    color: theme.colors.whisp
+    color: theme.colors.gray600
   },
   a: {
     listStyle: 'none',
     padding: '6px 0',
-    color: theme.colors.whisp,
+    color: theme.colors.gray600,
     textTransform: 'uppercase',
     letterSpacing: '2px',
     fontWeight: '600',
@@ -78,37 +80,36 @@ const useStyles = makeStyles(theme => ({
 const NavDesktop = props => {
   const classes = useStyles();
   return (
-    <div className={classes.navigation} id="navigation">
-      
-      <LogoHorizontal />
+      <div className={classes.navigation} id="navigation">
+        
+        <LogoHorizontal />
 
-      <div className={classes.navRight}>
-        <ul className={classes.list}>
-          {props.navItems.map(menuItem => (
-            <li key={menuItem.name} className={classes.listItem}>
-              {
-                menuItem.link.substring(0, 2) == '//' ?
-                <Link href={menuItem.link}>
-                  <a className={classes.a} target="_blank">
-                    {menuItem.name}
-                  </a>
-                </Link>
-                :
-                <Link href={menuItem.link}>
-                  <a className={classes.a}>
-                    {menuItem.name}
-                  </a>
-                </Link>
-              }
-            </li>
-          ))}
-        </ul>
-        <div className={classes.socialsWrapper}>
-          <Socials />
+        <div className={classes.navRight}>
+          <ul className={classes.list}>
+            {props.navItems.map(menuItem => (
+              <li key={menuItem.name} className={classes.listItem}>
+                {
+                  menuItem.link.substring(0, 2) == '//' ?
+                  <Link href={menuItem.link}>
+                    <a className={classes.a} target="_blank">
+                      {menuItem.name}
+                    </a>
+                  </Link>
+                  :
+                  <Link href={menuItem.link}>
+                    <a className={classes.a}>
+                      {menuItem.name}
+                    </a>
+                  </Link>
+                }
+              </li>
+            ))}
+          </ul>
+          <div className={classes.socialsWrapper}>
+            <Socials />
+          </div>
         </div>
       </div>
-    </div>
-
   )
 };
 
