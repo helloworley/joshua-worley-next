@@ -116,9 +116,14 @@ const useStyles = makeStyles(theme => ({
   },
   resumeLink: {
     fontFamily: theme.fontFamily.sansSerif,
+    color: theme.colors.gray600,
+    cursor: 'pointer',
     letterSpacing: '1px',
     [theme.breakpoints.up('md')]: {
       marginLeft: '20px',
+    },
+    '&:hover': {
+      color: theme.colors.primary,
     }
   }
 }));

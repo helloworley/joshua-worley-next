@@ -32,7 +32,7 @@ const Testimonials = props => {
   const { testimonials } = props;
   return (
     <div className={classes.testimonialsSection}>
-      <SectionHeading text="Testimonials" description="People seem to love working with me!" />
+      <SectionHeading text="Testimonials" description="I love working with people, and people love working with me." />
       <div className={classes.testimonials}>
         { testimonials.map( testimonial => {
           return getTestimonial(classes, testimonial.fields);
