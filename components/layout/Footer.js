@@ -7,7 +7,7 @@ import Link from 'next/link'
 const useStyles = makeStyles(theme => ({
   footer: {
     backgroundPosition: 'center',
-    backgroundColor: theme.colors.gray600,
+    backgroundColor: theme.colors.white,
     padding: '60px 20px',
   },
   centeredWrapper: {
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     margin: '0 auto',
   },
   link: {
-    color: theme.colors.white,
+    color: theme.colors.gray400,
     marginBottom: '12px',
     display: 'inline-block',
   },
@@ -66,7 +66,7 @@ const Footer = props => {
       <div className="section-wrapper">
         <div className={classes.centeredWrapper}>
           <div className={classes.logoWrapper}>
-            <LogoVertical color="white" />
+            <LogoVertical />
           </div>
           <div className={classes.contact}>
             <ul className={classes.list}>
