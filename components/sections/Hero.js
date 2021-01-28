@@ -49,10 +49,12 @@ const useStyles = makeStyles(theme => ({
   heading: {
     marginBottom: '40px',
     fontSize: '2rem',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       marginBottom: '20px',
-      fontSize: '3rem',
-    }
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '2.5rem',
+    },
   },
   logo: {
     maxWidth: '160px',
