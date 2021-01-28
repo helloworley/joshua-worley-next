@@ -12,7 +12,7 @@ const Hero = props => {
           backgroundImage: `url(${props.image.file["en-US"].url})`
           }}>
         </Grid>
-        <Grid item xs={12} md={6} className={classes.introInfo}>
+        <Grid item xs={12} md={6} className={classes.introInfo} style={{backgroundImage: `url('./flux.jpg')`}}>
           {/* <img className={classes.logo} src="/logo-vertical-light.svg" /> */}
           <div className={classes.info}>
             <h1 className={classes.heading}>{props.heading}</h1>
@@ -69,10 +69,13 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    ...theme.backgroundImage,
     [theme.breakpoints.up('md')]: {
-      padding: '60px 20px 70px',
+      padding: '120px 20px',
       minHeight: minHeightMd,
-      paddingTop: '180px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: '240px 20px',
     }
   },
   heroImg: {
@@ -89,12 +92,17 @@ const useStyles = makeStyles(theme => ({
   },
   info: {
     margin: '0 auto',
+    ...theme.backgroundFilter,
+    borderRadius: theme.borderRadius.card,
+    padding: '20px',
+
     '& p': {
       marginBottom: '0'
     },
     [theme.breakpoints.up('md')]: {
       width: '80%',
-      maxWidth: '840px'
+      maxWidth: '840px',
+      padding: '40px',
     }
   },
   ctas: {
