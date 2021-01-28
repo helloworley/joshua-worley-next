@@ -6,10 +6,11 @@ const ContactSection = props => {
   const classes = useStyles();
 
   return (
-    <div className={classes.contactSection}>
-      <SectionHeading text="Contact" color="white" description="Please feel free to reach out with any questions, inquiries, ideas or requests. I typically reply within the day."/>
+    <div className={classes.contactSection} style={{backgroundImage: `url('./blue-cloud.jpg')`}}>
+      
       
       <div className={classes.formWrapper}>
+      <SectionHeading text="Contact"  description="Please feel free to reach out with any questions, inquiries, ideas or requests. I typically reply within the day."/>
         <form action="https://usebasin.com/f/b3b2da236c0c" method="POST">
           <div className={classes.formGrid}>
             <div className={classes.left}>
@@ -40,7 +41,9 @@ const ContactSection = props => {
 
 const useStyles = makeStyles(theme => ({
   contactSection: {
-    backgroundColor: theme.colors.gray600,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
     padding: '60px 20px',
     [theme.breakpoints.up('md')]: {
       padding: '60px 40px',
@@ -49,6 +52,14 @@ const useStyles = makeStyles(theme => ({
   formWrapper: {
     margin: '0 auto',
     maxWidth: '1200px',
+    padding: '40px 20px',
+    borderRadius: '20px',
+    '-webkit-backdrop-filter': 'blur(10px)',
+    backdropFilter: 'blur(10px)',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)', 
+    [theme.breakpoints.up('md')]: {
+      padding: '60px 40px',
+    }
   },
   formGrid: {
     display: 'grid',
@@ -74,7 +85,7 @@ const useStyles = makeStyles(theme => ({
     '& label': {
       display: 'block',
       margin: '0 0 10px',
-      color: theme.colors.gray100,
+      color: theme.colors.gray600,
       fontFamily: theme.fontFamily.sansSerif,
       textTransform: 'uppercase',
       letterSpacing: '2px'
@@ -82,8 +93,9 @@ const useStyles = makeStyles(theme => ({
     '& input': {
       padding: '20px',
       width: '100%',
-      backgroundColor: theme.colors.gray500,
-      color: theme.colors.gray300,
+      backgroundColor: theme.colors.gray100,
+      borderRadius: '10px',
+      color: theme.colors.gray600,
       fontSize: '16px',
       fontFamily: theme.fontFamily.serif,
       border: 'none'
@@ -91,9 +103,10 @@ const useStyles = makeStyles(theme => ({
     '& textarea': {
       padding: '20px',
       width: '100%',
-      backgroundColor: theme.colors.gray500,
-      color: theme.colors.gray300,
+      backgroundColor: theme.colors.gray100,
+      color: theme.colors.gray600,
       fontSize: '16px',
+      borderRadius: '10px',
       fontFamily: theme.fontFamily.serif,
       border: 'none'
     }
