@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
   },
   heading: {
     marginBottom: '40px',
-    fontSize: '2.5rem',
+    fontSize: '2rem',
     [theme.breakpoints.up('sm')]: {
       marginBottom: '20px',
       fontSize: '3rem',
