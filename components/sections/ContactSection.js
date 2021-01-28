@@ -41,22 +41,18 @@ const ContactSection = props => {
 
 const useStyles = makeStyles(theme => ({
   contactSection: {
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
     padding: '60px 20px',
     [theme.breakpoints.up('md')]: {
       padding: '60px 40px',
-    }
+    },
+    ...theme.backgroundImage
   },
   formWrapper: {
     margin: '0 auto',
     maxWidth: '1200px',
     padding: '40px 20px',
     borderRadius: '20px',
-    '-webkit-backdrop-filter': 'blur(10px)',
-    backdropFilter: 'blur(10px)',
-    backgroundColor: 'rgba(255, 255, 255, 0.6)', 
+    ...theme.backgroundFilter,
     [theme.breakpoints.up('md')]: {
       padding: '60px 40px',
     }
@@ -117,7 +113,8 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     textTransform:'none',
-    backgroundColor: theme.colors.gray100,
+    backgroundColor: theme.colors.white,
+    boxShadow: theme.boxShadows.buttonPrimary,
     color: theme.colors.whisp,
     padding: '14px 40px',
     borderRadius: '0',
@@ -130,12 +127,10 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: '1px',
     textTransform: 'uppercase',
     backgroundColor: theme.colors.whisp,
-    border: `1px solid ${theme.colors.linkGrey}`,
     color: theme.colors.linkGrey,
     '&:hover': {
       backgroundColor: theme.colors.gray600,
       color: theme.colors.gray100,
-      border: `1px solid ${theme.colors.gray100}`,
     }
   }
 }))

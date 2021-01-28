@@ -22,12 +22,14 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: '1px',
     textTransform: 'uppercase',
     '&:hover': {
-      backgroundColor: theme.colors.linkGreyHovered
+      backgroundColor: theme.colors.gray600
     }
   },
   outlined: {
-    backgroundColor: theme.colors.whisp,
-    border: `1px solid ${theme.colors.linkGrey}`,
+    backgroundColor: theme.colors.white,
+    // border: `1px solid ${theme.colors.linkGrey}`,
+    boxShadow: theme.boxShadows.card,
+
     color: theme.colors.linkGrey,
     '&:hover': {
       color: theme.colors.whisp

@@ -8,35 +8,38 @@ const Projects = props => {
   const classes = useStyles();
 
   return (
-    <div className={classes.projects}>
-      <div className={classes.projectsInner}>
-        <SectionHeading text={props.title} noBorder={true} description="Please see below for examples of websites/apps that I have designed/developed. For each project, the technologies that I personally used to complete the project are displayed." />
-          <div className={classes.grid}>
-          {
-            props.projects.map( service => {
-              const brand = service.brand["en-US"]
-              const slug = service.slug["en-US"]
-              const date = service.date["en-US"]
-              const heroImage = service.heroImage["en-US"]
-              const logo = service.logo["en-US"]
-              const projectTitle = service.projectTitle["en-US"]
-              const tech = service.technologies["en-US"]
-              return <ImageCard 
-                  urlBase="/projects"
-                  slug={slug}
-                  date={date}
-                  image={heroImage}
-                  logo={logo}
-                  projectTitle={projectTitle}
-                  tech={tech}
-                />   
-            })
-          }
+    <div className={classes.projectsWrapper} style={{backgroundImage: `url('./black-sand.jpg')`}}>
+      <div className={classes.projects} >
+        <div className={classes.projectsInner}>
+          <SectionHeading text={props.title} color="white" noBorder={true} description="Please see below for examples of websites/apps that I have designed/developed. For each project, the technologies that I personally used to complete the project are displayed." />
+            <div className={classes.grid}>
+            {
+              props.projects.map( service => {
+                const brand = service.brand["en-US"]
+                const slug = service.slug["en-US"]
+                const date = service.date["en-US"]
+                const heroImage = service.heroImage["en-US"]
+                const logo = service.logo["en-US"]
+                const projectTitle = service.projectTitle["en-US"]
+                const tech = service.technologies["en-US"]
+                return <ImageCard 
+                    urlBase="/projects"
+                    slug={slug}
+                    date={date}
+                    image={heroImage}
+                    logo={logo}
+                    projectTitle={projectTitle}
+                    tech={tech}
+                  />   
+              })
+            }
 
-          </div>
+            </div>
+            
           
-        
+        </div>
       </div>
+
     </div>
   )
 };
@@ -55,9 +58,12 @@ const useStyles = makeStyles(theme => ({
       gridTemplateColumns: 'repeat(4, 1fr)'
     }
   },
+  projectsWrapper: {
+    ...theme.backgroundImage,
+  },
   projects: {
     padding: theme.padding.xs,
-    backgroundColor: theme.colors.gray100,
+    background: 'linear-gradient(180deg,rgba(0,0,0,.6) 0%, rgba(0, 0, 0, 0) 100%)',
     [theme.breakpoints.up('sm')]: {
       padding: '120px 40px'
     },
@@ -71,6 +77,7 @@ const useStyles = makeStyles(theme => ({
   projectsInner: {
     maxWidth: '1560px',
     margin: '0 auto',
+    
   },
   infoWrapper: {
     margin: '0 auto',

@@ -6,13 +6,13 @@ import Link from 'next/link';
 const useStyles = makeStyles(theme => ({
   card: {
     margin: '0 0 40px',
-    boxShadow: '0 10px 16px 0 rgba(205, 217, 231, 0.47)',
+    ...theme.backgroundFilter,
     cursor: 'pointer',
-    borderTopLeftRadius: '30px',
-    borderTopRightRadius: '30px',
-    border: `solid 1px ${theme.colors.gray500}`,
+    borderRadius: theme.borderRadius.card,
+    boxShadow: theme.boxShadows.card,
+    cursor: 'pointer',
     '&:hover': {
-      boxShadow: '0 10px 16px 0 rgba(205, 217, 231, 0.8)',
+      boxShadow: theme.boxShadows.cardHovered
     },
   },
   image: {
@@ -22,8 +22,9 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'center',
     color: 'white',
     margin: '0',
-    borderTopLeftRadius: '30px',
-    borderTopRightRadius: '30px',
+    cursor: 'pointer',
+    borderTopLeftRadius: theme.borderRadius.card,
+    borderTopRightRadius: theme.borderRadius.card,
     [theme.breakpoints.up('sm')]: {
       height: '200px'
     },
@@ -37,10 +38,9 @@ const useStyles = makeStyles(theme => ({
   cardDetails: {
     padding: '20px 25px',
     position: 'relative',
-    backgroundColor: theme.colors.white,
     display: 'relative',
     height: '200px',
-    
+    cursor: 'pointer',
   },
   heading: {
     margin: '0',

@@ -13,7 +13,22 @@ const themeStyles = {
     sansSerif: "'Raleway', Sans-Serif"
   },
   boxShadows: {
-    buttonPrimary: '0px 4px 4px 0px rgba(199, 190, 173, .25)'
+    buttonPrimary: '0px 4px 7px 2px rgba(199, 190, 208, .45)',
+    card: '0 10px 16px 0 rgba(0, 0, 0, 0.25)',
+    cardHovered: '0 10px 16px 0 rgba(0, 0, 0, 0.45)',
+  },
+  backgroundImage: {
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  },
+  backgroundFilter: {
+    '-webkit-backdrop-filter': 'blur(10px)',
+    backdropFilter: 'blur(10px)',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)', 
+  },
+  borderRadius: {
+    card: '20px',
   },
   fontWeights: {
     body: 400,
