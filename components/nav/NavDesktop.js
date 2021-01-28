@@ -17,8 +17,8 @@ const useStyles = makeStyles(theme => ({
     height: theme.navHeight.md,
     position: 'fixed',
     '-webkit-backdrop-filter': 'blur(10px)',
-    backdropFilter: 'blur(10px)  grayscale(0.8)',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)', 
+    backdropFilter: 'blur(10px)',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)', 
     top: '0',
     zIndex: '1000',
     [theme.breakpoints.up('lg')]: {

@@ -28,8 +28,8 @@ const useStyles = makeStyles( theme => ({
     position: 'relative',
     padding: '0 10px',
     '-webkit-backdrop-filter': 'blur(10px)',
-    backdropFilter: 'blur(10px)  grayscale(0.8)',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)', 
+    backdropFilter: 'blur(10px)',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)', 
     color: '#333',
     alignItems: 'center'
   },
@@ -52,8 +52,8 @@ const useStyles = makeStyles( theme => ({
   navSheet: {
     padding: '80px 20px',
     '-webkit-backdrop-filter': 'blur(10px)',
-    backdropFilter: 'blur(10px)  grayscale(0.8)',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)', 
+    backdropFilter: 'blur(10px)',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)', 
     width: '100vw',
     position: 'fixed',
     transition: 'top .5s',
@@ -103,11 +103,6 @@ const useStyles = makeStyles( theme => ({
   }
 }));
 
-const styles = {
-  '-webkit-backdrop-filter': 'blur(10px)',
-    backdropFilter: 'blur(10px)  grayscale(0.8)',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)', 
-}
 
 const NavMobile = props => {
   const classes = useStyles();
