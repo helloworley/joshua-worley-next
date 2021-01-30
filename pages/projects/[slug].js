@@ -152,15 +152,16 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 100,
     [theme.breakpoints.up('md')]: {
       position: 'fixed',
-      marginBottom: 0
-    }
+      width: '100%'
+    },
   },
   asideInner: {
     [theme.breakpoints.up('md')]: {
-      maxWidth: '25%',
+      width: '25%',
     },
-    [theme.breakpoints.up('md')]: {
-      maxWidth: '23%'
+    [theme.breakpoints.up('xl')]: {
+      paddingRight: '5%',
+      width: '23%'
     }
   },
   main: {
