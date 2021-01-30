@@ -289,7 +289,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   techUsedWrapper: {
-    paddingLeft: 0
+    paddingLeft: 0,
+    maxWidth: 240
   },
 }));
 

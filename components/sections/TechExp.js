@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
-import SectionHeading from '../layout/SectionHeading'
+import SectionHeading from '../layout/SectionHeading';
+import { Tech }  from '../Tech';
 
 const useStyles = makeStyles(theme => ({
   description: {
@@ -15,18 +16,16 @@ const useStyles = makeStyles(theme => ({
   },
   displayTechs: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr 1fr',
-    marginTop: '80px',
-    maxWidth: '1440px',
-    margin: '0 auto',
+    gridTemplateColumns: 'repeat(2, 1fr);',
+    margin: '0 auto 80px',
+    maxWidth: 1600,
+    padding: '0 20px',
     [theme.breakpoints.up('sm')]: {
-      gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr',
-    },
-    [theme.breakpoints.up('md')]: {
-      gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+      gridTemplateColumns: 'repeat(4, 1fr);',
     },
     [theme.breakpoints.up('lg')]: {
-      gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+      gridTemplateColumns: 'repeat(6, 1fr);',
+      padding: '0 40px',
     },
   },
   techBlock: {
@@ -46,15 +45,6 @@ const useStyles = makeStyles(theme => ({
       maxHeight: '80px',
     }
   },
-  techName: {
-    fontSize: '10px',
-    maxWidth: '90%',
-    margin: '10px auto',
-    color: theme.colors.gray400,
-    [theme.breakpoints.up('sm')]: {
-      fontFamily: '12px'
-    },
-  },
   link: {
     '&:hover h4': {
       color: theme.colors.link,
@@ -68,17 +58,10 @@ const displayTechs = techs => {
     <div className={classes.displayTechs}>
       {
         techs.map( tech => {
-          const title = tech.name['en-US'];
+          const text = tech.name['en-US'];
           const link = tech.link['en-US'];
-          const imageUrl = tech.image['en-US'].fields.file['en-US'].url;
-          return (
-            <div key={title} className={classes.techBlock}>
-              <a href={link} className={classes.link} target="_blank">
-                <img src={imageUrl} alt={`${title} Icon`} className={classes.techImg} />
-                <h4 className={classes.techName}>{title}</h4>
-              </a>
-            </div>
-          )
+          const image = tech.image['en-US'].fields.file['en-US'].url;
+          return <Tech key={link} link={link} text={text} image={image} />;
         })
       }
     </div>

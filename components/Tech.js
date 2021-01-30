@@ -23,7 +23,8 @@ const useStyles = makeStyles(theme => ({
   },
   techWrapper: {
     display: 'grid',
-    gridTemplateColumns: '50px 200px',
+    gridTemplateColumns: '.25fr .75fr',
+    alignItems: 'center',
     '& img': {
       maxWidth: 50,
       maxHeight: 50,
