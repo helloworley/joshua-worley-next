@@ -65,7 +65,7 @@ const Page = props => {
         <div className={classes.projectSectionWrapper}>
            <div className={classes.projectSectionWrapperInner}>
 
-            <div className={classes.asideFrame}>
+            <aside className={classes.asideFrame}>
               <div className={classes.aside}>
                 <div className={classes.asideInner}>
                   <div className={classes.brandAbout}>
@@ -76,9 +76,9 @@ const Page = props => {
                   { links ?  displayLinks(classes, links) : null}
                 </div>
               </div>
-            </div>
+            </aside>
 
-            <div className={classes.main}>  
+            <main className={classes.main}>  
               <div className={classes.brandProjectAbout}>
                 <div className={classes.projectAbout}>
                   <div className={classes.projectMainInfo}>
@@ -104,7 +104,7 @@ const Page = props => {
 
               { displayContent(classes, content) }
 
-            </div>
+            </main>
           </div>
           </div>
         
