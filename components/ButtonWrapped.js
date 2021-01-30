@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     textTransform:'none',
     backgroundColor: theme.colors.linkGrey,
     color: theme.colors.whisp,
-    padding: '10px 40px',
+    padding: '10px 30px',
     borderRadius: '0',
     boxShadow: theme.boxShadows.buttonPrimary,
     border: 'none',

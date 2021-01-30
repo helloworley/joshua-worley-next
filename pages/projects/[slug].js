@@ -6,35 +6,28 @@ import { makeStyles } from '@material-ui/core/styles';
 import RichTextToHTML from '../../components/RichTextToHTML'
 import ButtonWrapped from '../../components/ButtonWrapped'
 import { Grid } from '@material-ui/core/'
+import { Tech }  from '../../components/Tech';
 
 
 const technologiesUsed = (classes, technologies) => {
   return (
-    <>
+    <ul className={classes.techUsedWrapper}>
        {
         technologies.map( tech => {
-          // console.log('tech', tech)
           const image = tech.fields.image["en-US"].fields.file["en-US"].url
           const text = tech.fields.name["en-US"]
           const link = tech.fields.link["en-US"]
-          return (
-            <a key={link} href={link} target="_blank">
-              <div className={classes.tech}>
-                <img className={classes.techImage} src={image} />
-                <h5>{text}</h5>
-              </div>
-            </a>
-          )
+          return <Tech key={link} image={image} link={link} text={text} />
         })
       }
-    </>
+    </ul>
   )
 }
 
 const displayContent = (classes, content) => {
   return (
     <div className={classes.content}>
-      <div className={classes.singleColumn}>
+      <div className={classes.main}>
         <RichTextToHTML data={content} />
       </div>
     </div>
@@ -62,7 +55,6 @@ const Page = props => {
   const classes = useStyles();
   const content = props.content ? props.content.content : null;
   const { brand, brandAbout, date, heroImage, logo, projectIntro, projectTitle, projectType, technologies, aboutImage, links } = props;
-  console.log('props', props)
   return (
     <div id="projects">
       <NextSeo
@@ -70,27 +62,29 @@ const Page = props => {
         description={props.seoDescription}
       />
       <Layout>
-        <div>
-           <div className={classes.projectSectionWrapper}>
+        <div className={classes.projectSectionWrapper}>
+           <div className={classes.projectSectionWrapperInner}>
 
-            <div className={classes.singleColumn}>
-
-              <div className={classes.brandAbout}>
-                <img className={classes.logo} src={logo.fields.file["en-US"].url} alt={logo.fields.title["en-US"]} />
-                <RichTextToHTML data={brandAbout} />
+            <div className={classes.asideFrame}>
+              <div className={classes.aside}>
+                <div className={classes.asideInner}>
+                  <div className={classes.brandAbout}>
+                    <img className={classes.logo} src={logo.fields.file["en-US"].url} alt={logo.fields.title["en-US"]} />
+                    <RichTextToHTML data={brandAbout} />
+                  </div>
+                  <img className={classes.projectHero} src={heroImage.fields.file["en-US"].url} />
+                  { links ?  displayLinks(classes, links) : null}
+                </div>
               </div>
-              <img className={classes.projectHero} src={heroImage.fields.file["en-US"].url} />
-            
-              { links ?  displayLinks(classes, links) : null}
-              
+            </div>
+
+            <div className={classes.main}>  
               <div className={classes.brandProjectAbout}>
-                
                 <div className={classes.projectAbout}>
                   <div className={classes.projectMainInfo}>
                     <h2 className={classes.projectTitle}>{projectTitle}</h2>
                     <h4 className={classes.date}>{date}</h4>
                   </div>
-
                   <Grid container spacing={0}>
                     <Grid item xs={12} md={6}>
                         <h3 className={classes.projectMeta}>Project About</h3>
@@ -128,7 +122,50 @@ const useStyles = makeStyles(theme => ({
     '&:last-of-type': {
       borderBottom: 'none',
     },
-    
+  },
+  projectSectionWrapper: {
+    backgroundColor: '#fafafa',
+  },
+  projectSectionWrapperInner: {
+    padding: theme.padding.xs,
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.padding.sm
+    },
+    [theme.breakpoints.up('md')]: {
+      // padding: '80px',
+      display: 'grid',
+      gridTemplateColumns: '.3fr .7fr',
+    },
+    [theme.breakpoints.up('lg')]: {
+      gridTemplateColumns: '.25fr .75fr',
+      maxWidth: 1800
+    },
+    margin: '0 auto'
+  },
+  asideFrame: {
+    [theme.breakpoints.up('md')]: {
+      paddingRight: '40px',
+      
+    },
+  },
+  aside: {
+    marginBottom: 100,
+    [theme.breakpoints.up('md')]: {
+      position: 'fixed',
+      marginBottom: 0
+    }
+  },
+  asideInner: {
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '25%',
+    },
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '23%'
+    }
+  },
+  main: {
+    maxWidth: '960px',
+    margin: '0 auto',
   },
   infoWrapper: {
     maxWidth: '800px',
@@ -138,47 +175,20 @@ const useStyles = makeStyles(theme => ({
       marginTop: '40px'
     },
   },
-  date: {
-    
-  },
   image: {
     width: '100%'
   },
   brandAbout: {
-    textAlign: 'center',
-    maxWidth: '660px',
-    margin: '0 auto 60px',
     [theme.breakpoints.up('md')]: {
-      marginBottom: '80px'
+      marginBottom: '30px'
     }
   },
-  projectImgExample: {
-    width: '100%',
-    marginBottom: '40px',
-    [theme.breakpoints.up('md')]: {
-      paddingRight: '40px',
-      marginBottom: '0',
-    },
-  },
-  projectSectionDesc: {
-    '& p': {
-      [theme.breakpoints.up('md')]: {
-        marginTop: '0px'
-      }
-    },
-    [theme.breakpoints.up('md')]: {
-      paddingLeft: '40px',
-    },
-  },
-  projectSection: {
-    marginBottom: '90px',
-    [theme.breakpoints.up('md')]: {
-      marginBottom: '120px',
-    },
-  },
   projectHero: {
-    width: '100%',
     marginBottom: '30px',
+    maxWidth: '100%',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    }
   },
   logo: {
     maxHeight: '70px',
@@ -189,6 +199,27 @@ const useStyles = makeStyles(theme => ({
       maxWidth: '200px',
       maxHeight: '70px',
     },
+  },
+  tech: {
+    marginRight: '30px',
+    textAlign: 'center',
+    '&:hover': {
+      opacity: '.8'
+    },
+    '& img': {
+      height: '50px',
+      width: '50px',
+    },
+    '& h5': {
+      marginTop: '10px',
+      textAlign: 'center',
+      color: theme.colors.abyss
+    },
+    [theme.breakpoints.up('md')]: {
+      '& img': {
+        maxHeight: '80px',
+      },
+    }
   },
   projectMainInfo: {
     marginBottom: '40px',
@@ -221,31 +252,6 @@ const useStyles = makeStyles(theme => ({
       marginBottom: '80px',
     },
   },
-  projectSectionWrapper: {
-    padding: theme.padding.xs,
-    backgroundColor: '#fafafa',
-    [theme.breakpoints.up('sm')]: {
-      padding: theme.padding.sm
-    },
-    [theme.breakpoints.up('md')]: {
-      padding: '80px',
-    },
-    margin: '0 auto'
-  },
-  singleColumn: {
-    maxWidth: '960px',
-    margin: '0 auto'
-  },
-  aboutImageWrapper: {
-    margin: '30px 0 0',
-    textAlign: 'center',
-    [theme.breakpoints.up('md')]: {
-      textAlign: 'initial'
-    },
-    '& img': {
-      maxWidth: '100%',
-    }
-  },
   sectionTitle: {
     textTransform: 'uppercase',
     fontWeight: 'bold',
@@ -260,28 +266,6 @@ const useStyles = makeStyles(theme => ({
       marginBottom: '90px'
     }
   },
-  tech: {
-    display: 'inline-block',
-    marginRight: '30px',
-    textAlign: 'center',
-    '&:hover': {
-      opacity: '.8'
-    },
-    '& img': {
-      height: '50px',
-      width: '50px',
-    },
-    '& h5': {
-      marginTop: '10px',
-      textAlign: 'center',
-      color: theme.colors.abyss
-    },
-    [theme.breakpoints.up('md')]: {
-      '& img': {
-        maxHeight: '80px',
-      },
-    }
-  },
   techUsed: {
     marginBottom: '20px'
   },
@@ -292,25 +276,19 @@ const useStyles = makeStyles(theme => ({
   },
   buttonWrapper: {
     textAlign: 'center',
-    display: 'flex',
-    justifyContent: 'center',
     marginBottom: '10px',
     [theme.breakpoints.up('md')]: {
-      marginLeft: '10px',
       textAlign: 'initial',
-      justifyContent: 'flex-end',
-      marginBottom: '0',
     }
   },
   aboutButtons: {
-    display: 'flex',
-    flexDirection: 'column',
     marginBottom: '30px',
     [theme.breakpoints.up('md')]: {
       marginBottom: '30px',
-      flexDirection: 'row',
-      justifyContent: 'flex-end'
     }
+  },
+  techUsedWrapper: {
+    paddingLeft: 0
   },
 }));
 
