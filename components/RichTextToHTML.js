@@ -54,10 +54,20 @@ const useStyles = makeStyles(theme => ({
 let options = {
   renderNode: {
     'embedded-asset-block': (node) => {
-      const path = node.data.target.fields.file['en-US'].url;
-      if (path.indexOf('//images') != -1) {
-        return `<img style="max-width: 100%" src="${node.data.target.fields.file['en-US'].url}"/>`
-      } else if (path.indexOf('//videos') != -1) {
+      const fields = node.data.target.fields;
+      const file = node.data.target.fields.file['en-US'];
+      const description = fields.description ? fields.description['en-US'] : '';
+      const { url } = file;
+      console.log('test')
+      console.log('description', description);
+      if (url.indexOf('//images') != -1) {
+        return `
+          <figure>
+            <img style="max-width: 100%" src="${node.data.target.fields.file['en-US'].url}"/>
+            ${ description && `<figcaption>${description}</figcaption>` } 
+          </figure>
+        `
+      } else if (url.indexOf('//videos') != -1) {
         return `
           <video width="100%" style="margin: 40px 0;" height="auto" controls>
             <source src="${path}" type="video/mp4">

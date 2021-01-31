@@ -157,10 +157,10 @@ const useStyles = makeStyles(theme => ({
   },
   asideInner: {
     [theme.breakpoints.up('md')]: {
+      paddingRight: '5%',
       width: '25%',
     },
     [theme.breakpoints.up('xl')]: {
-      paddingRight: '5%',
       width: '23%'
     }
   },

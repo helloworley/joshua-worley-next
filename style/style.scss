@@ -1,5 +1,13 @@
+// Variables
+
+$headings: 'Raleway', 'Noto Sans JP', Sans-Serif;
+$body: 'Frank Ruhl Libre', 'Noto Sans JP', Sans-Serif;
+
+
+
 body, html, #__next {
   background-color: #fff;
+  font-size: 16px;
 }
 
 $box-shadow: 0 10px 16px 0 rgba(205,217,231,.47);
@@ -14,7 +22,7 @@ a {
 
 h1, h2, h3, h4, h5, h6, p, a, small, span, td {
   // font-family: 'Lora', Helvetica, Arial, sans-serif;
-  Font-Family: 'Raleway', 'Noto Sans JP', Sans-Serif;
+  Font-Family: $headings;
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
@@ -22,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 p, li, td {
   line-height: 1.8;
   // font-family: 'Lora', Garamond, serif;
-  Font-Family: 'Frank Ruhl Libre', 'Noto Sans JP', Sans-Serif;
+  Font-Family: $body;
 }
 
 h1 {
@@ -112,6 +120,16 @@ figure.wp-block-table {
   display: none !important;
 }
 
+figure {
+  width: 100%;
+  margin: 0 0 50px;
+  figcaption {
+    text-align: center;
+    font-family: $body;
+    color: #A5A5A5;
+    font-size: 1em;
+  }
+}
 
 
 .MuiInput-underline.MuiInputBase-formControl {
