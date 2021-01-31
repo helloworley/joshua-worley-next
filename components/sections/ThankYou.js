@@ -31,7 +31,7 @@ const ThankYou = props => {
   const bgImage = '';
 
   return (
-    <div className={classes.thankYou} style={{backgroundImage: `url('./sanfran.jpg')`}}>
+    <div className={classes.thankYou}>
       <div className={classes.thankYouInner}>
         <div className="section-wrapper">
           <SectionHeading text="Thank You" />

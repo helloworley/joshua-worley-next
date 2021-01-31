@@ -45,11 +45,11 @@ const IndexPage = props => {
           />
           <TechExp technologies={props.techExp}/>
           <Projects projects={props.projects} title="Recent Projects"/>
-          <ServicesOffered services={props.servicesOffered}/>
           <Testimonials testimonials={props.testimonials} />
+          <ServicesOffered services={props.servicesOffered}/>
           {/* <FeaturedProject project={props.highlightedProject} /> */}
           <ContactSection />
-          <ThankYou content={props.thankYou} />
+          {/* <ThankYou content={props.thankYou} /> */}
         </Layout>
       </>
     </div>

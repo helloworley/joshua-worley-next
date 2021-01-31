@@ -135,7 +135,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
   servicesOffered: {
-    backgroundImage: 'url(https://images.unsplash.com/photo-1608778945974-fc750076be13?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=4234&q=80)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },

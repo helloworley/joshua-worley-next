@@ -14,15 +14,21 @@ const getTestimonial = (classes, testimonial) => {
   
   return (
     <div className={classes.testimonial} key={name}>
-      <FormatQuoteIcon className={classes.quote}/>
+      <div className={classes.quoteWrapper}>
+        <FormatQuoteIcon className={classes.quote}/>
+      </div>
       <RichTextToHTML data={quote} />
-      <img className={classes.avatar} src={avatar} />
-      <p className={classes.personInfo}>{name}</p>
-      <p className={classes.personInfo}>{position}</p>
-      {
-        link ? <a href={link} target="_blank"><p className={classes.personInfo}>{company}</p></a>
-        : <p className={classes.personInfo}>{company}</p>
-      }
+      <div className={classes.person}>
+        <img className={classes.avatar} src={avatar} />
+        <div>
+          <p className={classes.personInfo}>{name}</p>
+          <p className={classes.personInfo}>{position}</p>
+          {
+            link ? <a href={link} target="_blank"><p className={classes.personInfo}>{company}</p></a>
+            : <p className={classes.personInfo}>{company}</p>
+          }
+        </div>
+      </div>
     </div>
   )
 }
@@ -31,8 +37,8 @@ const Testimonials = props => {
   const classes = useStyles();
   const { testimonials } = props;
   return (
-    <div className={classes.testimonialsSection}>
-      <SectionHeading text="Testimonials" description="I love working with people, and people love working with me." />
+    <div className={classes.testimonialsSection} style={{backgroundImage: `url('./scales.jpg')`}}>
+      <SectionHeading color="white" text="Testimonials" description="I love working with people, and people love working with me." />
       <div className={classes.testimonials}>
         { testimonials.map( testimonial => {
           return getTestimonial(classes, testimonial.fields);
@@ -44,33 +50,56 @@ const Testimonials = props => {
 
 const useStyles = makeStyles(theme => ({
   testimonials: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
+    padding: '20px',
+    gridColumnGap: '40px',
+    alignItems: 'top',
+    maxWidth: '1440px',
+    margin: '0 auto',
     [theme.breakpoints.up('md')]: {
-      flexDirection: 'row',
+      display: 'grid',
+      padding: '40px',
+      gridTemplateColumns: 'repeat(3, 1fr)',
     }
   },
   testimonialsSection: {
     backgroundColor: theme.colors.gray100,
     padding: '60px 20px',
+    ...theme.backgroundImage,
     [theme.breakpoints.up('md')]: {
       padding: '80px 0',
     }
   },
   testimonial: {
-    maxWidth: '300px',
-    textAlign: 'center',
+    ...theme.backgroundFilter,
+    borderRadius: theme.borderRadius.card,
+    padding: theme.borderRadius.card,
+    position: 'relative',
+    paddingBottom: '120px',
     '&:not(:last-of-type)': {
       marginBottom: '50px',
     },
     [theme.breakpoints.up('md')]: {
       maxWidth: '540px',
-      padding: '0 30px',
+      minHeight: '400px',
       '&:not(:last-of-type)': {
         marginBottom: 0,
       },
+    }
+  },
+  person: {
+    display: 'flex',
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: '24px',
+    left: '24px',
+    '& img': {
+      marginRight: '10px',
+    },
+    '& a': {
+      color: theme.colors.white,
+      '&:hover': {
+        color: theme.colors.gray200,
+      }
     }
   },
   personInfo: {
@@ -83,9 +112,12 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '50%',
     margin: '20px 0 5px'
   },
+  quoteWrapper: {
+    textAlign: 'center',
+  },
   quote: {
     fontSize: '32px',
-    color: theme.colors.gray300
+    color: theme.colors.white,
   }
 }))
 
