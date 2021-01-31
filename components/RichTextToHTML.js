@@ -69,10 +69,13 @@ let options = {
         `
       } else if (url.indexOf('//videos') != -1) {
         return `
-          <video width="100%" style="margin: 40px 0;" height="auto" controls>
-            <source src="${path}" type="video/mp4">
-          Your browser does not support the video tag.
-          </video>
+          <figure>
+            <video width="100%" style="margin: 40px 0;" height="auto" controls>
+              <source src="${url}" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+            ${ description && `<figcaption>${description}</figcaption>` } 
+          </figure>
         `
       }
     }
