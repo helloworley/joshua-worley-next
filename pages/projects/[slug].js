@@ -54,12 +54,15 @@ const displayLinks = (classes, buttons) => {
 const Page = props => {
   const classes = useStyles();
   const content = props.content ? props.content.content : null;
-  const { brand, brandAbout, date, heroImage, logo, projectIntro, projectTitle, projectType, technologies, aboutImage, links } = props;
+  const { brand, brandAbout, date, heroImage, logo, projectIntro, projectTitle, projectType, technologies, aboutImage, links, seoDescription } = props;
+  const logoURL = logo.fields.file["en-US"].url;
+  const logoAlt = logo.fields.title["en-US"];
+  const heroURL = heroImage.fields.file["en-US"].url;
   return (
     <div id="projects">
       <NextSeo
-        title={`Joshua Worley - ${props.brand}`}
-        description={props.seoDescription}
+        title={`Joshua Worley - ${brand}`}
+        description={props}
       />
       <Layout>
         <div className={classes.projectSectionWrapper}>
@@ -69,10 +72,9 @@ const Page = props => {
               <div className={classes.aside}>
                 <div className={classes.asideInner}>
                   <div className={classes.brandAbout}>
-                    <img className={classes.logo} src={logo.fields.file["en-US"].url} alt={logo.fields.title["en-US"]} />
+                    <img className={classes.logo} src={logoURL} alt={logoAlt} />
                     <RichTextToHTML data={brandAbout} />
                   </div>
-                  <img className={classes.projectHero} src={heroImage.fields.file["en-US"].url} />
                   { links ?  displayLinks(classes, links) : null}
                 </div>
               </div>
@@ -80,6 +82,7 @@ const Page = props => {
 
             <main className={classes.main}>  
               <div className={classes.brandProjectAbout}>
+                <img className={classes.projectHero} src={heroURL} />
                 <div className={classes.projectAbout}>
                   <div className={classes.projectMainInfo}>
                     <h2 className={classes.projectTitle}>{projectTitle}</h2>
@@ -97,13 +100,9 @@ const Page = props => {
                       </div>
                     </Grid>
                   </Grid>
-                  { aboutImage ? <div className={classes.aboutImageWrapper}><img src={aboutImage.fields.file["en-US"].url} /></div> : null }
                 </div>
-
               </div>
-
               { displayContent(classes, content) }
-
             </main>
           </div>
           </div>
@@ -187,9 +186,6 @@ const useStyles = makeStyles(theme => ({
   projectHero: {
     marginBottom: '30px',
     maxWidth: '100%',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    }
   },
   logo: {
     maxHeight: '70px',

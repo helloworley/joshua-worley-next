@@ -58,8 +58,6 @@ let options = {
       const file = node.data.target.fields.file['en-US'];
       const description = fields.description ? fields.description['en-US'] : '';
       const { url } = file;
-      console.log('test')
-      console.log('description', description);
       if (url.indexOf('//images') != -1) {
         return `
           <figure>
