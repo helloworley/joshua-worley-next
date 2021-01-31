@@ -73,13 +73,12 @@ IndexPage.getInitialProps = async (ctx) => {
   })
   // about
   const about = await fetchContent({
-    type: 'about',
-    order: ''
+    type: 'about'
   })
   // testimonials
   const testimonials = await fetchContent({
     type: 'testimonial',
-    order: ''
+    order: 'fields.order'
   })
   // highlighted project
   const highlightedProject = await fetchContent({
