@@ -8,7 +8,7 @@ const Projects = props => {
   const classes = useStyles();
 
   return (
-    <div className={classes.projectsWrapper} style={{backgroundImage: `url('./black-sand.jpg')`}}>
+    <div className={classes.projectsWrapper} style={{backgroundImage: `url('./nightsky.jpg')`}}>
       <div className={classes.projects} >
         <div className={classes.projectsInner}>
           <SectionHeading text={props.title} color="white" noBorder={true} description="Please see below for examples of websites/apps that I have designed/developed. For each project, the technologies that I personally used to complete the project are displayed." />
@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
   },
   projects: {
     padding: theme.padding.xs,
-    background: 'linear-gradient(180deg,rgba(0,0,0,.6) 0%, rgba(0, 0, 0, 0) 100%)',
+    background: 'linear-gradient(180deg,rgba(0,0,0,.4) 0%, rgba(0, 0, 0, 0) 100%)',
     [theme.breakpoints.up('sm')]: {
       padding: '120px 40px'
     },
