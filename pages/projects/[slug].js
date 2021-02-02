@@ -149,6 +149,7 @@ const useStyles = makeStyles(theme => ({
   },
   aside: {
     marginBottom: 100,
+    zIndex: 0,
     [theme.breakpoints.up('md')]: {
       position: 'fixed',
       width: '100%'
@@ -166,6 +167,7 @@ const useStyles = makeStyles(theme => ({
   main: {
     maxWidth: '960px',
     margin: '0 auto',
+    zIndex: 10,
   },
   infoWrapper: {
     maxWidth: '800px',
