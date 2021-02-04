@@ -5,24 +5,28 @@ import RichTextToHTML from '../RichTextToHTML'
 
 const Hero = props => {
   const classes = useStyles();
+  const image = props.image.file["en-US"].url;
+  const imageTextBackground = props.imageTextBackground.file["en-US"].url
   return (
     <div className={classes.hero}>
       <Grid container className={classes.root} spacing={0}>
         <Grid item xs={12} md={6} className={classes.heroImg} style={{
-          backgroundImage: `url(${props.image.file["en-US"].url})`
+          backgroundImage: `url(${image})`
           }}>
         </Grid>
-        <Grid item xs={12} md={6} className={classes.introInfo} style={{backgroundImage: `url('./flux.jpg')`}}>
+        <Grid item xs={12} md={6} className={classes.introOuter} style={{backgroundImage: `url(${imageTextBackground})`}}>
           {/* <img className={classes.logo} src="/logo-vertical-light.svg" /> */}
-          <div className={classes.info}>
-            <h1 className={classes.heading}>{props.heading}</h1>
-            <RichTextToHTML data={props.description}/>
-            <div className={classes.ctas}>
-              <ButtonWrapped text="About" variant="outlined" link="/about" />
-              <div>
-                <a href={props.resumeLink} target="_blank">
-                  <h5 className={classes.resumeLink}>RESUME</h5>
-                </a>
+          <div className={classes.introInner}>
+            <div className={classes.info}>
+              <h1 className={classes.heading}>{props.heading}</h1>
+              <RichTextToHTML data={props.description}/>
+              <div className={classes.ctas}>
+                <ButtonWrapped text="About" variant="outlined" link="/about" />
+                <div>
+                  <a href={props.resumeLink} target="_blank">
+                    <h5 className={classes.resumeLink}>RESUME</h5>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -65,20 +69,27 @@ const useStyles = makeStyles(theme => ({
       maxWidth: '200px',
     }
   },
-  introInfo: {
-    padding: '40px 20px 70px',
-    minHeight: minHeightXs,
+  introOuter: {
+    ...theme.backgroundImage,
+  },
+  introInner: {
+    background: 'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 100%), linear-gradient(90deg, #FFFFFE 0%, rgba(17, 6, 23, 0.01) 0%)',
+    padding: '40px 0 0',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    ...theme.backgroundImage,
+    ...theme.content.outer.sm,
     [theme.breakpoints.up('md')]: {
-      padding: '120px 20px',
+      padding: '120px 0',
       minHeight: minHeightMd,
+      ...theme.content.outer.md,
     },
     [theme.breakpoints.up('lg')]: {
-      padding: '240px 20px',
-    }
+      padding: '160px 0',
+    },
+    [theme.breakpoints.up('xl')]: {
+      padding: '200px 0',
+    },
   },
   heroImg: {
     minHeight: minHeightXs,
@@ -94,23 +105,18 @@ const useStyles = makeStyles(theme => ({
   },
   info: {
     margin: '0 auto',
-    ...theme.backgroundFilter,
-    borderRadius: theme.borderRadius.card,
-    padding: '20px',
-
     '& p': {
       marginBottom: '0'
     },
     [theme.breakpoints.up('md')]: {
       width: '80%',
-      maxWidth: '840px',
-      padding: '40px',
+      maxWidth: 640,
     }
   },
   ctas: {
     marginTop: '40px',
     textAlign: 'center',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       textAlign: 'left',
       display: 'flex',
       alignItems: 'center',
@@ -121,7 +127,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.colors.gray600,
     cursor: 'pointer',
     letterSpacing: '1px',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       marginLeft: '20px',
     },
     '&:hover': {

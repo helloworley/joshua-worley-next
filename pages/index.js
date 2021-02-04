@@ -40,6 +40,7 @@ const IndexPage = props => {
           <Hero 
             resumeLink={props.resume}
             image={props.hero.image["en-US"].fields}
+            imageTextBackground={props.hero.imageTextBackground["en-US"].fields}
             heading={props.hero.heading["en-US"]}
             description={props.hero.description["en-US"].content}
           />
