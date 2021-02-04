@@ -41,20 +41,32 @@ const ContactSection = props => {
 
 const useStyles = makeStyles(theme => ({
   contactSection: {
-    padding: '60px 20px',
+    ...theme.content.outer.sm,
     [theme.breakpoints.up('md')]: {
-      padding: '60px 40px',
+      ...theme.content.outer.md,
     },
     ...theme.backgroundImage
   },
   formWrapper: {
-    margin: '0 auto',
-    maxWidth: '1200px',
-    padding: '40px 20px',
     borderRadius: '20px',
+    ...theme.content.inner.sm,
     ...theme.backgroundFilter,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 50,
+    paddingBottom: 50,
     [theme.breakpoints.up('md')]: {
-      padding: '60px 40px',
+      ...theme.content.inner.md,
+      paddingRight: 40,
+      paddingLeft: 40,
+    },
+    [theme.breakpoints.up('lg')]: {
+      ...theme.content.inner.lg,
+      paddingRight: 60,
+      paddingLeft: 60,
+    },
+    [theme.breakpoints.up('xl')]: {
+      ...theme.content.inner.xl,
     }
   },
   formGrid: {

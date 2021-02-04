@@ -93,7 +93,45 @@ const themeStyles = {
   },
   typography: {
     useNextVariants: true
-  }
+  },
+  content: {
+    outer: {
+      sm: {
+        padding: '50px 20px',
+      },
+      md: {
+        padding: '60px 20px',
+      }
+    },
+    inner: {
+      sm: {
+        maxWidth: 800,
+      },
+      md: {
+          maxWidth: 1000,
+          margin: '0 auto',
+      },
+      lg: {
+        maxWidth: 1200,
+      },
+      xl: {
+        maxWidth: 1600,
+      }
+    },
+    sm: {
+      maxWidth: 800,
+    },
+    md: {
+        maxWidth: 1000,
+        margin: '0 auto',
+    },
+    lg: {
+      maxWidth: 1200,
+    },
+    xl: {
+      maxWidth: 1600,
+    }
+  },
 };
 
 export default themeStyles;

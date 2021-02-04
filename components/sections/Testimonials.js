@@ -50,23 +50,34 @@ const Testimonials = props => {
 
 const useStyles = makeStyles(theme => ({
   testimonials: {
-    padding: '20px',
     gridColumnGap: '40px',
     alignItems: 'top',
     maxWidth: '1440px',
     margin: '0 auto',
-    [theme.breakpoints.up('md')]: {
+    ...theme.content.inner.sm,
+    [theme.breakpoints.up('md')]: { 
+      ...theme.content.inner.md, 
       display: 'grid',
-      padding: '40px',
       gridTemplateColumns: 'repeat(3, 1fr)',
+    },
+    [theme.breakpoints.up('lg')]: { 
+      ...theme.content.inner.lg, 
+    },
+    [theme.breakpoints.up('xl')]: { 
+      ...theme.content.inner.xl, 
+    },
+    '& p': {
+      color: theme.colors.gray100,
+      maxWidth: 900
     }
   },
   testimonialsSection: {
     backgroundColor: theme.colors.gray100,
-    padding: '60px 20px',
     ...theme.backgroundImage,
+    ...theme.content.outer.sm,
     [theme.breakpoints.up('md')]: {
       padding: '80px 0',
+      ...theme.content.outer.md,
     }
   },
   testimonial: {
@@ -76,7 +87,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     paddingBottom: '120px',
     '&:not(:last-of-type)': {
-      marginBottom: '50px',
+      marginBottom: '20px',
     },
     [theme.breakpoints.up('md')]: {
       maxWidth: '540px',

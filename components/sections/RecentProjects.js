@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '70px',
     [theme.breakpoints.up('md')]: {
       paddingTop: '100px',
-    }
+    },
   },
   infoWrapper: {
     maxWidth: '800px',

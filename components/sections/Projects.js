@@ -62,22 +62,23 @@ const useStyles = makeStyles(theme => ({
     ...theme.backgroundImage,
   },
   projects: {
-    padding: theme.padding.xs,
+    ...theme.content.outer.sm,
     background: 'linear-gradient(180deg,rgba(0,0,0,.6) 0%, rgba(0, 0, 0, 0) 100%)',
-    [theme.breakpoints.up('sm')]: {
-      padding: '120px 40px'
-    },
-    // [theme.breakpoints.up('md')]: {
-    //   padding: '120px 0px'
-    // },
-    [theme.breakpoints.up('lg')]: {
-      padding: '120px 30px'
-    },
+    [theme.breakpoints.up('md')]: { 
+      ...theme.content.outer.md,
+    }
   },
   projectsInner: {
-    maxWidth: '1560px',
-    margin: '0 auto',
-    
+    ...theme.content.sm,
+    [theme.breakpoints.up('md')]: { 
+      ...theme.content.md, 
+    },
+    [theme.breakpoints.up('lg')]: { 
+      ...theme.content.lg, 
+    },
+    [theme.breakpoints.up('xl')]: { 
+      ...theme.content.xl, 
+    },
   },
   infoWrapper: {
     margin: '0 auto',

@@ -9,23 +9,30 @@ const useStyles = makeStyles(theme => ({
     margin: '0 auto'
   },
   techExp: {
-    padding: '60px 0',
+    ...theme.content.outer.sm,
     [theme.breakpoints.up('md')]: {
-      padding: '100px 10px 0'
+      padding: '100px 10px 0',
+      ...theme.content.outer.md,
     }
   },
   displayTechs: {
+    ...theme.content.sm,
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr);',
-    margin: '0 auto 80px',
-    maxWidth: 1600,
-    padding: '0 20px',
+
     [theme.breakpoints.up('sm')]: {
-      gridTemplateColumns: 'repeat(4, 1fr);',
+      gridTemplateColumns: 'repeat(3, 1fr);',
     },
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.up('md')]: { 
+      gridTemplateColumns: 'repeat(4, 1fr);',
+      ...theme.content.md, 
+    },
+    [theme.breakpoints.up('lg')]: { 
+      ...theme.content.lg, 
       gridTemplateColumns: 'repeat(6, 1fr);',
-      padding: '0 40px',
+    },
+    [theme.breakpoints.up('xl')]: { 
+      ...theme.content.xl, 
     },
   },
   techBlock: {

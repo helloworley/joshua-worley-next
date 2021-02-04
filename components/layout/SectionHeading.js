@@ -1,29 +1,26 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
-  headingWrapper: {
-    marginBottom: '40px',
-    maxWidth: '880px',
-    margin: '0 auto',
-    padding: '0 20px',
-    [theme.breakpoints.up('md')]: {
+  headingInner: {
+    ...theme.content.inner.sm,
+    [theme.breakpoints.up('md')]: { 
+      ...theme.content.inner.md, 
       marginBottom: '60px',
     },
-    '&.no-border': {
-      borderBottom: 'none'
+    [theme.breakpoints.up('lg')]: { 
+      ...theme.content.inner.lg, 
+    },
+    [theme.breakpoints.up('xl')]: { 
+      ...theme.content.inner.xl, 
     },
     '& p': {
-      textAlign: 'center',
-      color: theme.colors.gray100
+      color: theme.colors.gray100,
+      maxWidth: 900
     }
   },
   heading: {
     fontSize: '1.4rem',
-    textTransform: 'uppercase',
-    letterSpacing: '3px',
-    maxWidth: '80%',
     fontWeight: '400',
-    textAlign: 'center',
     margin: '0 auto 30px',
     color: 'black',
     [theme.breakpoints.up('md')]: {
@@ -69,9 +66,9 @@ const SectionHeading = props => {
   const classes = useStyles();
   const { color, text, description } = props;
   return (
-    <div className={`${classes.headingWrapper}`}>
-        {getHeading(classes, text, color)}
-        {props.description && getDescription(color, description)}
+    <div className={`${classes.headingInner}`}>
+      {getHeading(classes, text, color)}
+      {props.description && getDescription(color, description)}
     </div>
   )
 };
