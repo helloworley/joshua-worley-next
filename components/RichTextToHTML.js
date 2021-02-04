@@ -47,6 +47,11 @@ const useStyles = makeStyles(theme => ({
       margin: '40px 0 16px'
     },
   },
+  white: {
+    '& p' : {
+      color: theme.colors.gray700,
+    }
+  }
 }));
 
 
@@ -83,6 +88,7 @@ let options = {
 
 const RichTextToHTML = props => {
   const classes = useStyles();
+  const color = props.color ? props.color : 'dark';
   const document = {
     nodeType: 'document',
     content: props.data,
@@ -92,7 +98,7 @@ const RichTextToHTML = props => {
   }
 
   return(
-    <div className={classes.RichTextToHTML}>
+    <div className={`${classes.RichTextToHTML} ${classes[color]}`}>
       <div dangerouslySetInnerHTML={createMarkup()} />
     </div>
   )

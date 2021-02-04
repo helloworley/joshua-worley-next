@@ -13,6 +13,8 @@ import Testimonials from '../components/sections/Testimonials';
 import ContactSection from '../components/sections/ContactSection';
 
 const IndexPage = props => {
+  const {seoTitle, seoDescription, seoImage, resume, hero, techExp, projects, testimonials, contact } = props;
+  console.log('contact', contact);
   return (
     <div id="home">
       <>
@@ -49,7 +51,7 @@ const IndexPage = props => {
           <Testimonials testimonials={props.testimonials} />
           {/* <ServicesOffered services={props.servicesOffered}/> */}
           {/* <FeaturedProject project={props.highlightedProject} /> */}
-          <ContactSection />
+          <ContactSection contact={contact} />
           {/* <ThankYou content={props.thankYou} /> */}
         </Layout>
       </>
@@ -80,6 +82,10 @@ IndexPage.getInitialProps = async (ctx) => {
   const testimonials = await fetchContent({
     type: 'testimonial',
     order: 'fields.order'
+  })
+  // resume
+  const contact = await fetchContent({
+    type: 'contact'
   })
   // highlighted project
   const highlightedProject = await fetchContent({
@@ -128,6 +134,7 @@ IndexPage.getInitialProps = async (ctx) => {
     resume: resume[0].fields.english["en-US"].fields.file["en-US"].url,
     shokumukeireki: resume[0].fields.shokumukeireki["en-US"].fields.file["en-US"].url,
     hero: hero[0].fields,
+    contact: contact[0].fields,
     about: about[0].fields,
     servicesOffered: servicesOffered,
     projects: projects,

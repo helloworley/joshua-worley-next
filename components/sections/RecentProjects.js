@@ -30,7 +30,6 @@ const RecentProjects = props => {
   return (
     <div className={classes.RecentProjects}>
       <div>
-        <SectionHeading text="Highlighted Project" noBorder={true} />
         {
           props.projects.map( service => {
             // console.log('service', service)

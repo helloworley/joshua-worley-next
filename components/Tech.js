@@ -2,11 +2,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const Tech = props => {
   const classes = useStyles();
-  const { key, image, text, link } = props;
+  const { image, text, link } = props;
   
   return (
     <li className={classes.techListItem}>
-      <a key={key} href={link} target="_blank">
+      <a href={link} target="_blank">
         <div className={classes.techWrapper}>
           <img className={classes.techImage} src={image} />
           <h5>{text}</h5>

@@ -11,7 +11,7 @@ const Projects = props => {
     <div className={classes.projectsWrapper} style={{backgroundImage: `url('./black-sand.jpg')`}}>
       <div className={classes.projects} >
         <div className={classes.projectsInner}>
-          <SectionHeading text={props.title} color="white" noBorder={true} description="Please see below for examples of websites/apps that I have designed/developed. For each project, the technologies that I personally used to complete the project are displayed." />
+          <SectionHeading text={props.title} noBorder={true} description="Please see below for examples of websites/apps that I have designed/developed. For each project, the technologies that I personally used to complete the project are displayed." />
             <div className={classes.grid}>
             {
               props.projects.map( service => {
@@ -30,6 +30,7 @@ const Projects = props => {
                     logo={logo}
                     projectTitle={projectTitle}
                     tech={tech}
+                    key={slug}
                   />   
               })
             }
@@ -60,10 +61,11 @@ const useStyles = makeStyles(theme => ({
   },
   projectsWrapper: {
     ...theme.backgroundImage,
+    backgroundAttachment: 'fixed',
   },
   projects: {
     ...theme.content.outer.sm,
-    background: 'linear-gradient(180deg,rgba(0,0,0,.6) 0%, rgba(0, 0, 0, 0) 100%)',
+    background: 'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)',
     [theme.breakpoints.up('md')]: { 
       ...theme.content.outer.md,
     }

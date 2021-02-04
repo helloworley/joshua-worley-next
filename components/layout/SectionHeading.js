@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import RichTextToHTML from '../RichTextToHTML';
 
 const useStyles = makeStyles(theme => ({
   headingInner: {
@@ -14,7 +15,6 @@ const useStyles = makeStyles(theme => ({
       ...theme.content.inner.xl, 
     },
     '& p': {
-      color: theme.colors.gray100,
       maxWidth: 900
     }
   },
@@ -53,11 +53,20 @@ const getHeading = (classes, text, color) => {
 
 const getDescription = (color, text) => {
   color = color === undefined ? 'gray' : color;
-  switch (color) {
-    case 'white':
-        return <p style={{color: 'white'}}>{text}</p>;
-    default:
-        return <p style={{color: colors.gray600}}>{text}</p>;
+  if (typeof text === 'string') {
+    switch (color) {
+      case 'white':
+          return <p style={{color: 'white'}}>{text}</p>;
+      default:
+          return <p style={{color: colors.gray600}}>{text}</p>;
+    }
+  } else {
+    switch (color) {
+      case 'white':
+        return <RichTextToHTML data={text} color="white" />;
+      default:
+        return <RichTextToHTML data={text} />;
+    }
   }
 }
 
@@ -67,7 +76,7 @@ const SectionHeading = props => {
   return (
     <div className={`${classes.headingInner}`}>
       {getHeading(classes, text, color)}
-      {props.description && getDescription(color, description)}
+      {description && getDescription(color, description)}
     </div>
   )
 };

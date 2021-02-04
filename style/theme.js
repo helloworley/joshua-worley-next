@@ -100,7 +100,7 @@ const themeStyles = {
         padding: '50px 20px',
       },
       md: {
-        padding: '60px 20px',
+        padding: '120px 20px',
       }
     },
     inner: {

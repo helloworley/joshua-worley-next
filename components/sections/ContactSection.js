@@ -4,28 +4,30 @@ import SectionHeading from '../layout/SectionHeading';
 
 const ContactSection = props => {
   const classes = useStyles();
+  const { contact } = props;
+  const title = contact.title['en-US'];
+  const description = contact.description['en-US'].content;
+  const bgImage = contact.backgroundImage['en-US'].fields.file['en-US'].url;
 
   return (
-    <div className={classes.contactSection} style={{backgroundImage: `url('./blue-cloud.jpg')`}}>
-      
-      
+    <div className={classes.contactSection} style={{backgroundImage: `url(${bgImage})`}}>
       <div className={classes.formWrapper}>
-      <SectionHeading text="Contact"  description="Please feel free to reach out with any questions, inquiries, ideas or requests. I typically reply within the day."/>
+      <SectionHeading text={title}  description={description}/>
         <form action="https://usebasin.com/f/b3b2da236c0c" method="POST">
           <div className={classes.formGrid}>
             <div className={classes.left}>
               <div className={classes.elWrapper}>
-                <label for="name">Name</label>
+                <label htmlFor="name">Name</label>
                 <input id="name" name="name" type="text" placeholder="Tyler Durden" required/>
               </div>
               <div className={classes.elWrapper}>
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input id="email" name="email" type="email" placeholder="tyler@fightclub.com" required/>
               </div>
             </div>
             <div className={classes.right}>
               <div className={classes.elWrapper}>
-                <label for="message">Message</label>
+                <label htmlFor="message">Message</label>
                 <textarea id="message" name="message" rows="6" placeholder="Hey Josh, I have an awesome idea for an app. Let's make it happen." required/>
               </div>
             </div>
