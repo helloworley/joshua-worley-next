@@ -19,13 +19,12 @@ const useStyles = makeStyles(theme => ({
     }
   },
   heading: {
-    fontSize: '1.4rem',
+    fontSize: '35px',
     fontWeight: '400',
-    margin: '0 auto 30px',
+    margin: '0 auto 20px',
     color: 'black',
     [theme.breakpoints.up('md')]: {
-      fontSize: '1.8rem',
-      margin: '0 auto 40px',
+      margin: '0 auto 35px',
     },
   }
 }));
