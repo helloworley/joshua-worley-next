@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '50px',
   },
   logoText: {
-    lineHeight: '54px',
     margin: '0 0 0 8px',
     cursor: 'pointer',
     fontSize: '12px',

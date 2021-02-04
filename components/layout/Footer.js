@@ -1,18 +1,16 @@
 import { makeStyles } from '@material-ui/core/styles';
-import LogoVertical from '../assets/LogoVertical'
-import Socials from '../assets/Socials'
-import Link from 'next/link'
-
+import LogoHorizontal from '../assets/LogoHorizontal';
 
 const useStyles = makeStyles(theme => ({
-  footer: {
-    backgroundPosition: 'center',
-    backgroundColor: theme.colors.white,
-    padding: '60px 20px',
+  footerOuter: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 40,
+    paddingRight: 40,
   },
-  centeredWrapper: {
-    width: '100%',
-    textAlign: 'center',
+  footerFlex: {
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   socialsWrapper: {
     marginTop: '10px',
@@ -20,12 +18,10 @@ const useStyles = makeStyles(theme => ({
   },
   copyRightText: {
     color: theme.colors.gray400,
-    textAlign: 'center',
-    margin: '0 auto'
-  },
-  contact: {
-    maxWidth: '572px',
-    margin: '0 auto',
+    textAlign: 'right',
+    fontFamily: theme.fontFamily.sansSerif,
+    fontWeight: 600,
+    fontSize: 12
   },
   link: {
     color: theme.colors.gray400,
@@ -33,7 +29,6 @@ const useStyles = makeStyles(theme => ({
     display: 'inline-block',
   },
   logoWrapper: {
-    marginBottom: '30px'
   },
   list: {
     margin: 0,
@@ -62,41 +57,15 @@ const useStyles = makeStyles(theme => ({
 const Footer = props => {
   const classes = useStyles();
   return (
-    <div className={classes.footer}>
-      <div className="section-wrapper">
-        <div className={classes.centeredWrapper}>
+    <div className={classes.footerOuter}>
+      <div className={classes.footerInner}>
+        <div className={classes.footerFlex}>
           <div className={classes.logoWrapper}>
-            <LogoVertical />
-          </div>
-          <div className={classes.contact}>
-            <ul className={classes.list}>
-              {props.navItems.map(menuItem => (
-                <li key={menuItem.name} className={classes.listItem}>
-                  {
-                    menuItem.link.substring(0, 2) == '//' ?
-                    <Link href={menuItem.link}>
-                      <a className={classes.a} target="_blank">
-                        {menuItem.name}
-                      </a>
-                    </Link>
-                    :
-                    <Link href={menuItem.link}>
-                      <a className={classes.a}>
-                        {menuItem.name}
-                      </a>
-                    </Link>
-                  }
-                </li>
-              ))}
-            </ul>
-            <div className={classes.socialsWrapper}>
-              <Socials />
-            </div>
+            <LogoHorizontal />
           </div>
           <p className={classes.copyRightText}>
-            &copy; {new Date().getFullYear()} Joshua Worley. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Joshua Worley // All Rights Reserved
           </p>
-          
         </div>
       </div>
     </div>
