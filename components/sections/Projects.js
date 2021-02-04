@@ -71,13 +71,13 @@ const useStyles = makeStyles(theme => ({
   projectsInner: {
     ...theme.content.sm,
     [theme.breakpoints.up('md')]: { 
-      ...theme.content.md, 
+      ...theme.content.inner.md, 
     },
     [theme.breakpoints.up('lg')]: { 
-      ...theme.content.lg, 
+      ...theme.content.inner.lg, 
     },
     [theme.breakpoints.up('xl')]: { 
-      ...theme.content.xl, 
+      ...theme.content.inner.xl, 
     },
   },
   infoWrapper: {

@@ -112,25 +112,12 @@ const themeStyles = {
           margin: '0 auto',
       },
       lg: {
-        maxWidth: 1200,
+        maxWidth: 1400,
       },
       xl: {
         maxWidth: 1600,
       }
     },
-    sm: {
-      maxWidth: 800,
-    },
-    md: {
-        maxWidth: 1000,
-        margin: '0 auto',
-    },
-    lg: {
-      maxWidth: 1200,
-    },
-    xl: {
-      maxWidth: 1600,
-    }
   },
 };
 

@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   displayTechs: {
-    ...theme.content.sm,
+    ...theme.content.inner.sm,
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr);',
 
@@ -25,14 +25,14 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up('md')]: { 
       gridTemplateColumns: 'repeat(4, 1fr);',
-      ...theme.content.md, 
+      ...theme.content.inner.md, 
     },
     [theme.breakpoints.up('lg')]: { 
-      ...theme.content.lg, 
+      ...theme.content.inner.lg, 
       gridTemplateColumns: 'repeat(6, 1fr);',
     },
     [theme.breakpoints.up('xl')]: { 
-      ...theme.content.xl, 
+      ...theme.content.inner.xl, 
     },
   },
   techBlock: {
