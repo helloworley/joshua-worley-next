@@ -61,7 +61,7 @@ const Page = props => {
   return (
     <div id="projects">
       <NextSeo
-        title={`Joshua Worley - ${brand}`}
+        title={`Josh Worley - ${brand}`}
         description={props}
       />
       <Layout>

@@ -9,7 +9,7 @@ const ProjectsPage = props => {
   return (
     <div id="projects">
       <NextSeo
-        title={`Joshua Worley - ${props.seoTitle}`}
+        title={`Josh Worley - ${props.seoTitle}`}
         description={props.seoDescription}
       />
       <Layout>

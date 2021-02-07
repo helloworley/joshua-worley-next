@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   logo: {
     color: 'text',
     cursor: 'pointer',
-    maxWidth: '50px',
+    maxWidth: '240px',
   },
   logoText: {
     margin: '0 0 0 8px',
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
   [theme.breakpoints.down('xs')]: {
     logo: {
-      maxWidth: '40px',
+      maxWidth: '160px',
     },
   }
 }));
@@ -36,8 +36,7 @@ const LogoHorizontal = props => {
   return (
     <Link href="/">
       <div className={classes.logoContainer}>
-        <img className={classes.logo} src="/ikigai-dark.svg" />
-        <h1 className={classes.logoText}> Joshua Worley</h1>
+        <img className={classes.logo} src="/joshworley-logo.svg" />
       </div>
     </Link>
   )

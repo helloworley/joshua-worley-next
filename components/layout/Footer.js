@@ -64,7 +64,7 @@ const Footer = props => {
             <LogoHorizontal />
           </div>
           <p className={classes.copyRightText}>
-            &copy; {new Date().getFullYear()} Joshua Worley // All Rights Reserved
+            &copy; {new Date().getFullYear()} Josh Worley // All Rights Reserved
           </p>
         </div>
       </div>

@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: '0 !important'
   },
   content: {
-    margin: '56px 0 0',
+    margin: '48px 0 0',
     width: '100%',
     [theme.breakpoints.up('md')]: {
       margin: `${theme.navHeight.md} 0 0`,

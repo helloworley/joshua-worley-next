@@ -24,8 +24,8 @@ const IndexPage = props => {
           openGraph={{
             type: 'website',
             locale: 'en_IE',
-            url: 'https://www.joshuaworley.com/',
-            site_name: 'Joshua Worley Portfolio',
+            url: 'https://joshworley.io/',
+            site_name: 'Josh Worley Portfolio',
             title: props.seoTitle,
             description: props.seoDescription,
             images: [

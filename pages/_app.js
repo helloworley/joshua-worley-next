@@ -27,25 +27,24 @@ class MyApp extends App {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="shortcut icon" href="/static/favicon.ico" />
-        {/* <title>Joshua Worley</title> */}
       </Head>
         <DefaultSeo
-           title="Joshua Worley"
-           description="Digital Designer (App, Web, UI, UX, Product) & Frontend Developer. Joshua Worley solves complicated problems with simple solutions."
+           title="Josh Worley"
+           description="Digital Designer (App, Web, UI, UX, Product) & Frontend Developer. Josh Worley solves complicated problems with simple solutions."
            openGraph={{
              type: 'website',
              locale: 'en_IE',
              prefix: 'og: http://ogp.me/ns#',
-             url: 'https://www.joshuaworley.com/',
-             site_name: 'Joshua Worley Portfolio',
-             title: 'Joshua Worley',
-             description: 'Digital Designer (App, Web, UI, UX, Product) & Frontend Developer. Joshua Worley solves complicated problems with simple solutions.',
+             url: 'https://www.joshworley.io/',
+             site_name: 'Josh Worley Portfolio',
+             title: 'Josh Worley',
+             description: 'Digital Designer (App, Web, UI, UX, Product) & Frontend Developer. Josh Worley solves complicated problems with simple solutions.',
              images: [
                {
                  url: '//images.ctfassets.net/tgk6k1pkyqnt/4xRoBfh7GCKAct5adLGng7/48d351d31ebc016ffa12129e087c2c99/jw-sns-og.png',
                  width: 800,
                  height: 600,
-                 alt: 'Joshua Worley Portfolio Site',
+                 alt: 'Josh Worley Portfolio Site',
                }
              ],
            }}

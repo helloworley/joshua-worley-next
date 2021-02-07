@@ -21,7 +21,7 @@ const AboutPage = props => {
   return (
     <div id="about">
       <NextSeo
-        title={`Joshua Worley - ${props.seoTitle}`}
+        title={`Josh Worley - ${props.seoTitle}`}
         description={props.seoDescription}
       />
       <Layout>
