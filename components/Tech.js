@@ -19,7 +19,7 @@ export const Tech = props => {
 const useStyles = makeStyles(theme => ({
   techListItem: {
     listStyle: 'none',
-    marginBottom: 15
+    marginBottom: 15,
   },
   techWrapper: {
     display: 'grid',
@@ -30,7 +30,14 @@ const useStyles = makeStyles(theme => ({
       maxHeight: 50,
     },
     '& h5': {
-      paddingLeft: 10
+      paddingLeft: 10,
+      color: theme.colors.gray400,
+      fontSize: 12,
+    },
+    '&:hover': {
+      '& h5': {
+        color: theme.colors.gray500,
+      }
     }
-  }
+  },
 }));
