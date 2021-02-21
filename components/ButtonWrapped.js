@@ -18,11 +18,15 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     borderRadius: '30px',
     fontFamily: theme.fontFamily.serif,
+    fontSize: 12,
     fontWeight: 'bold',
     letterSpacing: '1px',
     textTransform: 'uppercase',
     '&:hover': {
       backgroundColor: theme.colors.gray600
+    },
+    [theme.breakpoints.up('xl')]: {
+      fontSize: 14
     }
   },
   outlined: {

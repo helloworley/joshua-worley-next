@@ -21,10 +21,10 @@ const Hero = props => {
               <h1 className={classes.heading}>{props.heading}</h1>
               <RichTextToHTML data={props.description}/>
               <div className={classes.ctas}>
-                <ButtonWrapped text="About" variant="outlined" link="/about" />
+                <ButtonWrapped text="About Josh" variant="outlined" link="/about" />
                 <div>
                   <a href={props.resumeLink} target="_blank">
-                    <h5 className={classes.resumeLink}>RESUME</h5>
+                    <h5 className={classes.resumeLink}>JOSH'S RESUME</h5>
                   </a>
                 </div>
               </div>
@@ -57,6 +57,9 @@ const useStyles = makeStyles(theme => ({
       marginBottom: '20px',
     },
     [theme.breakpoints.up('md')]: {
+      fontSize: '2rem',
+    },
+    [theme.breakpoints.up('lg')]: {
       fontSize: '2.5rem',
     },
   },
@@ -80,9 +83,9 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     ...theme.content.outer.sm,
     [theme.breakpoints.up('md')]: {
-      padding: '120px 0',
       minHeight: minHeightMd,
       ...theme.content.outer.md,
+      padding: '64px 0',
     },
     [theme.breakpoints.up('lg')]: {
       padding: '160px 0',

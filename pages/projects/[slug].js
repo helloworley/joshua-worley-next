@@ -133,7 +133,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       // padding: '80px',
       display: 'grid',
-      gridTemplateColumns: '.3fr .7fr',
+      gridTemplateColumns: '.4fr .6fr',
     },
     [theme.breakpoints.up('lg')]: {
       gridTemplateColumns: '.25fr .75fr',
@@ -158,10 +158,14 @@ const useStyles = makeStyles(theme => ({
   asideInner: {
     [theme.breakpoints.up('md')]: {
       paddingRight: '5%',
+      width: '33%',
+    },
+    [theme.breakpoints.up('lg')]: {
+      paddingRight: '5%',
       width: '25%',
     },
     [theme.breakpoints.up('xl')]: {
-      width: '23%'
+      width: '24%'
     }
   },
   main: {
