@@ -3,10 +3,7 @@ import LogoHorizontal from '../assets/LogoHorizontal';
 
 const useStyles = makeStyles(theme => ({
   footerOuter: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 40,
-    paddingRight: 40,
+    padding: '20px 40px'
   },
   footerFlex: {
     display: 'flex',
@@ -29,6 +26,9 @@ const useStyles = makeStyles(theme => ({
     display: 'inline-block',
   },
   logoWrapper: {
+    '& img': {
+      maxWidth: 180
+    }
   },
   list: {
     margin: 0,
@@ -51,6 +51,11 @@ const useStyles = makeStyles(theme => ({
     fontFamily: theme.fontFamily.sansSerif,
     textTransform: 'uppercase',
     letterSpacing: '1px'
+  },
+  [theme.breakpoints.up('md')]: {
+    footerOuter: {
+      padding: '10px 40px'
+    },
   }
 }));
 
