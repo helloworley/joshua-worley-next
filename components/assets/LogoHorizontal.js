@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   logo: {
     color: 'text',
     cursor: 'pointer',
-    maxWidth: '240px',
+    maxWidth: '160px',
   },
   logoText: {
     margin: '0 0 0 8px',
@@ -23,9 +23,9 @@ const useStyles = makeStyles(theme => ({
     display: 'inline-table',
     fontFamily: 'Lato, Helvetica, Arial, sans-serif'
   },
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.up('md')]: {
     logo: {
-      maxWidth: '160px',
+      maxWidth: '240px',
     },
   }
 }));

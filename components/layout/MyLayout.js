@@ -97,11 +97,11 @@ const Layout = props => {
 
   return (
     <>
-      <Hidden smUp>
+      <Hidden mdUp>
         <NavMobile navItems={navItems} />
       </Hidden>
       <div className={classes.root}>
-        <Hidden xsDown>
+        <Hidden smDown>
           {
             contentfulDataCheck ?
             <NavDesktop navItems={navItems} /> 

@@ -5,7 +5,6 @@ import Layout from '../components/layout/MyLayout';
 import fetchContent from  '../contentful/fetchContent'
 import RichTextToHTML from '../components/RichTextToHTML'
 import ButtonWrapped from '../components/ButtonWrapped'
-import SectionHeading from '../components/layout/SectionHeading'
 
 const useStyles = makeStyles(theme => ({
 
